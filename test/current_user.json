@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "user": {
+    "id": 1,
+    "username": "test",
+    "display_name": "测试用户",
+    "is_channel": false
+  }
+}
