@@ -15,11 +15,22 @@
             src="jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
     <script type="text/javascript" language="JavaScript"
             src="bower_components/moment/moment.js"></script>
+    <script type="text/javascript" language="JavaScript"
+            src="bower_components/jquery.tablesorter/js/jquery.tablesorter.min.js"></script>
     <link type="text/css" href="bower_components/semantic-ui/dist/semantic.css" rel="stylesheet"/>
     <link type="text/css" href="jquery-ui-1.11.2.custom/jquery-ui.min.css" rel="stylesheet"/>
     <style>
         .ui.selection.dropdown {
             border-width: 0px;
+        }
+        th * {
+            cursor: pointer;
+        }
+        th.descending div:after {
+            content: '\25be';
+        }
+        th.ascending div:after {
+            content: '\25b4';
         }
     </style>
     <script type="text/javascript">
@@ -67,13 +78,17 @@
                         url: "/report/media/daily/" + media_id,
                         data: data,
                         success: function (data) {
-                            $('#media-daily-report table').html(
+                            $("#media-daily-report table").html(
                                 Mustache.render(
                                     '<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>' +
                                     '<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>',
                                     data
                                 )
-                            )
+                            );
+                            $("#media-daily-report table").tablesorter({
+                                cssDesc: "descending",
+                                cssAsc: "ascending",
+                            });
                         },
                         statusCode: {
                             400: function (data){
@@ -90,13 +105,17 @@
                     };
                     $.getJSON('/report/channel/daily/' + channel_id, data,
                         function (data) {
-                            $('#channel-daily-report table').html(
+                            $("#channel-daily-report table").html(
                                 Mustache.render(
                                     '<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>' +
                                     '<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>',
                                     data
                                 )
-                            )
+                            );
+                            $("#channel-daily-report table").tablesorter({
+                                cssDesc: "descending",
+                                cssAsc: "ascending",
+                            });
                         }).error(function (){
                             alert("请求数据出错，请检查参数是否填写正确");
                         });
@@ -113,6 +132,10 @@
                                     data
                                 )
                             );
+                            $("#daily-media-report table").tablesorter({
+                                cssDesc: "descending",
+                                cssAsc: "ascending",
+                            });
                         }).error(function (){
                             alert("请求数据出错，请检查参数是否填写正确");
                         });;
@@ -130,7 +153,11 @@
                                     '<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>',
                                     data
                                 )
-                            )
+                            );
+                            $('#daily-total-report table').tablesorter({
+                                cssDesc: "descending",
+                                cssAsc: "ascending",
+                            });
                         }).error(function (){
                             alert("请求数据出错，请检查参数是否填写正确");
                         });
