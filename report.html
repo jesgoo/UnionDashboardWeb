@@ -4,37 +4,274 @@
     <meta charset="UTF-8">
     <title>捷酷联盟业务系统</title>
     <!--<script type="text/javascript" language="JavaScript"-->
-            <!--src="bower_components/angular/angular.min.js"></script>-->
+            <!--src="bower_components/angularjs/angular.min.js"></script>-->
     <script type="text/javascript" language="JavaScript"
             src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" language="JavaScript"
             src="bower_components/semantic-ui/dist/semantic.min.js"></script>
-    <link type="text/css" href="bower_components/semantic-ui/dist/semantic.min.css" rel="stylesheet"/>
+    <script type="text/javascript" language="JavaScript"
+            src="bower_components/mustache/mustache.js"></script>
+    <script type="text/javascript" language="JavaScript"
+            src="jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" language="JavaScript"
+            src="bower_components/moment/moment.js"></script>
+    <link type="text/css" href="bower_components/semantic-ui/dist/semantic.css" rel="stylesheet"/>
+    <link type="text/css" href="jquery-ui-1.11.2.custom/jquery-ui.min.css" rel="stylesheet"/>
+    <style>
+        .ui.selection.dropdown {
+            border-width: 0px;
+        }
+    </style>
     <script type="text/javascript">
+        var user = null;
+        var medias = [];
+        var channels = [];
+        var today = moment().format("YYYYMMDD");
+        var lastweek = moment().subtract(7, 'days').format("YYYYMMDD");
         $(document).ready(function (){
+            console.log('document ready');
             $('.tabular.menu .item').tab({
                 'context': $('#context')
             });
-            $.getJSON('test/current_user.json',
-                function (data) {
-                    console.log(data);
-                    $("#initialization-loader").hide();
+            var initialization_semaphore = 1;
+            function initialization_done() {
+                initialization_semaphore -= 1;
+                console.log('initialization semaphore', initialization_semaphore);
+                if (initialization_semaphore != 0) {
+                    return;
                 }
-            )
+                $("#initialization-loader").hide();
+                $("span#user-display-name").text(user.display_name);
+                $(".union-media.dropdown").html(
+                    Mustache.render("{{#medias}}<option value=\"{{id}}\">{{name}}</option>{{/medias}}",
+                        {"medias": medias})
+                );
+                $(".union-channel.dropdown").html(
+                    Mustache.render("{{#channels}}<option value=\"{{id}}\">{{name}}</option>{{/channels}}",
+                        {"channels": channels})
+                )
+                $(".ui.dropdown").dropdown();
+                $(".datepicker").datepicker();
+                $(".datepicker").datepicker("option", "dateFormat", "yymmdd");
+                $(".begin-date").val(lastweek);
+                $(".end-date").val(today);
+                $(".date").val(today);
+                $("a#refresh-media-daily-report").click(function() {
+                    media_id = $("#media-daily-report-media-id").val()
+                    data = {
+                        begin_date: $("#media-daily-report input.begin-date").val(),
+                        end_date: $("#media-daily-report input.end-date").val()
+                    };
+                    $.ajax({
+                        dataType: "json",
+                        url: "/report/media/daily/" + media_id,
+                        data: data,
+                        success: function (data) {
+                            $('#media-daily-report table').html(
+                                Mustache.render(
+                                    '<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>' +
+                                    '<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>',
+                                    data
+                                )
+                            )
+                        },
+                        statusCode: {
+                            400: function (data){
+                                alert("请求数据出错，请检查参数是否填写正确");
+                            }
+                        }
+                    });
+                });
+                $("a#refresh-channel-daily-report").click(function() {
+                    channel_id = $("#channel-daily-report-media-id").val()
+                    data = {
+                        begin_date: $("#channel-daily-report input.begin-date").val(),
+                        end_date: $("#channel-daily-report input.end-date").val()
+                    };
+                    $.getJSON('/report/channel/daily/' + channel_id, data,
+                        function (data) {
+                            $('#channel-daily-report table').html(
+                                Mustache.render(
+                                    '<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>' +
+                                    '<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>',
+                                    data
+                                )
+                            )
+                        }).error(function (){
+                            alert("请求数据出错，请检查参数是否填写正确");
+                        });
+                });
+                $("a#refresh-daily-media-report").click(function() {
+                    date = $("#daily-media-report .date").val();
+                    $.getJSON('/report/daily/media/' + date,
+                        function (data) {
+                            console.log(data);
+                            $('#daily-media-report table').html(
+                                Mustache.render(
+                                    '<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>' +
+                                    '<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>',
+                                    data
+                                )
+                            );
+                        }).error(function (){
+                            alert("请求数据出错，请检查参数是否填写正确");
+                        });;
+                });
+                $("a#refresh-daily-total-report").click(function() {
+                    data = {
+                        begin_date: $("#daily-total-report input.begin-date").val(),
+                        end_date: $("#daily-total-report input.end-date").val()
+                    };
+                    $.getJSON('/report/daily/total', data,
+                        function (data) {
+                            $('#daily-total-report table').html(
+                                Mustache.render(
+                                    '<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>' +
+                                    '<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>',
+                                    data
+                                )
+                            )
+                        }).error(function (){
+                            alert("请求数据出错，请检查参数是否填写正确");
+                        });
+                });
+                $("#logout").click(function (){
+                    $.ajax({
+                        url: "report.html",
+                        username: "reset",
+                        password: "reset",
+                        statusCode: {
+                            401: function () {
+                                alert("已经登出");
+                                location.reload();
+                            }
+                        }
+                    })
+                });
+                $("#refresh-daily-total-report").click();
+            }
+            $.getJSON('/user/current',
+                function (data) {
+                    user = data.user;
+                    initialization_semaphore += 2;
+                    if (user.is_channel == 1 && user.has_channel) {
+                        $.getJSON('/channel',
+                            function (data) {
+                                channels = data.channels;
+                                initialization_done();
+                            }
+                        );
+                    } else {
+                        $("[data-tab=channel-daily-report]").hide();
+                        initialization_done();
+                    }
+                    if (user.has_media) {
+                        $.getJSON('/media',
+                            function (data) {
+                                medias = data.medias;
+                                initialization_done();
+                            }
+                        );
+                    } else {
+                        $("[data-tab=media-daily-report]").hide();
+                        $("[data-tab=daily-media-report]").hide();
+                        initialization_done();
+                    }
+                    initialization_done();
+                }
+            );
         })
     </script>
 </head>
-<body>
+<body ng-app="reportApp">
     <div id="context">
         <div class="ui top attached tabular menu">
-            <a class="active item" data-tab="media-daily-report">媒体每日报表</a>
-            <a class="item" data-tab="channel-daily-report">渠道每日报表</a>
+            <a class="active item" data-tab="daily-total-report">每日总收入</a>
+            <a class="item" data-tab="daily-media-report">每日媒体汇总数据</a>
+            <a class="item" data-tab="media-daily-report">媒体分日数据</a>
+            <a class="item" data-tab="channel-daily-report">渠道分日数据</a>
+            <div class="ui right menu">
+                <a id="logout" class="ui borderless item">登出<span id="user-display-name"></span></a>
+            </div>
         </div>
-        <div class="ui bottom attached active tab segment" data-tab="media-daily-report">
-            媒体每日报表
+        <div id="daily-total-report" class="ui bottom attached active tab segment" data-tab="daily-total-report">
+            <h2 class="ui header">每日总收入</h2>
+            <div class="ui menu">
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="begin-date datepicker" placeholder="开始日期"/>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="end-date datepicker" placeholder="截止日期"/>
+                    </div>
+                </div>
+                <a id="refresh-daily-total-report" class="item">刷新报表</a>
+            </div>
+            <div>
+                <table class="ui very basic table">
+                </table>
+            </div>
         </div>
-        <div class="ui bottom attached tab segment" data-tab="channel-daily-report">
-            渠道每日报表
+        <div id="daily-media-report" class="ui bottom attached tab segment" data-tab="daily-media-report">
+            <h2 class="ui header">每日媒体汇总数据</h2>
+            <div class="ui menu">
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="date datepicker" placeholder="日期"/>
+                    </div>
+                </div>
+                <a id="refresh-daily-media-report" class="item">刷新报表</a>
+            </div>
+            <div>
+                <table class="ui very basic table">
+                </table>
+            </div>
+        </div>
+        <div id="media-daily-report" class="ui bottom attached tab segment" data-tab="media-daily-report">
+            <h2 class="ui header">单媒体分日收入</h2>
+            <div class="ui menu">
+                <select id="media-daily-report-media-id" class="ui pointing union-media link dropdown item">
+                </select>
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="begin-date datepicker" placeholder="开始日期"/>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="end-date datepicker" placeholder="截止日期"/>
+                    </div>
+                </div>
+                <a id="refresh-media-daily-report" class="item">刷新报表</a>
+            </div>
+            <div>
+                <table class="ui very basic table">
+                </table>
+            </div>
+        </div>
+        <div id="channel-daily-report" class="ui bottom attached tab segment" data-tab="channel-daily-report">
+            <h2 class="ui header">单渠道分日收入</h2>
+            <div class="ui menu">
+                <select id="channel-daily-report-media-id" class="ui pointing union-channel link dropdown item">
+                </select>
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="begin-date datepicker" placeholder="开始日期"/>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="end-date datepicker" placeholder="截止日期"/>
+                    </div>
+                </div>
+                <a id="refresh-channel-daily-report" class="item">刷新报表</a>
+            </div>
+            <div>
+                <table class="ui very basic table">
+                </table>
+            </div>
         </div>
         <div id="initialization-loader" class="ui active dimmer">
             <div class="ui loader"></div>
