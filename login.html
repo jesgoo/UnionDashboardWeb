@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>联盟业务系统</title>
+    <link type="text/css" href="bower_components/semantic-ui/dist/semantic.css" rel="stylesheet"/>
+    <script type="text/javascript" language="JavaScript"
+            src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" language="JavaScript"
+            src="bower_components/mustache/mustache.js"></script>
+    <script type="text/javascript" language="JavaScript"
+            src="bower_components/url-parser/purl.js"></script>
+    <style>
+        div#login-form {
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script type="text/javascript" language="JavaScript">
+        $(document).ready(function (){
+            url = $.url()
+            $("input[name=url]").val(url.param("url"));
+            error_message = url.param("error");
+            if (error_message !== undefined) {
+                $(".error.message p").text(error_message);
+                $(".error.message").show()
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="login-form" class="ui form segment">
+        <div class="ui error message">
+            <div class="header">登陆失败</div>
+            <p>{{error}}</p>
+        </div>
+        <form method="GET" action="/login">
+            <div class="field">
+                <div class="ui input">
+                    <input type="text" name="username" placeholder="用户名"/>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui input">
+                    <input type="password" name="password" placeholder="密码"/>
+                </div>
+            </div>
+            <input type="hidden" name="url" value=""/>
+            <input type="submit" class="ui blue submit button" value="登陆"/>
+        </form>
+    </div>
+</body>
+</html>
