@@ -162,6 +162,29 @@
                             alert("请求数据出错，请检查参数是否填写正确");
                         });
                 });
+                $("a#refresh-channel-media-report").click(function () {
+                    channel_id = $("#channel-media-report-channel-id").val();
+                    data = {
+                        begin_date: $("#channel-media-report input.begin-date").val(),
+                        end_date: $("#channel-media-report input.end-date").val()
+                    };
+                    $.getJSON('/report/channel/media/' + channel_id, data,
+                        function (data) {
+                            $('#channel-media-report table').html(
+                                Mustache.render(
+                                    '<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>' +
+                                    '<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>',
+                                    data
+                                )
+                            );
+                            $('#channel-media-report table').tablesorter({
+                                cssDesc: "descending",
+                                cssAsc: "ascending",
+                            });
+                        }).error(function (){
+                            alert("请求数据出错，请检查参数是否填写正确");
+                        });
+                });
                 $("#logout").click(function (){
                     window.location.replace('/logout');
                 });
@@ -180,6 +203,7 @@
                         );
                     } else {
                         $("[data-tab=channel-daily-report]").hide();
+                        $("[data-tab=channel-media-report]").hide();
                         initialization_done();
                     }
                     if (user.has_media) {
@@ -207,6 +231,7 @@
             <a class="item" data-tab="daily-media-report">每日媒体汇总数据</a>
             <a class="item" data-tab="media-daily-report">媒体分日数据</a>
             <a class="item" data-tab="channel-daily-report">渠道分日数据</a>
+            <a class="item" data-tab="channel-media-report">渠道收入构成</a>
             <div class="ui right menu">
                 <a id="logout" class="ui borderless item">登出<span id="user-display-name"></span></a>
             </div>
@@ -269,7 +294,7 @@
             </div>
         </div>
         <div id="channel-daily-report" class="ui bottom attached tab segment" data-tab="channel-daily-report">
-            <h2 class="ui header">单渠道分日收入</h2>
+            <h2 class="ui header">渠道分日收入</h2>
             <div class="ui menu">
                 <select id="channel-daily-report-media-id" class="ui pointing union-channel link dropdown item">
                 </select>
@@ -284,6 +309,28 @@
                     </div>
                 </div>
                 <a id="refresh-channel-daily-report" class="item">刷新报表</a>
+            </div>
+            <div>
+                <table class="ui very basic table">
+                </table>
+            </div>
+        </div>
+        <div id="channel-media-report" class="ui bottom attached tab segment" data-tab="channel-media-report">
+            <h2 class="ui header">渠道收入构成</h2>
+            <div class="ui menu">
+                <select id="channel-media-report-channel-id" class="ui pointing union-channel link dropdown item">
+                </select>
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="begin-date datepicker" placeholder="开始日期"/>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="ui input">
+                        <input type="text" class="end-date datepicker" placeholder="截止日期"/>
+                    </div>
+                </div>
+                <a id="refresh-channel-media-report" class="item">刷新报表</a>
             </div>
             <div>
                 <table class="ui very basic table">
