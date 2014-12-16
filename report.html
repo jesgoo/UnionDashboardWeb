@@ -75,13 +75,16 @@
                     };
                     $.getJSON("/report/media/daily/" + media_id, data,
                         function (result) {
-                            media_daily_report.find("table").html(
+                            media_daily_report.find("div.report-content").html(
                                 Mustache.render(
+                                    "<table class=\"ui very basic table\">" +
                                     "<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>" +
-                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>",
+                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>" +
+                                    "</table>",
                                     result
                                 )
-                            ).tablesorter({
+                            );
+                            media_daily_report.find("table").tablesorter({
                                 cssDesc: "descending",
                                 cssAsc: "ascending"
                             });
@@ -98,13 +101,16 @@
                     };
                     $.getJSON("/report/channel/daily/" + channel_id, data,
                         function (result) {
-                            channel_daily_report.find("table").html(
+                            channel_daily_report.find("div.report-content").html(
                                 Mustache.render(
+                                    "<table class=\"ui very basic table\">" +
                                     "<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>" +
-                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>",
+                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>" +
+                                    "</table>",
                                     result
                                 )
-                            ).tablesorter({
+                            );
+                            channel_daily_report.find("table").tablesorter({
                                 cssDesc: "descending",
                                 cssAsc: "ascending"
                             });
@@ -117,13 +123,16 @@
                     var date = daily_media_report.find(".date").val();
                     $.getJSON("/report/daily/media/" + date,
                         function (result) {
-                            daily_media_report.find("table").html(
+                            daily_media_report.find("div.report-content").html(
                                 Mustache.render(
+                                    "<table class=\"ui very basic table\">" +
                                     "<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>" +
-                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>",
+                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>" +
+                                    "</table>",
                                     result
                                 )
-                            ).tablesorter({
+                            );
+                            daily_media_report.find("table").tablesorter({
                                 cssDesc: "descending",
                                 cssAsc: "ascending"
                             });
@@ -139,13 +148,16 @@
                     };
                     $.getJSON("/report/daily/total", data,
                         function (result) {
-                            daily_total_report.find("table").html(
+                            daily_total_report.find("div.report-content").html(
                                 Mustache.render(
+                                    "<table class=\"ui very basic table\">" +
                                     "<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>" +
-                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>",
+                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>" +
+                                    "</table>",
                                     result
                                 )
-                            ).tablesorter({
+                            );
+                            daily_total_report.find("table").tablesorter({
                                 cssDesc: "descending",
                                 cssAsc: "ascending"
                             });
@@ -162,13 +174,16 @@
                     };
                     $.getJSON("/report/channel/media/" + channel_id, data,
                         function (result) {
-                            channel_media_report.find("table").html(
+                            channel_media_report.find("div.report-content").html(
                                 Mustache.render(
+                                    "<table class=\"ui very basic table\">" +
                                     "<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>" +
-                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>",
+                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>" +
+                                    "</table>",
                                     result
                                 )
-                            ).tablesorter({
+                            );
+                            channel_media_report.find("table").tablesorter({
                                 cssDesc: "descending",
                                 cssAsc: "ascending"
                             });
@@ -181,14 +196,17 @@
                     var media_id = media_traffic_hourly_report.find(".union-media .active").attr("data-value");
                     var date = media_traffic_hourly_report.find(".date").val();
                     $.getJSON("/report/media/traffic/hourly/" + media_id + "/" + date,
-                        function (data) {
-                            media_traffic_hourly_report.find("table").html(
+                        function (result) {
+                            media_traffic_hourly_report.find("div.report-content").html(
                                 Mustache.render(
+                                    "<table class=\"ui very basic table\">" +
                                     "<thead><tr>{{#column_titles}}<th>{{.}}</th>{{/column_titles}}</tr></thead>" +
-                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>",
-                                    data
+                                    "<tbody>{{#rows}}<tr>{{#.}}<td>{{.}}</td>{{/.}}</tr>{{/rows}}</tbody>" +
+                                    "</table>",
+                                    result
                                 )
-                            ).tablesorter({
+                            );
+                            media_traffic_hourly_report.find("table").tablesorter({
                                 cssDesc: "descending",
                                 cssAsc: "ascending"
                             });
@@ -263,9 +281,8 @@
                 </div>
                 <a class="item refresh-button">刷新报表</a>
             </div>
-            <div>
-                <table class="ui very basic table">
-                </table>
+            <div class="report-content">
+                <table class="ui very basic table"></table>
             </div>
         </div>
         <div id="daily-media-report" class="ui bottom attached tab segment" data-tab="daily-media-report">
@@ -278,7 +295,7 @@
                 </div>
                 <a class="item refresh-button">刷新报表</a>
             </div>
-            <div>
+            <div class="report-content">
                 <table class="ui very basic table">
                 </table>
             </div>
@@ -301,7 +318,7 @@
                 </div>
                 <a class="item refresh-button">刷新报表</a>
             </div>
-            <div>
+            <div class="report-content">
                 <table class="ui very basic table">
                 </table>
             </div>
@@ -323,7 +340,7 @@
                 </div>
                 <a class="item refresh-button">刷新报表</a>
             </div>
-            <div>
+            <div class="report-content">
                 <table class="ui very basic table">
                 </table>
             </div>
@@ -345,7 +362,7 @@
                 </div>
                 <a class="item refresh-button">刷新报表</a>
             </div>
-            <div>
+            <div class="report-content">
                 <table class="ui very basic table">
                 </table>
             </div>
@@ -362,7 +379,7 @@
                 </div>
                 <a class="item refresh-button">刷新报表</a>
             </div>
-            <div>
+            <div class="report-content">
                 <table class="ui very basic table">
                 </table>
             </div>
