@@ -252,6 +252,7 @@ esui.Select.prototype.setValue = function( value ) {
                 return deferred.promise();
             })(target);
         }
+        mf.loading();
         $.when.apply($, deferredList)
             .done(function () {
                 var args = [].slice.call(arguments);

@@ -4234,7 +4234,9 @@ div.main-info {
 .ui-table-row-hover {
     background-color: #eff6ff;
 }
-
+.ui-table-cell-text {
+    white-space: nowrap;
+}
 /*
 .ui-table-hcell-text,
 .ui-table-cell-text,
