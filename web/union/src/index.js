@@ -33,6 +33,7 @@ mf.urlDebugRouter.reg({
 });
 
 mf.windowMinWidth = 600;
+mf.defaultPage = 'index';
 mf.userLoad = '/index/login~force=1';
 
 $(function () {

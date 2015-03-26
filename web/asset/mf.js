@@ -607,7 +607,12 @@ var mf = {
         url = url || location.href;
         var page = null;
         try {
-            page = /\/(\w+?)\.html([?#]|$)/.exec(url)[1];
+            page = /\/(\w+?)\.html([?#]|$)/.exec(url);
+            if (page) {
+                page = page[1];
+            } else {
+                page = mf.defaultPage || 'index';
+            }
         }
         catch (e) {
             console.log(e);
