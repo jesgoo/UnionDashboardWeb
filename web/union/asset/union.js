@@ -12,6 +12,8 @@ $(function () {
     }
     catch (e) {
     }
+
+    mf.ajaxResponse['/config'] = mf.m.config;
     er.init();
 });
 
@@ -83,6 +85,10 @@ esui.Select.prototype.setValue = function( value ) {
             encode: JSON.stringify
         }
     };
+    mf.ajaxResponse = {};
+    /*
+    * debug 模式下的url映射
+    * */
     mf.urlDebugRouter = {
         routers: {},
         reg : function (routers) {
@@ -146,6 +152,7 @@ esui.Select.prototype.setValue = function( value ) {
         var url = param.url.split('?');
         var query = url[1] || '';
         url = url[0] || '';
+        param.originalUrl = url;
         // mock 调试的路由，在debug.js里
         if (mf.DEBUG){
             url = mf.urlDebugRouter.get(url) || url;
@@ -235,20 +242,25 @@ esui.Select.prototype.setValue = function( value ) {
             target = mf.ajaxParamFactory(target);
             deferredList[i] = (function (ajaxParam) {
                 var deferred = $.Deferred();
-                console.log('ajax ' + ajaxParam.type +' ' + ajaxParam.url);
-                $.ajax(ajaxParam)
-                    .done(function (data) {
-                        try {
-                            data = dataParse(data);
-                        } catch (e) {
-                            deferred.reject(e);
-                            return;
-                        }
-                        deferred.resolve(data);
-                    })
-                    .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                        deferred.reject('网络错误！')
-                    });
+                console.log('ajax ', ajaxParam);
+                if (mf.ajaxResponse[target.originalUrl]) {
+                    console.log('ajaxResponse ', target.originalUrl);
+                    deferred.resolve(mf.ajaxResponse[target.originalUrl]);
+                } else {
+                    $.ajax(ajaxParam)
+                        .done(function (data) {
+                            try {
+                                data = dataParse(data);
+                            } catch (e) {
+                                deferred.reject(e);
+                                return;
+                            }
+                            deferred.resolve(data);
+                        })
+                        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                            deferred.reject('网络错误！')
+                        });
+                }
                 return deferred.promise();
             })(target);
         }

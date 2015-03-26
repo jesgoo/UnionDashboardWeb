@@ -29,7 +29,8 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "processBar": {},
             "uiOperateButton": {},
             "uiFilterSelect": {},
-            "preview": { "private": true }
+            "preview": { "private": true },
+            "config": { "private": true }
         }
     };
     // Page about
