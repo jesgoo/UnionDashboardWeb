@@ -1,0 +1,34 @@
+<!-- target: datafileEdit -->
+<div class="datafileEdit layout-2-right">
+    <div class="left ad-notice-area">
+        <div class="ad-unit-title">
+            数据文件清单
+        </div>
+        <div class="ad-unit">
+            <div ui="type:TreeView;id:fileList;"></div>
+        </div>
+        <div class="ad-unit-title web-publish">
+            网站预览与发布
+        </div>
+        <div class="ad-unit web-publish">
+            <div class="ad-unit-item">
+                <div ui="type:Button;id:getPublish;" class="mgR10">获取网站最新页面</div>
+                <div ui="type:Tip;title:预览说明;content:<p>1.【获取网站最新页面】数据文件保存后点击此可得到最新的预览列表；</p><p>2.【下方文件名】点击可以预览相应页面</p><p>3.【发布网站】点击可将网站更新</p>;" style="position: relative;top: -8px;"></div>
+            </div>
+            <div ui="type:TreeView;id:pageList;"></div>
+            <div class="ad-unit-item">
+                <div ui="type:Button;id:publish;" class="mgR10">发布网站</div>
+                <div ui="type:Plain;id:publishProcess;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="right ad-notice-area">
+        <div class="ad-unit-title">
+            <div ui="type:Plain;id:fileName;content:左侧选择文件;" class="mgR40"></div>
+            <div ui="type:Button;id:saveFile;">保存</div>
+        </div>
+        <div class="ad-unit">
+            <div ui="type:TextLine;id:text;height:500;width:700;"></div>
+        </div>
+    </div>
+</div>

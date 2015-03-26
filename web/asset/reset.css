@@ -1,0 +1,157 @@
+/**
+ * reset.less
+ */
+html,
+body,
+div,
+span,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+p,
+a,
+blockquote,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: #fff;
+  color: #000;
+  font: 12px/1 "microsoft yahei", Arial, sonti, Verdana, Geneva, Helvetica, sans-serif;
+}
+body {
+  font-size: 100%;
+  font-family: inherit;
+}
+ol,
+ul {
+  list-style: none;
+  list-style-position: outside;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+strong {
+  font-weight: bold;
+}
+caption,
+th {
+  text-align: left;
+}
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  /*to enable resizing for IE*/
+  *font-size: 100%;
+}
+textarea {
+  resize: none;
+}
+/*because legend doesn't inherit in IE */
+legend {
+  color: #000;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+.fl {
+  float: left;
+}
+.cb {
+  clear: both;
+}
+.hide {
+  display: none;
+}
+.vbh {
+  visibility: hidden;
+}
+a,
+a:visited,
+a:active,
+a:link,
+a:hover {
+  text-decoration: none;
+}
+html,
+body {
+  font-family: "microsoft yahei", Arial, Helvetica, sans-serif;
+  font-size: 100%;
+}

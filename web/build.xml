@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<project default="release" basedir="." name="mobads-fe">
+
+    <!-- 线上配置，fe开发是grunt中已设置为调试状态 -->
+    <property name="debugLog" value="false"/>
+    <property name="minimize" value="true"/>
+    <property name="package" value=""/>
+    <property name="root" value="D:\company\workspace\Baidu_madv\WebRoot"/>
+
+    <!-- 关闭console.log, 保留info/warn/error [上线值] false -->
+    <condition property="enableDebugLog">
+        <istrue value="${debugLog}"/>
+    </condition>
+    <!-- 执行js，css，html压缩  [上线值] true -->
+    <condition property="enableMinimize">
+        <istrue value="${minimize}"/>
+    </condition>
+    <!-- 执行gzip [上线值] true -->
+    <condition property="enableGzip">
+        <istrue value="false"/>
+    </condition>
+
+    <!-- Common -->
+    <property name="site" value="hj"/>
+    <!-- 默认为hj -->
+    <property name="version" value="3.0"/>
+    <property name="encoding" value="utf-8"/>
+    <property name="sep"
+              value="================================================"/>
+    <property name="module.dir" value="${basedir}/asset/module"/>
+    <property name="out.dir" value="${basedir}/output"/>
+    <property name="deploy.dir" value="${basedir}/deploy"/>
+    <property name="test.dir" value="${basedir}/test"/>
+    <property name="toolkit.dir" value="${basedir}/../toolkit"/>
+    <property name="adoc.dir" value="${basedir}/../adoc/mobads/biz"/>
+    <property name="test.file" value="${out.dir}/test.zip"/>
+    <property name="lib.js.file" value="${out.dir}/lib.js"/>
+    <property name="mf.js.file" value="${out.dir}/mf.js"/>
+    <property name="mf.css.file" value="${out.dir}/mf.css"/>
+    <property name="mf.html.file" value="${out.dir}/mf.html"/>
+    <property name="libs" value="
+        tangram-1.3.9.js
+        er-2.1.2.js
+        esui-2.1.2.js
+        jquery-1.8.2.js
+        jQuery-extend.js
+        mf.js
+    "/>
+    <property name="libs_mf" value="
+        mf-extends.js
+        er-extend-mf.js
+        esui-extend-mf.js
+        slider.js
+        upload.js
+        mf-ad.js
+    "/>
+    <property name="css" value="
+        reset.css
+        esui-2.1.2.css
+        esui-extend-mf.css
+        esui-skin-mf.css 
+        mf.css
+        slider.css
+    "/>
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+        <classpath>
+            <pathelement location="${deploy.dir}/ant-contrib-1.0b3.jar"/>
+        </classpath>
+    </taskdef>
+
+    <target name="clear" description="清理环境">
+        <delete dir="${out.dir}/${site}"/>
+        <mkdir dir="${out.dir}/${site}"/>
+    </target>
+
+    <target name="build" depends="clear" description="">
+        <concat destfile="${mf.css.file}" encoding="${encoding}"
+                fixlastline="on">
+            <filelist dir="asset" files="${css}"/>
+        </concat>
+        <concat destfile="${mf.html.file}" encoding="${encoding}"
+                fixlastline="on">
+            <filelist dir="asset" files="
+            mf.html
+            "/>
+        </concat>
+    </target>
+
+    <target name="release" depends="build" description="">
+        <concat destfile="${lib.js.file}" encoding="${encoding}"
+                fixlastline="on">
+            <filelist dir="asset" files="${libs}"/>
+        </concat>
+        <concat destfile="${mf.js.file}" encoding="${encoding}"
+                fixlastline="on">
+            <filelist dir="asset" files="${libs_mf}"/>
+        </concat>
+        <var name="env" value="release"/>
+        <available file="${mf.js.file}" property="mf.js.present"/>
+        <echo message="${mf.js.present}"/>
+        <antcall target="main"/>
+    </target>
+
+    <target name="debug" depends="build" description="">
+        <echo>debug Model</echo>
+        <concat destfile="${lib.js.file}" encoding="${encoding}"
+                fixlastline="on">
+            <filelist dir="asset" files="debug.js"/>
+            <filelist dir="asset" files="${libs}"/>
+        </concat>
+        <concat destfile="${mf.js.file}" encoding="${encoding}"
+                fixlastline="on">
+            <filelist dir="asset" files="${libs_mf}"/>
+        </concat>
+        <!--<var name="env" value="debug"/>-->
+        <var name="env" value="release"/>
+        <available file="${mf.js.file}" property="mf.js.present"/>
+        <echo message="${mf.js.present}"/>
+        <antcall target="main"/>
+    </target>
+
+    <target name="main" description="">
+        <echo>${sep}</echo>
+        <!--Use "ant -Dsite=mu" to change site-->
+        <ant antfile="${site}/build.xml" inheritAll="true" target="${env}"/>
+        <echo>${sep}</echo>
+
+        <copy file="${mf.js.file}" todir="test/src"/>
+        <!--<delete file="${mf.css.file}"/>
+        <delete file="${mf.html.file}"/>-->
+    </target>
+
+    <target name="local" depends="release" description="方便于本地后端服务器联调，请替换本地路径">
+        <copy file="${out.dir}/${site}.zip" todir="${root}"/>
+        <unzip src="${root}/${site}.zip" dest="${root}" overwrite="true"
+               encoding="${encoding}"/>
+        <delete file="${root}/${site}.zip"/>
+        <!--ant local -Dminimize=false -DdebugLog=true-->
+    </target>
+
+    <target name="adoc" depends="debug" description="部署到adoc，方便发布demo至服务器">
+        <property name="be" value="${adoc.dir}\${site}"/>
+        <property name="data" value="${basedir}\${site}\data"/>
+        <copy file="${out.dir}/${site}.zip" todir="${be}"/>
+        <unzip src="${be}/${site}.zip" dest="${be}" overwrite="true"
+               encoding="${encoding}"/>
+        <copy todir="${be}\data">
+            <fileset dir="${data}"></fileset>
+        </copy>
+
+        <!--
+        <copy todir="${be}">
+            <fileset dir="${data}"></fileset>
+            <mapper type="glob" from="*.js" to="*.json"/>
+        </copy>
+-->
+        <!--ant adoc -Dsite=app -Dminimize=false -->
+    </target>
+
+    <!--<target name="test" description="生成test包">-->
+    <!--<zip destfile="${test.file}">-->
+    <!--<fileset dir="${test.dir}"/>-->
+    <!--</zip>-->
+    <!--</target>-->
+</project>

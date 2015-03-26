@@ -1,0 +1,24 @@
+<!-- target: mf_index_index_dailyReport -->
+<div class="mf-index-index-dailyReport layout-2-right">
+    <div class="left plain-notice-area">
+        <div class="plain-unit-title user-name"><span class="icon icon-client"></span>${userInfo.name}</div>
+        <div class="plain-unit info">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">待处理设置：</div>
+                <div class="plain-unit-item-field">
+                    <b class="number">${untreatedCount}</b>个
+                    <a href="#/user/listApplication" class="icon mf-index-index-main-plan">处理设置</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right plain-notice-area">
+        <div class="plain-unit-title rel">
+            收入报告
+            <div ui="type:MultiCalendar;id:date;value:*date;" class="date"></div>
+        </div>
+        <div class="plain-unit chart-body hide"></div>
+        <!-- import: listReportTable -->
+    </div>
+</div>
+<!-- import: footer -->

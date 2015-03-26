@@ -1,0 +1,16 @@
+.databaseSQL .ad-unit {
+    padding: 0;
+}
+
+.databaseSQL .left .ad-unit-title {
+    padding-top: 5px;
+    height: 35px;
+}
+
+.databaseSQL .right .ui-textarea {
+    min-width: 500px;
+}
+
+.databaseSQL .left .ui-textarea {
+    min-width: 260px;
+}

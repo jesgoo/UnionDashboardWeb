@@ -1,0 +1,1 @@
+ant local -Dsite=wedding -Dminimize=true -Droot=D:\work\Web\wedding\admin -DdebugLog=fasle

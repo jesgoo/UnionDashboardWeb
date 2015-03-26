@@ -1,0 +1,15 @@
+{
+  "name": "biz",
+  "version": "4.0.0",
+  "description": "business logic of product-ads fe",
+  "author": "dengyijun@baidu.com;yangyuelong@baidu.com",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-watch": "~0.6.1",
+    "fs.extra": "~1.2.1",
+    "express": "~4.0.0",
+    "connect-multiparty": "~1.0.3",
+    "body-parser": "~1.0.2"
+  }
+}

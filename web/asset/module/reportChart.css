@@ -1,0 +1,26 @@
+.report-chart {
+    margin-top: -10px;
+}
+
+.report-chart .summary {
+    height: 55px;
+    border: 2px solid #8095bd;
+    background: #eff3fe;
+}
+
+.report-chart .summary-content {
+    margin: 10px 10px;
+    height: 35px;
+}
+
+.report-chart .summary-content table {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.report-chart .chart {
+    margin-top: 15px;
+    overflow: hidden;
+    height: 300px;
+}

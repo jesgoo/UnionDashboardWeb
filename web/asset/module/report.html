@@ -1,0 +1,35 @@
+<!-- target: flash -->
+<div class="flash-data">
+    <label>
+        <input type="checkbox" value="showNum" name="flashData"/>
+        <span class="flash-totalShow"></span>
+        <span>总展示数</span>
+    </label>
+    <label>
+        <input type="checkbox" value="clickNum" name="flashData"
+               checked="checked"/>
+        <span class="flash-totalClick"></span>
+        <span>总点击数</span>
+    </label>
+    <label>
+        <input type="checkbox" value="clickRate" name="flashData"/>
+        <span class="flash-rate"></span>
+        <span>点击率</span>
+    </label>
+    <label>
+        <input type="checkbox" value="avgClickCost" name="flashData"/>
+        <span class="flash-avg"></span>
+        <span>平均每次点击费用</span>
+    </label>
+    <!-- if: ${showTotalCost} -->
+    <label>
+        <input type="checkbox" value="totalCost" name="flashData"/>
+        <span class="flash-totalShow"></span>
+        <span>总消费</span>
+    </label>
+    <!-- /if -->
+</div>
+<div class="flash-summary">
+    <div id="flashSummaryContent" class="flash-summary-content"></div>
+</div>
+<div id="flashContainer" class="flash-diagram"></div>

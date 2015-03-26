@@ -1,0 +1,31 @@
+<!-- target: databaseSQL -->
+<div class="layout-2-right databaseSQL">
+    <div class="left ad-notice-area">
+        <div class="ad-unit-title">
+            <div ui="type:Button;id:exec;" class="mgR40">执行语句</div>
+            <div ui="type:Button;id:clearSql;">清空</div>
+        </div>
+        <div class="ad-unit">
+            <div ui="type:TextLine;id:sql;"></div>
+        </div>
+        <div class="ad-unit-title">
+            <div ui="type:Plain;content:操作记录;" class="mgR40"></div>
+            <div ui="type:Button;id:clearLog;">清空</div>
+        </div>
+        <div class="ad-unit">
+            <div ui="type:TextLine;id:log;height:300;"></div>
+        </div>
+    </div>
+    <div class="right ad-notice-area">
+        <div class="ad-unit-title rel">
+            执行结果
+        </div>
+        <div class="ad-unit">
+            <div ui="type:TextLine;id:text;value:在左侧输入执行;height:500;"></div>
+            <div class="list-table">
+                <div ui="type:Table;id:list;columnResizable:1;sortable:1;
+      datasource:*list;fields:*fields;order:*order;orderBy:*orderBy;"></div>
+            </div>
+        </div>
+    </div>
+</div>

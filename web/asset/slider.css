@@ -1,0 +1,6 @@
+.slide_dot { background:url(img/dot-bg.png) no-repeat; bottom:11px;
+    position:absolute; text-align:center; z-index:33; height:22px; width:120px; }
+.slide_dot .dot_list { height:8px; width:8px; }
+.slide_dot span { vertical-align:middle; display:inline-block; cursor:pointer;
+    background:url(img/dot-un.png) no-repeat; border-radius:4px; margin:7px 4px; }
+.slide_dot .current { background: url(img/dot.png) no-repeat; }

@@ -1,0 +1,38 @@
+<!-- target: position_preview -->
+<div class="position-wrapper">
+    <div class="position-container
+    <!-- if: ${hasCloseBtn} --> position-with-close-btn<!-- /if -->
+    ">
+<!-- if: ${type} == 1 -->
+    <!-- import: position_banner -->
+<!-- elif: ${type} == 4 -->
+    <!-- import: position_popups -->
+<!-- elif: ${type} == 10 -->
+    <!-- import: position_square_image -->
+<!-- else -->
+    <!-- import: position_text -->
+<!-- /if -->
+    </div>
+</div>
+<!-- target: position_banner -->
+<div class="${positionExtraClass} position-banner" style="height: ${relativeHeight}em;">
+    <img src="asset/img/demo_banner.jpg" alt="${name|html}"/>
+</div>
+<!-- target: position_popups -->
+<div class="${positionExtraClass} position-popups
+    " style="height: ${relativeHeight}em;">
+    <img src="asset/img/demo_banner.jpg" alt="${name|html}"/>
+</div>
+<!-- target: position_square_image -->
+<div class="${positionExtraClass} position-square-image" style="width: ${relativeWidth}em;margin-left: -${halfRelativeWidth}em;"><img src="asset/img/demo_square.jpg" alt="${name|html}" style="height: ${relativeHeight}em;"/></div>
+<!-- target: position_text -->
+<!-- if: ${height} > 35 -->
+<div class="${positionExtraClass} position-text" style="height: ${relativeHeight}em;">
+    <div class="title"><span class="text">文字链标题 ${name}</span></div>
+    <div class="description"><span class="text">文字链描述 ${id}</span></div>
+</div>
+<!-- else -->
+<div class="${positionExtraClass} position-text position-text-only-title" style="height: ${relativeHeight}em;line-height: ${relativeHeight}em;">
+    <div class="title"><span class="text">文字链标题 ${name}</span></div>
+</div>
+<!-- /if -->

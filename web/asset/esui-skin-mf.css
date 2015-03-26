@@ -1,0 +1,67 @@
+/******************************************************************************
+* override esui
+*******************************************************************************/
+.ui-text {
+    width: 220px;
+}
+
+.ui-textarea {
+    width: 220px;
+    height: 80px;
+}
+
+/*.ui-select, .ui-select-layer {*/
+/*width: 220px;*/
+/*}*/
+
+.ui-pager {
+    float: right;
+}
+
+.ui-pager ul {
+    /*border: 0;*/
+}
+
+/* @fix calendar td多出1px问题，定位到mf.css */
+/*.ui-month-title {*/
+/*width: 30px;*/
+/*overflow: hidden;*/
+/*}*/
+
+.ui-validator-message {
+    color: #e00000;
+}
+
+/*
+* Custom
+*/
+.ui-button-label-link{
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+
+/*
+* esui.Button 
+* link button skin
+*/
+.ui-button-link {
+    text-align: center;
+    height: 22px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.ui-button-link-label {
+    cursor: pointer;
+    display: block;
+    float: left;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 22px;
+    color: #0179B0;
+    /*兼容input*/
+    border: 0;
+    background: none;
+}

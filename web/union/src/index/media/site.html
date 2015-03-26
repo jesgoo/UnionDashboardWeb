@@ -1,0 +1,43 @@
+<!-- target: mf_index_media_site -->
+<div class="mf-index-media-site layout-2-left">
+    <div class="right plain-notice-area">
+        <div class="plain-unit-title">网站媒体统计</div>
+        <div class="plain-unit plain-unit-middle-caption">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    网站媒体总计
+                </div>
+                <div class="plain-unit-item-field">
+                    <div ui="type:Plain;id:siteMediaCount;content:*siteMediaCount;"></div>
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    弹开屏总计
+                </div>
+                <div class="plain-unit-item-field">
+                    <div ui="type:Plain;id:popupsCount;content:*popupsCount;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left plain-notice-area">
+        <div class="plain-unit-title">网站媒体列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:媒体ID:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:siteMediaId;width:150;value:*siteMediaId;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search">搜索</span>
+                </div>
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add">添加网站</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:list;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <!-- import: listPager -->
+        </div>
+    </div>
+</div>

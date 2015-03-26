@@ -1,0 +1,157 @@
+<!-- target: mf_yellow_tip -->
+<!-- if: ${yellowTip} -->
+<div class="mf-yellow-tip">
+  <span class="mf-tip-close yellow-tip-close" title="关闭"></span>
+  <div class="yellow-tip-text">${yellowTip}</div>
+</div>
+<!-- /if -->
+
+<!-- target: hj_group_bid -->
+<div class="ad-unit-item rel">
+  <div class="ad-unit-item-caption">单元出价：</div>
+  <div class="ad-unit-item-field">
+    <div>
+      <input type="text" ui="type:TextInput;id:bid;
+        placeholder:*lockPriceDesc;" value="${bid}" class="mgR5" />元
+      <div class="bidTip" ui="id:bidTip;type:Tip;skin:help;arrow:1;"></div>
+    </div>
+    <div class="error" id="bidError"></div>
+  </div>
+</div>
+    
+<!-- target: hj_groupStep2_bid -->
+<!-- import: hj_group_bid-->
+
+<!-- target: hj_groupStep2_net -->
+<div class="ad-unit-item-field">
+    <div ui="id:net;type:ButtonSelect;skin:simple;single:true;fieldName:netValue;
+                        datasource:*netTypes;value:*netValue;"></div>
+    <div class="error" id="netValueError"></div>
+</div>
+<!-- target: hj_groupStep2_os -->
+<div class="ad-unit-item-field">
+    <div ui="id:os;type:ButtonSelect;skin:simple;single:true;fieldName:osValue;
+                        datasource:*osTypes;value:*osValue;"></div>
+    <div class="error" id="osValueError"></div>
+</div>
+    
+<!-- target: hj_groupStep2_region -->
+<div class="ad-unit-item-field">
+  <div ui="id:region;type:ButtonSelect;datasource:*switchSource;skin:simple;"></div>
+  <div class="plain-wrapper uns" id="region-wrapper">
+    <div ui="type:PlainSelect;id:regionPlain;datasource:*regionTypeTree;
+    value:*regionValueTree;height:100%;;searchable:true;
+    <!-- if: ${badIE} -->skin:plain inline;perLine:3;<!-- /if -->">
+    </div>
+    <div ui="type:PlainView;id:regionView;datasource:*regionTypeTree;
+       value:*regionValueTree;width:285px;height:100%;autoLocate:true;"></div>
+  </div>
+  <input type="hidden" id="regionValue" name="regionValue"
+         value="${regionValue}" />
+  <div class="error" id="regionValueError"<!-- if: ${badIE} -->style="margin-top:15px;"<!-- /if -->></div>
+</div>
+
+<!-- target: hj_groupStep2_trade -->
+<div class="ad-unit-item-field">
+  <div ui="id:trade;type:ButtonSelect;datasource:*switchTrade;skin:simple;"></div>
+  <div class="plain-wrapper uns" id="trade-wrapper">
+    <div ui="type:PlainSelect;id:tradePlain;datasource:*tradeTypeTree;
+    value:*tradeValueTree;height:100%;
+    <!-- if: ${badIE} -->skin:plain inline;perLine:3;<!-- /if -->">
+    </div>
+    <div ui="type:PlainView;id:tradeView;datasource:*tradeTypeTree;
+       value:*tradeValueTree;width:285px;height:100%;autoLocate:true;"></div>
+  </div>
+  <div class="plain-wrapper uns" id="tradeExact-wrapper">
+    <div style="height: 100%; overflow: auto; width: 400px; padding-top: 0; padding-bottom: 15px;" class="ui-plainselect list-table">
+        <div style="overflow: visible; position: relative;z-index: 1; font-size: 12px;">
+            <div ui="type:Button;id:tradeSearch;" style="float: right; margin-right:0.5em;">搜索</div>
+            <div style="margin:0.5em 60px 0.3em 0.3em;"><input type="text" ui="type:TextInput;id:tradeKeyWord;placeholder:请输入关键词搜索，逗号分隔多个关键词" style="width: 100%;"></div>
+            <div id="tradeSearchDisplay" style="display: none; padding: 0.1em 1em; border: 1px solid rgb(75, 143, 220); margin: 0.3em 0.2em; background-color: #7bafdc;color: #fff;">
+                <div id="tradeSearchClear" style="float:right;background-color: #4b8fdc;border:1px #fff solid;border-radius: 0.2em;font-size: 1.7em;font-family:Microsoft YaHei, 隶书;font-weight:bold;color:white; cursor: pointer;line-height: 0.7em;height: 0.8em;margin-top: 0.15em;" title="清空搜索结果">×</div>
+                <div ui="type:Plain;id:tradeSearchDisplay;content:共找到 0 个应用;"></div>
+            </div>
+        </div>
+        <div ui="type:Table;id:tradeExact;fields:*tradeExactFields;select:multi;select;selectMode:line;"></div>
+    </div>
+    <div ui="type:PlainView;id:tradeExactView;width:285px;height:100%;textField:appName;valueField:value;"></div>
+    <div class="clear-view" id="clearView">清空选择</div>
+  </div>
+  <input type="hidden" id="tradeValue" name="tradeValue" value="${tradeValue}" />
+  <div class="error" id="tradeValueError" <!-- if: ${badIE} -->style="margin-top:15px;"<!-- /if -->></div>
+</div>
+
+<!-- target: mf_listLogPlanSchedule -->
+<div ui="type:Dialog;id:mf_listLogPlanSchedule;width:650;height:700;draggable:1;mask:1;">
+  <div>日志详情</div>
+  <div class="plan-target ui-dialog-body-pad">
+    <div class="title" style="margin-top:0">修改前：</div>
+    <div class="sche-wrapper">
+      <div ui="type:Schedule;id:oldSchedule;disabled:true;"></div>
+    </div>
+    <div class="title">修改后：</div>
+    <div class="sche-wrapper">
+      <div ui="type:Schedule;id:newSchedule;disabled:true;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- target: mf_listLogGroupTarget -->
+<div ui="type:Dialog;id:listLogGroupTarget;height:400;draggable:1;mask:1;width:670;">
+  <div>日志详情</div>
+  <div class="group-target ui-dialog-body-pad">
+    <div class="fl" style="width:330px;">
+      <div class="title" id="regionTitle">地域定向：</div>
+      <div class="tree-wrapper" id="regionWrapBefore">
+        <div ui="type:PlainView;id:regionViewBefore;width:285px;height:200px;delete:false;"></div>
+      </div>
+      <div class="title" id="mediaTitle">媒体定向：</div>
+      <div class="tree-wrapper" id="mediaWrapBefore">
+        <div ui="type:PlainView;id:mediaViewBefore;width:285px;height:200px;delete:false;"></div>
+      </div>
+      <div class="title" id="osTitle">操作系统定向：</div>
+      <div class="tree-wrapper" id="osWrapBefore">
+        <div ui="type:PlainView;id:osViewBefore;width:285px;height:150px;delete:false;"></div>
+      </div>
+      <div class="title" id="deviceTitle">设备定向：</div>
+      <div class="tree-wrapper" id="deviceWrapBefore">
+        <div ui="type:PlainView;id:deviceViewBefore;width:285px;height:100px;delete:false;"></div>
+      </div>
+      <div class="title" id="netTitle">网络定向：</div>
+      <div class="tree-wrapper" id="netWrapBefore">
+        <div ui="type:PlainView;id:netViewBefore;width:285px;height:100px;delete:false;"></div>
+      </div>
+      <div class="title" id="priceTitle">价格区间定向：</div>
+      <div class="tree-wrapper" id="priceWrapBefore">
+        <div ui="type:PlainView;id:priceViewBefore;width:285px;height:100px;delete:false;"></div>
+      </div>
+    </div>
+    <div style="margin-left: 330px; width: 330px;">
+      <div class="title" id="regionTitle1">修改后：</div>
+      <div class="tree-wrapper" id="regionWrapAfter">
+        <div ui="type:PlainView;id:regionViewAfter;width:285px;height:200px;delete:false;"></div>
+      </div>
+      <div class="title" id="mediaTitle1">修改后：</div>
+      <div class="tree-wrapper" id="mediaWrapAfter">
+        <div ui="type:PlainView;id:mediaViewAfter;width:285px;height:200px;delete:false;"></div>
+      </div>
+      <div class="title" id="osTitle1">修改后：</div>
+      <div class="tree-wrapper" id="osWrapAfter">
+        <div ui="type:PlainView;id:osViewAfter;width:285px;height:150px;delete:false;"></div>
+      </div>
+      <div class="title" id="deviceTitle1">修改后：</div>
+      <div class="tree-wrapper" id="deviceWrapAfter">
+        <div ui="type:PlainView;id:deviceViewAfter;width:285px;height:100px;delete:false;"></div>
+      </div>
+      <div class="title" id="netTitle1">修改后：</div>
+      <div class="tree-wrapper" id="netWrapAfter">
+        <div ui="type:PlainView;id:netViewAfter;width:285px;height:100px;delete:false;"></div>
+      </div>
+      <div class="title" id="priceTitle1">修改后：</div>
+      <div class="tree-wrapper" id="priceWrapAfter">
+        <div ui="type:PlainView;id:priceViewAfter;width:285px;height:100px;delete:false;"></div>
+      </div>
+    </div>
+    <div class="cb"></div>
+  </div>
+</div>
