@@ -33,19 +33,15 @@ Response
                         "value": 10,
                         "heightRange": [201, 480],
                         "heightDefault": 320
-                    },
+                    }/*,
                     {
                         "name": "文字链",
                         "value": 16,
                         "heightRange": [10, 40],
                         "heightDefault": 20
-                    }
+                    }*/
                 ],
                 "sitePositionDisplayTypeMap": [
-                    {
-                        "name": "未设置",
-                        "value": 0
-                    },
                     {
                         "name": "悬浮式",
                         "value": 1
@@ -77,10 +73,6 @@ Response
                 ],
                 "displayPositionMap": [
                     {
-                        "name": "无",
-                        "value": 0
-                    },
-                    {
                         "name": "顶部",
                         "value": 1
                     },
@@ -96,6 +88,7 @@ Response
                         "field": "id",
                         "defaultValue": "",
                         "title": "媒体ID",
+                        "request": false,
                         "sortable": true
                     },
                     "name":{
@@ -104,7 +97,8 @@ Response
                         "title": "媒体名称",
                         "sortable": true,
                         "editable": true,
-                        "edittype": "string"
+                        "edittype": "string",
+                        "request": true
                     },
                     "note":{
                         "field": "note",
@@ -114,15 +108,15 @@ Response
                         "edittype": "string"
                     },
                     "createTime":{
-                        "field": "createTime",
-                        "defaultValue": "",
+                        "field": "create_time",
                         "title": "创建时间",
+                        "request": false,
                         "sortable": true
                     },
                     "modifyTime":{
-                        "field": "modifyTime",
-                        "defaultValue": "",
+                        "field": "modified_time",
                         "title": "修改时间",
+                        "request": false,
                         "sortable": true
                     },
                     "isPopups":{
@@ -145,9 +139,15 @@ Response
                 "sitePositionList": {
                     "id":{
                         "field": "id",
-                        "defaultValue": "",
                         "title": "广告位ID",
+                        "request": false,
                         "sortable": true
+                    },
+                    "media":{
+                        "field": "media",
+                        "title": "媒体ID",
+                        "request": true,
+                        "isShow": false
                     },
                     "name":{
                         "field": "name",
@@ -155,7 +155,15 @@ Response
                         "title": "广告位名称",
                         "sortable": true,
                         "editable": true,
-                        "edittype": "string"
+                        "edittype": "string",
+                        "request": true
+                    },
+                    "modifyTime":{
+                        "field": "modified_time",
+                        "title": "修改时间",
+                        "sortable": true,
+                        "request": false,
+                        "isShow": false
                     },
                     "type":{
                         "field": "type",
@@ -167,14 +175,14 @@ Response
                     },
                     "displayType":{
                         "field": "subtype",
-                        "defaultValue": 0,
+                        "defaultValue": 2,
                         "title": "展现形式",
                         "sortable": true,
                         "editable": true,
                         "edittype": "select"
                     },
                     "hasCloseBtn":{
-                        "field": "hasCloseBtn",
+                        "field": "config.close",
                         "defaultValue": false,
                         "title": "关闭按钮",
                         "sortable": true,
@@ -182,17 +190,24 @@ Response
                         "edittype": "select"
                     },
                     "position":{
-                        "field": "position",
-                        "defaultValue": 0,
+                        "field": "config.place",
+                        "defaultValue": 1,
                         "title": "悬浮位置",
                         "sortable": true,
                         "editable": true,
                         "edittype": "select"
                     },
                     "height":{
-                        "field": "height",
-                        "defaultValue": 20,
+                        "field": "config.height",
+                        "defaultValue": 60,
                         "title": "高度(px)",
+                        "editable": true,
+                        "edittype": "int"
+                    },
+                    "autoPlayInterval":{
+                        "field": "config.autoPlayInterval",
+                        "defaultValue": 0,
+                        "title": "轮播时间(px)",
                         "editable": true,
                         "edittype": "int"
                     }
@@ -328,16 +343,16 @@ Response
                 "id": "123",
                 "name": "中国",
                 "note": "没有note",
-                "createTime": "2014年1月1日 0时0分0秒",
-                "modifyTime": "2014年1月1日 0时0分1秒",
+                "create_time": "2014年1月1日 0时0分0秒",
+                "modify_time": "2014年1月1日 0时0分1秒",
                 "config": {"splash":{"on":false,"interval":86400000}}
             },
             {
                 "id": "124",
                 "name": "中国2",
                 "note": "没有note2",
-                "createTime": "2015年1月1日 0时0分0秒",
-                "modifyTime": "2015年1月1日 0时0分1秒"
+                "create_time": "2015年1月1日 0时0分0秒",
+                "modify_time": "2015年1月1日 0时0分1秒"
             }
         ]
     }
@@ -362,36 +377,27 @@ Response
                 "name": "广告位1",
                 "type": 1,
                 "subtype": 1,
-                "hasCloseBtn": false,
-                "position": 0,
-                "height": 60
-            },
-            {
-                "id": "XX0002",
-                "name": "广告位2",
-                "type": 4,
-                "subtype": 1,
-                "hasCloseBtn": true,
-                "position": 2,
-                "height": 300
+                "modify_time": "2014年1月1日 0时0分1秒",
+                "config": {
+                    "close": false,
+                    "place": 1,
+                    "height": 60,
+                    "autoPlayInterval": 1000
+                }
             },
             {
                 "id": "XX0002",
                 "name": "广告位2",
                 "type": 10,
-                "subtype": 2,
-                "hasCloseBtn": false,
-                "position": 1,
-                "height": 300
-            },
-            {
-                "id": "XX0002",
-                "name": "广告位2",
-                "type": 16,
-                "subtype": 2,
-                "hasCloseBtn": false,
-                "position": 1,
-                "height": 30
+                "subtype": 1,
+                "modify_time": "2014年1月1日 0时0分1秒",
+                "config": {
+                    "test": true,
+                    "close": true,
+                    "place": 1,
+                    "height": 401,
+                    "autoPlayInterval": 0
+                }
             }
         ]
     }
