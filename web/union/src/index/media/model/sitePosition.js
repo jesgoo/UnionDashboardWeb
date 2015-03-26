@@ -47,7 +47,7 @@
             'position': {
                 datasource: config.maps.displayPositionMap,
                 content: function (item, index, col, textClass) {
-                    if (operateData.get(item, 'displayType') == config.maps.sitePositionDisplayTypeMap[0].value
+                    if (operateData.get(item, 'displayType') == config.maps.sitePositionDisplayTypeMap[1].value
                         && operateData.get(item, 'type') != config.maps.sitePositionTypeMap[1].value) {
                         var r = mf.m.utils.deepSearch('children', config.maps.displayPositionMap,
                             operateData.get(item, 'position'), 'value', 0);

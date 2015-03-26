@@ -25,7 +25,7 @@
             er.context.set(i, n, contextOption);
         });
         var positionExtraClass = ['position-content'];
-        if (data.displayType == 1 && data.position == 2) {
+        if (data.displayType == 2 && data.position == 2) {
             positionExtraClass.push('position-absolute-bottom');
         }
         if (data.type == 10) {

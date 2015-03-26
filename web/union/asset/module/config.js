@@ -36,11 +36,11 @@
             ],
             "sitePositionDisplayTypeMap": [
                 {
-                    "name": "悬浮式",
+                    "name": "嵌入式",
                     "value": 1
                 },
                 {
-                    "name": "嵌入式",
+                    "name": "悬浮式",
                     "value": 2
                 }
             ],
