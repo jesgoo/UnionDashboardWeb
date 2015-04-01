@@ -848,12 +848,11 @@ var mf = {
      * @param {number} offset 单位天，可以为负数
      * @return {Date}
      */
-    mf.getDate = function (offset) {
+    mf.getDate = function (offset, date) {
         offset = offset || 0;
-        var date = new Date();
-        date.setTime(date.getTime() + 86400 * 1000 * offset);
-        console.log(date);
-        return date;
+        newDate = date ? new Date(date) : new Date();
+        newDate.setTime(newDate.getTime() + 86400 * 1000 * offset);
+        return newDate;
     };
 
     /**
@@ -882,18 +881,18 @@ var mf = {
      *
      * @return {string}
      */
-    mf.getDateString = function (date) {
+    mf.getDateString = function (date, format) {
         date = date || new Date();
-        return T.date.format(date, mf.DATE_FORMAT);
+        return T.date.format(date, format || mf.DATE_FORMAT);
     };
     /**
      * 获取Date对象日期部分与小时分钟部分的字符串
      *
      * @return {string}
      */
-    mf.getDateTimeString = function (date) {
+    mf.getDateTimeString = function (date, format) {
         date = date || new Date();
-        return T.date.format(date, mf.DATE_TIME_FORMAT);
+        return T.date.format(date, format || mf.DATE_TIME_FORMAT);
     };
 
     /**

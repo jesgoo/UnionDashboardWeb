@@ -372,7 +372,7 @@
     // the ready event fires. See #6781
     readyWait: 1,
 
-    // Hold (or release) the ready event
+    // Hold (or releaseToServer) the ready event
     holdReady: function( hold ) {
       if ( hold ) {
         jQuery.readyWait++;
@@ -1513,7 +1513,7 @@
 
     deletedIds: [],
 
-    // Remove at next major release (1.9/2.0)
+    // Remove at next major releaseToServer (1.9/2.0)
     uuid: 0,
 
     // Unique for each copy of jQuery on the page
@@ -3806,7 +3806,7 @@
         } catch (e) {
           return false;
         } finally {
-          // release memory in IE
+          // releaseToServer memory in IE
           div = null;
         }
       },

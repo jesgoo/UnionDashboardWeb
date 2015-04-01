@@ -58,7 +58,7 @@
     cursor: pointer;
     font-size: 12px;
 }
-
+/*
 .ui-treeview-node-level1 .ui-treeview-node-icon {
     display: none;
 }
@@ -87,38 +87,7 @@
     font-weight: bold;
     padding-left: 10px;
     color: #3600bd;
-}
-
-.searchNode {
-    cursor: default;
-    height: 24px;
-    line-height: 24px;
-    background: #fff;
-    padding: 8px 0;
-}
-
-.searchNode .ui-treeview-node-text {
-    display: block;
-    position: relative;
-    zoom: 1;
-}
-
-.searchNode .ui-text {
-    width: 166px;
-    height: 24px;
-    *width: 154px;
-    *height: 18px;
-}
-
-.searchNode .search-btn {
-    background: url(img/search-btn.png) no-repeat;
-    cursor: pointer;
-    right: 9px;
-    bottom: 0;
-    *bottom: 1px;
-    width: 25px;
-    height: 24px;
-}
+}*/
 
 .ui-tab-item {
     border-radius: 0;

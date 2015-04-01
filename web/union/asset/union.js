@@ -4,7 +4,6 @@
  * @date Tue Mar 17 2015 09:45:32 GMT+0800 (CST)
  * Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved
  */
-
 $(function () {
     console.log('er.init union');
     try {
@@ -86,6 +85,34 @@ esui.Select.prototype.setValue = function( value ) {
         }
     };
     mf.ajaxResponse = {};
+    /*
+     * 解析后端传来的报表数据，兼容前期的数据格式
+     * */
+    mf.parseReportData = function (data) {
+        var fields = [];
+        var lists = [];
+        if (!(data.column_names && data.rows && data.column_titles)) {
+            return null;
+        }
+        var column = data.column_names;
+        for (var row = 0, rowLength = data.rows.length; row < rowLength; row += 1) {
+            var rowData = data.rows[row];
+            lists[row] = {};
+            for (var col = 0, colLength = column.length; col < colLength; col += 1) {
+                lists[row][column[col]] = rowData[col];
+            }
+        }
+        for (var col = 0, colLength = column.length; col < colLength; col += 1) {
+            fields[col] = {
+                field: column[col],
+                title: data.column_titles[col]
+            };
+        }
+        return {
+            fields: fields,
+            lists: lists
+        }
+    };
     /*
     * debug 模式下的url映射
     * */
@@ -180,7 +207,7 @@ esui.Select.prototype.setValue = function( value ) {
      *
      * {Object} data
      * */
-    function dataParse(data) {
+    function dataParse(data, filterFn) {
         if (!data.success) {
             if (data.errorType === 'formError') {
                 throw data.message || '网络错误，请联系管理员！<br>';
@@ -190,7 +217,8 @@ esui.Select.prototype.setValue = function( value ) {
                 throw '请求失败，请稍后重试。<br>';
             }
         }
-        return data.entities || [];
+        return filterFn ? filterFn(data)
+            : (mf.parseReportData(data) || data.entities || []);
     }
 
     /*
@@ -250,7 +278,7 @@ esui.Select.prototype.setValue = function( value ) {
                     $.ajax(ajaxParam)
                         .done(function (data) {
                             try {
-                                data = dataParse(data);
+                                data = dataParse(data, ajaxParam.dataFilter);
                             } catch (e) {
                                 deferred.reject(e);
                                 return;
@@ -520,6 +548,7 @@ esui.Select.prototype.setValue = function( value ) {
             table.render();
         }
     };
+
 })();
 (function () {
     mf.initEntities = function (opt) {
@@ -543,5 +572,41 @@ esui.Select.prototype.setValue = function( value ) {
         }
     };
 })();
-
+(function () {
+    mf.getFieldContentPercent = function (field, unit) {
+        unit = unit || '%';
+        unit = '<span class="percent-unit">' + unit + '</span>';
+        return function (item) {
+            return (item[field] * 100).toString().substr(0, 5) + unit;
+        };
+    };
+    mf.getFieldContentLess = function (field, unit) {
+        unit = unit || [
+            'G', 'M', 'K'
+        ];
+        unit = $.map(unit, function (unitString) {
+            return '<span class="number-unit number-unit-' + unitString + '">' + unitString + '</span>';
+        });
+        return function (item) {
+            var value = item[field];
+            if (value > 10000000000) {
+                value = (Math.floor(value / 10000000) / 100) + unit[0];
+            } else if (value > 10000000) {
+                value = (Math.floor(value / 10000) / 100) + unit[1];
+            } else if (value > 10000) {
+                value = (Math.floor(value / 10) / 100) + unit[2];
+            }
+            return '<span title=" ' + item[field] + ' ">' + value +'</span>';
+        };
+    };
+    mf.getFieldContentMoney = function (field, unit) {
+        unit = unit || '¥';
+        unit = '<span class="money-unit">' + unit + '</span>';
+        return function (item) {
+            var value = item[field];
+            value = (Math.round(value * 1000) / 1000).toString();
+            return unit + value;
+        };
+    };
+})();
 mf.clickCommand = mf.m.commandElement('click');

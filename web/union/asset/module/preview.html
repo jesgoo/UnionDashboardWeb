@@ -9,7 +9,9 @@
     <!-- import: position_popups -->
 <!-- elif: ${type} == 10 -->
     <!-- import: position_square_image -->
-<!-- else -->
+<!-- elif: ${type} == 12 -->
+    <!-- import: position_video -->
+<!-- elif: ${type} == 13 -->
     <!-- import: position_text -->
 <!-- /if -->
     </div>
@@ -36,3 +38,7 @@
     <div class="title"><span class="text">文字链标题 ${name}</span></div>
 </div>
 <!-- /if -->
+<!-- target: position_video -->
+<div class="${positionExtraClass} position-video" style="height: ${relativeHeight}em;">
+    <img src="asset/img/demo_video.jpg" alt="${name|html}"/>
+</div>

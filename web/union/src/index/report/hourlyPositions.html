@@ -1,0 +1,17 @@
+<!-- target: mf_index_report_hourlyPositions -->
+<div class="mf-index-report-hourlyPositions plain-notice-area">
+    <div class="plain-unit-title">
+        <i>媒体&nbsp;${name}&nbsp;</i>️<b>所属广告位</b><span>&nbsp;&nbsp;分小时报表</span>
+        <div ui="type:Calendar;id:hourlyPositionsDate;value:*date;"></div>
+    </div>
+    <div class="plain-unit-table" id="hourlyPositionChart"></div>
+    <div class="plain-unit-table">
+        <div class="list-op list-op-multi">
+            <div class="multi-caption">时间定位：</div>
+            <div class="multi-field" ui="type:ButtonSelect;id:hourlyPositionsTimeSelect;datasource:*timeSelects;eachLine:0;skin:simple;"></div>
+        </div>
+        <div class="list-table">
+            <div ui="type:Table;id:hourlyPositionsList;datasource:*reportData;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+        </div>
+    </div>
+</div>

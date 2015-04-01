@@ -24,7 +24,7 @@ exports.response = {
     //"errorType": "sessionTimeout",
     "entities": [
         {
-            "id": "123",
+            "id": "0c1ea115",
             "name": "中国",
             "note": "没有note",
             "create_time": "2014年1月1日 0时0分0秒",
@@ -32,7 +32,7 @@ exports.response = {
             "config": {"splash":{"on":false,"interval":86400000}}
         },
         {
-            "id": "124",
+            "id": "0068028f",
             "name": "中国2",
             "note": "没有note2",
             "create_time": "2015年1月1日 0时0分0秒",

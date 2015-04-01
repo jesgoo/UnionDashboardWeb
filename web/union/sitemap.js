@@ -29,6 +29,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "processBar": {},
             "uiOperateButton": {},
             "uiFilterSelect": {},
+            "highcharts": {},
             "preview": { "private": true },
             "config": { "private": true }
         }
@@ -40,6 +41,9 @@ mf = typeof mf === 'undefined' ? {} : mf;
         // page级别模块
         var index = {
             "__module": {
+                "highchart_overview": { "private": true },
+                "highchart_hourview": { "private": true },
+                "highchart_drill": { "private": true }
             },
             "__mockData": {
                 "config": {}
@@ -113,15 +117,39 @@ mf = typeof mf === 'undefined' ? {} : mf;
             }
         };
 
+        var reportNav2 = function (label) {
+            return {
+                "nav1": "report",
+                "list": [
+                    {"nav2": "/report/index"}
+                ],
+                "label": label || ''
+            };
+        };
+        //Module report
+        index.report = {
+            "index": authorityAction(reportNav2('数据报表')),
+            "dailyTotal": authorityAction(reportNav2('账户总体多日')),
+            "dailyMedias": authorityAction(reportNav2('多媒体多日')),
+            "dayMedias": authorityAction(reportNav2('多媒体单日')),
+            "dailyMedia": authorityAction(reportNav2('单媒体多日')),
+            "hourlyMedia": authorityAction(reportNav2('单媒体单日分小时')),
+            "hourlyPositions": authorityAction(reportNav2('单媒体全部广告位单日分小时')),
+            "dailyPosition": authorityAction(reportNav2('单广告位多日')),
+            "dayPositions": authorityAction(reportNav2('单媒体多广告位单日')),
+            "dailyPositions": authorityAction(reportNav2('单媒体多广告位多日')),
+            "hourlyPosition": authorityAction(reportNav2('单广告位单日分小时')),
+            "__mockData": {
+            }
+        };
+
         //配置1级菜单(以下简称nav1）
-        index.__nav1 = {//配置1级菜单(以下简称nav1）
-/*
-            "index": {
+        index.__nav1 = {//配置1级菜单(以下简称nav1)
+            /*"index": {
                 "label": "首页",
                 "url": "#/index/dailyReport",
                 "hideNav2": true
-            },
-*/
+            },*/
             "media": {
                 "label": "媒体管理",
                 "url": "#/media/site",
@@ -130,7 +158,12 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "account": {
                 "label": "账户信息",
                 "url": "#/account/info"
-            }*/
+            }*/,
+            "report": {
+                "label": "数据报表",
+                "url": "#/report/index",
+                "hideNav2": true
+            }
         };
         //nav2
         index.__nav2 = {

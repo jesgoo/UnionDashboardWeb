@@ -7860,7 +7860,7 @@ esui.SideBar = function ( options ) {
     esui.Control.call( this, options );
 
     this.headHeight     = this.headHeight || 37;
-    this.marginTop      = this.marginTop || 10;
+    this.marginTop     = this.marginTop || 10;
     this.marginLeft     = this.marginLeft || 10;
     this.marginBottom   = this.marginBottom || 10;
 
@@ -12817,7 +12817,7 @@ esui.TreeView.prototype = {
             itemHTML        = me.getItemHtml( dataItem ),
             ref             = me.__getStrRef(),    
             childDisplay    = '',
-            _hideChildren   = hideChildren,
+            _hideChildren   = hideChildren || dataItem.hideChildren === true,
             nodeType,
             html;
         

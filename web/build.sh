@@ -1,4 +1,3 @@
 #!/bin/bash
-ant -Dsite=union -Dport=
-
+ant debug -Dsite=union
 exit 0

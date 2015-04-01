@@ -22,7 +22,7 @@ exports.response = {
     "success": true,
     "entities": [
         {
-            "id": "XX0001",
+            "id": "s63c825f",
             "name": "广告位1",
             "type": 1,
             "subtype": 1,
@@ -35,7 +35,7 @@ exports.response = {
             }
         },
         {
-            "id": "XX0002",
+            "id": "s23c815f",
             "name": "广告位2",
             "type": 10,
             "subtype": 1,

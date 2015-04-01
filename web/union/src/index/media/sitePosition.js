@@ -60,11 +60,20 @@
             refreshTable();
             table.onedit = (function (fn) {
                 return function (value, options) {
-                    if (options.field.listKey === 'type') {
-                        var r = mf.m.utils.deepSearch('children', config.maps.sitePositionTypeMap,
-                            value, 'value', 0);
-                        var row = table.datasource[options.rowIndex];
-                        operateData.set(row, 'height', r.heightDefault);
+                    var row = table.datasource[options.rowIndex];
+                    switch (options.field.listKey) {
+                        case 'type':
+                            var r = mf.m.utils.deepSearch('children', config.maps.sitePositionTypeMap,
+                                value, 'value', 0);
+                            operateData.set(row, 'height', r.heightDefault);
+                            operateData.set(row, 'hasCloseBtn', false);
+                            break;
+                        case 'displayType':
+                            if (value === config.maps.sitePositionSubtype['float']) {
+                                operateData.set(row, 'position', config.maps.sitePositionDisplayPosition.bottom);
+                                operateData.set(row, 'hasCloseBtn', true);
+                            }
+                            break;
                     }
                     fn.apply(this, arguments);
                 };
@@ -84,11 +93,11 @@
                         {
                             cmd: 'search',
                             handle: function (options) {
-                                var text = esui.get('sitePositionId').getValue();
+                                var text = esui.get('sitePositionName').getValue();
                                 var filter;
                                 if (text) {
                                     filter = function (obj) {
-                                        return String(operateData.get(obj, 'id')).indexOf(text) > -1;
+                                        return String(operateData.get(obj, 'name')).indexOf(text) > -1;
                                     }
                                 }
                                 refreshTable({

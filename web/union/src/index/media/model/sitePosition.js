@@ -18,6 +18,7 @@
             'media': {},
             'modifyTime': {},
             'name': {
+                width: 120
                 //breakLine: 1
                 /*content: function (item, index) {
                  return '<a data-cmd="edit" data-index="' + index + '">' + operateData.get(item, 'name', '') + '</a>'
@@ -34,7 +35,7 @@
             'displayType': {
                 datasource: config.maps.sitePositionDisplayTypeMap,
                 content: function (item, index, col, textClass) {
-                    if (operateData.get(item, 'type') !== config.maps.sitePositionTypeMap[1].value) {
+                    if (operateData.get(item, 'type') !== config.maps.sitePositionType.popups) {
                         var r = mf.m.utils.deepSearch('children', config.maps.sitePositionDisplayTypeMap,
                             operateData.get(item, 'displayType'), 'value', 0);
                         return r ? r.name || '-' : '-';
@@ -47,8 +48,8 @@
             'position': {
                 datasource: config.maps.displayPositionMap,
                 content: function (item, index, col, textClass) {
-                    if (operateData.get(item, 'displayType') == config.maps.sitePositionDisplayTypeMap[1].value
-                        && operateData.get(item, 'type') != config.maps.sitePositionTypeMap[1].value) {
+                    if (operateData.get(item, 'displayType') == config.maps.sitePositionDisplayType['float']
+                        && operateData.get(item, 'type') != config.maps.sitePositionType.popups) {
                         var r = mf.m.utils.deepSearch('children', config.maps.displayPositionMap,
                             operateData.get(item, 'position'), 'value', 0);
                         return r ? r.name || '-' : '-';
@@ -60,10 +61,17 @@
             },
             'hasCloseBtn': {
                 datasource: config.maps.judgeMap,
-                content: function (item) {
-                    var r = mf.m.utils.deepSearch('children', config.maps.judgeMap,
-                        operateData.get(item, 'hasCloseBtn'), 'value', 0);
-                    return r ? r.name || '-' : '-';
+                content: function (item, index, col, textClass) {
+                    var type = operateData.get(item, 'type');
+                    if (type != config.maps.sitePositionType.text
+                        && type != config.maps.sitePositionType.video) {
+                        var r = mf.m.utils.deepSearch('children', config.maps.judgeMap,
+                            operateData.get(item, 'hasCloseBtn'), 'value', 0);
+                        return r ? r.name || '-' : '-';
+                    } else {
+                        textClass.push('ui-table-cell-editor-disabled');
+                        return '-';
+                    }
                 }
             },
             'height': {
@@ -88,8 +96,15 @@
                 }
             },
             'autoPlayInterval': {
-                content: function (item) {
-                    return operateData.get(item, 'autoPlayInterval') || 0;
+                content: function (item, index, col, textClass) {
+                    var type = operateData.get(item, 'type');
+                    if (type == config.maps.sitePositionType.text
+                        || type == config.maps.sitePositionType.video) {
+                        return operateData.get(item, 'autoPlayInterval') || 0;
+                    } else {
+                        textClass.push('ui-table-cell-editor-disabled');
+                        return '-';
+                    }
                 },
                 validator: function (value, item) {
                     return operateData.get(item, 'autoPlayInterval') && value < 1 && '不能小于0';

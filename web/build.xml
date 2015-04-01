@@ -5,7 +5,8 @@
     <property name="debugLog" value="false"/>
     <property name="minimize" value="true"/>
     <property name="package" value=""/>
-    <property name="root" value="D:\company\workspace\Baidu_madv\WebRoot"/>
+    <property name="suffix" value=""/>
+    <property name="root" value="./output"/>
 
     <!-- 关闭console.log, 保留info/warn/error [上线值] false -->
     <condition property="enableDebugLog">
@@ -28,7 +29,7 @@
     <property name="sep"
               value="================================================"/>
     <property name="module.dir" value="${basedir}/asset/module"/>
-    <property name="out.dir" value="${basedir}/output"/>
+    <property name="out.dir" value="${basedir}/output${suffix}"/>
     <property name="deploy.dir" value="${basedir}/deploy"/>
     <property name="test.dir" value="${basedir}/test"/>
     <property name="toolkit.dir" value="${basedir}/../toolkit"/>

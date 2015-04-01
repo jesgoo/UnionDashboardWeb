@@ -71,11 +71,11 @@
                         {
                             cmd: 'search',
                             handle: function (options) {
-                                var text = esui.get('siteMediaId').getValue();
+                                var text = esui.get('siteMediaName').getValue();
                                 var filter;
                                 if (text) {
                                     filter = function (obj) {
-                                        return String(operateData.get(obj, 'id')).indexOf(text) > -1;
+                                        return String(operateData.get(obj, 'name')).indexOf(text) > -1;
                                     }
                                 }
                                 refreshTable({

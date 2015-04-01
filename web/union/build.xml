@@ -85,7 +85,7 @@
             -yui deploy/yuicompressor.jar
             -v
             -c ${encoding}
-            -r output${port}/${site}
+            -r ${out.dir}/${site}
             -ejs data
             -a html
             "/>

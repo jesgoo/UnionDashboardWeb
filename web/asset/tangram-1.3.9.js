@@ -4452,7 +4452,7 @@ baidu.page.getViewWidth = function () {
  * @config {Function} [onrender] 当被渲染时候触发
  * @config {Function} [onupdate] 当位置被更新的时候触发
  * @config {Function} [onrelease] 当被释放的时候触发
- * @returns {Object} 返回值一个对象，有三个方法：render、update、release
+ * @returns {Object} 返回值一个对象，有三个方法：render、update、releaseToServer
  */
 
 baidu.dom.fixable = function(element, options){

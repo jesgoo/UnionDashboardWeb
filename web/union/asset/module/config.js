@@ -8,12 +8,27 @@
 (function (exports, module) {
     var config = {
         "maps": {
+            "sitePositionType": {
+                "banner" : 1,
+                "popups" : 4,
+                "square" : 10,
+                "video" : 12,
+                "text" : 13
+            },
+            "sitePositionSubtype": {
+                "inline" : 1,
+                "float" : 2
+            },
+            "sitePositionDisplayPosition": {
+                "top" : 1,
+                "bottom" : 2
+            },
             "sitePositionTypeMap": [
                 {
                     "name": "Banner",
                     "value": 1,
                     "heightRange": [60, 200],
-                    "heightDefault": 60
+                    "heightDefault": 80
                 },
                 {
                     "name": "弹开屏",
@@ -26,14 +41,24 @@
                     "value": 10,
                     "heightRange": [201, 480],
                     "heightDefault": 320
-                }/*,
-                 {
-                 "name": "文字链",
-                 "value": 16,
-                 "heightRange": [10, 40],
-                 "heightDefault": 20
-                 }*/
+                },
+                {
+                    "name": "视频",
+                    "value": 12,
+                    "heightRange": [240, 480],
+                    "heightDefault": 240
+                },
+                {
+                    "name": "文字链",
+                    "value": 13,
+                    "heightRange": [13, 30],
+                    "heightDefault": 13
+                }
             ],
+            "sitePositionDisplayType": {
+                "embed" : 1,
+                "float" : 2
+            },
             "sitePositionDisplayTypeMap": [
                 {
                     "name": "嵌入式",
@@ -168,7 +193,7 @@
                 },
                 "displayType": {
                     "field": "subtype",
-                    "defaultValue": 2,
+                    "defaultValue": 1,
                     "title": "展现形式",
                     "sortable": true,
                     "editable": true,
@@ -192,7 +217,7 @@
                 },
                 "height": {
                     "field": "config.height",
-                    "defaultValue": 60,
+                    "defaultValue": 80,
                     "title": "高度(px)",
                     "editable": true,
                     "edittype": "int"

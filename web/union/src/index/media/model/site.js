@@ -14,7 +14,9 @@
                     return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'id', '') + '</a>'
                 }
             },
-            'name': {},
+            'name': {
+                width: 120
+            },
             'note': {},
             'createTime': {
                 width: 80
