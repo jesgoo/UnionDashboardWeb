@@ -55,7 +55,7 @@
             mf.loaded();
             var action = this;
             var model = action.model;
-            //mf.m.highchart_drill('#dayPositionsChart', model.get('lists'), model.get('date'));
+            mf.m.highchart_drill('#dayPositionsChart', model.get('lists'), model.get('date'));
         },
         onleave: function () {
             console.log('onleave');

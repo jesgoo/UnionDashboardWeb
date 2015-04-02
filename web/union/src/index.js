@@ -30,6 +30,8 @@ mf.urlDebugRouter.reg({
     '/index/index/login': '/login',
     // 配置文件
     '/index/config': '/config',
+    // 渠道列表
+    '/index/channel': /^\/channel\/?/i,
     // 网站媒体列表
     '/index/media/site': /^\/media\/?/i,
     // 网站媒体广告位列表
@@ -40,6 +42,8 @@ mf.urlDebugRouter.reg({
     '/index/report/dailyMedias': /^\/report\/media\/daily\/\d{8}-\d{8}/i,
     // 多媒体单日
     '/index/report/dayMedias': /^\/report\/media\/daily\/\d{8}/i,
+    // 单渠道多日
+    '/index/report/dailyChannel': /^\/report\/channel\/[0-9a-z]{8}\/media\/total\/\d{8}\-\d{8}/i,
     // 单媒体多日
     '/index/report/dailyMedia': /^\/report\/media\/[0-9a-z]{8}\/daily\/\d{8}\-\d{8}/i,
     // 单媒体单日分小时

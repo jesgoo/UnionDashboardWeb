@@ -94,7 +94,10 @@
                     url: '/config',
                     cache: true
                 },
-                '/report/media/' + loader.get('media') + '/adslot/daily/' + dateRegion[0] + '-' + dateRegion[1]
+                {
+                    url: '/report/media/' + loader.get('media') + '/adslot/daily/' + dateRegion[0] + '-' + dateRegion[1],
+                    errorMessage: '所属广告位单日数据获取失败，请重试。'
+                }
             ], function (config, reportData) {
 
                 var dateRegionSelects = $.map(reportData, function (row, date) {

@@ -93,7 +93,10 @@
                     url: '/config',
                     cache: true
                 },
-                '/report/media/' + loader.get('media') + '/adslot/daily/' + loader.get('date').replace(/\-/g, '')
+                {
+                    url: '/report/media/' + loader.get('media') + '/adslot/daily/' + loader.get('date').replace(/\-/g, ''),
+                    errorMessage: '所属广告位单日数据获取失败，请重试。'
+                }
             ], function (config, reportData) {
 
                 loader.set('config', config);

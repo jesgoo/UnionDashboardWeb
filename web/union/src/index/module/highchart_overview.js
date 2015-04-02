@@ -20,7 +20,10 @@
     var highchart_overview = function (element, lists, dateRegion) {
         var dateLength = (dateRegion.end - dateRegion.begin) / 24 / 3600000 + 1;
         lists = [].concat(lists);
-        if (lists.length < 1) return;
+        if (lists.length < 1) {
+            $(element).hide();
+            return ;
+        };
         lists.sort(function (a, b) {
             return a['date'] > b['date'] ? 1 : -1;
         });
@@ -41,7 +44,7 @@
         cData.ctr = $.map(cData.ctr || [], function (value) {
             return value * 100;
         });
-        $(element).highcharts({
+        $(element).show().highcharts({
             chart: {
                 spacingTop: 60,
                 marginTop: 60
@@ -52,7 +55,7 @@
             colors: [
                 "#1c62b8",
                 "#f6505c",
-                "#f6c928",
+                "#ff0000",
                 "#19b2b7",
                 "#8772cd",
                 "#eb6f25"
@@ -72,7 +75,7 @@
                 }
             },
             legend: {
-                align: 'right',
+                align: 'left',
                 verticalAlign: 'top',
                 itemMarginTop: -40,
                 floating: true,
@@ -145,7 +148,7 @@
 
                 }, { // Tertiary yAxis
                     min: 0,
-                    lineWidth: 5,
+                    lineWidth: 6,
                     gridLineWidth: 1,
                     gridLineColor: '#e5e5e5',
                     title: {
@@ -191,12 +194,13 @@
                         symbol: null
                     },
                     lineWidth: 5,
-                    color: '#ff0000'
+                    color: '#fcd660'
                 }, {
                     name: '展现数',
                     type: 'line',
                     yAxis: 0,
                     data: cData.impression,
+                    lineWidth: 2,
                     tooltip: {
                         valueSuffix: ' 次'
                     }
@@ -206,6 +210,7 @@
                     type: 'line',
                     yAxis: 1,
                     data: cData.click,
+                    lineWidth: 2,
                     tooltip: {
                         valueSuffix: ' 次'
                     }
@@ -223,6 +228,7 @@
                     type: 'line',
                     data: cData.ctr,
                     yAxis: 3,
+                    lineWidth: 2,
                     tooltip: {
                         valueDecimals: 2,
                         valueSuffix: '%'

@@ -20,6 +20,8 @@ exports.request = {};
 
 exports.response = {
     "success": true,
+    //"success": false,
+    //"errorType": "NoLogin",
     "entities": [
         {
             "click": 121111,

@@ -349,6 +349,8 @@ Response
     :::javascript
     {
         "success": true,
+        //"success": false,
+        //"errorType": "NoLogin",
         "entities": [
             {
                 "click": 0,
@@ -571,6 +573,8 @@ Response
     :::javascript
     {
         "success": true,
+        //"success": false,
+        //"errorType": "NoLogin",
         "entities": [
             {
                 "click": 121111,
@@ -849,6 +853,24 @@ Response
                 "served_request": 214976
             }
         ]
+    }
+
+### /index/report/dailyChannel
+
+Request 
+
+`GET /index/report/dailyChannel.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
     }
 
 ### /index/report/dailyMedia

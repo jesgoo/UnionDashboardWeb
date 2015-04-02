@@ -3,7 +3,7 @@
  * @author Luics<xukai01@baidu.com>
  * @date Fri Mar 27 2015 15:20:13 GMT+0800 (CST)
  * Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved
- * 单渠道多日 http://union.jesgoo.com/report/channel/321312/media/total/20150320-20150330
+ * dailyChannel 单渠道多日 http://union.moogos.com/report/channel/ac1f1b2a/media/total/20150320-20150330
  * dailyTotal 账户总体多日 http://union.jesgoo.com/report/daily/20150320-20150330
  //* hourMedia 账户全媒体单日分小时 http://union.jesgoo.com/report/media/daily/20150320/traffic
  * dailyMedias 多媒体多日 http://union.jesgoo.com/report/media/daily/20150320-20150330
@@ -32,12 +32,14 @@
                     url: '/config',
                     cache: true
                 },
-                '/media'
-            ], function (config, medias) {
+                '/media',
+                '/channel'
+            ], function (config, medias, channels) {
                 loader.set('config', config);
                 loader.set('siteMediaList', config.lists.siteMediaList);
                 loader.set('sitePositionList', config.lists.sitePositionList);
                 loader.set('medias', medias);
+                loader.set('channels', channels);
 
                 loader.start();
             });

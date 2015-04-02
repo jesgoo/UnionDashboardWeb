@@ -95,18 +95,22 @@
 }
 .report-area .plain-unit-title .ui-cal,
 .report-area .plain-unit-title .ui-mcal {
-  float: right;
+  float: left;
   height: 100%;
-  border-left-color: #eaeaea;
-  border-width: 0 0 0 1px;
+  border-right-color: #eaeaea;
+  border-width: 0 1px 0 0;
   line-height: 40px;
   padding-left: 10px;
+  position: relative;
+  left: -10px;
 }
 .report-area .plain-unit-title .ui-mcal-arrow {
   margin-top: 17px;
+  margin-right: 5px;
 }
 .report-area .plain-unit-title .ui-cal-arrow {
   margin-top: 9px;
+  margin-right: 5px;
 }
 .report-area .money-unit {
   font-size: 14px;
@@ -115,14 +119,19 @@
 .report-area .number-unit {
   margin-left: 3px;
 }
-.report-area .number-unit-K {
+.report-area .number-unit-B {
   color: #817f82;
 }
-.report-area .number-unit-M {
+.report-area .number-unit-K {
   color: #f58a16;
 }
-.report-area .number-unit-G {
+.report-area .number-unit-M {
   color: #cb3402;
+  font-size: 120%;
+}
+.report-area .number-unit-G {
+  color: #ff12ff;
+  font-size: 140%;
 }
 .list-op-multi {
   height: auto;

@@ -84,7 +84,10 @@
                     url: '/config',
                     cache: true
                 },
-                '/report/adslot/' + loader.get('adslot') + '/daily/' + loader.get('date') + '/traffic'
+                {
+                    url: '/report/adslot/' + loader.get('adslot') + '/daily/' + loader.get('date') + '/traffic',
+                    errorMessage: '分小时数据加载失败，请重试。'
+                }
             ], function (config, reportData) {
                 loader.set('config', config);
 

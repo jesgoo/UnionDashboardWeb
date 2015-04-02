@@ -101,18 +101,22 @@
         }
         .ui-cal,
         .ui-mcal {
-            float: right;
+            float: left;
             height: 100%;
-            border-left-color: #eaeaea;
-            border-width: 0 0 0 1px;
+            border-right-color: #eaeaea;
+            border-width: 0 1px 0 0;
             line-height: 40px;
             padding-left: 10px;
+            position: relative;
+            left: -10px;
         }
         .ui-mcal-arrow {
             margin-top: 17px;
+            margin-right: 5px;
         }
         .ui-cal-arrow {
             margin-top: 9px;
+            margin-right: 5px;
         }
 
     }
@@ -123,14 +127,19 @@
     .number-unit {
         margin-left: 3px;
     }
-    .number-unit-K {
+    .number-unit-B {
         color: #817f82;
     }
-    .number-unit-M {
+    .number-unit-K {
         color: #f58a16;
     }
-    .number-unit-G {
+    .number-unit-M {
         color: #cb3402;
+        font-size: 120%;
+    }
+    .number-unit-G {
+        color: #ff12ff;
+        font-size: 140%;
     }
 }
 .list-op-multi {

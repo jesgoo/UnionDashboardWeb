@@ -46,7 +46,8 @@ mf = typeof mf === 'undefined' ? {} : mf;
                 "highchart_drill": { "private": true }
             },
             "__mockData": {
-                "config": {}
+                "config": {},
+                "channel": {}
             }
         };
 
@@ -132,6 +133,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "dailyTotal": authorityAction(reportNav2('账户总体多日')),
             "dailyMedias": authorityAction(reportNav2('多媒体多日')),
             "dayMedias": authorityAction(reportNav2('多媒体单日')),
+            "dailyChannel": authorityAction(reportNav2('单渠道多日')),
             "dailyMedia": authorityAction(reportNav2('单媒体多日')),
             "hourlyMedia": authorityAction(reportNav2('单媒体单日分小时')),
             "hourlyPositions": authorityAction(reportNav2('单媒体全部广告位单日分小时')),

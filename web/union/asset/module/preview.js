@@ -10,7 +10,45 @@
  *
  */
 (function(exports, module) {
-    var preview = function(data, target) {
+    var writeInIframe = function (win, html, charset) {
+        var doc = win.document;
+        charset = charset || 'UTF-8';
+        doc.open();
+        doc.write('<!doctype html><html lang="en"><head>');
+        doc.write('<meta charset="' + charset + '">');
+        doc.write('<style>html,body,div,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}img{border:0;}</style></head><body>');
+        doc.write(html);
+        doc.write('</body></html>');
+        doc.close();
+    };
+    var previewJS = function(data, target) {
+        var contextId = '_preview';
+        var contextOption = {
+            contextId: contextId
+        };
+        er.context.addPrivate(contextId);
+        $.each(data, function (i, n) {
+            er.context.set(i, n, contextOption);
+        });
+        er.context.set('domain', location.host.replace(/^union\./i, 'api.'), contextOption);
+        var container = {
+            innerHTML: 'invalid'
+        };
+        er.template.merge(
+            container,
+            'position_preview_js',
+            contextId
+        );
+        er.context.removePrivate(contextId);
+        target = $('#' + target);
+        target.children().remove();
+        var iframe = $('<iframe/>', {
+            frameborder: '0',
+            scrolling: 'no'
+        }).appendTo(target);
+        writeInIframe(iframe.contentWindow, container.innerHTML);
+    };
+    var previewHTML = function(data, target) {
         var contextId = '_preview';
         var contextOption = {
             contextId: contextId
@@ -53,5 +91,9 @@
         er.context.removePrivate(contextId);
         return target.innerHTML;
     };
-    exports.preview = preview;
+    exports.preview = {
+        writeInIframe: writeInIframe,
+        previewHTML: previewHTML,
+        previewJS: previewJS
+    };
 })(mf && mf.m || exports || {}, mf || module);

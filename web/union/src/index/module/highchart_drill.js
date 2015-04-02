@@ -9,12 +9,13 @@
     var highchart_drill = function (element, lists, date) {
         lists = [].concat(lists);
         if (lists.length < 1) {
+            $(element).hide();
             return;
         }
         var drillData = {};
         $.each(lists, function (index, item) {
             $.each(item, function (key, value) {
-                if (key === 'media' || key === 'name') {
+                if (key === 'media' || key === 'name' || key === 'ctr' || key === 'cpm') {
                     return true;
                 }
                 drillData[key] || (drillData[key] = []);
@@ -30,10 +31,12 @@
                 return memory + value[1];
             }, 0);
         });
-        statisticsData.ctr = statisticsData.ctr / lists.length;
-        statisticsData.cpm = statisticsData.cpm / lists.length;
+        statisticsData.ctr = statisticsData.request > 0 ? statisticsData.click / statisticsData.request : 0;
+        statisticsData.cpm = statisticsData.request > 0 ? statisticsData.income / statisticsData.request / 1000 : 0;
+        statisticsData.ctr = Math.round(statisticsData.ctr * 100000) / 1000;
+        statisticsData.cpm = Math.round(statisticsData.cpm * 100000) / 1000;
         console.log('char data', drillData, statisticsData);
-        $(element).highcharts({
+        $(element).show().highcharts({
             chart: {
                 type: 'column'
             },

@@ -83,7 +83,10 @@
                     url: '/config',
                     cache: true
                 },
-                '/report/adslot/' + loader.get('adslot') + '/daily/' + dateRegion[0] + '-' + dateRegion[1]
+                {
+                    url: '/report/adslot/' + loader.get('adslot') + '/daily/' + dateRegion[0] + '-' + dateRegion[1],
+                    errorMessage: '分日数据获取失败，请重试。'
+                }
             ], function (config, reportData) {
 
                 loader.set('config', config);

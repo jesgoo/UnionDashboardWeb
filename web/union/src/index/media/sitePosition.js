@@ -80,7 +80,8 @@
             })(table.onedit);
             table._rowOverHandler = function (rowIndex) {
                 esui.Table.prototype._rowOverHandler.call(this, rowIndex);
-                mf.m.preview(
+                mf.m.preview.previewJS(
+                //mf.m.preview.previewHTML(
                     mf.reflectDataInConfig(table.datasource[rowIndex], sitePositionList),
                     'positionPreview'
                 );

@@ -50,7 +50,8 @@
                 }
             }
         }),
-        STATE_MAP: {},
+        STATE_MAP: {
+        },
 
         onenter: function () {
             console.log('onenter');
@@ -60,7 +61,7 @@
             console.log('onafterrepaint');
             var model = this.model;
             var operateData = mf.operateDataInConfigField(model.get('siteMediaList'));
-            var tree = $.map(model.get('medias'), function (media) {
+            var mediaTree = $.map(model.get('medias') || [], function (media) {
                 var mediaId = operateData.get(media, 'id');
                 var mediaName = operateData.get(media, 'name');
                 return {
@@ -113,6 +114,24 @@
                     ]
                 }
             });
+            var channelTree = $.map(model.get('channels') || [], function (channel) {
+                var channelId = channel.id;
+                var channelName = channel.name;
+                return {
+                    text: channelName,
+                    id: '_report_dailyChannel/' + channelId,
+                    channel: channelId,
+                    reports: {
+                        dailyChannel: {
+                            action: 'dailyChannel',
+                            queryMap: {
+                                channel: channelId,
+                                name: channelName
+                            }
+                        }
+                    }
+                }
+            });
             var treeSource = {
                 id: '_report_dailyTotal',
                 text: '我的账户',
@@ -130,7 +149,7 @@
                         action: 'hourlyTotal'
                     }*/
                 },
-                children: tree
+                children: channelTree.concat(mediaTree)
             };
             model.set('treeSource', treeSource);
         },
@@ -279,13 +298,12 @@
             mf.loaded();
             var action = this;
             var model = action.model;
-
         },
         onleave: function () {
             console.log('onleave');
             var action = this;
             $.each(action.subAction || {}, function (name, subAction) {
-                subAction.leave();
+                subAction && subAction.leave();
             });
             action.subAction = null;
             var commands = action.model.get('commands');

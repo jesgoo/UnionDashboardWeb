@@ -83,7 +83,10 @@
                     url: '/config',
                     cache: true
                 },
-                '/report/daily/' + dateRegion[0] + '-' + dateRegion[1]
+                {
+                    url: '/report/daily/' + dateRegion[0] + '-' + dateRegion[1],
+                    errorMessage: '分日汇总数据获取失败，请重试。'
+                }
             ], function (config, reportData) {
 
                 loader.set('config', config);

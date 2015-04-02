@@ -30,28 +30,28 @@ mf.onenter = (function (fn) {
 })(mf.onenter);
 
 /*
-* 重写表格编辑启动器值获取逻辑，支持嵌套对象
-* */
-esui.Table.prototype.startEdit = function ( type, rowIndex, columnIndex ) {
-    if ( this.editable ) {
-        var entrance    = baidu.g( this._getBodyCellId( rowIndex, columnIndex ) );
-        var tlOffset    = -5;
-        var pos         = baidu.dom.getPosition( entrance );
-        var field       = this._fields[ columnIndex ];
+ * 重写表格编辑启动器值获取逻辑，支持嵌套对象
+ * */
+esui.Table.prototype.startEdit = function (type, rowIndex, columnIndex) {
+    if (this.editable) {
+        var entrance = baidu.g(this._getBodyCellId(rowIndex, columnIndex));
+        var tlOffset = -5;
+        var pos = baidu.dom.getPosition(entrance);
+        var field = this._fields[columnIndex];
 
-        this._currentEditor = esui.Table.EditorManager.startEdit( this, type, {
-            left        : pos.left + tlOffset,
-            top         : pos.top + tlOffset,
-            rowIndex    : rowIndex,
-            columnIndex : columnIndex,
-            field       : field,
-            value       : mf.m.utils.recursion.get(this.datasource[ rowIndex ], field.field)
-        } );
+        this._currentEditor = esui.Table.EditorManager.startEdit(this, type, {
+            left: pos.left + tlOffset,
+            top: pos.top + tlOffset,
+            rowIndex: rowIndex,
+            columnIndex: columnIndex,
+            field: field,
+            value: mf.m.utils.recursion.get(this.datasource[rowIndex], field.field)
+        });
     }
 };
 /*
-* 重写选择列表的值对比逻辑
-* */
+ * 重写选择列表的值对比逻辑
+ * */
 
 /**
  * 根据值选择选项
@@ -59,22 +59,22 @@ esui.Table.prototype.startEdit = function ( type, rowIndex, columnIndex ) {
  * @public
  * @param {string} value 值
  */
-esui.Select.prototype.setValue = function( value ) {
+esui.Select.prototype.setValue = function (value) {
     var me = this,
         len,
         i;
 
-    if ( esui.util.hasValue( value ) ) {
-         for ( i = 0, len = me.datasource.length; i < len; i++ ) {
-             if ( me.datasource[i].value === value ) {
-                me.setSelectedIndex( i );
-             return;
-             }
-         }
+    if (esui.util.hasValue(value)) {
+        for (i = 0, len = me.datasource.length; i < len; i++) {
+            if (me.datasource[i].value === value) {
+                me.setSelectedIndex(i);
+                return;
+            }
+        }
     }
 
     me.value = null;
-    me.setSelectedIndex( -1 );
+    me.setSelectedIndex(-1);
 };
 
 (function () {
@@ -114,11 +114,11 @@ esui.Select.prototype.setValue = function( value ) {
         }
     };
     /*
-    * debug 模式下的url映射
-    * */
+     * debug 模式下的url映射
+     * */
     mf.urlDebugRouter = {
         routers: {},
-        reg : function (routers) {
+        reg: function (routers) {
             $.extend(mf.urlDebugRouter.routers, routers);
         },
         get: function (url) {
@@ -157,6 +157,8 @@ esui.Select.prototype.setValue = function( value ) {
     mf.ajaxParamFactory = function (param, opt) {
         param = param || {};
         opt = opt || {};
+        console.log('ajax factory', param);
+
         param.type = param.type || 'GET';
         param.data = param.data || {};
         param.requestType = param.requestType || 'json';
@@ -166,11 +168,11 @@ esui.Select.prototype.setValue = function( value ) {
             param.requestType = null;
         }
         var requestType = dataTypes[param.requestType];
-/*
-        if (dataTypes[param.dataType]) {
-            param.contentType = param.contentType || contentTypes[param.dataType];
-        }
-*/
+        /*
+         if (dataTypes[param.dataType]) {
+         param.contentType = param.contentType || contentTypes[param.dataType];
+         }
+         */
         if (requestType) {
             param.data = requestType.encode ? requestType.encode(param.data) : param.data;
             param.contentType = param.contentType || requestType.contentType;
@@ -181,7 +183,7 @@ esui.Select.prototype.setValue = function( value ) {
         url = url[0] || '';
         param.originalUrl = url;
         // mock 调试的路由，在debug.js里
-        if (mf.DEBUG){
+        if (mf.DEBUG) {
             url = mf.urlDebugRouter.get(url) || url;
         }
 
@@ -200,6 +202,8 @@ esui.Select.prototype.setValue = function( value ) {
         param.url = url + (
             query ? '?' : ''
         ) + query;
+        console.log('ajax factory output', param);
+
         return param;
     };
     /*
@@ -209,10 +213,10 @@ esui.Select.prototype.setValue = function( value ) {
      * */
     function dataParse(data, filterFn) {
         if (!data.success) {
-            if (data.errorType === 'formError') {
-                throw data.message || '网络错误，请联系管理员！<br>';
-            } else if (data.errorType === 'NoLogin') {
+            if (data.errorType === 'NoLogin') {
                 throw 'sessionTimeout';
+            } else if (data.message) {
+                throw data.message;
             } else {
                 throw '请求失败，请稍后重试。<br>';
             }
@@ -221,6 +225,7 @@ esui.Select.prototype.setValue = function( value ) {
             : (mf.parseReportData(data) || data.entities || []);
     }
 
+    var hasShowLogin = false;
     /*
      * ajax错误处理
      *
@@ -231,6 +236,7 @@ esui.Select.prototype.setValue = function( value ) {
         var args = [].slice.call(arguments);
         return function (msg) {
             mf.loaded();
+            console.log('errorHandle', msg, args);
             if (msg === 'sessionTimeout') {
                 //回话超时登录
                 if (typeof(mf.userLoad) === 'function') {
@@ -238,18 +244,27 @@ esui.Select.prototype.setValue = function( value ) {
                         mf.parallelAjax.apply(null, args);
                     });
                 } else {
-                    mf.msg(
-                        '登录超时，操作无法完成，请重新登录！',
-                        typeof(mf.userLoad) === 'string' ? function () {
+                    if (hasShowLogin) {
+                        return;
+                    }
+                    hasShowLogin = true;
+                    esui.Dialog.alert({
+                        title: '提示信息',
+                        content: '登录超时，操作无法完成，请重新登录！',
+                        onok: typeof(mf.userLoad) === 'string' ? function () {
                             T.cookie.set(mf.cookieKeyMap.authority, 0);
+                            hasShowLogin = false;
                             er.locator.redirect(mf.userLoad);
-                        } : null
-                    );
+                        } : function () {
+                            hasShowLogin = false;
+                        }
+                    });
                 }
             } else {
-                mf.msg(msg);
+                esui.Dialog.alert({
+                    title: '提示信息', content: msg
+                });
             }
-
         };
     }
 
@@ -270,7 +285,6 @@ esui.Select.prototype.setValue = function( value ) {
             target = mf.ajaxParamFactory(target);
             deferredList[i] = (function (ajaxParam) {
                 var deferred = $.Deferred();
-                console.log('ajax ', ajaxParam);
                 if (mf.ajaxResponse[target.originalUrl]) {
                     console.log('ajaxResponse ', target.originalUrl);
                     deferred.resolve(mf.ajaxResponse[target.originalUrl]);
@@ -286,7 +300,8 @@ esui.Select.prototype.setValue = function( value ) {
                             deferred.resolve(data);
                         })
                         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                            deferred.reject('网络错误！')
+                            console.log('ajax fail', XMLHttpRequest, textStatus, errorThrown);
+                            deferred.reject(ajaxParam.errorMessage || '网络错误！');
                         });
                 }
                 return deferred.promise();
@@ -389,7 +404,7 @@ esui.Select.prototype.setValue = function( value ) {
             if (field.request === false) {
                 delete newRow[field.field];
                 //mf.m.utils.recursion.del(newRow, field.field);
-            }else if (!field.request && !mf.m.utils.hasValue(value)) {
+            } else if (!field.request && !mf.m.utils.hasValue(value)) {
                 console.log('delete', field, String(value));
                 delete newRow[field.field];
                 //mf.m.utils.recursion.del(newRow, field.field);
@@ -460,18 +475,18 @@ esui.Select.prototype.setValue = function( value ) {
         };
     };
     /*
-    * 模拟分页
-    * 数据全部加载到model中，后根据筛选截取，排序后再按分页信息截取
-    *
-    * @param {Array.<Object>} dataList 原始完整数据
-    * @param {Object} targets 包含了需要互动的esui控件
-    *
-    * @return {Function}
-    *   动态变更信息
-    *   @param {number} pageSize
-    *   @param {number} page
-    *   @param {Function | undefined} filter 筛选条件
-    * */
+     * 模拟分页
+     * 数据全部加载到model中，后根据筛选截取，排序后再按分页信息截取
+     *
+     * @param {Array.<Object>} dataList 原始完整数据
+     * @param {Object} targets 包含了需要互动的esui控件
+     *
+     * @return {Function}
+     *   动态变更信息
+     *   @param {number} pageSize
+     *   @param {number} page
+     *   @param {Function | undefined} filter 筛选条件
+     * */
     mf.mockPager = function (dataList, targets) {
         var table = targets.table;
         var pageSizer = targets.pageSizer;
@@ -573,6 +588,27 @@ esui.Select.prototype.setValue = function( value ) {
     };
 })();
 (function () {
+    mf.getEnglishNumber = function (number, hasUnitClass, unit) {
+        var numberStr = [];
+        unit = unit || ['B', 'K', 'M', 'G', 'T', 'P'];
+        number = number.toPrecision().split('.');
+        var integer = number[0].split('').reverse();
+        var decimal = number[1];
+        integer.forEach(function (value, index) {
+            var position = Math.floor(index / 3);
+            numberStr[position] || (numberStr[position] = '');
+            numberStr[position] = value + numberStr[position];
+        });
+        if (decimal) {
+            decimal = '.' + decimal.substr(0, 2);
+        }
+        if (hasUnitClass) {
+            numberStr = $.map(numberStr, function (numberStrValue, index) {
+                return '<span class="number-unit number-unit-' + unit[index] + '">' + numberStrValue + '</span>';
+            });
+        }
+        return numberStr.reverse().join(',') + (decimal || '');
+    };
     mf.getFieldContentPercent = function (field, unit) {
         unit = unit || '%';
         unit = '<span class="percent-unit">' + unit + '</span>';
@@ -581,31 +617,15 @@ esui.Select.prototype.setValue = function( value ) {
         };
     };
     mf.getFieldContentLess = function (field, unit) {
-        unit = unit || [
-            'G', 'M', 'K'
-        ];
-        unit = $.map(unit, function (unitString) {
-            return '<span class="number-unit number-unit-' + unitString + '">' + unitString + '</span>';
-        });
         return function (item) {
-            var value = item[field];
-            if (value > 10000000000) {
-                value = (Math.floor(value / 10000000) / 100) + unit[0];
-            } else if (value > 10000000) {
-                value = (Math.floor(value / 10000) / 100) + unit[1];
-            } else if (value > 10000) {
-                value = (Math.floor(value / 10) / 100) + unit[2];
-            }
-            return '<span title=" ' + item[field] + ' ">' + value +'</span>';
+            return '<span title=" ' + item[field] + ' ">' + mf.getEnglishNumber(item[field], true, unit) + '</span>';
         };
     };
     mf.getFieldContentMoney = function (field, unit) {
         unit = unit || '¥';
         unit = '<span class="money-unit">' + unit + '</span>';
         return function (item) {
-            var value = item[field];
-            value = (Math.round(value * 1000) / 1000).toString();
-            return unit + value;
+            return unit + mf.getEnglishNumber(item[field], true);
         };
     };
 })();

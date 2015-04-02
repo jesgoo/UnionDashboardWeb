@@ -93,7 +93,10 @@
                     url: '/config',
                     cache: true
                 },
-                '/report/media/' + loader.get('media') + '/adslot/daily/' + loader.get('date').replace(/\-/g, '') + '/traffic'
+                {
+                    url: '/report/media/' + loader.get('media') + '/adslot/daily/' + loader.get('date').replace(/\-/g, '') + '/traffic',
+                    errorMessage: '所属广告位分小时数据加载失败，请重试。'
+                }
             ], function (config, reportData) {
 
                 var timeSelects = $.map(reportData, function (row, date) {

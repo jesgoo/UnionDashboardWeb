@@ -92,7 +92,10 @@
                     url: '/config',
                     cache: true
                 },
-                '/report/media/daily/' + loader.get('date').replace(/\-/g, '')
+                {
+                    url: '/report/media/daily/' + loader.get('date').replace(/\-/g, ''),
+                    errorMessage: '所属媒体单日数据获取失败，请重试。'
+                }
             ], function (config, reportData) {
 
                 loader.set('config', config);

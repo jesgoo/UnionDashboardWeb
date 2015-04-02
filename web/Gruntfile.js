@@ -160,6 +160,9 @@ module.exports = function (grunt) {
                     res.send(404, 'Sorry, we cannot find that!');
                 }
             });
+            app.get('/js/_jssdk.js', function (req, res) {
+                var http = require('http');
+            });
             app.use(express.static(server.root));
 
             var lists = [

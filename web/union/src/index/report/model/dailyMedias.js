@@ -93,7 +93,10 @@
                     url: '/config',
                     cache: true
                 },
-                '/report/media/daily/' + dateRegion[0] + '-' + dateRegion[1]
+                {
+                    url: '/report/media/daily/' + dateRegion[0] + '-' + dateRegion[1],
+                    errorMessage: '所有媒体单日数据获取失败，请重试。'
+                }
             ], function (config, reportData) {
                 var dateRegionSelects = $.map(reportData, function (row, date) {
                     return {

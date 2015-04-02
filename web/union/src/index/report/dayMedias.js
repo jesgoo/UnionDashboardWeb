@@ -54,7 +54,7 @@
             console.log('onentercomplete');
             var action = this;
             var model = action.model;
-            //mf.m.highchart_drill('#dayMediasChart', model.get('lists'), model.get('date'));
+            mf.m.highchart_drill('#dayMediasChart', model.get('lists'), model.get('date'));
         },
         onleave: function () {
             console.log('onleave');

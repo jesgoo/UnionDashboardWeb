@@ -16,7 +16,10 @@
     var highchart_hourview = function (element, lists) {
         var dateLength = 24;
         lists = [].concat(lists);
-        if (lists.length < 1) return;
+        if (lists.length < 1) {
+            $(element).hide();
+            return;
+        }
         lists.sort(function (a, b) {
             return a['hour'] > b['hour'] ? 1 : -1;
         });
@@ -33,7 +36,7 @@
                 cData[key].push(value);
             });
         });
-        $(element).highcharts({
+        $(element).show().highcharts({
             chart: {
                 spacingTop: 60,
                 marginTop: 60
@@ -64,7 +67,7 @@
                 }
             },
             legend: {
-                align: 'right',
+                align: 'left',
                 verticalAlign: 'top',
                 itemMarginTop: -40,
                 floating: true,
@@ -140,6 +143,7 @@
                     name: '展现数',
                     type: 'line',
                     yAxis: 0,
+                    lineWidth: 2,
                     data: cData.impression,
                     tooltip: {
                         valueSuffix: ' 次'
@@ -149,6 +153,7 @@
                     name: '点击数',
                     type: 'line',
                     yAxis: 1,
+                    lineWidth: 2,
                     data: cData.click,
                     tooltip: {
                         valueSuffix: ' 次'
@@ -158,6 +163,7 @@
                     name: '请求数',
                     type: 'line',
                     yAxis: 0,
+                    lineWidth: 2,
                     data: cData.request,
                     tooltip: {
                         valueSuffix: ' 次'
