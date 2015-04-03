@@ -58,8 +58,11 @@
         },
         onentercomplete: function () {
             console.log('onentercomplete');
+            var action = this;
+            var model = action.model;
             var dailyMediasDateSelect = esui.get('dailyMediasDateSelect');
             dailyMediasDateSelect.setValue(dailyMediasDateSelect.datasource[0].id, { dispatch: true });
+            mf.m.highchart_medias('#dailyMediasChart', model.get('reportData'));
         },
         onleave: function () {
             console.log('onleave');

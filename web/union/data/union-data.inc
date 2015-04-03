@@ -16,6 +16,30 @@ Response
         "model": {}
     }
 
+### /index/channel
+
+Request 
+
+`GET /index/channel.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "entities": [
+            {
+                "id": "ac1f1b2a",
+                "modified_time": "2014年11月25日",
+                "name": "传域"
+            }
+        ]
+    }
+
 ### /index/index/login
 
 Request 

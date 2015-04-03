@@ -43,7 +43,8 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "__module": {
                 "highchart_overview": { "private": true },
                 "highchart_hourview": { "private": true },
-                "highchart_drill": { "private": true }
+                "highchart_drill": { "private": true },
+                "highchart_medias": { "private": true }
             },
             "__mockData": {
                 "config": {},

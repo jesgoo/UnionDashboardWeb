@@ -52,14 +52,7 @@
             title: {
                 text: null
             },
-            colors: [
-                "#1c62b8",
-                "#f6505c",
-                "#ff0000",
-                "#19b2b7",
-                "#8772cd",
-                "#eb6f25"
-            ],
+            colors: ["#f6505c","#1c62b8","#f6c928","#19b2b7","#8772cd","#eb6f25"],
             credits: {
                 enabled: false
             },
@@ -194,7 +187,6 @@
                         symbol: null
                     },
                     lineWidth: 5,
-                    color: '#fcd660'
                 }, {
                     name: '展现数',
                     type: 'line',

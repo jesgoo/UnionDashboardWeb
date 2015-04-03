@@ -31,10 +31,12 @@
                 return memory + value[1];
             }, 0);
         });
+        statisticsData.click = statisticsData.click*100;
+        statisticsData.income = statisticsData.income*1000;
         statisticsData.ctr = statisticsData.request > 0 ? statisticsData.click / statisticsData.request : 0;
-        statisticsData.cpm = statisticsData.request > 0 ? statisticsData.income / statisticsData.request / 1000 : 0;
-        statisticsData.ctr = Math.round(statisticsData.ctr * 100000) / 1000;
-        statisticsData.cpm = Math.round(statisticsData.cpm * 100000) / 1000;
+        statisticsData.cpm = statisticsData.request > 0 ? statisticsData.income / (statisticsData.request / 1000 ) : 0;
+        statisticsData.ctr = Math.round(statisticsData.ctr * 100000000);
+        statisticsData.cpm = Math.round(statisticsData.cpm * 10000000);
         console.log('char data', drillData, statisticsData);
         $(element).show().highcharts({
             chart: {
@@ -54,7 +56,30 @@
                 enabled: false
             },
             tooltip: {
-                shared: true
+                // headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                // pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>',
+                formatter : function (){
+                    var t;
+                    switch( this.point.drilldown){
+                        case 'click':
+                            t = this.point.y / 100;
+                            break;
+                        case 'income':
+                            t = this.point.y / 1000;
+                            break;
+                        case 'ctr':
+                            t = (this.point.y / 1000000).toFixed(2);
+                            break;
+                        case 'cpm':
+                            t = (this.point.y / 100000).toFixed(2);
+                            break;
+                        default :
+                            t = this.point.y;
+                    }
+                    var s = '<span style="font-size:11px">' + this.series.name +'</span><br>';
+                    s += '<span style="color:'+ this.point.color +'">' + this.point.name + '</span>: <b>'+ t +'</b><br/>'
+                    return s;
+                }
             },
             xAxis: [
                 {
