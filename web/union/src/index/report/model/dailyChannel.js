@@ -68,6 +68,12 @@
                 "sortable": 1
             },
             {
+                "field": "media_income",
+                "title": "媒体收入",
+                "content": mf.getFieldContentMoney('media_income'),
+                "sortable": 1
+            },
+            {
                 "field": "media",
                 "title": "媒体ID",
                 "content": function (item, index) {

@@ -8,7 +8,7 @@
     function bindReport(action) {
         var reportArea = $('#reportArea', '#' + action.view.target);
         var getReportArea = function (id) {
-            return $('<div/>', { id: 'area' + id }).appendTo(reportArea).get(0);
+            return $('<div/>', {id: 'area' + id}).appendTo(reportArea).get(0);
         };
         return function (reports) {
             var loadReport = arguments.callee;
@@ -16,7 +16,7 @@
                 if (sub) {
                     sub.leave();
                     action.subAction[name] = null;
-                };
+                }
             });
             reportArea.children().remove();
             $.each(reports, function (reportPlace, report) {
@@ -35,6 +35,28 @@
         };
     }
 
+    var guide = function (action) {
+        var reportGuide = $('#reportGuide', '#' + action.view.target);
+        return function (deepSearchItem) {
+            console.log('rend guide', deepSearchItem);
+            var guideHTML = [
+                deepSearchItem.text
+            ];
+            while (deepSearchItem.parent) {
+                deepSearchItem = deepSearchItem.parent;
+                guideHTML.unshift('<a data-cmd="' +
+                               deepSearchItem.guideCmd +
+                               (deepSearchItem[deepSearchItem.guideCmd]
+                                   ? '" data-' + deepSearchItem.guideCmd + '="'
+                               + deepSearchItem[deepSearchItem.guideCmd]
+                                   : '') +
+                               '">' + deepSearchItem.text +
+                               '</a>');
+            }
+            reportGuide.html("<em>报表路径</em>&nbsp;" + guideHTML.join('&nbsp;➡️&nbsp;'));
+
+        };
+    };
     mf.index.report.index = new er.Action({
         model: mf.index.report.model.index,
         view: new er.View({
@@ -50,8 +72,7 @@
                 }
             }
         }),
-        STATE_MAP: {
-        },
+        STATE_MAP: {},
 
         onenter: function () {
             console.log('onenter');
@@ -68,6 +89,7 @@
                     text: mediaName,
                     id: '_report_dailyMedia/' + mediaId,
                     media: mediaId,
+                    guideCmd: 'media',
                     hideChildren: true,
                     reports: {
                         dailyMedia: {
@@ -120,7 +142,8 @@
                 return {
                     text: channelName,
                     id: '_report_dailyChannel/' + channelId,
-                    channel: channelId,
+                    media: channelId,
+                    guideCmd: 'media',
                     reports: {
                         dailyChannel: {
                             action: 'dailyChannel',
@@ -135,6 +158,7 @@
             var treeSource = {
                 id: '_report_dailyTotal',
                 text: '我的账户',
+                guideCmd: 'total',
                 reports: {
                     dailyTotal: {
                         action: 'dailyTotal'
@@ -145,9 +169,9 @@
                     dailyMedias: {
                         action: 'dailyMedias'
                     }/*,
-                    hourlyMedias: {
-                        action: 'hourlyTotal'
-                    }*/
+                     hourlyMedias: {
+                     action: 'hourlyTotal'
+                     }*/
                 },
                 children: channelTree.concat(mediaTree)
             };
@@ -178,13 +202,12 @@
                                 text: adslotName,
                                 id: '_report_position/' + adslotId,
                                 adslot: adslotId,
+                                guideCmd: 'adslot',
                                 reports: {
                                     dailyPosition: {
                                         action: 'dailyPosition',
                                         queryMap: {
                                             adslot: adslotId,
-                                            name: adslotName,
-                                            mediaName: item.text,
                                             media: item.id
                                         }
                                     },
@@ -192,8 +215,6 @@
                                         action: 'hourlyPosition',
                                         queryMap: {
                                             adslot: adslotId,
-                                            name: adslotName,
-                                            mediaName: item.text,
                                             media: item.id
                                         }
                                     }
@@ -209,9 +230,12 @@
             myTree.onclappse = function (value) {
                 this._dataMap[value].hideChildren = true;
             };
-            myTree.onchange = parseSelectTree;
+            myTree.onchange = function (value, item) {
+                parseSelectTree(value, mf.m.utils.deepSearch('children', treeSource, value, 'id'));
+            };
             myTree.select('_report_dailyTotal');
             var reportLoader = bindReport(action);
+            var guidePainter = guide(action);
             parseSelectTree('_report_dailyTotal', treeSource);
 
             function parseSelectTree(value, item) {
@@ -220,6 +244,7 @@
                 if (!method) {
                     return false;
                 } else if (method[1] === 'report' && item.reports) {
+                    guidePainter(item);
                     reportLoader(item.reports);
                 }
             }
@@ -228,6 +253,13 @@
                 'commands',
                 mf.clickCommand.register(
                     [
+                        {
+                            cmd: 'total',
+                            handle: function (options) {
+                                parseSelectTree(treeSource.id, treeSource);
+                                myTree.select(treeSource.id);
+                            }
+                        },
                         {
                             cmd: 'media',
                             handle: function (options) {
@@ -239,7 +271,7 @@
                                     esui.Dialog.alert(
                                         {
                                             title: '跳转提示',
-                                            content: '<p>没有找到对应的媒体报表。</p>\
+                                            content: '<p>没有找到对应的报表。</p>\
                                                      <p>请刷新重试或咨询管理员。</p>'
                                         }
                                     );
@@ -249,16 +281,19 @@
                         {
                             cmd: 'adslot',
                             handle: function (options) {
-                                var adslotItem = mf.m.utils.deepSearch('children', treeSource, options.adslot, 'adslot');
+                                var adslotItem = mf.m.utils.deepSearch('children', treeSource, options.adslot,
+                                    'adslot');
                                 if (adslotItem) {
                                     parseSelectTree(adslotItem.id, adslotItem);
                                     myTree.expand(adslotItem.parent.id);
                                     myTree.select(adslotItem.id);
                                 } else {
-                                    var mediaItem = mf.m.utils.deepSearch('children', treeSource, options.media, 'media');
+                                    var mediaItem = mf.m.utils.deepSearch('children', treeSource, options.media,
+                                        'media');
                                     if (mediaItem && !mediaItem.loaded) {
                                         myTree.onexpand(mediaItem.id, function () {
-                                            var adslotItem = mf.m.utils.deepSearch('children', treeSource, options.adslot, 'adslot');
+                                            var adslotItem = mf.m.utils.deepSearch('children', treeSource,
+                                                options.adslot, 'adslot');
                                             if (adslotItem) {
                                                 parseSelectTree(adslotItem.id, adslotItem);
                                                 myTree.select(adslotItem.id);

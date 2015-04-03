@@ -74,9 +74,10 @@
                                 var text = esui.get('siteMediaName').getValue();
                                 var filter;
                                 if (text) {
+                                    var valueRegExp = mf.m.utils.makeRegExp(text, 'i');
                                     filter = function (obj) {
-                                        return String(operateData.get(obj, 'name')).indexOf(text) > -1;
-                                    }
+                                        return valueRegExp.test(operateData.get(obj, 'name'));
+                                    };
                                 }
                                 refreshTable({
                                     page: 0,

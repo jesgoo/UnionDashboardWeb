@@ -326,6 +326,12 @@
             return obj;
         }
     };
-
-     module.exports = exports.utils = utils;
+    /*
+    * 将字符串变成可使用的正则匹配式，主要支持大小写不敏感的搜索
+    * */
+    utils.makeRegExp = function (exp, globalOptionString) {
+        exp = String(exp).replace(/[\.\\\/\+\-\*\?\$\(\)\{\}\[\]]/g, '\\$&');
+        return new RegExp(exp, globalOptionString === _undefined ? 'i' : globalOptionString);
+    };
+    module.exports = exports.utils = utils;
 })(mf && mf.m || exports || {}, mf || module);
