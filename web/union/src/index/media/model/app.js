@@ -7,9 +7,12 @@
 (function () {
     var FIELDS = function (model, config) {
         var lists = config.lists.appMediaList;
-        var listFieldInConfig = mf.mockFieldInConfig(lists);
+        var operateData = mf.operateDataInConfigField(lists);
         var needFieldLists = {
             'id': {
+                stable:1,
+                width: 80
+
                 /*content: function (item, index) {
                     return '<a data-cmd="position" data-index="' + index + '">' + item[listFieldInConfig('id')] + '</a>'
                 }*/
@@ -17,20 +20,24 @@
             'name': {},
             'note': {},
             'createTime': {
-                width: 100
+                stable:1,
+                width: 80
             },
             'modifyTime': {
-                width: 100
+                stable:1,
+                width: 80
             },
             'operation': {
                 title: '操作',
+                stable:1,
+                width: 80,
                 content: function (item, index) {
                     var ops = [];
                     if (item._isModify) {
                         ops.unshift('<a data-cmd="save" data-index="' + index + '">保存</a>');
                     }
                     if (item._isNew) {
-                        ops.unshift('<a data-cmd="delete_add" data-index="' + index + '">撤销新增</a>');
+                        ops.unshift('<a data-cmd="delete_add" data-index="' + index + '">删除</a>');
                     } else {
                         ops.unshift('<a data-cmd="copy" data-index="' + index + '">复制</a>');
                     }
@@ -51,27 +58,20 @@
 
             mf.parallelAjax([
                 {
-                    url: 'index/config',
+                    url: '/config',
                     cache: true
                 },
-                'index/media/app?' + loader.getQueryString()
-            ], function (config, data) {
-                console.log('success', config, data);
-                mf.initModel({
+                '/media?type=' + mf.m.config.maps.mediaType.app
+            ], function (config, entities) {
+
+                mf.initEntities({
                     loader: loader,
-                    model: data,
-                    fields: FIELDS(data, config)
+                    entities: entities,
+                    fields: FIELDS(entities, config)
                 });
-                var emptySiteMedia = {
-                    _isNew: true
-                };
-                var appMediaList = config.lists.appMediaList;
-                $.each(appMediaList, function (i, n) {
-                    emptySiteMedia[n.field] = n.defaultValue;
-                });
-                loader.set('emptySiteMedia', emptySiteMedia);
-                loader.set('appMediaList', appMediaList);
-                loader.set('appMediaCount', loader.get('list').length);
+                loader.set('config', config);
+                loader.set('appMediaList', config.lists.appMediaList);
+                loader.set('appMediaCount', entities.length);
                 loader.start();
             });
         })

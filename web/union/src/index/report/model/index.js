@@ -32,9 +32,12 @@
                     url: '/config',
                     cache: true
                 },
-                '/media',
-                '/channel'
-            ], function (config, medias, channels) {
+                {
+                    url: '/channel',
+                    cache: true
+                },
+                '/media'
+            ], function (config, channels, medias) {
                 loader.set('config', config);
                 loader.set('siteMediaList', config.lists.siteMediaList);
                 loader.set('sitePositionList', config.lists.sitePositionList);

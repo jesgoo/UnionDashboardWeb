@@ -8,6 +8,10 @@
 (function (exports, module) {
     var config = {
         "maps": {
+            "mediaType": {
+                "app" : 0,
+                "site" : 1
+            },
             "sitePositionType": {
                 "banner" : 1,
                 "popups" : 4,

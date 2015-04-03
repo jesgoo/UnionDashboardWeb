@@ -58,6 +58,8 @@
                 table: table
             });
             refreshTable();
+            var jssdkDomain = location.host.replace(/^union\./i, 'api.');
+
             table.onedit = (function (fn) {
                 return function (value, options) {
                     var row = table.datasource[options.rowIndex];
@@ -168,6 +170,20 @@
                                 newRow._isNew = true;
                                 table.datasource.unshift(newRow);
                                 table.render();
+                            }
+                        },
+                        {
+                            cmd: 'code',
+                            handle: function (options) {
+                                var row = table.datasource[options.index];
+                                esui.Dialog.alert({
+                                    title: '网站媒体代码',
+                                    content: mf.etplFetch('position_jssdk_code', {
+                                        domain: jssdkDomain,
+                                        adslot: operateData.get(row, 'id'),
+                                        channelId: model.get('channelId')
+                                    })
+                                });
                             }
                         }
                     ],

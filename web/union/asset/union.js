@@ -628,5 +628,24 @@ esui.Select.prototype.setValue = function (value) {
             return unit + mf.getEnglishNumber(item[field], true);
         };
     };
+    mf.etplFetch = function (tplName, data) {
+        var contextId = '_fetch';
+        var contextOption = {
+            contextId: contextId
+        };
+        er.context.addPrivate(contextId);
+        $.each(data, function (i, n) {
+            er.context.set(i, n, contextOption);
+        });
+        var target = {};
+        console.log('render etpl', tplName, data);
+        er.template.merge(
+            target,
+            tplName,
+            contextId
+        );
+        er.context.removePrivate(contextId);
+        return target.innerHTML;
+    };
 })();
 mf.clickCommand = mf.m.commandElement('click');
