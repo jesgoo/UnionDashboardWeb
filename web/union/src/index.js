@@ -37,27 +37,27 @@ mf.urlDebugRouter.reg({
     // 网站媒体广告位列表
     '/index/media/sitePosition': /^\/adslot\/?/i,
     // 账户总体多日
-    '/index/report/dailyTotal': /^\/report\/daily\/\d{8}\-\d{8}/i,
+    '/index/report/dailyTotal': /^\/report\/daily\/\d{8}\-\d{8}$/i,
     // 多媒体多日
-    '/index/report/dailyMedias': /^\/report\/media\/daily\/\d{8}-\d{8}/i,
+    '/index/report/dailyMedias': /^\/report\/media\/daily\/\d{8}-\d{8}$/i,
     // 多媒体单日
-    '/index/report/dayMedias': /^\/report\/media\/daily\/\d{8}/i,
+    '/index/report/dayMedias': /^\/report\/media\/daily\/\d{8}$/i,
     // 单渠道多日
-    '/index/report/dailyChannel': /^\/report\/channel\/[0-9a-z]{8}\/media\/total\/\d{8}\-\d{8}/i,
+    '/index/report/dailyChannel': /^\/report\/channel\/[0-9a-z]{8}\/media\/total\/\d{8}\-\d{8}$/i,
     // 单媒体多日
-    '/index/report/dailyMedia': /^\/report\/media\/[0-9a-z]{8}\/daily\/\d{8}\-\d{8}/i,
+    '/index/report/dailyMedia': /^\/report\/media\/[0-9a-z]{8}\/daily\/\d{8}\-\d{8}$/i,
     // 单媒体单日分小时
-    '/index/report/hourlyMedia': /^\/report\/media\/[0-9a-z]{8}\/daily\/\d{8}\/traffic/i,
+    '/index/report/hourlyMedia': /^\/report\/media\/[0-9a-z]{8}\/daily\/\d{8}\/traffic$/i,
     // 单媒体多广告位多日
-    '/index/report/dailyPositions': /^\/report\/media\/[0-9a-z]{8}\/adslot\/daily\/\d{8}\-\d{8}/i,
+    '/index/report/dailyPositions': /^\/report\/media\/[0-9a-z]{8}\/adslot\/daily\/\d{8}\-\d{8}$/i,
     // 单媒体多广告位单日
-    '/index/report/dayPositions': /^\/report\/media\/[0-9a-z]{8}\/adslot\/daily\/\d{8}/i,
+    '/index/report/dayPositions': /^\/report\/media\/[0-9a-z]{8}\/adslot\/daily\/\d{8}$/i,
     // 单媒体全部广告位单日分小时
-    '/index/report/hourlyPositions': /^\/report\/media\/[0-9a-z]{8}\/adslot\/daily\/\d{8}\/traffic/i,
+    '/index/report/hourlyPositions': /^\/report\/media\/[0-9a-z]{8}\/adslot\/daily\/\d{8}\/traffic$/i,
     // 单广告位多日
-    '/index/report/dailyPosition': /^\/report\/adslot\/s[0-9a-z]{7}\/daily\/\d{8}\-\d{8}/i,
+    '/index/report/dailyPosition': /^\/report\/adslot\/s[0-9a-z]{7}\/daily\/\d{8}\-\d{8}$/i,
     // 单广告位单日分小时
-    '/index/report/hourlyPosition': /^\/report\/adslot\/s[0-9a-z]{7}\/daily\/\d{8}\/traffic/i
+    '/index/report/hourlyPosition': /^\/report\/adslot\/s[0-9a-z]{7}\/daily\/\d{8}\/traffic$/i
 });
 
 mf.windowMinWidth = 980;

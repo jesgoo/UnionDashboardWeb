@@ -52,7 +52,7 @@
             }, hourlyPositionsListTable);
 
             hourlyPositionsTimeSelect.onchange = function (values, value) {
-                hourlyPositionsListTable.datasource = model.get('reportData')[value];
+                hourlyPositionsListTable.datasource = model.get('reportData')[value] || [];
                 hourlyPositionsListTable.onsort({ field: hourlyPositionsListTable.orderBy }, hourlyPositionsListTable.order);
             };
         },

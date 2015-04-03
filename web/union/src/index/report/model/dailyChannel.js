@@ -106,7 +106,7 @@
             ], function (config, reportData) {
                 loader.set('config', config);
 
-                vadaterBy = 'income';
+                var orderBy = 'income';
                 reportData.sort(function (a, b) {
                     return a[orderBy] > b[orderBy] ? -1 : 1;
                 });

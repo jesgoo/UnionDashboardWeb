@@ -101,7 +101,7 @@
 
                 var timeSelects = $.map(reportData, function (row, date) {
                     return {
-                        text : date + '时',
+                        text : ('00' + date + '时').substr(-3),
                         id : date
                     };
                 });

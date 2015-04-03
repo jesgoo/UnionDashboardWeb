@@ -19,7 +19,7 @@
                 {
                     "name": "Banner",
                     "value": 1,
-                    "heightRange": [60, 200],
+                    "heightRange": [48, 200],
                     "heightDefault": 80
                 },
                 {

@@ -23,17 +23,12 @@ Request
 `GET /index/channel.json`
 
     :::javascript
-<<<<<<< HEAD
     {
-=======
-    {
->>>>>>> 16fabae11c0775d7fcb4591130220d9c86b6da1e
     }
 
 Response
 
     :::javascript
-<<<<<<< HEAD
     {
         "success": true,
         "entities": [
@@ -43,17 +38,6 @@ Response
                 "name": "传域"
             }
         ]
-=======
-    {
-        "success": true,
-        "entities": [
-            {
-                "id": "ac1f1b2a",
-                "modified_time": "2014年11月25日",
-                "name": "传域"
-            }
-        ]
->>>>>>> 16fabae11c0775d7fcb4591130220d9c86b6da1e
     }
 
 ### /index/index/login
