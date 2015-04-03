@@ -29,6 +29,7 @@ exports.response = {
             "modify_time": "2014年1月1日 0时0分1秒",
             "config": {
                 "close": false,
+                "blank": false,
                 "place": 1,
                 "height": 60,
                 "autoPlayInterval": 1000
@@ -43,7 +44,8 @@ exports.response = {
             "config": {
                 "test": true,
                 "close": true,
-                "place": 1,
+                "blank": true,
+                "place": 2,
                 "height": 401,
                 "autoPlayInterval": 0
             }

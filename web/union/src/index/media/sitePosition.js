@@ -69,22 +69,29 @@
                             operateData.set(row, 'hasCloseBtn', false);
                             break;
                         case 'displayType':
-                            if (value === config.maps.sitePositionSubtype['float']) {
-                                operateData.set(row, 'position', config.maps.sitePositionDisplayPosition.bottom);
+                            if (value === config.maps.sitePositionDisplayType['float']) {
+                                operateData.set(row, 'position', config.maps.displayPositionType.bottom);
                                 operateData.set(row, 'hasCloseBtn', true);
+                                operateData.set(row, 'blank', false);
                             }
                             break;
                     }
                     fn.apply(this, arguments);
                 };
             })(table.onedit);
-            table._rowOverHandler = function (rowIndex) {
-                esui.Table.prototype._rowOverHandler.call(this, rowIndex);
-                mf.m.preview.previewJS(
+            var preview = mf.m.utils.throttle(function (rowIndex) {
                 //mf.m.preview.previewHTML(
+                //    mf.reflectDataInConfig(table.datasource[rowIndex], sitePositionList),
+                //'positionPreview'
+                //);
+                mf.m.preview.previewJS(
                     mf.reflectDataInConfig(table.datasource[rowIndex], sitePositionList),
                     'positionPreview'
                 );
+            }, 300);
+            table._rowOverHandler = function (rowIndex) {
+                esui.Table.prototype._rowOverHandler.call(this, rowIndex);
+                preview(rowIndex);
             };
             $.extend(action._controlMap, esui.init(table.main));
             model.set(

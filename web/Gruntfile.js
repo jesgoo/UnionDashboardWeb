@@ -129,6 +129,7 @@ module.exports = function (grunt) {
                 dataRoot: path.join(__dirname, site, 'data')
             };
             var app = express();
+            var jsSDKCode = '';
             app.use(require('body-parser')({
                 limit: 20000000  //20m
             }));
@@ -161,7 +162,23 @@ module.exports = function (grunt) {
                 }
             });
             app.get('/js/_jssdk.js', function (req, res) {
+                res.setHeader('Content-Type', 'application/javascript');
+                if (jsSDKCode) {
+                    res.end(jsSDKCode);
+                    return true;
+                }
                 var http = require('http');
+                var jsCode = [];
+                http.get('http://api.jesgoo.com/js/_jssdk.js', function (r) {
+                    r.on('data', function (chunk) {
+                        jsCode.push(chunk);
+                    });
+                    r.on('end', function () {
+                        jsSDKCode = jsCode.join('');
+                        jsSDKCode = jsSDKCode.replace('jesgoo.com/js/_jssdk.js', 'localhost:' + server.port + '/js/_jssdk.js');
+                        res.end(jsSDKCode);
+                    });
+                });
             });
             app.use(express.static(server.root));
 

@@ -15,14 +15,6 @@
                 "video" : 12,
                 "text" : 13
             },
-            "sitePositionSubtype": {
-                "inline" : 1,
-                "float" : 2
-            },
-            "sitePositionDisplayPosition": {
-                "top" : 1,
-                "bottom" : 2
-            },
             "sitePositionTypeMap": [
                 {
                     "name": "Banner",
@@ -56,8 +48,12 @@
                 }
             ],
             "sitePositionDisplayType": {
-                "embed" : 1,
+                "inbed" : 1,
                 "float" : 2
+            },
+            "sitePositionDisplayTypeConvert": {
+                 "1" : "inbed",
+                 "2" : "float"
             },
             "sitePositionDisplayTypeMap": [
                 {
@@ -89,6 +85,14 @@
                     "value": true
                 }
             ],
+            "displayPositionType": {
+                "top" : 1,
+                "bottom" : 2
+            },
+            "displayPositionTypeConvert": {
+                 "1": "top",
+                 "2": "bottom"
+            },
             "displayPositionMap": [
                 {
                     "name": "顶部",
@@ -225,9 +229,16 @@
                 "autoPlayInterval": {
                     "field": "config.autoPlayInterval",
                     "defaultValue": 0,
-                    "title": "轮播时间(px)",
+                    "title": "轮播时间(ms)",
                     "editable": true,
                     "edittype": "int"
+                },
+                "blank": {
+                    "field": "config.blank",
+                    "defaultValue": false,
+                    "title": "自动留白",
+                    "editable": true,
+                    "edittype": "select"
                 }
             },
             "appMediaList": {

@@ -60,7 +60,7 @@ mf.urlDebugRouter.reg({
     '/index/report/hourlyPosition': /^\/report\/adslot\/s[0-9a-z]{7}\/daily\/\d{8}\/traffic/i
 });
 
-mf.windowMinWidth = 600;
+mf.windowMinWidth = 980;
 mf.defaultPage = 'index';
 mf.userLoad = '/index/login~force=1';
 

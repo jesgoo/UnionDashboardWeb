@@ -9,20 +9,40 @@
  * Time: 下午2:34
  *
  */
-(function(exports, module) {
+(function (exports, module) {
     var writeInIframe = function (win, html, charset) {
         var doc = win.document;
         charset = charset || 'UTF-8';
         doc.open();
-        doc.write('<!doctype html><html lang="en"><head>');
+        doc.write('<!doctype html><html lang="en" style="height:100%;"><head>');
         doc.write('<meta charset="' + charset + '">');
-        doc.write('<style>html,body,div,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}img{border:0;}</style></head><body>');
+        doc.write('<style>html,body,div,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}img{border:0;}</style>');
+        doc.write('</head><body style="height:100%;">');
         doc.write(html);
         doc.write('</body></html>');
         doc.close();
     };
-    var previewJS = function(data, target) {
+    var previewJS = function (data, target) {
         var contextId = '_preview';
+        var adslot = 's0000000';
+        var sdkConfig = {
+            maxage: 3600 * 24,
+            adslots: [
+                {
+                    adslot: adslot,
+                    appId: '123',
+                    close: data.hasCloseBtn,
+                    prod: data.type,
+                    type: mf.m.config.maps.sitePositionDisplayTypeConvert[data.displayType] || '',
+                    height: data.height,
+                    blank: data.blank,
+                    place: mf.m.config.maps.displayPositionTypeConvert[data.position] || '',
+                    autoPlayInterval: data.autoPlayInterval
+                }
+            ],
+            splash: {on: false},
+            expire: new Date().getTime() + 3600 * 24 * 1000
+        };
         var contextOption = {
             contextId: contextId
         };
@@ -31,6 +51,7 @@
             er.context.set(i, n, contextOption);
         });
         er.context.set('domain', location.host.replace(/^union\./i, 'api.'), contextOption);
+        er.context.set('adslot', adslot, contextOption);
         var container = {
             innerHTML: 'invalid'
         };
@@ -40,22 +61,25 @@
             contextId
         );
         er.context.removePrivate(contextId);
+
+        localStorage.setItem('adslotConf_' + sdkConfig.adslots[0].adslot, JSON.stringify(sdkConfig));
         target = $('#' + target);
         target.children().remove();
         var iframe = $('<iframe/>', {
+            'class': 'position-wrapper',
             frameborder: '0',
             scrolling: 'no'
-        }).appendTo(target);
+        }).appendTo(target).get(0);
         writeInIframe(iframe.contentWindow, container.innerHTML);
     };
-    var previewHTML = function(data, target) {
+    var previewHTML = function (data, target) {
         var contextId = '_preview';
         var contextOption = {
             contextId: contextId
         };
         er.context.addPrivate(contextId);
         var height = parseInt(data.height || 0, 10);
-        if (height < 20 ) {
+        if (height < 20) {
             height = 20;
         }
         height = height / 12;

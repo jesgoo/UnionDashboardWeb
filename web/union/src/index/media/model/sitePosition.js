@@ -24,6 +24,26 @@
                  return '<a data-cmd="edit" data-index="' + index + '">' + operateData.get(item, 'name', '') + '</a>'
                  }*/
             },
+            'operation': {
+                stable: 1,
+                width: 80,
+                title: '操作',
+                content: function (item, index) {
+                    var ops = [];
+                    if (item._isModify) {
+                        ops.unshift('<a data-cmd="save" data-index="' + index + '">保存</a>');
+                    }
+                    /* else if (!item._isNew) {
+                     ops.unshift('<a data-cmd="edit" data-index="' + index + '">修改</a>');
+                     }*/
+                    if (item._isNew) {
+                        ops.unshift('<a data-cmd="delete_add" data-index="' + index + '">删除</a>');
+                    } else {
+                        ops.unshift('<a data-cmd="copy" data-index="' + index + '">复制</a>');
+                    }
+                    return ops.join('&nbsp;');
+                }
+            },
             'type': {
                 datasource: config.maps.sitePositionTypeMap,
                 content: function (item) {
@@ -74,6 +94,20 @@
                     }
                 }
             },
+            'blank': {
+                datasource: config.maps.judgeMap,
+                content: function (item, index, col, textClass) {
+                    var displayType = operateData.get(item, 'displayType');
+                    if (displayType == config.maps.sitePositionDisplayType['float']) {
+                        var r = mf.m.utils.deepSearch('children', config.maps.judgeMap,
+                            operateData.get(item, 'blank'), 'value', 0);
+                        return r ? r.name || '-' : '-';
+                    } else {
+                        textClass.push('ui-table-cell-editor-disabled');
+                        return '-';
+                    }
+                }
+            },
             'height': {
                 title: function () {
                     return '高度(px)' +
@@ -108,24 +142,6 @@
                 },
                 validator: function (value, item) {
                     return operateData.get(item, 'autoPlayInterval') && value < 1 && '不能小于0';
-                }
-            },
-            'operation': {
-                title: '操作',
-                content: function (item, index) {
-                    var ops = [];
-                    if (item._isModify) {
-                        ops.unshift('<a data-cmd="save" data-index="' + index + '">保存</a>');
-                    }
-                    /* else if (!item._isNew) {
-                     ops.unshift('<a data-cmd="edit" data-index="' + index + '">修改</a>');
-                     }*/
-                    if (item._isNew) {
-                        ops.unshift('<a data-cmd="delete_add" data-index="' + index + '">撤销新增</a>');
-                    } else {
-                        ops.unshift('<a data-cmd="copy" data-index="' + index + '">复制</a>');
-                    }
-                    return ops.join('&nbsp;');
                 }
             }
         };
