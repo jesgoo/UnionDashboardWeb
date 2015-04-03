@@ -15,7 +15,7 @@
         var drillData = {};
         $.each(lists, function (index, item) {
             $.each(item, function (key, value) {
-                if (key === 'media' || key === 'name' || key === 'ctr' || key === 'cpm') {
+                if (key === 'media' || key === 'name' || key === 'fr' || key === 'served_request') {
                     return true;
                 }
                 drillData[key] || (drillData[key] = []);
@@ -33,9 +33,9 @@
         });
         statisticsData.click = statisticsData.click*100;
         statisticsData.income = statisticsData.income*1000;
-        statisticsData.ctr = statisticsData.request > 0 ? statisticsData.click / statisticsData.request : 0;
-        statisticsData.cpm = statisticsData.request > 0 ? statisticsData.income / (statisticsData.request / 1000 ) : 0;
-        statisticsData.ctr = Math.round(statisticsData.ctr * 100000000);
+        statisticsData.ctr = statisticsData.request > 0 ? (statisticsData.click / 100) / statisticsData.request : 0;
+        statisticsData.cpm = statisticsData.request > 0 ? statisticsData.income / statisticsData.impression : 0;
+        statisticsData.ctr = Math.round(statisticsData.ctr * 1000000000);
         statisticsData.cpm = Math.round(statisticsData.cpm * 10000000);
         console.log('char data', drillData, statisticsData);
         $(element).show().highcharts({
@@ -62,16 +62,16 @@
                     var t;
                     switch( this.point.drilldown){
                         case 'click':
-                            t = this.point.y / 100;
+                            t = Math.round(this.point.y / 100);
                             break;
                         case 'income':
-                            t = this.point.y / 1000;
+                            t = Math.round(this.point.y / 1000);
                             break;
                         case 'ctr':
-                            t = (this.point.y / 1000000).toFixed(2);
+                            t = (this.point.y / 10000000).toFixed(2);
                             break;
                         case 'cpm':
-                            t = (this.point.y / 100000).toFixed(2);
+                            t = (this.point.y / 10000000).toFixed(2);
                             break;
                         default :
                             t = this.point.y;
