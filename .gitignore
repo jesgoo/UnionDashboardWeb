@@ -1,1 +1,4 @@
 .idea/
+web/node_modules/
+web/output/
+adoc/

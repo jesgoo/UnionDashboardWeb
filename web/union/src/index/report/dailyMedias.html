@@ -4,7 +4,37 @@
         <span>所有媒体单日数据</span>
         <div ui="type:MultiCalendar;id:dailyMediasDateRegion;value:*dateRegion;"></div>
     </div>
-    <div class="plain-unit-table" id="dailyMediasChart"></div>
+
+    <div class="plain-unit-table" id="dailyMediasChart">
+        <div class="chart-md">
+        <div class="chart-tab">
+            <div class="tab-item cur" id="tab-income">
+                <span>收入</span>
+            </div>
+            <div class="tab-item" id="tab-impression">
+                <span>展现</span>
+            </div>
+            <div class="tab-item" id="tab-click">
+                <span>点击</span>
+            </div>
+            <div class="tab-item" id="tab-request">
+                <span>请求</span>
+            </div>
+            <div class="tab-item" id="tab-ctr">
+                <span>点击率</span>
+            </div>
+            <div class="tab-item" id="tab-cpm">
+                <span>千次展现收入</span>
+            </div>
+        </div>
+        <div class="chart-bd">
+            
+            <div class="chart-area">
+                <div id="chart3"></div>                             
+            </div>
+        </div>
+    </div>
+    </div>
     <div class="plain-unit-table">
         <div class="list-op list-op-multi">
             <div class="multi-caption" >日期定位：</div>

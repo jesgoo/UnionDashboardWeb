@@ -7,7 +7,6 @@
 (function () {
     var FIELDS = function (model) {
         return [
-            ,
             {
                 "field": "request",
                 "title": "请求数",
@@ -55,7 +54,7 @@
              "title": "平均点击单价",
              "content": "acp",
              "sortable": 1
-             }*/,
+            }*/,
             {
                 "field": "income",
                 "title": "总收入",
@@ -66,12 +65,6 @@
                 "field": "channel_income",
                 "title": "渠道收入",
                 "content": mf.getFieldContentMoney('channel_income'),
-                "sortable": 1
-            },
-            {
-                "field": "media_income",
-                "title": "媒体收入",
-                "content": mf.getFieldContentMoney('media_income'),
                 "sortable": 1
             },
             {
@@ -113,7 +106,7 @@
             ], function (config, reportData) {
                 loader.set('config', config);
 
-                var orderBy = 'income';
+                vadaterBy = 'income';
                 reportData.sort(function (a, b) {
                     return a[orderBy] > b[orderBy] ? -1 : 1;
                 });
