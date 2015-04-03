@@ -3881,6 +3881,7 @@ esui.Table.EditorManager.add('select',
         }
 
     }));
+
 /**
  * @file 图片横幅滑动控件
  * @author Jefferson<dengyijun@baidu.com>
