@@ -11,6 +11,8 @@
         var listFieldInConfig = mf.mockFieldInConfig(lists);
         var needFieldLists = {
             'id': {
+                stable:1,
+                width: 80
                 /*content: function (item, index) {
                  return '<a data-cmd="edit" data-index="' + index + '">' + operateData.get(item, 'id', '') + '</a>'
                  }*/
@@ -26,7 +28,7 @@
             },
             'operation': {
                 stable: 1,
-                width: 80,
+                width: 96,
                 title: '操作',
                 content: function (item, index) {
                     var ops = [];
@@ -40,6 +42,9 @@
                         ops.unshift('<a data-cmd="delete_add" data-index="' + index + '">删除</a>');
                     } else {
                         ops.unshift('<a data-cmd="copy" data-index="' + index + '">复制</a>');
+                    }
+                    if (!(item._isModify || item._isNew)) {
+                        ops.unshift('<a data-cmd="code" data-index="' + index + '">获取代码</a>');
                     }
                     return ops.join('&nbsp;');
                 }
@@ -162,16 +167,21 @@
                     url: '/config',
                     cache: true
                 },
+                {
+                    url: '/channel',
+                    cache: true
+                },
                 '/adslot' + '?' + loader.getQueryString()
-            ], function (config, entities) {
+            ], function (config, channels, adslots) {
                 mf.initEntities({
                     loader: loader,
-                    entities: entities,
-                    fields: FIELDS(entities, config)
+                    entities: adslots,
+                    fields: FIELDS(adslots, config)
                 });
+                loader.set('channelId', channels.length ? channels[0].id : '');
                 loader.set('config', config);
                 loader.set('sitePositionList', config.lists.sitePositionList);
-                loader.set('sitePositionCount', entities.length);
+                loader.set('sitePositionCount', adslots.length);
                 loader.start();
             });
         })

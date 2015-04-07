@@ -5,27 +5,11 @@
  * Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved
  */
 (function () {
-    function saveAppMedia(data) {
-        var def = $.Deferred();
-        mf.parallelAjax({
-            method: 'POST',
-            url: 'index/media/appUpdate'/* + (data.id ? '/' + data.id : '')*/,
-            data: data
-        }, function (result) {
-            def.resolve(result)
-        });
-        return def.promise();
-    }
-
     mf.index.media.app = new er.Action({
         model: mf.index.media.model.app,
         view: new er.View({
             template: 'mf_index_media_app',
             UI_PROP: {
-                list: {
-                    order: 'asc',
-                    orderBy: 'id'
-                }
             }
         }),
         STATE_MAP: {
@@ -49,38 +33,23 @@
             mf.loaded();
             var action = this;
             var model = action.model;
-            var table = esui.get('list');
-            var pager = esui.get('pager');
-            var pageSizer = esui.get('pageSize');
             var popupsCount = esui.get('popupsCount');
             var appMediaCount = esui.get('appMediaCount');
             var dataList = model.get('list');
             var appMediaList = model.get('appMediaList');
-            var appMediaListField = mf.mockFieldInConfig(appMediaList);
-            table.onedit = function (value, options, editor) {
-                var row = table.datasource[options.rowIndex];
-                row[options.field.field] = value;
-                row._isModify = true;
-                table.render();
-            };
+            var appMediaListFieldInConfig = mf.mockFieldInConfig(appMediaList);
+            var operateData = mf.operateDataInConfigField(appMediaList);
+            var emptyAppMedia = mf.initEntityInConfig(appMediaList);
+
+            var table = esui.get('list');
+            table.order = 'asc';
+            table.orderBy = appMediaListFieldInConfig('id');
+
             var refreshTable = mf.mockPager(dataList, {
-                pager: pager,
-                pageSizer: pageSizer,
+                pager: esui.get('pager'),
+                pageSizer: esui.get('pageSize'),
                 table: table
             });
-            pager.onchange = function () {
-                refreshTable();
-            };
-            pageSizer.onchange = function () {
-                refreshTable({
-                    page: 0
-                });
-            };
-            table.onsort = function () {
-                refreshTable({
-                    page: 0
-                });
-            };
             refreshTable();
             model.set(
                 'commands',
@@ -89,12 +58,13 @@
                         {
                             cmd: 'search',
                             handle: function (options) {
-                                var text = esui.get('appMediaId').getValue();
+                                var text = esui.get('appMediaName').getValue();
                                 var filter;
                                 if (text) {
+                                    var valueRegExp = mf.m.utils.makeRegExp(text, 'i');
                                     filter = function (obj) {
-                                        return String(obj[searchField]).indexOf(text) > -1;
-                                    }
+                                        return valueRegExp.test(operateData.get(obj, 'name'));
+                                    };
                                 }
                                 refreshTable({
                                     page: 0,
@@ -105,9 +75,11 @@
                         {
                             cmd: 'add',
                             handle: function (options) {
-                                var row = $.extend({}, model.get('emptyAppMedia'));
+                                var newRow = $.deepExtend({}, emptyAppMedia);
+                                newRow = mf.grepDataInConfig(newRow, appMediaList);
+                                newRow._isNew = true;
                                 table.datasource = table.datasource || [];
-                                table.datasource.unshift(row);
+                                table.datasource.unshift(newRow);
                                 table.render();
                             }
                         },
@@ -123,14 +95,21 @@
                             handle: function (options) {
                                 var row = table.datasource[options.index];
                                 if (mf.tableSavingValidator(row, table.fields)) {
-                                    saveAppMedia(row).done(function (result) {
-                                        $.extend(row, result);
-                                        row._isModify = false;
+                                    mf.parallelAjax({
+                                        type: 'POST',
+                                        url: '/media' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
+                                        data: mf.grepDataInConfig(row, appMediaList)
+                                    }, function (result) {
+                                        var newData = result[0];
                                         if (row._isNew) {
-                                            row._isNew = false;
-                                            dataList.unshift(row);
+                                            dataList.unshift(newData);
                                             appMediaCount.setContent(dataList.length);
+                                        } else {
+                                            var idField = appMediaListFieldInConfig('id');
+                                            var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
+                                            index > -1 && (dataList[index] = newData);
                                         }
+                                        table.datasource[options.index] = newData;
                                         table.render();
                                     });
                                 }
@@ -140,29 +119,14 @@
                             cmd: 'copy',
                             handle: function (options) {
                                 var row = table.datasource[options.index];
-                                var newRow = $.extend({}, model.get('emptyAppMedia'), row);
-                                newRow[sitePositionListField("id")] = '';
-                                newRow[sitePositionListField("createTime")] = '';
-                                newRow[sitePositionListField("modifyTime")] = '';
+                                var newRow = $.deepExtend({}, emptyAppMedia, row);
+                                newRow = mf.grepDataInConfig(newRow, appMediaList);
                                 newRow._isModify = true;
                                 newRow._isNew = true;
                                 table.datasource.unshift(newRow);
                                 table.render();
                             }
-                        }/*,
-                        {
-                            cmd: 'position',
-                            handle: function (options) {
-                                var row = table.datasource[options.index];
-                                var url = '/media/appPosition~' + $.param({
-                                        appId: row[appMediaListField('id')],
-                                        appName: row[appMediaListField('name')]
-                                    });
-                                mf.m.utils.nextTick(function () {
-                                    er.locator.redirect(url);
-                                });
-                            }
-                        }*/
+                        }
                     ],
                     {
                         region: '#' + action.view.target,

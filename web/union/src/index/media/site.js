@@ -29,9 +29,6 @@
             mf.loaded();
             var action = this;
             var model = action.model;
-            var table = esui.get('list');
-            var pager = esui.get('pager');
-            var pageSizer = esui.get('pageSize');
             var popupsCount = esui.get('popupsCount');
             var siteMediaCount = esui.get('siteMediaCount');
             var dataList = model.get('list');
@@ -40,11 +37,13 @@
             var siteMediaFieldInConfig = mf.mockFieldInConfig(siteMediaList);
             var operateData = mf.operateDataInConfigField(siteMediaList);
             var emptySiteMedia = mf.initEntityInConfig(siteMediaList);
+
+            var table = esui.get('list');
             table.order = 'asc';
             table.orderBy = siteMediaFieldInConfig('id');
             var refreshTable = mf.mockPager(dataList, {
-                pager: pager,
-                pageSizer: pageSizer,
+                pager: esui.get('pager'),
+                pageSizer: esui.get('pageSize'),
                 table: table
             });
             refreshTable();
@@ -74,9 +73,10 @@
                                 var text = esui.get('siteMediaName').getValue();
                                 var filter;
                                 if (text) {
+                                    var valueRegExp = mf.m.utils.makeRegExp(text, 'i');
                                     filter = function (obj) {
-                                        return String(operateData.get(obj, 'name')).indexOf(text) > -1;
-                                    }
+                                        return valueRegExp.test(operateData.get(obj, 'name'));
+                                    };
                                 }
                                 refreshTable({
                                     page: 0,

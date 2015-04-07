@@ -95,9 +95,6 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "sitePosition": authorityAction(mediaNav2('网站广告位')),
             "app": authorityAction(mediaNav2('应用管理')),
             "__mockData": {
-                "siteUpdate": {},
-                "appUpdate": {},
-                "sitePositionUpdate": {}
             }
         };
 
@@ -155,8 +152,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             },*/
             "media": {
                 "label": "媒体管理",
-                "url": "#/media/site",
-                "hideNav2": true
+                "url": "#/media/site"
             }/*,
             "account": {
                 "label": "账户信息",

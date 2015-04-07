@@ -10,6 +10,8 @@
         var operateData = mf.operateDataInConfigField(lists);
         var needFieldLists = {
             'id': {
+                stable:1,
+                width: 80,
                 content: function (item, index) {
                     return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'id', '') + '</a>'
                 }
@@ -19,9 +21,11 @@
             },
             'note': {},
             'createTime': {
+                stable:1,
                 width: 80
             },
             'modifyTime': {
+                stable:1,
                 width: 80
             },
             'isPopups': {
@@ -46,7 +50,8 @@
             },
             'operation': {
                 title: '操作',
-                width: 70,
+                stable:1,
+                width: 80,
                 content: function (item, index) {
                     var ops = [];
                     if (item._isModify) {
@@ -77,7 +82,7 @@
                     url: '/config',
                     cache: true
                 },
-                '/media?' + loader.getQueryString()
+                '/media?type=' + mf.m.config.maps.mediaType.site
             ], function (config, entities) {
                 mf.initEntities({
                     loader: loader,

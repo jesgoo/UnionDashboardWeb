@@ -25,7 +25,7 @@ exports.response = {
     "entities": [
         {
             "id": "0c1ea115",
-            "name": "中国",
+            "name": "中国zhongguojia",
             "note": "没有note",
             "create_time": "2014年1月1日 0时0分0秒",
             "modify_time": "2014年1月1日 0时0分1秒",
@@ -33,7 +33,7 @@ exports.response = {
         },
         {
             "id": "0068028f",
-            "name": "中国2",
+            "name": "中国ZhongGuohong",
             "note": "没有note2",
             "create_time": "2015年1月1日 0时0分0秒",
             "modify_time": "2015年1月1日 0时0分1秒"

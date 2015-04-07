@@ -34,8 +34,8 @@
                 return memory + value['y'];
             }, 0);
         });
-        statisticsData.click = statisticsData.click*100;
-        statisticsData.income = statisticsData.income*1000;
+        statisticsData.click = statisticsData.click * 100;
+        statisticsData.income = statisticsData.income * 1000;
         statisticsData.ctr = statisticsData.request > 0 ? (statisticsData.click / 100) / statisticsData.request : 0;
         statisticsData.cpm = statisticsData.request > 0 ? statisticsData.income / statisticsData.impression : 0;
         statisticsData.ctr = Math.round(statisticsData.ctr * 1000000000);
@@ -77,9 +77,9 @@
             tooltip: {
                 // headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
                 // pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>',
-                formatter : function (){
+                formatter: function () {
                     var t;
-                    switch( this.point.drilldown){
+                    switch (this.point.drilldown) {
                         case 'click':
                             t = Math.round(this.point.y / 100);
                             break;
@@ -95,8 +95,9 @@
                         default :
                             t = this.point.y;
                     }
-                    var s = '<span style="font-size:11px">' + this.series.name +'</span><br>';
-                    s += '<span style="color:'+ this.point.color +'">' + this.point.name + '</span>: <b>'+ t +'</b><br/>'
+                    var s = '<span style="font-size:11px">' + this.series.name + '</span><br>';
+                    s += '<span style="color:' + this.point.color + '">' + this.point.name + '</span>: <b>' + t
+                         + '</b><br/>'
                     return s;
                 }
             },

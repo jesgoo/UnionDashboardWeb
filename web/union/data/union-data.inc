@@ -130,7 +130,7 @@ Response
         "entities": [
             {
                 "id": "0c1ea115",
-                "name": "中国",
+                "name": "中国zhongguojia",
                 "note": "没有note",
                 "create_time": "2014年1月1日 0时0分0秒",
                 "modify_time": "2014年1月1日 0时0分1秒",
@@ -138,7 +138,7 @@ Response
             },
             {
                 "id": "0068028f",
-                "name": "中国2",
+                "name": "中国ZhongGuohong",
                 "note": "没有note2",
                 "create_time": "2015年1月1日 0时0分0秒",
                 "modify_time": "2015年1月1日 0时0分1秒"
@@ -228,82 +228,6 @@ Response
                 ],
                 "totalSize": 10
             }
-        }
-    }
-
-### /index/media/siteUpdate
-
-Request 
-
-`GET /index/media/siteUpdate.json`
-
-    :::javascript
-    {
-    }
-
-Response
-
-    :::javascript
-    {
-        "success": true,
-        "model": {
-            'id': '1235',
-            'name': 'Nothing',
-            'note': '没有note',
-            'createTime': '2014年1月1日 0时0分0秒',
-            'modifyTime': '2014年1月1日 0时0分1秒',
-            'isPopups': 1,
-            'popupInterval': 3300
-        }
-    }
-
-### /index/media/appUpdate
-
-Request 
-
-`GET /index/media/appUpdate.json`
-
-    :::javascript
-    {
-    }
-
-Response
-
-    :::javascript
-    {
-        "success": true,
-        "model": {
-            "id": "121",
-            "name": "AppNo",
-            "note": "什么都没有",
-            "createTime": "1231。11.11",
-            "modifyTime": "1112.111.11"
-        }
-    }
-
-### /index/media/sitePositionUpdate
-
-Request 
-
-`GET /index/media/sitePositionUpdate.json`
-
-    :::javascript
-    {
-    }
-
-Response
-
-    :::javascript
-    {
-        "success": true,
-        "model": {
-            "id": "UPX0001",
-            "name": "广告位1",
-            "type": 2,
-            "subtype": 0,
-            "hasCloseBtn": 0,
-            "position": 0,
-            "height": 30
         }
     }
 

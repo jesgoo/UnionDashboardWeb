@@ -15,3 +15,21 @@
   margin-bottom: 20px;
   font-size: 12px;
 }
+.jssdk-code {
+  padding: 10px;
+  line-height: 25px;
+}
+.jssdk-code em {
+  color: #771111;
+}
+.jssdk-code textarea {
+  display: block;
+  height: 186px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #eee;
+  font-size: 14px;
+  line-height: 30px;
+  margin-top: 10px;
+}
