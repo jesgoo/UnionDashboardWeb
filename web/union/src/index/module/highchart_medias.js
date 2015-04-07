@@ -7,7 +7,7 @@
  */
 (function (exports, module) {
 
-    var renderChart = function (item, drillData, statisticsData){
+    var renderChart = function (item, element, drillData,statisticsData){
 
         var chartSeries = [];
         var drilldownSeries = [];
@@ -69,6 +69,22 @@
             exporting:{
                 enabled:false
             },
+            plotOptions : {
+                series: {
+                    cursor: 'pointer',
+                    events: {
+                        click : function (event){
+                            if( event.point.media ){
+                                $(element).attr({
+                                    'data-cmd': 'media',
+                                    'data-media': event.point.media
+                                });
+                                $(element).trigger('click');  
+                            }                            
+                        }
+                    }
+                }   
+            },
             tooltip: toolOption[item],
             xAxis: [{
                 type: 'category',
@@ -91,9 +107,6 @@
                 title: {
                     text: null
                 },
-                labels: {
-                    enabled:false
-                }
             }],
             series: [{
                 name : item,
@@ -122,7 +135,7 @@
                 $(this).addClass('cur'); 
                 var tabId = $(this).attr('id');
                 tabId = tabId.replace('tab-','');
-                renderChart(tabId,drillData,statisticsData);
+                renderChart(tabId, element, drillData, statisticsData);
         });
 
         var drillData = {
@@ -140,22 +153,21 @@
                 drillData[key][date] = [];
             });
         });
-        //console.log(drillData);
         $.each(lists, function (date, datelist) {
             $.each(datelist, function (i, media) {
                 $.each(media, function (key, val) {
                     if( drillData[key] ){
-                        drillData[key][date].push( [media.name, val] );
+                        drillData[key][date].push( { 'name': media.name, 'y': val, 'media': media.media} );
                     }
                 });
             });
         });
-
+        console.log(drillData);
         $.each(drillData, function (key, datelist) {
             statisticsData[key] = {}
              $.each(datelist, function (date, values) {
                  statisticsData[key][date] = values.reduce(function (memory, value) {
-                    return memory + value[1];
+                    return memory + value['y'];
                  },0);
              });
         });
@@ -170,7 +182,7 @@
             statisticsData.cpm[date] = statisticsData.request[date] > 0 ? statisticsData.income[date] / (statisticsData.request[date] / 1000) : 0;
         });
 
-        renderChart('income',drillData,statisticsData);
+        renderChart('income', element,drillData,statisticsData);
 
     };
     exports.highchart_medias = highchart_medias;

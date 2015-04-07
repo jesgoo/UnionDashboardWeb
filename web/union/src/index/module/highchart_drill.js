@@ -19,16 +19,19 @@
                     return true;
                 }
                 drillData[key] || (drillData[key] = []);
-                drillData[key].push([item.name, value]);
+                drillData[key].push({ 'name': item.name, 'y': value, 'media': item.media});
             });
         });
         $.each(drillData.ctr || [], function (index) {
-            drillData.ctr[index][1] = Math.round(drillData.ctr[index][1] * 100000) / 1000;
+            drillData.ctr[index]['y'] = Math.round(drillData.ctr[index]['y'] * 100000) / 1000;
+        });
+        $.each(drillData.cpm || [], function (index) {
+            drillData.cpm[index]['y'] = Math.round(drillData.cpm[index]['y'] * 100) / 100
         });
         var statisticsData = {};
         $.each(drillData, function (key, values) {
             statisticsData[key] = values.reduce(function (memory, value) {
-                return memory + value[1];
+                return memory + value['y'];
             }, 0);
         });
         statisticsData.click = statisticsData.click*100;
@@ -54,6 +57,22 @@
             },
             exporting: {
                 enabled: false
+            },
+            plotOptions : {
+                series: {
+                    cursor: 'pointer',
+                    events: {
+                        click : function (event){
+                            if( event.point.media ){
+                                $(element).attr({
+                                    'data-cmd': 'media',
+                                    'data-media': event.point.media
+                                });
+                                $(element).trigger('click');  
+                            }                            
+                        }
+                    }
+                }   
             },
             tooltip: {
                 // headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
@@ -105,46 +124,6 @@
                     title: {
                         text: null
                     },
-                    labels: {
-                        enabled: false
-                    }
-                }, { // Secondary yAxis
-                    gridLineWidth: 1,
-                    gridLineColor: '#e5e5e5',
-                    title: {
-                        text: null
-                    },
-                    labels: {
-                        enabled: false
-                    }
-                }, { // Tertiary yAxis
-                    gridLineWidth: 1,
-                    gridLineColor: '#e5e5e5',
-                    title: {
-                        text: null
-                    },
-                    labels: {
-                        enabled: false
-                    }
-                }, { // 4th yAxis
-                    gridLineWidth: 1,
-                    gridLineColor: '#e5e5e5',
-                    title: {
-                        text: null
-                    },
-                    labels: {
-                        enabled: false
-                    }
-                }, { // 5th yAxis
-                    gridLineWidth: 1,
-                    gridLineColor: '#e5e5e5',
-                    title: {
-                        text: null
-                    },
-                    min: 0,
-                    labels: {
-                        enabled: false
-                    }
                 }
             ],
             series: [
@@ -200,6 +179,7 @@
                     {
                         name: '收入',
                         id: 'income',
+                        test : 'dadddd',
                         data: drillData.income,
                         tooltip: {
                             valueSuffix: ' 元'
