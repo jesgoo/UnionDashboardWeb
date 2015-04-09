@@ -157,7 +157,7 @@
             $.each(datelist, function (i, media) {
                 $.each(media, function (key, val) {
                     if( drillData[key] ){
-                        drillData[key][date].push( { 'name': media.name, 'y': val, 'media': media.media} );
+                        key === 'ctr' ? drillData[key][date].push( { 'name': media.name, 'y': Math.round(val * 100000) / 1000, 'media': media.media} ) : drillData[key][date].push( { 'name': media.name, 'y': val, 'media': media.media} );
                     }
                 });
             });

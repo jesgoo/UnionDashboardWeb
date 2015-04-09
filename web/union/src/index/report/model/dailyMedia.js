@@ -17,7 +17,8 @@
                 "field": "request",
                 "title": "请求数",
                 "content": mf.getFieldContentLess('request'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             },
             /*{
              "field": "served_request",
@@ -29,25 +30,29 @@
                 "field": "impression",
                 "title": "展现数",
                 "content": mf.getFieldContentLess('impression'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             },
             {
                 "field": "click",
                 "title": "点击数",
                 "content": mf.getFieldContentLess('click'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             },
             {
                 "field": "income",
                 "title": "收入",
                 "content": mf.getFieldContentMoney('income'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             },
             {
                 "field": "ctr",
                 "title": "点击率",
                 "content": mf.getFieldContentPercent('ctr'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             }/*,
             {
                 "field": "fr",
@@ -59,7 +64,8 @@
                 "field": "cpm",
                 "title": "千次展现收入",
                 "content": mf.getFieldContentMoney('cpm'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             }/*,
              {
              "field": "acp",

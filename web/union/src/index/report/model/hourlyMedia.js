@@ -19,7 +19,8 @@
                 "field": "request",
                 "title": "请求数",
                 "content": mf.getFieldContentLess('request'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             }/*,
              {
              "field": "served_request",
@@ -31,13 +32,15 @@
                 "field": "impression",
                 "title": "展现数",
                 "content": mf.getFieldContentLess('impression'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             },
             {
                 "field": "click",
                 "title": "点击数",
                 "content": mf.getFieldContentLess('click'),
-                "sortable": 1
+                "sortable": 1,
+                "align": "right"
             }/*,
             {
                 "field": "income",
