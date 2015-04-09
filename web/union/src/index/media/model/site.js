@@ -16,17 +16,18 @@
                     return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'id', '') + '</a>'
                 }
             },
+            'mediaType': {},
             'name': {
                 width: 120
             },
             'note': {},
             'createTime': {
                 stable:1,
-                width: 80
+                width: 100
             },
             'modifyTime': {
                 stable:1,
-                width: 80
+                width: 100
             },
             'isPopups': {
                 datasource: config.maps.toggleMap,

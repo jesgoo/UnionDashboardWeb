@@ -117,6 +117,12 @@
                     "request": false,
                     "sortable": true
                 },
+                "mediaType": {
+                    "field": "type",
+                    "defaultValue": 1,
+                    "title": "网站媒体类型",
+                    "isShow": false
+                },
                 "name": {
                     "field": "name",
                     "defaultValue": "",
@@ -252,6 +258,12 @@
                     "title": "媒体ID",
                     "sortable": true
                 },
+                "mediaType": {
+                    "field": "type",
+                    "defaultValue": 0,
+                    "title": "应用媒体类型",
+                    "isShow": false
+                },
                 "name": {
                     "field": "name",
                     "defaultValue": "",
@@ -268,16 +280,46 @@
                     "edittype": "string"
                 },
                 "createTime": {
-                    "field": "createTime",
+                    "field": "create_time",
                     "defaultValue": "",
                     "title": "创建时间",
                     "sortable": true
                 },
                 "modifyTime": {
-                    "field": "modifyTime",
+                    "field": "modified_time",
                     "defaultValue": "",
                     "title": "修改时间",
                     "sortable": true
+                }
+            },
+            "appPositionList": {
+                "id": {
+                    "field": "id",
+                    "title": "广告位ID",
+                    "request": false,
+                    "sortable": true
+                },
+                "media": {
+                    "field": "media",
+                    "title": "媒体ID",
+                    "request": true,
+                    "isShow": false
+                },
+                "name": {
+                    "field": "name",
+                    "defaultValue": "",
+                    "title": "广告位名称",
+                    "sortable": true,
+                    "editable": true,
+                    "edittype": "string",
+                    "request": true
+                },
+                "modifyTime": {
+                    "field": "modified_time",
+                    "title": "修改时间",
+                    "sortable": true,
+                    "request": false,
+                    "isShow": false
                 }
             }
         }

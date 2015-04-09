@@ -17,7 +17,10 @@
             }
         }),
         STATE_MAP: {
-            'date': mf.getDateString(mf.getDate(-1))
+            date: mf.getDateString(mf.getDate(-1)),
+            page: 0,
+            pageSize: mf.PAGER_MODEL.pageSizes[0].value,
+            pageSizes: mf.PAGER_MODEL.pageSizes
         },
 
         onenter: function () {
@@ -55,6 +58,11 @@
             var action = this;
             var model = action.model;
             mf.m.highchart_drill('#dayMediasChart', model.get('lists'), model.get('date'));
+            mf.mockPager(model.get('lists'), {
+                pager: esui.get('dayMediasPager'),
+                pageSizer: esui.get('dayMediasPageSize'),
+                table: esui.get('dayMediasList')
+            })();
         },
         onleave: function () {
             console.log('onleave');

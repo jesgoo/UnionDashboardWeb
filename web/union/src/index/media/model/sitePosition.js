@@ -167,18 +167,13 @@
                     url: '/config',
                     cache: true
                 },
-                {
-                    url: '/channel',
-                    cache: true
-                },
                 '/adslot' + '?' + loader.getQueryString()
-            ], function (config, channels, adslots) {
+            ], function (config, adslots) {
                 mf.initEntities({
                     loader: loader,
                     entities: adslots,
                     fields: FIELDS(adslots, config)
                 });
-                loader.set('channelId', channels.length ? channels[0].id : '');
                 loader.set('config', config);
                 loader.set('sitePositionList', config.lists.sitePositionList);
                 loader.set('sitePositionCount', adslots.length);

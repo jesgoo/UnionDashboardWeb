@@ -13,7 +13,9 @@ er.config.DEFAULT_INDEX = "/media/site";
 //er.config.DEFAULT_INDEX = "/index/dailyReport";
 mf.authority = mf.m.authority('union', 'index');
 mf.cookieKeyMap = {
-    'name': 'union_username',
+    'username': 'union_username',
+    'display_name': 'union_display_name',
+    'default_channel': 'union_default_channel',
     'authority': 'union_adminauthority'
 };
 mf.authority.register(
@@ -28,6 +30,8 @@ mf.authority.isUserLogin = function () {
 mf.urlDebugRouter.reg({
     // 登录
     '/index/index/login': '/login',
+    // 用户信息
+    '/index/user': '/user',
     // 配置文件
     '/index/config': '/config',
     // 渠道列表
@@ -85,3 +89,31 @@ $(function () {
         });
     }
 });
+
+mf.getUserInfo = mf.m.utils.throttle(function () {
+    var getUrl = mf.ajaxParamFactory({
+        url: '/user'
+    });
+    $.getJSON(getUrl.url, function (result) {
+        if (result.success) {
+            var user = result.entities;
+            console.log('user', user);
+            $.each([
+                'username',
+                'display_name',
+                'default_channel'
+            ], function (index, field) {
+                var key = mf.cookieKeyMap[field];
+                key && T.cookie.set(key, user[field] || '');
+            });
+            $('#' + mf.USERNAME_ID).html(user.display_name || user.username);
+        }
+    });
+}, 200);
+
+mf.onenter = (function (fn) {
+    return function () {
+        fn.apply(this, arguments);
+        mf.getUserInfo();
+    }
+})(mf.onenter);

@@ -41,7 +41,7 @@
             var table = esui.get('list');
             var pager = esui.get('pager');
             var pageSizer = esui.get('pageSize');
-            //var sitePositionCount = esui.get('sitePositionCount');
+            var sitePositionCount = esui.get('sitePositionCount');
             var dataList = model.get('list');
             var config = model.get('config');
             var sitePositionList = model.get('sitePositionList');
@@ -148,7 +148,7 @@
                                         var newData = result[0];
                                         if (row._isNew) {
                                             dataList.unshift(newData);
-                                            //sitePositionCount.setContent(dataList.length);
+                                            sitePositionCount.setContent(dataList.length);
                                         } else {
                                             var idField = sitePositionFieldInConfig('id');
                                             var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
@@ -181,7 +181,7 @@
                                     content: mf.etplFetch('position_jssdk_code', {
                                         domain: jssdkDomain,
                                         adslot: operateData.get(row, 'id'),
-                                        channelId: model.get('channelId')
+                                        channelId: T.cookie.get('union_default_channel')
                                     })
                                 });
                             }

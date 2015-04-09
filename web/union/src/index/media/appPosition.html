@@ -1,5 +1,5 @@
-<!-- target: mf_index_media_sitePosition -->
-<div class="mf-index-media-sitePosition layout-2-left">
+<!-- target: mf_index_media_appPosition -->
+<div class="mf-index-media-appPosition layout-2-left">
     <div class="right">
         <div class="plain-notice-area">
             <div class="plain-unit-title">广告位统计</div>
@@ -9,20 +9,18 @@
                         广告位总计
                     </div>
                     <div class="plain-unit-item-field">
-                        <div ui="type:Plain;id:sitePositionCount;content:*sitePositionCount;"></div>
+                        <div ui="type:Plain;id:appPositionCount;content:*appPositionCount;"></div>
                     </div>
                 </div>
             </div>
-            <div class="plain-unit-title">广告位预览</div>
         </div>
-        <div class="cellphone-wrapper cellphone-wrapper-iphone6" id="positionPreview"></div>
     </div>
     <div class="left plain-notice-area">
-        <div class="plain-unit-title">网站媒体 ${siteName}( ID: ${siteId} )&nbsp;➡&nbsp;广告位列表</div>
+        <div class="plain-unit-title">应用媒体 ${appName}( ID: ${appId} )&nbsp;➡&nbsp;广告位列表</div>
         <div class="plain-unit-table">
             <div class="list-op">
                 <div ui="type:Plain;content:广告位名称:;" class="mgR10"></div>
-                <input type="text" class="mgR20" ui="type:TextInput;id:sitePositionName;width:150;value:*sitePositionName;"/>
+                <input type="text" class="mgR20" ui="type:TextInput;id:appPositionName;width:150;value:*appPositionName;"/>
                 <div class="ui-button mgR40">
                     <span class="ui-button-label" data-cmd="search">搜索</span>
                 </div>
@@ -36,10 +34,4 @@
             <!-- import: listPager -->
         </div>
     </div>
-</div>
-<!-- target: position_jssdk_code -->
-<div class="jssdk-code">
-    <label for="jssdkCode">将此段代码粘贴到您希望放置的网页中。</label><br/>
-    <em>注意：不要放在&lt;body&gt;标签之前的位置。</em>
-    <textarea id="jssdkCode">&lt;script type="text/javascript" src='http://${domain}/js/_jssdk.js?adslot=${adslot}<!-- if: ${channelId} -->&channelId=${channelId}<!-- /if -->' &gt;&lt;/script&gt;</textarea>
 </div>

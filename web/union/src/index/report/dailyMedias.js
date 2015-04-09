@@ -18,7 +18,10 @@
         }),
         STATE_MAP: {
             'dateRegion':  mf.getDateString(mf.getDate(-7)) + ',' +
-                           mf.getDateString(mf.getDate(-1))
+                           mf.getDateString(mf.getDate(-1)),
+            page: 0,
+            pageSize: mf.PAGER_MODEL.pageSizes[0].value,
+            pageSizes: mf.PAGER_MODEL.pageSizes
         },
 
         onenter: function () {
@@ -41,19 +44,13 @@
                 });
             }, dateRegion);
 
-            var dailyMediasListTable = esui.get('dailyMediasList');
             var dailyMediasDateSelect = esui.get('dailyMediasDateSelect');
-            dailyMediasListTable.onsort = mf.m.utils.nextTickWrapper(function (orderField, order) {
-                var orderBy = orderField.field;
-                order = order == 'asc' ? 1 : -1;
-                dailyMediasListTable.datasource.sort(function (a, b) {
-                    return a[orderBy] > b[orderBy] ? order : -order;
-                });
-                dailyMediasListTable.render();
-            }, dailyMediasListTable);
             dailyMediasDateSelect.onchange = function (values, value) {
-                dailyMediasListTable.datasource = model.get('reportData')[value];
-                dailyMediasListTable.onsort({ field: dailyMediasListTable.orderBy }, dailyMediasListTable.order);
+                mf.mockPager(model.get('reportData')[value], {
+                    pager: esui.get('dailyMediasPager'),
+                    pageSizer: esui.get('dailyMediasPageSize'),
+                    table: esui.get('dailyMediasList')
+                })();
             };
         },
         onentercomplete: function () {

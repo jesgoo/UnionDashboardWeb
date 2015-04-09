@@ -41,7 +41,16 @@
             <div class="multi-field" ui="type:ButtonSelect;id:dailyMediasDateSelect;datasource:*dateRegionSelects;eachLine:0;skin:simple;"></div>
         </div>
         <div class="list-table">
-            <div ui="type:Table;id:dailyMediasList;datasource:*lists;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+            <div ui="type:Table;id:dailyMediasList;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+        </div>
+        <div class="list-pager">
+            <div class="list-pager-pagesize">
+                <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                <div ui="type:Select;id:dailyMediasPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+            </div>
+            <div class="list-pager-page">
+                <div ui="type:Pager;id:dailyMediasPager;total:*total;page:*page;"></div>
+            </div>
         </div>
     </div>
 </div>
