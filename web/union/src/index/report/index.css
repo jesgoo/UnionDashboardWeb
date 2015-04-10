@@ -65,6 +65,10 @@
 .list-op {
   background: #f5f5f5;
 }
+.list-pager {
+  padding: 10px;
+  border-bottom: 1px solid #ececec;
+}
 .list-op-multi {
   height: auto;
   position: relative;
