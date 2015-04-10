@@ -37,6 +37,51 @@ mf = typeof mf === 'undefined' ? {} : mf;
     // Page about
     
     // Page index
+    mf.MAP.monitor = (function () {
+        // page级别模块
+        var page = {
+            "__module": {
+                "highchart_monitor": { "private": true }
+            },
+            "__mockData": {
+            }
+        };
+
+        var mainNav2 = function (label) {
+            return {
+                "nav1": "main",
+                "list": [
+                    {"nav2": "/main/index"}
+                ],
+                "label": label || ''
+            };
+        };
+
+        //Module index
+        page.main = {
+            "index": mainNav2('监控首页'),
+            "__mockData": {
+            }
+        };
+
+        //配置1级菜单(以下简称nav1）
+        page.__nav1 = {//配置1级菜单(以下简称nav1)
+            "main": {
+                "label": "首页",
+                "url": "#/main/index",
+                "hideNav2": true
+            }
+        };
+        //nav2
+        page.__nav2 = {
+            "\/": {
+                "nav1": 'main',
+                "label": "首页"
+            }
+        };
+        return page;
+    })();
+
     mf.MAP.index = (function () {
         // page级别模块
         var index = {

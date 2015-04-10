@@ -1,3 +1,21 @@
+### /monitor/main/index
+
+Request 
+
+`GET /monitor/main/index.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
 ### /index/config
 
 Request 

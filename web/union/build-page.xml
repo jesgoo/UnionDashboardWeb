@@ -1,4 +1,51 @@
-<?xml version="1.0"?><project default="buildPage"><target name="buildPage"><!--asset js for index-->
+<?xml version="1.0"?><project default="buildPage"><target name="buildPage"><!--asset js for monitor-->
+<echo>${out.m.dir}/asset/${site}-monitor.js</echo>
+<concat destfile="${out.m.dir}/asset/${site}-monitor.js" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="asset" files="${lib.js.file}"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulejs.files}"/>
+    <filelist dir="${module.dir}" files="${monitorcommonmodulejs.files}"/>
+    <filelist dir="${out.m.dir}" files="${site}.js"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulejs.files}
+    ${monitorsiteCommonmodulejs.files}
+    "/>
+    <filelist dir="${site.dir}/src/monitor/module" files="${monitorprivatemodulejs.files}"/>
+    <filelist dir="${site.dir}/src" files="${monitorjs.files}"/>
+</concat>
+
+<!--asset css for monitor-->
+<echo>${out.m.dir}/asset/${site}-monitor.css</echo>
+<concat destfile="${out.m.dir}/asset/${site}-monitor.css" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.css"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulecss.files}"/>
+    <filelist dir="${module.dir}" files="${monitorcommonmodulecss.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulecss.files}
+    ${monitorsiteCommonmodulecss.files}
+    "/>
+    <filelist dir="${site.dir}/src/monitor/module" files="${monitorprivatemodulecss.files}"/>
+    <filelist dir="${site.dir}/src" files="${monitorcss.files}"/>
+</concat>
+<!--asset html for monitor-->
+<echo>${out.m.dir}/asset/${site}-monitor.html</echo>
+<concat destfile="${out.m.dir}/asset/${site}-monitor.html" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.html"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulehtml.files}"/>
+    <filelist dir="${module.dir}" files="${monitorcommonmodulehtml.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulehtml.files}
+    ${monitorsiteCommonmodulehtml.files}
+    "/>
+    <filelist dir="${site.dir}/src/monitor/module" files="${monitorprivatemodulehtml.files}"/>
+    <filelist dir="${site.dir}/src" files="${monitortpl.files}"/>
+</concat>
+<replaceregexp file="${out.m.dir}/asset/${site}-monitor.html"
+               encoding="${encoding}"
+               match="&gt;\s+?&lt;" replace="&gt;&lt;" flags="g m"/>
+<!--asset js for index-->
 <echo>${out.m.dir}/asset/${site}-index.js</echo>
 <concat destfile="${out.m.dir}/asset/${site}-index.js" encoding="${encoding}"
         fixlastline="on">
