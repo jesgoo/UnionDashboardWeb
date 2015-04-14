@@ -47,15 +47,33 @@
                 });
                 listTable.render();
             }, listTable);
+            model.set(
+                'commands',
+                mf.clickCommand.register(
+                    [
+                        {
+                            cmd: 'step_media',
+                            handle: function (options) {
+                                window.open('#/report/media~media=' + options.media + '&name=' + options.name);
+                            }
+                        }
+                    ],
+                    {
+                        region: '#' + action.view.target,
+                        rewrite: true
+                    }
+                )
+            );
         },
         onentercomplete: function () {
             console.log('onentercomplete');
-            mf.loaded();
-            var action = this;
-            var model = action.model;
         },
         onleave: function () {
             console.log('onleave');
+            var action = this;
+            var model = action.model;
+            var commands = action.model.get('commands');
+            commands && mf.clickCommand.dispose(commands);
         }
     });
 })();

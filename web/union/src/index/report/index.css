@@ -33,6 +33,12 @@
 .mf-index-report-index .ui-sidebar-neighbor {
   margin-left: 205px;
 }
+.mf-index-report-index .report-box > div {
+  padding-top: 20px;
+}
+.mf-index-report-index .report-box > div:first-child {
+  padding-top: 0;
+}
 .mf-index-report-index .ui-treeview-node {
   overflow: hidden;
   white-space: nowrap;
@@ -80,4 +86,103 @@
   top: 5px;
   position: absolute;
   width: 70px;
+}
+.report-area {
+  /*
+    .ui-table-row-even {
+        background-color: #f6f7f9;
+    }
+    */
+}
+.report-area > div {
+  padding-top: 20px;
+}
+.report-area > div:first-child {
+  padding-top: 0;
+}
+.report-area .ui-table {
+  font-size: 14px;
+}
+.report-area .ui-table .ui-table-head {
+  background: #f5f5f5;
+}
+.report-area .ui-table-body table,
+.report-area .ui-table-foot table {
+  border-width: 0;
+  margin-left: -1px;
+}
+.report-area .ui-table-row-odd:not(.ui-table-row-hover) {
+  background-color: #fafafa;
+}
+.report-area .ui-table-hcell-text,
+.report-area .ui-table-cell-text {
+  padding: 8px 10px;
+  color: #777;
+  font-weight: 400;
+}
+.report-area .plain-unit-table {
+  border-bottom: 0;
+}
+.report-area .plain-notice-area {
+  background: #fff;
+}
+.report-area .plain-unit-title {
+  background-color: #467EEC;
+  padding-left: 10px;
+  border: 0;
+}
+.report-area .plain-unit-title b,
+.report-area .plain-unit-title span {
+  color: #fff;
+}
+.report-area .plain-unit-title i {
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  margin-right: 0.3em;
+}
+.report-area .plain-unit-title .ui-cal {
+  width: 190px;
+}
+.report-area .plain-unit-title .ui-cal,
+.report-area .plain-unit-title .ui-mcal {
+  float: right;
+  height: 100%;
+  border-right-color: #eaeaea;
+  border-width: 0 1px 0 0;
+  line-height: 40px;
+  padding-left: 10px;
+  position: relative;
+  background: #467EEC;
+  color: #fff;
+  border-left: 1px solid #fff;
+}
+.report-area .plain-unit-title .ui-mcal-arrow {
+  margin-top: 17px;
+  margin-right: 5px;
+}
+.report-area .plain-unit-title .ui-cal-arrow {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+.report-area .money-unit {
+  font-size: 14px;
+  margin-right: 3px;
+}
+.report-area .number-unit {
+  margin-left: 3px;
+}
+.report-area .number-unit-B {
+  color: #817f82;
+}
+.report-area .number-unit-K {
+  color: #f58a16;
+}
+.report-area .number-unit-M {
+  color: #cb3402;
+  font-size: 120%;
+}
+.report-area .number-unit-G {
+  color: #ff12ff;
+  font-size: 140%;
 }

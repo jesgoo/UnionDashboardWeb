@@ -52,7 +52,8 @@
 
         console.log(chartSeries);
         console.log(drilldownSeries);
-        $('#chart3').highcharts({
+        var $element = $(element);
+        $('#mediasChart', $element).highcharts({
             chart: {
                 type: 'column'
             },
@@ -75,12 +76,18 @@
                     events: {
                         click : function (event){
                             if( event.point.media ){
-                                $(element).attr({
-                                    'data-cmd': 'media',
-                                    'data-media': event.point.media
+                                $element.attr({
+                                    'data-cmd': 'step_media',
+                                    'data-media': event.point.media,
+                                    'data-name': event.point.name
                                 });
-                                $(element).trigger('click');  
-                            }                            
+                                $element.trigger('click');
+                                $element.attr({
+                                    'data-cmd': null,
+                                    'data-media': null,
+                                    'data-name': null
+                                });
+                            }
                         }
                     }
                 }   
@@ -127,7 +134,7 @@
         if ( $.isEmptyObject(lists) ) {
             $(element).hide();
             return;
-        };
+        }
 
         $(element).off('click.tab').on('click.tab', '.chart-tab .tab-item', function(event) {
                 event.preventDefault();
@@ -182,7 +189,7 @@
             statisticsData.cpm[date] = statisticsData.request[date] > 0 ? statisticsData.income[date] / (statisticsData.request[date] / 1000) : 0;
         });
 
-        renderChart('income', element,drillData,statisticsData);
+        renderChart('income', element, drillData,statisticsData);
 
     };
     exports.highchart_medias = highchart_medias;

@@ -180,6 +180,9 @@ mf = typeof mf === 'undefined' ? {} : mf;
         //Module report
         index.report = {
             "index": authorityAction(reportNav2('数据报表')),
+            "total": authorityAction(reportNav2('总体数据报表')),
+            "media": authorityAction(reportNav2('媒体报表')),
+            "position": authorityAction(reportNav2('广告位报表')),
             "dailyTotal": authorityAction(reportNav2('账户总体多日')),
             "dailyMedias": authorityAction(reportNav2('多媒体多日')),
             "dayMedias": authorityAction(reportNav2('多媒体单日')),

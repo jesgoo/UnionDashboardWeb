@@ -5,38 +5,8 @@
  * Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved
  */
 (function () {
-    function bindReport(action) {
-        var reportArea = $('#reportArea', '#' + action.view.target);
-        var getReportArea = function (id) {
-            return $('<div/>', {id: 'area' + id}).appendTo(reportArea).get(0);
-        };
-        return function (reports) {
-            var loadReport = arguments.callee;
-            $.each(action.subAction || {}, function (name, sub) {
-                if (sub) {
-                    sub.leave();
-                    action.subAction[name] = null;
-                }
-            });
-            reportArea.children().remove();
-            $.each(reports, function (reportPlace, report) {
-                console.log('loadReport', reportPlace, report);
-                action.subAction[reportPlace] = er.controller.loadSub(
-                    getReportArea(reportPlace),
-                    'mf.index.report.' + report.action,
-                    {
-                        queryMap: report.queryMap || {}
-                    }
-                );
-                if (action.subAction[reportPlace]) {
-                    action.subAction[reportPlace].onreport = loadReport;
-                }
-            });
-        };
-    }
-
-    var guide = function (action) {
-        var reportGuide = $('#reportGuide', '#' + action.view.target);
+    var guide = function (action, element) {
+        var reportGuide = $(element, '#' + action.view.target);
         return function (deepSearchItem) {
             console.log('rend guide', deepSearchItem);
             var guideHTML = [
@@ -54,7 +24,6 @@
                                '</a>');
             }
             reportGuide.html("<em>报表路径</em>&nbsp;" + guideHTML.join('&nbsp;➡️&nbsp;'));
-
         };
     };
     mf.index.report.index = new er.Action({
@@ -92,39 +61,10 @@
                     guideCmd: 'media',
                     hideChildren: true,
                     reports: {
-                        dailyMedia: {
-                            action: 'dailyMedia',
+                        media: {
+                            action: 'media',
                             queryMap: {
-                                media: mediaId,
-                                name: mediaName
-                            }
-                        },
-                        hourlyMedia: {
-                            action: 'hourlyMedia',
-                            queryMap: {
-                                media: mediaId,
-                                name: mediaName
-                            }
-                        },
-                        dailyPositions: {
-                            action: 'dailyPositions',
-                            queryMap: {
-                                media: mediaId,
-                                name: mediaName
-                            }
-                        },
-                        dayPositions: {
-                            action: 'dayPositions',
-                            queryMap: {
-                                media: mediaId,
-                                name: mediaName
-                            }
-                        },
-                        hourlyPositions: {
-                            action: 'hourlyPositions',
-                            queryMap: {
-                                media: mediaId,
-                                name: mediaName
+                                media: mediaId
                             }
                         }
                     },
@@ -148,8 +88,7 @@
                         dailyChannel: {
                             action: 'dailyChannel',
                             queryMap: {
-                                channel: channelId,
-                                name: channelName
+                                channel: channelId
                             }
                         }
                     }
@@ -160,18 +99,9 @@
                 text: '我的账户',
                 guideCmd: 'total',
                 reports: {
-                    dailyTotal: {
-                        action: 'dailyTotal'
-                    },
-                    dayMedias: {
-                        action: 'dayMedias'
-                    },
-                    dailyMedias: {
-                        action: 'dailyMedias'
-                    }/*,
-                     hourlyMedias: {
-                     action: 'hourlyTotal'
-                     }*/
+                    total: {
+                        action: 'total'
+                    }
                 },
                 children: channelTree.concat(mediaTree)
             };
@@ -204,15 +134,8 @@
                                 adslot: adslotId,
                                 guideCmd: 'adslot',
                                 reports: {
-                                    dailyPosition: {
-                                        action: 'dailyPosition',
-                                        queryMap: {
-                                            adslot: adslotId,
-                                            media: item.id
-                                        }
-                                    },
-                                    hourlyPosition: {
-                                        action: 'hourlyPosition',
+                                    postion: {
+                                        action: 'postion',
                                         queryMap: {
                                             adslot: adslotId,
                                             media: item.id
@@ -234,8 +157,8 @@
                 parseSelectTree(value, mf.m.utils.deepSearch('children', treeSource, value, 'id'));
             };
             myTree.select('_report_dailyTotal');
-            var reportLoader = bindReport(action);
-            var guidePainter = guide(action);
+            var reportLoader = mf.index.reportBind(action, '#reportArea');
+            var guidePainter = guide(action, '#reportGuide');
             parseSelectTree('_report_dailyTotal', treeSource);
 
             function parseSelectTree(value, item) {
@@ -258,6 +181,12 @@
                             handle: function (options) {
                                 parseSelectTree(treeSource.id, treeSource);
                                 myTree.select(treeSource.id);
+                            }
+                        },
+                        {
+                            cmd: 'step_media',
+                            handle: function (options) {
+                                window.open('#/report/dailyMedia~media=' + options.media + '&name=' + options.name);
                             }
                         },
                         {

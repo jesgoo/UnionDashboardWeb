@@ -41,7 +41,8 @@
         statisticsData.ctr = Math.round(statisticsData.ctr * 1000000000);
         statisticsData.cpm = Math.round(statisticsData.cpm * 10000000);
         console.log('char data', drillData, statisticsData);
-        $(element).show().highcharts({
+        var $element = $(element);
+        $element.show().highcharts({
             chart: {
                 type: 'column'
             },
@@ -64,11 +65,17 @@
                     events: {
                         click : function (event){
                             if( event.point.media ){
-                                $(element).attr({
-                                    'data-cmd': 'media',
-                                    'data-media': event.point.media
+                                $element.attr({
+                                    'data-cmd': 'step_media',
+                                    'data-media': event.point.media,
+                                    'data-name': event.point.name
                                 });
-                                $(element).trigger('click');  
+                                $element.trigger('click');
+                                $element.attr({
+                                    'data-cmd': null,
+                                    'data-media': null,
+                                    'data-name': null
+                                });
                             }                            
                         }
                     }

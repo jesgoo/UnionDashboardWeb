@@ -689,6 +689,7 @@ Response
         "entities": [
             {
                 "id": "s63c825f",
+                "media": "e2131231",
                 "name": "广告位1",
                 "type": 1,
                 "subtype": 1,
@@ -703,6 +704,7 @@ Response
             },
             {
                 "id": "s23c815f",
+                "media": "e2131231",
                 "name": "广告位2",
                 "type": 10,
                 "subtype": 1,
@@ -775,6 +777,42 @@ Response
         "model": {}
     }
 
+### /index/media/siteTemplate
+
+Request 
+
+`GET /index/media/siteTemplate.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /index/media/appTemplate
+
+Request 
+
+`GET /index/media/appTemplate.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
 ### /index/account/info
 
 Request 
@@ -827,6 +865,60 @@ Response
     {
         "success": true,
         "entities": {}
+    }
+
+### /index/report/total
+
+Request 
+
+`GET /index/report/total.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /index/report/media
+
+Request 
+
+`GET /index/report/media.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /index/report/position
+
+Request 
+
+`GET /index/report/position.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
     }
 
 ### /index/report/dailyTotal
