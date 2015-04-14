@@ -115,10 +115,10 @@
                     tooltip: {
                         valueSuffix: ' 次'
                     },
-                    lineWidth: 5
+                    lineWidth: 2
                 }, {
                     name: '展现数',
-                    type: 'line',
+                    type: 'spline',
                     yAxis: 1,
                     field: 'show',
                     data: cData.data.show,
@@ -128,8 +128,8 @@
                     }
 
                 }, {
-                    name: 'ui数',
-                    type: 'line',
+                    name: '请求数',
+                    type: 'spline',
                     yAxis: 1,
                     field: 'ui',
                     data: cData.data.ui,

@@ -17,7 +17,15 @@
                 }
             },
             'mediaType': {},
-            'name': {},
+            'name': {
+                content: function (item, index) {
+                    if (operateData.get(item, 'id')) {
+                        return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'name', '') + '</a>';
+                    } else {
+                        return operateData.get(item, 'name');
+                    }
+                }
+            },
             'note': {},
             'createTime': {
                 stable:1,

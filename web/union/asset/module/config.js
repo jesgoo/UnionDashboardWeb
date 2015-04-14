@@ -23,7 +23,7 @@
                 {
                     "name": "Banner",
                     "value": 1,
-                    "heightRange": [48, 200],
+                    "heightRange": [32, 200],
                     "heightDefault": 80
                 },
                 {
@@ -112,7 +112,6 @@
             "siteMediaList": {
                 "id": {
                     "field": "id",
-                    "defaultValue": "",
                     "title": "媒体ID",
                     "request": false,
                     "sortable": true
@@ -254,8 +253,8 @@
             "appMediaList": {
                 "id": {
                     "field": "id",
-                    "defaultValue": "",
                     "title": "媒体ID",
+                    "request": false,
                     "sortable": true
                 },
                 "mediaType": {

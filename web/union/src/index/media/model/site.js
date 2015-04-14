@@ -13,12 +13,19 @@
                 stable:1,
                 width: 80,
                 content: function (item, index) {
-                    return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'id', '') + '</a>'
+                    return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'id', '') + '</a>';
                 }
             },
             'mediaType': {},
             'name': {
-                width: 120
+                width: 120,
+                content: function (item, index) {
+                    if (operateData.get(item, 'id')) {
+                        return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'name', '') + '</a>';
+                    } else {
+                        return operateData.get(item, 'name');
+                    }
+                }
             },
             'note': {},
             'createTime': {
@@ -59,7 +66,7 @@
                         ops.unshift('<a data-cmd="save" data-index="' + index + '">保存</a>');
                     }
                     if (item._isNew) {
-                        ops.unshift('<a data-cmd="delete_add" data-index="' + index + '">撤销新增</a>');
+                        ops.unshift('<a data-cmd="delete_add" data-index="' + index + '">删除</a>');
                     } else {
                         ops.unshift('<a data-cmd="copy" data-index="' + index + '">复制</a>');
                     }

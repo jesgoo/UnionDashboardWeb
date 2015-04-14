@@ -19,68 +19,87 @@
         return date + '/' + hour + ':' + minute;
     }
 
-    function parseData(data) {
-        var result = {};
-        $.each(data || [], function (index, obj) {
-            if (!/\.log$/i.test(obj.table_name)) {
-                return true;
-            }
-            var key = obj.table_name.slice(0, -4);
-            result[key] = result[key] || {};
-            $.each(obj.counters || [], function (index, item) {
-                result[key][getTimeString(item.time)] = item.number;
+    function parseData(target) {
+        return function (data) {
+            var result = {};
+            $.each(data || [], function (index, obj) {
+                if (!/\.log$/i.test(obj.table_name)) {
+                    return true;
+                }
+                var field = obj.table_name.slice(0, -4);
+                $.each(obj.counters || [], function (index, counter) {
+                    var time = getTimeString(counter.time);
+                    var item = result[time] = result[time] || {};
+                    var obj = item[field] = item[field] || {};
+                    obj[target] = counter.number;
+                });
             });
-        });
-        //console.log('parseData', data, result);
-        return result;
+            //console.log('parseData', data, result);
+            return result;
+        }
     }
 
     function mergeData() {
         var result = {};
         var dataList = [].slice.call(arguments);
         $.each(dataList, function (index, data) {
-            $.each(data, function (key, list) {
-                var item = result[key] = result[key] || {};
-                $.each(list, function (time, value) {
-                    item[time] = item[time] || 0;
-                    item[time] += +value;
+            $.deepExtend(result, data);
+            /*$.each(data.timeMap, function (field, timeObj) {
+                var item = result.timeMap[field] = result.timeMap[field] || {};
+                $.each(timeObj, function (time, targetObj) {
+                    var timeCollection = item[time] = item[time] || {};
+                    $.each(targetObj, function (target, value) {
+                        timeCollection[target] = value;
+                    });
                 });
-            });
+            });*/
         });
         //console.log('mergeData', dataList, result);
         return result;
     }
 
+    function objectCount (obj) {
+        var count = 0 ;
+        var sum = 0 ;
+        $.each(obj, function (key, value) {
+            count += 1;
+            sum += +value || 0;
+        });
+        return {
+            count: count,
+            sum: sum
+        };
+    }
     function convertData(data) {
         var result = {
-            data: {}
+            data: {},
+            time: []
         };
-        var timeMap = {};
-        $.each(data, function (key, list) {
-            $.each(list, function (time) {
-                timeMap[time] = time;
+        var timeMap = $.deepExtend({}, data);
+        $.each(timeMap, function (time, list) {
+            result.time.push(time);
+            $.each(list, function (field, counters) {
+                list[field] = objectCount(counters);
             });
         });
-        var timeList = $.map(timeMap, function (time) {
-            return time;
-        });
-        timeList.sort(function (a, b) {
+        result.time.sort(function (a, b) {
             return a > b ? 1 : -1;
         });
-        $.each(data, function (key, list) {
-            var item = result.data[key] = [];
-            $.each(timeList, function (index, time) {
-                item[index] = list[time] || 0;
+        $.each(result.time, function (index, time) {
+            var item = timeMap[time];
+            $.each(fieldMap, function (field) {
+                var target = result.data[field] = result.data[field] || [];
+                var value = item[field];
+                target[index] = value && value.sum || 0;
             });
         });
-        result.time = timeList;
-        //console.log('convertData', data, result);
+        console.log('convertData', data, result);
         return result;
     }
 
     function requestData(requestURL) {
         //console.log('requestData', requestURL);
-        return $.getJSON(requestURL).pipe(parseData);
+        return $.getJSON(requestURL).pipe(parseData(requestURL.substring(0, requestURL.lastIndexOf('/'))));
     }
 
     function RunMonitor(charElement, requestList, monitorList) {
@@ -97,10 +116,9 @@
         });
         $.when.apply($, dataRequest)
             .pipe(mergeData)
-            .pipe(convertData)
             .done(function (data) {
                 me.data = data;
-                me.chart = mf.m.highchart_monitor(me.element, data);
+                me.chart = mf.m.highchart_monitor(me.element, convertData(data));
                 me.monitor();
             }).fail(function () {
                 console.log('%cwarning', 'color: #f00;', arguments);
@@ -109,25 +127,19 @@
     }
     RunMonitor.prototype.appendData = function (data) {
         var me = this;
-        console.log('monitor appendData', data);
-        $.each(data.time, function (index, time) {
-            var inTimeList = mf.m.utils.indexOfArray(me.data.time, time);
-            if (inTimeList == -1) {
-                data.isNew = true;
-                inTimeList = me.data.time.push(time) - 1;
-            }
-            $.each(me.data.data, function (field, list) {
-                list[inTimeList] = data.data[field][index] || list[inTimeList] || 0;
+        var maxLength = 30 * 24;
+        var chartData = convertData($.deepExtend(me.data, data));
+        var discardLength = chartData.length - maxLength;
+        if (discardLength > 0) {
+            var discardTime = chartData.time.splice(0, discardLength);
+            $.each(fieldMap, function (field) {
+                chartData.data[field].splice(0, discardLength);
             });
-        });
-        //var overflowLength = me.data.time.length - 60 / 2 * 24;
-        //if (overflowLength > 0) {
-        //    me.data.time.splice(0, overflowLength);
-        //    $.each(me.data.data, function (field, list) {
-        //        list.splice(0, overflowLength);
-        //    });
-        //}
-        return data;
+            $.each(discardTime, function (index, time) {
+                delete me.data[time];
+            });
+        }
+        return chartData;
     };
     RunMonitor.prototype.monitor = function (interval) {
         var me = this;
@@ -139,23 +151,14 @@
             });
             $.when.apply($, dataRequest)
                 .pipe(mergeData)
-                .pipe(convertData)
                 .pipe(me.appendData.bind(me))
-                .done(function (data) {
-                    if (data.isNew) {
-                        console.log('%cappend New Data', 'color: #f00;');
-                        $.each(data.data, function (field, list) {
-                            me.chart.series[fieldMap[field]].addPoint([data.time, +list[0]], false, true);
-                        });
-                        me.chart.redraw();
-                        me.monitor(3);
-                    } else {
-                        $.each(me.data.data, function (field, list) {
-                            me.chart.series[fieldMap[field]].setData(list, false, false, true);
-                        });
-                        me.chart.redraw();
-                        me.monitor(3);
-                    }
+                .done(function (chartData) {
+                    $.each(fieldMap, function (field, index) {
+                        me.chart.series[index].setData(chartData.data[field], false, true);
+                    });
+                    me.chart.xAxis[0].categories = chartData.time;
+                    me.chart.redraw();
+                    me.monitor(20);
                 }).fail(function () {
                     console.log('%cwarning', 'color: #f00;', arguments);
                     me.monitor(5);

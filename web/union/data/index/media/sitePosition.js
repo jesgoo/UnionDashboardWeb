@@ -23,6 +23,7 @@ exports.response = {
     "entities": [
         {
             "id": "s63c825f",
+            "media": "e2131231",
             "name": "广告位1",
             "type": 1,
             "subtype": 1,
@@ -37,6 +38,7 @@ exports.response = {
         },
         {
             "id": "s23c815f",
+            "media": "e2131231",
             "name": "广告位2",
             "type": 10,
             "subtype": 1,

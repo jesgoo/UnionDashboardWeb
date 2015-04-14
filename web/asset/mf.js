@@ -1933,15 +1933,20 @@ mf.operateDataInConfigField = function (configMap) {
  *   @param {number} page
  *   @param {Function | undefined} filter 筛选条件
  * */
-mf.mockPager = function (dataList, targets) {
+mf.mockPager = function (dataList, targets, opt) {
     var table = targets.table;
     var pageSizer = targets.pageSizer;
     var pager = targets.pager;
+    opt = opt || {};
     table.onedit = function (value, options, editor) {
-        var row = table.datasource[options.rowIndex];
-        mf.m.utils.recursion.set(row, options.field.field, value);
-        row._isModify = true;
-        table.render();
+        if (opt.editToSave) {
+            return opt.editToSave(value, options, editor);
+        } else {
+            var row = table.datasource[options.rowIndex];
+            mf.m.utils.recursion.set(row, options.field.field, value);
+            row._isModify = true;
+            table.render();
+        }
     };
     pager.onchange = mf.m.utils.nextTickWrapper(function () {
         refreshTable();

@@ -6,7 +6,7 @@
  * shortcut mf.m.timeTool
  */
 (function (exports, module) {
-    var consumptionDefaultOrder = {
+    var consumptionDefaultDataSets = {
         "normalOrderList": [
             {
                 "id": 1,
@@ -11131,5 +11131,5 @@
             }
         ]
     };
-    exports.consumptionDefaultOrder = consumptionDefaultOrder;
+    exports.consumptionDefaultDataSets = consumptionDefaultDataSets;
 })(mf && mf.m || exports || {}, mf || module);

@@ -55,6 +55,32 @@
                 pager: pager,
                 pageSizer: pageSizer,
                 table: table
+            }, {
+                editToSave: function (value, options, editor) {
+                    var row = table.datasource[options.rowIndex];
+                    if (mf.tableSavingValidator(row, table.fields)) {
+                        mf.m.utils.recursion.set(row, options.field.field, value);
+                        mf.parallelAjax({
+                            type: 'POST',
+                            url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
+                            data: mf.grepDataInConfig(row, appPositionList)
+                        }, function (result) {
+                            var newData = result[0];
+                            if (row._isNew) {
+                                dataList.unshift(newData);
+                                appPositionCount.setContent(dataList.length);
+                            } else {
+                                var idField = appPositionFieldInConfig('id');
+                                var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
+                                index > -1 && (dataList[index] = newData);
+                            }
+                            table.datasource[options.rowIndex] = newData;
+                            table.render();
+                        });
+                    } else {
+                        return false;
+                    }
+                }
             });
             refreshTable();
             $.extend(action._controlMap, esui.init(table.main));

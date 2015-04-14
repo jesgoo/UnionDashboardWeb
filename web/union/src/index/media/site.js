@@ -45,6 +45,33 @@
                 pager: esui.get('pager'),
                 pageSizer: esui.get('pageSize'),
                 table: table
+            }, {
+                editToSave: function (value, options, editor) {
+                    var row = table.datasource[options.rowIndex];
+                    if (mf.tableSavingValidator(row, table.fields)) {
+                        mf.m.utils.recursion.set(row, options.field.field, value);
+                        mf.parallelAjax({
+                            type: 'POST',
+                            url: '/media' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
+                            data: mf.grepDataInConfig(row, siteMediaList)
+                        }, function (result) {
+                            var newData = result[0];
+                            if (row._isNew) {
+                                dataList.unshift(newData);
+                                siteMediaCount.setContent(dataList.length);
+                                refreshPopupsCount();
+                            } else {
+                                var idField = siteMediaFieldInConfig('id');
+                                var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
+                                index > -1 && (dataList[index] = newData);
+                            }
+                            table.datasource[options.rowIndex] = newData;
+                            table.render();
+                        });
+                    } else {
+                        return false;
+                    }
+                }
             });
             refreshTable();
             var refreshPopupsCount = function () {
