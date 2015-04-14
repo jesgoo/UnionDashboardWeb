@@ -1939,11 +1939,11 @@ mf.mockPager = function (dataList, targets, opt) {
     var pager = targets.pager;
     opt = opt || {};
     table.onedit = function (value, options, editor) {
+        var row = table.datasource[options.rowIndex];
+        mf.m.utils.recursion.set(row, options.field.field, value);
         if (opt.editToSave) {
             return opt.editToSave(value, options, editor);
         } else {
-            var row = table.datasource[options.rowIndex];
-            mf.m.utils.recursion.set(row, options.field.field, value);
             row._isModify = true;
             table.render();
         }

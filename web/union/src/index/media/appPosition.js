@@ -59,7 +59,6 @@
                 editToSave: function (value, options, editor) {
                     var row = table.datasource[options.rowIndex];
                     if (mf.tableSavingValidator(row, table.fields)) {
-                        mf.m.utils.recursion.set(row, options.field.field, value);
                         mf.parallelAjax({
                             type: 'POST',
                             url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),

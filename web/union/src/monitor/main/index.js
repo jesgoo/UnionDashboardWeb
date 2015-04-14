@@ -28,7 +28,8 @@
                 }
                 var field = obj.table_name.slice(0, -4);
                 $.each(obj.counters || [], function (index, counter) {
-                    var time = getTimeString(counter.time);
+                    var time = Math.floor(counter.time / 60);
+                    //var time = getTimeString(counter.time);
                     var item = result[time] = result[time] || {};
                     var obj = item[field] = item[field] || {};
                     obj[target] = counter.number;
@@ -129,9 +130,11 @@
         var me = this;
         var maxLength = 30 * 24;
         var chartData = convertData($.deepExtend(me.data, data));
-        var discardLength = chartData.length - maxLength;
+        console.log('new Chart Data', chartData);
+        var discardLength = chartData.time.length - maxLength;
         if (discardLength > 0) {
             var discardTime = chartData.time.splice(0, discardLength);
+            console.log('discardTime', discardTime, discardLength);
             $.each(fieldMap, function (field) {
                 chartData.data[field].splice(0, discardLength);
             });
@@ -153,10 +156,22 @@
                 .pipe(mergeData)
                 .pipe(me.appendData.bind(me))
                 .done(function (chartData) {
+                    var startDate = new Date(chartData.time[0] * 60000);
+                    var UTCStartDate = Date.UTC(
+                        startDate.getFullYear(),
+                        startDate.getMonth(),
+                        startDate.getMonth(),
+                        startDate.getHours(),
+                        startDate.getMinutes(),
+                        startDate.getUTCSeconds()
+                    );
+                    console.log('startDate', startDate);
                     $.each(fieldMap, function (field, index) {
                         me.chart.series[index].setData(chartData.data[field], false, true);
+                        me.chart.series[index].update({
+                            pointStart: UTCStartDate
+                        }, false);
                     });
-                    me.chart.xAxis[0].categories = chartData.time;
                     me.chart.redraw();
                     me.monitor(20);
                 }).fail(function () {

@@ -130,7 +130,9 @@ mf = typeof mf === 'undefined' ? {} : mf;
                     {"nav2": "/media/site"},
                     {"nav2": "/media/sitePosition", parentPath: "/media/site"},
                     {"nav2": "/media/app"},
-                    {"nav2": "/media/appPosition", parentPath: "/media/app"}
+                    {"nav2": "/media/appPosition", parentPath: "/media/app"},
+                    {"nav2": "/media/siteTemplate", parentPath: "/media/site"},
+                    {"nav2": "/media/appTemplate", parentPath: "/media/app"}
                 ],
                 "label": label || ''
             };
@@ -142,6 +144,8 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "sitePosition": authorityAction(mediaNav2('网站广告位')),
             "app": authorityAction(mediaNav2('应用管理')),
             "appPosition": authorityAction(mediaNav2('应用广告位')),
+            "siteTemplate": authorityAction(mediaNav2('自定义模版')),
+            "appTemplate": authorityAction(mediaNav2('自定义模版')),
             "__mockData": {
             }
         };

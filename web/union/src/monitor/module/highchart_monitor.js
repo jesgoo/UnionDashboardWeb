@@ -8,6 +8,14 @@
 (function (exports, module) {
     var highchart_monitor = function (element, cData) {
         console.log('chart original', element, cData);
+        var startDate = new Date(cData.time[0] * 60000);
+        var UTCStartDate = Date.UTC(
+            startDate.getFullYear(),
+            startDate.getMonth(),
+            startDate.getMonth(),
+            startDate.getHours(),
+            startDate.getMinutes()
+        );
         return $(element).highcharts({
             chart: {
                 animation: false,
@@ -18,7 +26,7 @@
             title: {
                 text: null
             },
-            colors: ["#f6505c","#1c62b8","#f6c928","#19b2b7","#8772cd","#eb6f25"],
+            colors: ["#f6505c", "#1c62b8", "#f6c928", "#19b2b7", "#8772cd", "#eb6f25"],
             credits: {
                 enabled: false
             },
@@ -60,23 +68,24 @@
                     }
                 }
             },
-            xAxis: [
-                {
-                    categories: cData.time,
-                    lineColor: '#e5e5e5',
-                    tickColor: '#e5e5e5',
-                    labels: {
-                        style: {
-                            color: '#7a7a7a'
-                        },
-                        rotation: -45,
-                        align: 'right'
+            xAxis: {
+                type: 'datetime',
+                maxZoom: 3600 * 1000,
+                //minRange: 3600 * 1000,
+                //categories: cData.time,
+                lineColor: '#e5e5e5',
+                tickColor: '#e5e5e5',
+                labels: {
+                    style: {
+                        color: '#7a7a7a'
                     },
-                    tickPosition: 'inside',
-                    tickLength: 4,
-                    tickmarkPlacement: 'on'
-                }
-            ],
+                    rotation: -45,
+                    align: 'right'
+                },
+                tickPosition: 'inside',
+                tickLength: 4,
+                tickmarkPlacement: 'on'
+            },
             yAxis: [
                 { // Primary yAxis
                     min: 0,
@@ -107,6 +116,8 @@
                     name: '点击数',
                     field: 'event',
                     type: 'spline',
+                    pointInterval: 2 * 60 * 1000,
+                    pointStart: UTCStartDate,
                     yAxis: 0,
                     data: cData.data.event,
                     marker: {
@@ -120,6 +131,8 @@
                     name: '展现数',
                     type: 'spline',
                     yAxis: 1,
+                    pointInterval: 2 * 60 * 1000,
+                    pointStart: UTCStartDate,
                     field: 'show',
                     data: cData.data.show,
                     lineWidth: 2,
@@ -131,6 +144,8 @@
                     name: '请求数',
                     type: 'spline',
                     yAxis: 1,
+                    pointInterval: 2 * 60 * 1000,
+                    pointStart: UTCStartDate,
                     field: 'ui',
                     data: cData.data.ui,
                     lineWidth: 2,
