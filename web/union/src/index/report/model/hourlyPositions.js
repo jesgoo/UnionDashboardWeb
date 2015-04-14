@@ -21,7 +21,7 @@
                 "field": "name",
                 "title": "广告位名称",
                 "content": function (item, index) {
-                    return item.name ? '<a data-cmd="step_adslot" data-adslot="' + item.adslot + '" data-name="' + item.name + '">' + item.adslot + '</a>' : item.adslot;
+                    return item.name ? '<a data-cmd="step_adslot" data-adslot="' + item.adslot + '" data-name="' + item.name + '">' + item.name + '</a>' : '';
                     //return item.name ? '<a data-cmd="adslot" data-media="' + mediaId + '" data-adslot="' + item.adslot + '">' + item.name + '</a>' : '-';
                 },
                 "sortable": 1

@@ -134,8 +134,8 @@
                                 adslot: adslotId,
                                 guideCmd: 'adslot',
                                 reports: {
-                                    postion: {
-                                        action: 'postion',
+                                    position: {
+                                        action: 'position',
                                         queryMap: {
                                             adslot: adslotId,
                                             media: item.id
