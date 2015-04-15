@@ -22,8 +22,9 @@
         lists = [].concat(lists);
         if (lists.length < 1) {
             $(element).hide();
-            return ;
-        };
+            return;
+        }
+        ;
         lists.sort(function (a, b) {
             return a['date'] > b['date'] ? 1 : -1;
         });
@@ -52,7 +53,7 @@
             title: {
                 text: null
             },
-            colors: ["#f6505c","#1c62b8","#f6c928","#19b2b7","#8772cd","#eb6f25"],
+            colors: ["#f6505c", "#1c62b8", "#f6c928", "#19b2b7", "#8772cd", "#eb6f25"],
             credits: {
                 enabled: false
             },
@@ -186,7 +187,7 @@
                     marker: {
                         symbol: null
                     },
-                    lineWidth: 5,
+                    lineWidth: 5
                 }, {
                     name: '展现数',
                     type: 'line',

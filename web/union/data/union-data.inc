@@ -792,7 +792,16 @@ Response
     :::javascript
     {
         "success": true,
-        "model": {}
+        "entities": [
+            {
+                id: 0,
+                percent: 100, // 百分比 0 - 100
+                template: "\
+                 \
+                \
+                " // 模版
+            }
+        ]
     }
 
 ### /index/media/appTemplate

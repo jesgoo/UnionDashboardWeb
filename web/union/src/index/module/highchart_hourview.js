@@ -10,7 +10,8 @@
         "click": 0,
         "impression": 0,
         "request": 0,
-        "served_request": 0
+        "served_request": 0,
+        "ctr": 0
     };
 
     var highchart_hourview = function (element, lists) {
@@ -135,7 +136,16 @@
                         },
                         enabled: false
                     }
-
+                },
+                { // 3th yAxis
+                    min: 0,
+                    gridLineWidth: 0,
+                    title: {
+                        text: null
+                    },
+                    labels: {
+                        enabled: false
+                    }
                 }
             ],
             series: [
@@ -170,6 +180,18 @@
                     },
                     visible: false
 
+                },
+                {
+                    name: '点击率',
+                    type: 'line',
+                    data: cData.ctr,
+                    yAxis: 2,
+                    lineWidth: 2,
+                    tooltip: {
+                        valueDecimals: 2,
+                        valueSuffix: '%'
+                    },
+                    visible: false
                 }
             ]
         });

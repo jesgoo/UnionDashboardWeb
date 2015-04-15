@@ -64,13 +64,13 @@
                 "title": "填充率",
                 "content": mf.getFieldContentPercent('fr'),
                 "sortable": 1
-            },
+            }*/,
             {
                 "field": "ctr",
                 "title": "点击率",
                 "content": mf.getFieldContentPercent('ctr'),
                 "sortable": 1
-            },
+            }/*,
             {
                 "field": "cpm",
                 "title": "千次展现收入",
@@ -104,7 +104,10 @@
                 }
             ], function (config, reportData) {
 
-                var timeSelects = $.map(reportData, function (row, date) {
+                var timeSelects = $.map(reportData, function (list, date) {
+                    $.each(list, function (index, row) {
+                        row.ctr = row.ctr ? row.ctr : row.impression ? row.click / row.impression : 0;
+                    });
                     return {
                         text : ('00' + date + '时').substr(-3),
                         id : date

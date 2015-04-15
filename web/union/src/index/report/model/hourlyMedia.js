@@ -53,13 +53,13 @@
              "title": "填充率",
              "content": mf.getFieldContentPercent('fr'),
              "sortable": 1
-             },
+             }*/,
             {
                 "field": "ctr",
                 "title": "点击率",
                 "content": mf.getFieldContentPercent('ctr'),
                 "sortable": 1
-            },
+            }/*,
             {
                 "field": "cpm",
                 "title": "千次展现收入",
@@ -96,6 +96,9 @@
 
                 loader.set('order', 'desc');
                 loader.set('orderBy', 'hour');
+                $.each(reportData, function (index, row) {
+                    row.ctr = row.ctr ? row.ctr : row.impression ? row.click / row.impression : 0;
+                });
                 loader.set('lists', reportData);
                 loader.set('fields', FIELDS(loader));
 
