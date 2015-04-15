@@ -57,7 +57,25 @@
             console.log('onentercomplete');
             var action = this;
             var model = action.model;
-            mf.m.highchart_drill('#dayMediasChart', model.get('lists'), model.get('date'));
+            var $element = $('#dayMediasChart');
+            mf.m.highchart_drill('#dayMediasChart',
+                model.get('lists'), model.get('date'),
+                function (event) {
+                    if (event.point.media) {
+                        $element.attr({
+                            'data-cmd': 'step_media',
+                            'data-media': event.point.media,
+                            'data-name': event.point.name
+                        });
+                        $element.trigger('click');
+                        $element.attr({
+                            'data-cmd': null,
+                            'data-media': null,
+                            'data-name': null
+                        });
+                    }
+                }
+            );
             mf.mockPager(model.get('lists'), {
                 pager: esui.get('dayMediasPager'),
                 pageSizer: esui.get('dayMediasPageSize'),

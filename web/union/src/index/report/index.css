@@ -94,12 +94,6 @@
     }
     */
 }
-.report-area > div {
-  padding-top: 20px;
-}
-.report-area > div:first-child {
-  padding-top: 0;
-}
 .report-area .ui-table {
   font-size: 14px;
 }

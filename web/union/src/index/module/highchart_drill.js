@@ -6,7 +6,7 @@
  * shortcut mf.m.highchart_drill
  */
 (function (exports, module) {
-    var highchart_drill = function (element, lists, date) {
+    var highchart_drill = function (element, lists, date, pointerClick) {
         lists = [].concat(lists);
         if (lists.length < 1) {
             $(element).hide();
@@ -19,7 +19,7 @@
                     return true;
                 }
                 drillData[key] || (drillData[key] = []);
-                drillData[key].push({ 'name': item.name, 'y': value, 'media': item.media});
+                drillData[key].push({ 'name': item.name, 'y': value, 'media': item.media, 'adslot': item.adslot});
             });
         });
         $.each(drillData.ctr || [], function (index) {
@@ -41,8 +41,7 @@
         statisticsData.ctr = Math.round(statisticsData.ctr * 1000000000);
         statisticsData.cpm = Math.round(statisticsData.cpm * 10000000);
         console.log('char data', drillData, statisticsData);
-        var $element = $(element);
-        $element.show().highcharts({
+        $(element).show().highcharts({
             chart: {
                 type: 'column'
             },
@@ -63,21 +62,7 @@
                 series: {
                     cursor: 'pointer',
                     events: {
-                        click : function (event){
-                            if( event.point.media ){
-                                $element.attr({
-                                    'data-cmd': 'step_media',
-                                    'data-media': event.point.media,
-                                    'data-name': event.point.name
-                                });
-                                $element.trigger('click');
-                                $element.attr({
-                                    'data-cmd': null,
-                                    'data-media': null,
-                                    'data-name': null
-                                });
-                            }                            
-                        }
+                        click : pointerClick
                     }
                 }   
             },

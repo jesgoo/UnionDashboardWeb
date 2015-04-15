@@ -16,7 +16,7 @@
             }
         }),
         STATE_MAP: {
-            'date':  mf.getDateString(mf.getDate(-1))
+            'date': mf.getDateString(mf.getDate(-1))
         },
 
         onenter: function () {
@@ -55,7 +55,26 @@
             mf.loaded();
             var action = this;
             var model = action.model;
-            mf.m.highchart_drill('#dayPositionsChart', model.get('lists'), model.get('date'));
+            var $element = $('#dayPositionsChart');
+            mf.m.highchart_drill(
+                '#dayPositionsChart',
+                model.get('lists'), model.get('date'),
+                function (event) {
+                    if (event.point.adslot) {
+                        $element.attr({
+                            'data-cmd': 'step_adslot',
+                            'data-adslot': event.point.adslot,
+                            'data-name': event.point.name
+                        });
+                        $element.trigger('click');
+                        $element.attr({
+                            'data-cmd': null,
+                            'data-adslot': null,
+                            'data-name': null
+                        });
+                    }
+                }
+            );
         },
         onleave: function () {
             console.log('onleave');
