@@ -1817,16 +1817,21 @@ mf.tableSavingValidator = function (row, fields) {
         if (field.validator) {
             var error = field.validator.call(table, value, row);
             if (error) {
-                err.push('【' + (field.title || '') + '】' + error);
+                var title = field.title;
+                if (typeof title === 'function') {
+                    title = title.call(table);
+                }
+                err.push('【' + (title || '') + '】' + error);
                 return true;
             }
         }
     });
     if (err.length) {
-        esui.Dialog.alert({
+        var dialog = esui.Dialog.alert({
             title: '操作失败',
             content: err.join('<br>')
         });
+        $.extend(dialog._controlMap, esui.init(dialog.main));
         return false;
     }
     return true;
@@ -2041,7 +2046,7 @@ mf.etplFetch = function (tplName, data) {
         contextId: contextId
     };
     er.context.addPrivate(contextId);
-    $.each(data, function (i, n) {
+    $.each(data || {}, function (i, n) {
         er.context.set(i, n, contextOption);
     });
     var target = {};

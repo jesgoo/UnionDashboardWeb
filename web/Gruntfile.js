@@ -303,6 +303,31 @@ module.exports = function (grunt) {
                     res.download(DOWNLOAD_PATH);
                 });
             });
+            app.post(/index\/media\/siteTemplate.json/i, function (req, res, next) {
+                var result = {
+                    success: true,
+                    entities: [
+                        req.body
+                    ]
+                };
+                req.body.id = req.body.id || ('t' + Math.round(Math.random() * 10000));
+                res.type('json');
+                if (req.body.data) {
+                    var generator = require('child_process').exec(
+                        'export SOURCE=1 && echo "' + JSON.stringify(req.body).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '" | node ./jsGenerator/bin/generator.js > ./output/union/result.js',
+                        function (error, stdout, stderr) {
+                            console.log('stdout: ' + stdout);
+                            console.log('stderr: ' + stderr);
+                            if (error !== null) {
+                                console.log('exec error: ' + error);
+                            }
+                            console.log('jsGenerator one');
+                        }
+                    );
+                    req.body.version = 'result';
+                }
+                res.send(result);
+            });
             app.all(/\.json/i, function (req, res, next) {
                 var path = server.dataRoot + req.url.replace(/\.json.*/, '.js');
                 try {

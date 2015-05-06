@@ -56,7 +56,7 @@
             },
             {
                 "field": "fr",
-                "title": "转化率",
+                "title": "填充率",
                 "content": mf.getFieldContentPercent('fr'),
                 "sortable": 1,
                 "align": "right"

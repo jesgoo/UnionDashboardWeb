@@ -10,18 +10,6 @@
  *
  */
 (function (exports, module) {
-    var writeInIframe = function (win, html, charset) {
-        var doc = win.document;
-        charset = charset || 'UTF-8';
-        doc.open();
-        doc.write('<!doctype html><html lang="en" style="height:100%;"><head>');
-        doc.write('<meta charset="' + charset + '">');
-        doc.write('<style>html,body,div,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}img{border:0;}</style>');
-        doc.write('</head><body style="height:100%;">');
-        doc.write(html);
-        doc.write('</body></html>');
-        doc.close();
-    };
     var previewJS = function (data, target) {
         var contextId = '_preview';
         var adslot = 's0000000';
@@ -70,7 +58,46 @@
             frameborder: '0',
             scrolling: 'no'
         }).appendTo(target).get(0);
-        writeInIframe(iframe.contentWindow, container.innerHTML);
+        mf.m.utils.writeInIframe(iframe.contentWindow, container.innerHTML);
+    };
+    var previewCustomJS = function (js, data, target, jsSource) {
+        var contextId = '_preview';
+        js = js || '';
+        if (js !== 'result' && js !== '') {
+            js = '//cdn.jesgoo.com/template/' + js;
+        }
+        var customData = {
+            version: 'test',
+            js: js || '',
+            jsSource: jsSource || '',
+            data: JSON.stringify(data || {})
+        };
+        var contextOption = {
+            contextId: contextId
+        };
+        er.context.addPrivate(contextId);
+        $.each(customData, function (i, n) {
+            er.context.set(i, n, contextOption);
+        });
+        var container = {
+            innerHTML: 'invalid'
+        };
+        er.template.merge(
+            container,
+            'position_preview_custom_js',
+            contextId
+        );
+        er.context.removePrivate(contextId);
+
+        var $target = $('#' + target);
+        $target.children().remove();
+        var iframe = $('<iframe/>', {
+            'class': 'position-wrapper',
+            frameborder: '0',
+            scrolling: 'no'
+        }).appendTo($target).get(0);
+        console.log('previewCustomJS', $target, container.innerHTML);
+        mf.m.utils.writeInIframe(iframe.contentWindow, container.innerHTML);
     };
     var previewHTML = function (data, target) {
         var contextId = '_preview';
@@ -116,8 +143,9 @@
         return target.innerHTML;
     };
     exports.preview = {
-        writeInIframe: writeInIframe,
+        writeInIframe: mf.m.utils.writeInIframe,
         previewHTML: previewHTML,
-        previewJS: previewJS
+        previewJS: previewJS,
+        previewCustomJS: previewCustomJS
     };
 })(mf && mf.m || exports || {}, mf || module);

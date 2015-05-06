@@ -4694,13 +4694,13 @@ esui.Dialog.confirm = (function () {
                               id            : dialogPrefix + index,
                               closeButton   : 0,
                               title         : '', 
-                              width         : 440,
+                              width         : args.width || 440,
                               mask          : {level: 3 || args.level},
                               footContent   : esui.util.format( footTpl, 
-                                                                okPrefix + index, 
-                                                                esui.Dialog.OK_TEXT,
+                                                                okPrefix + index,
+                                                                args.okText || esui.Dialog.OK_TEXT,
                                                                 cancelPrefix + index,
-                                                                esui.Dialog.CANCEL_TEXT)
+                                                                args.cancelText || esui.Dialog.CANCEL_TEXT)
                           });
 
         dialog.show();

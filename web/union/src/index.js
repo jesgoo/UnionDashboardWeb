@@ -61,7 +61,9 @@ mf.urlDebugRouter.reg({
     // 单广告位多日
     '/index/report/dailyPosition': /^\/report\/adslot\/s[0-9a-z]{7}\/daily\/\d{8}\-\d{8}$/i,
     // 单广告位单日分小时
-    '/index/report/hourlyPosition': /^\/report\/adslot\/s[0-9a-z]{7}\/daily\/\d{8}\/traffic$/i
+    '/index/report/hourlyPosition': /^\/report\/adslot\/s[0-9a-z]{7}\/daily\/\d{8}\/traffic$/i,
+    // 单广告位单日分小时
+    '/index/media/siteTemplate': /^\/template(?:\/.+)?$/i
 });
 
 mf.windowMinWidth = 980;

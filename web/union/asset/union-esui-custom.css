@@ -151,3 +151,6 @@
     position: relative;
     top: 3px;
 }
+.plain-unit-title .ui-button{
+    vertical-align: middle;
+}

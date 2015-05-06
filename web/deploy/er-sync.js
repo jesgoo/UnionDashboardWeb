@@ -292,41 +292,47 @@ Sync.prototype.syncPage = function (page) {
         if (module.hasOwnProperty(m)) {
             console.log('load page module', m);
             if (module[m].private) {
-                var moduleFile = path.join(PAGE_MODULE_DIR, m + '.js');
-                if (!fs.existsSync(moduleFile)) {
+                var moduleFile = path.join(PAGE_MODULE_DIR, m);
+                if (!fs.existsSync(moduleFile + '.js')) {
                     me.syncFile(moduleFile, me.render(me.MODULE_TPL, {
                         id: m,
                         namespace: 'mf'
                     }))
                 }
-                if (fs.existsSync(path.join(PAGE_MODULE_DIR, m + '.css'))) {
+                me.privateModuleJSFiles.push(m + '.js');
+                if (fs.existsSync(moduleFile + '.css')) {
                     me.privateModuleCSSFiles.push(m + '.css');
                 }
-                if (fs.existsSync(path.join(PAGE_MODULE_DIR, m + '.html'))) {
+                if (fs.existsSync(moduleFile + '.html')) {
                     me.privateModuleHTMLFiles.push(m + '.html');
                 }
                 console.log('load page private module', m);
-                me.privateModuleJSFiles.push(m + '.js');
+
             } else {
-                moduleFile = path.join(me.ASSET_MODULE_DIR, m + '.js');
-                if (fs.existsSync(moduleFile)) {
-                    if (fs.existsSync(path.join(me.ASSET_MODULE_DIR, m + '.css'))) {
+                moduleFile = path.join(me.ASSET_MODULE_DIR, m);
+                if (fs.existsSync(moduleFile + '.js') || fs.existsSync(moduleFile + '.css')) {
+                    if (fs.existsSync(moduleFile + '.js')) {
+                        me.siteCommonModuleJSFiles.push(m + '.js');
+                    }
+                    if (fs.existsSync(moduleFile + '.css')) {
                         me.siteCommonModuleCSSFiles.push(m + '.css');
                     }
-                    if (fs.existsSync(path.join(me.ASSET_MODULE_DIR, m + '.html'))) {
+                    if (fs.existsSync(moduleFile + '.html')) {
                         me.siteCommonModuleHTMLFiles.push(m + '.html');
                     }
                     console.log('load site private module', m);
-                    me.siteCommonModuleJSFiles.push(m + '.js');
                 } else {
+                    moduleFile = path.join(me.BASE_MODULE_DIR, m);
                     console.log('load page common module', m);
-                    if (fs.existsSync(path.join(me.BASE_MODULE_DIR, m + '.css'))) {
+                    if (fs.existsSync(moduleFile + '.js')) {
+                        me.commonModuleJSFiles.push(m + '.js');
+                    }
+                    if (fs.existsSync(moduleFile + '.css')) {
                         me.commonModuleCSSFiles.push(m + '.css');
                     }
-                    if (fs.existsSync(path.join(me.BASE_MODULE_DIR, m + '.html'))) {
+                    if (fs.existsSync(moduleFile + '.html')) {
                         me.commonModuleHTMLFiles.push(m + '.html');
                     }
-                    me.commonModuleJSFiles.push(m + '.js');
                     me.MODULE_LIST.push(m);
                 }
             }

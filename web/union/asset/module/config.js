@@ -8,6 +8,20 @@
 (function (exports, module) {
     var config = {
         "maps": {
+            "adType": {
+                "text" : 1,
+                "image" : 2,
+                "html" : 3,
+                "video" : 4,
+                "text_icon" : 5
+            },
+            "adTypeMap": {
+                "1" : "text",
+                "2" : "image",
+                "3" : "html",
+                "4" : "video",
+                "5" : "text_icon"
+            },
             "mediaType": {
                 "app" : 0,
                 "site" : 1
@@ -82,11 +96,13 @@
             "toggleMap": [
                 {
                     "name": "关闭",
-                    "value": false
+                    "value": false,
+                    "string": '1'
                 },
                 {
-                    "name": "开启",
-                    "value": true
+                    "name": "打开",
+                    "value": true,
+                    "string": '2'
                 }
             ],
             "displayPositionType": {
@@ -319,6 +335,56 @@
                     "sortable": true,
                     "request": false,
                     "isShow": false
+                }
+            },
+            "siteTemplateList": {
+                "id": {
+                    "field": "id",
+                    "title": "模版ID",
+                    "request": false
+                },
+                "adslot": {
+                    "field": "adslot",
+                    "title": "广告位ID",
+                    "request": true,
+                    "isShow": false
+                },
+                "adType": {
+                    "field": "adType",
+                    "defaultValue": "",
+                    "title": "广告类型",
+                    "request": true,
+                    "isShow": false
+                },
+                "version": {
+                    "field": "version",
+                    "defaultValue": "",
+                    "title": "版本",
+                    "request": false,
+                    "isShow": false
+                },
+                "modifyTime": {
+                    "field": "modified_time",
+                    "title": "修改时间",
+                    "request": false
+                },
+                "createTime": {
+                    "field": "create_time",
+                    "title": "创建时间",
+                    "request": false
+                },
+                "percent": {
+                    "field": "percent",
+                    "defaultValue": 0,
+                    "title": "流量分配占比(%)",
+                    "editable": true,
+                    "edittype": "int"
+                },
+                "data": {
+                    "field": "json",
+                    "defaultValue": {},
+                    "title": "自定义模版数据",
+                    "request": false
                 }
             }
         }

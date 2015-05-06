@@ -1,0 +1,25 @@
+{
+  "name": "jsGenerator",
+  "version": "1.0.0",
+  "description": "自定义模版js生成器",
+  "author": "longgeyang@jesgoo.com",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-clean": "^0.3.1",
+    "gulp-compressor": "*",
+    "gulp-concat": "*",
+    "gulp-csslint": "*",
+    "gulp-jshint": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "^1.1.0",
+    "gulp-rename": "*",
+    "gulp-uglify": "*",
+    "gulp-zip": "*",
+    "jshint-stylish": "*",
+    "q": "*",
+    "through2": "*",
+    "uglify-js2": "*",
+    "underscore": "*"
+  }
+}

@@ -30,8 +30,10 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "uiOperateButton": {},
             "uiFilterSelect": {},
             "highcharts": {},
-            "preview": { "private": true },
-            "config": { "private": true }
+            "underscore": {},
+            "underscore_extend": {},
+            "preview": {"private": true},
+            "config": {"private": true}
         }
     };
     // Page about
@@ -41,10 +43,9 @@ mf = typeof mf === 'undefined' ? {} : mf;
         // page级别模块
         var page = {
             "__module": {
-                "highchart_monitor": { "private": true }
+                "highchart_monitor": {"private": true}
             },
-            "__mockData": {
-            }
+            "__mockData": {}
         };
 
         var mainNav2 = function (label) {
@@ -60,8 +61,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
         //Module index
         page.main = {
             "index": mainNav2('监控首页'),
-            "__mockData": {
-            }
+            "__mockData": {}
         };
 
         //配置1级菜单(以下简称nav1）
@@ -86,10 +86,30 @@ mf = typeof mf === 'undefined' ? {} : mf;
         // page级别模块
         var index = {
             "__module": {
-                "highchart_overview": { "private": true },
-                "highchart_hourview": { "private": true },
-                "highchart_drill": { "private": true },
-                "highchart_medias": { "private": true }
+                "highchart_overview": {"private": true},
+                "highchart_hourview": {"private": true},
+                "highchart_drill": {"private": true},
+                "highchart_medias": {"private": true},
+                "template_source": {"private": true},
+                "template_common": {"private": true},
+                "jqxcore": {},
+                "jqxdata": {},
+                //"jqxdata.export": {},
+                "jqxrangeselector": {},
+                "jqxtabs": {},
+                "jqxbuttons": {},
+                "jqx.base": {},
+                "jqx.darkblue": {},
+                "jqxscrollbar": {},
+                "jqxdatatable": {},
+                "jqxtreegrid": {},
+                "jqxlistbox": {},
+                "jqxdropdownlist": {},
+                "jqxcheckbox": {},
+                "jqxcolorpicker": {},
+                "jqxinput": {},
+                "jqxwindow": {},
+                "jqxdropdownbutton": {}
             },
             "__mockData": {
                 "config": {},
@@ -119,8 +139,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
         index.index = {
             "login": indexNav2('登录'),
             "dailyReport": authorityAction(indexNav2('日况')),
-            "__mockData": {
-            }
+            "__mockData": {}
         };
 
         var mediaNav2 = function (label) {
@@ -130,9 +149,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
                     {"nav2": "/media/site"},
                     {"nav2": "/media/sitePosition", parentPath: "/media/site"},
                     {"nav2": "/media/app"},
-                    {"nav2": "/media/appPosition", parentPath: "/media/app"},
-                    {"nav2": "/media/siteTemplate", parentPath: "/media/site"},
-                    {"nav2": "/media/appTemplate", parentPath: "/media/app"}
+                    {"nav2": "/media/appPosition", parentPath: "/media/app"}
                 ],
                 "label": label || ''
             };
@@ -144,10 +161,10 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "sitePosition": authorityAction(mediaNav2('网站广告位')),
             "app": authorityAction(mediaNav2('应用管理')),
             "appPosition": authorityAction(mediaNav2('应用广告位')),
-            "siteTemplate": authorityAction(mediaNav2('自定义模版')),
-            "appTemplate": authorityAction(mediaNav2('自定义模版')),
-            "__mockData": {
-            }
+            "siteTemplate": authorityAction(mediaNav2('网站自定义模版')),
+            "templateBannerTextIcon": authorityAction(mediaNav2('Banner 图文')),
+            "templateBannerImage": authorityAction(mediaNav2('Banner 图片')),
+            "__mockData": {}
         };
 
         var accountNav2 = function (label) {
@@ -164,8 +181,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
         index.account = {
             "info": authorityAction(accountNav2('基本信息')),
             "password": authorityAction(accountNav2('密码设置')),
-            "__mockData": {
-            }
+            "__mockData": {}
         };
 
         var reportNav2 = function (label) {
@@ -194,25 +210,24 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "dayPositions": authorityAction(reportNav2('单媒体多广告位单日')),
             "dailyPositions": authorityAction(reportNav2('单媒体多广告位多日')),
             "hourlyPosition": authorityAction(reportNav2('单广告位单日分小时')),
-            "__mockData": {
-            }
+            "__mockData": {}
         };
 
         //配置1级菜单(以下简称nav1）
         index.__nav1 = {//配置1级菜单(以下简称nav1)
             /*"index": {
-                "label": "首页",
-                "url": "#/index/dailyReport",
-                "hideNav2": true
-            },*/
+             "label": "首页",
+             "url": "#/index/dailyReport",
+             "hideNav2": true
+             },*/
             "media": {
                 "label": "媒体管理",
                 "url": "#/media/site"
             }/*,
-            "account": {
-                "label": "账户信息",
-                "url": "#/account/info"
-            }*/,
+             "account": {
+             "label": "账户信息",
+             "url": "#/account/info"
+             }*/,
             "report": {
                 "label": "数据报表",
                 "url": "#/report/index",

@@ -11,7 +11,7 @@
                 "field": "media",
                 "title": "媒体ID",
                 "content": function (item, index) {
-                    return '<a data-cmd="step_media" data-media="' + item.media + ' data-name="' + item.name + '">' + item.name + '</a>';
+                    return '<a data-cmd="step_media" data-media="' + item.media + '" data-name="' + item.name + '">' + item.name + '</a>';
                     //return '<a data-cmd="media" data-media="' + item.media + '">' + item.media + '</a>'
                 },
                 "sortable": 1
@@ -20,7 +20,7 @@
                 "field": "name",
                 "title": "媒体名称",
                 "content": function (item, index) {
-                    return '<a data-cmd="step_media" data-media="' + item.media + ' data-name="' + item.name + '">' + item.name + '</a>';
+                    return '<a data-cmd="step_media" data-media="' + item.media + '" data-name="' + item.name + '">' + item.name + '</a>';
                     //return '<a data-cmd="media" data-media="' + item.media + '">' + item.name + '</a>'
                 },
                 "sortable": 1

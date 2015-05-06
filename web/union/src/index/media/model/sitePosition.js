@@ -50,6 +50,10 @@
                 }
             },
             'type': {
+                subEntry:1,
+                isSubEntryShow: function (item, index, col) {
+                    return operateData.get(item, 'type') === config.maps.sitePositionType.banner;
+                },
                 datasource: config.maps.sitePositionTypeMap,
                 content: function (item) {
                     var r = mf.m.utils.deepSearch('children', config.maps.sitePositionTypeMap,
@@ -116,10 +120,15 @@
             'height': {
                 title: function () {
                     return '高度(px)' +
-                           '<div ui="type:Tip;title:说明;content:-1 表示全屏;skin:help;arrow:tl;"></div>'
+                           '<div ui="type:Tip;title:<h6>说明</h6>;content:<p>高度为 -1 时表示全屏</p><br>所有高度设置的对应宽度为320，当遇到更大的屏幕时采取等比例放大的方式<br>如高度设为60，当遇到480的屏幕宽度时，高度被等比例放大为90;skin:help;arrow:tl;"></div>'
                 },
                 content: function (item) {
-                    return operateData.get(item, 'height') || 0;
+                    var height = operateData.get(item, 'height') || 0;
+                    if (height == -1) {
+                        return '100%';
+                    } else {
+                        return '320px * ' + height + 'px';
+                    }
                 },
                 validator: function (value, item) {
                     var type = mf.m.utils.deepSearch('children', config.maps.sitePositionTypeMap,

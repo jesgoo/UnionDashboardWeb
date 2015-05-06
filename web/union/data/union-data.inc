@@ -698,7 +698,7 @@ Response
                     "close": false,
                     "blank": false,
                     "place": 1,
-                    "height": 60,
+                    "height": 200,
                     "autoPlayInterval": 1000
                 }
             },
@@ -714,7 +714,7 @@ Response
                     "close": true,
                     "blank": true,
                     "place": 2,
-                    "height": 401,
+                    "height": 100,
                     "autoPlayInterval": 0
                 }
             }
@@ -784,8 +784,7 @@ Request
 `GET /index/media/siteTemplate.json`
 
     :::javascript
-    {
-    }
+    {}
 
 Response
 
@@ -794,21 +793,253 @@ Response
         "success": true,
         "entities": [
             {
-                id: 0,
-                percent: 100, // 百分比 0 - 100
-                template: "\
-                 \
-                \
-                " // 模版
+                id: 0, // 模版id
+                adType: 5, // 模版类型 值同 AdType
+                percent: 80, // 流量百分比 0 - 100
+                jsSource: 'result.js', // cdn js文件地址
+                data: {
+                    "content": {
+                        "iconArea": {
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            },
+                            "animate": {
+                                "duration": "0",
+                                "timing_function": "ease-in-out",
+                                "delay": "0",
+                                "iteration_count": "0",
+                                "direction": "alternate",
+                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                            }
+                        },
+                        "textArea": {
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            },
+                            "animate": {
+                                "duration": "0",
+                                "timing_function": "ease-in-out",
+                                "delay": "0",
+                                "iteration_count": "0",
+                                "direction": "alternate",
+                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                            }
+                        },
+                        "textTitleArea": {
+                            "text_align": "Center",
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            },
+                            "animate": {
+                                "duration": "0",
+                                "timing_function": "ease-in-out",
+                                "delay": "0",
+                                "iteration_count": "0",
+                                "direction": "alternate",
+                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                            }
+                        },
+                        "textTitleText": {
+                            "font": {
+                                "fontSize": "12",
+                                "lineHeight": "110",
+                                "fontFamily": "Microsoft Yahei",
+                                "color": "#000000"
+                            },
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            }
+                        },
+                        "textDescriptionArea": {
+                            "text_align": "Center",
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            },
+                            "animate": {
+                                "duration": "0",
+                                "timing_function": "ease-in-out",
+                                "delay": "0",
+                                "iteration_count": "0",
+                                "direction": "alternate",
+                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                            }
+                        },
+                        "textDescriptionText": {
+                            "font": {
+                                "fontSize": "12",
+                                "lineHeight": "110",
+                                "fontFamily": "Microsoft Yahei",
+                                "color": "#000000"
+                            },
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            }
+                        },
+                        "btnArea": {
+                            "text_align": "Center",
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            },
+                            "animate": {
+                                "duration": 3,
+                                "timing_function": "ease-in-out",
+                                "delay": "0",
+                                "iteration_count": "0",
+                                "direction": "alternate",
+                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                            }
+                        },
+                        "btnContent": {
+                            "content": "看一看",
+                            "font": {
+                                "fontSize": "12",
+                                "lineHeight": "110",
+                                "fontFamily": "Microsoft Yahei",
+                                "color": "#000000"
+                            },
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            }
+                        }
+                    },
+                    "scale": {
+                        "from": 75,
+                        "to": 352,
+                        "layout": {
+                            "iconArea": 2,
+                            "textArea": 1,
+                            "btnArea": 0
+                        }
+                    }
+                }
+            },
+            {
+                id: 1, // 模版id
+                adType: 2, // 模版类型 值同 AdType
+                type: 1, // 广告位展现形式 Banner
+                percent: 20, // 流量百分比 0 - 100
+                jsSource: "", // cdn js文件地址
+                data: {} // 数据文件，很大一坨json
+            },
+            {
+                id: 2, // 模版id
+                adType: 5, // 模版类型 值同 AdType
+                type: 1, // 广告位展现形式 Banner
+                percent: 80, // 流量百分比 0 - 100
+                jsSource: "", // cdn js文件地址
+                data: {} // 数据文件，很大一坨json
+            },
+            {
+                id: 4, // 模版id
+                adType: 5, // 模版类型 值同 AdType
+                percent: 30, // 流量百分比 0 - 100
+                jsSource: '' // cdn js文件地址
             }
         ]
     }
 
-### /index/media/appTemplate
+### /index/media/templateBannerTextIcon
 
 Request 
 
-`GET /index/media/appTemplate.json`
+`GET /index/media/templateBannerTextIcon.json`
+
+    :::javascript
+    {}
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "entities": {}
+    }
+
+### /index/media/templateBannerImage
+
+Request 
+
+`GET /index/media/templateBannerImage.json`
 
     :::javascript
     {

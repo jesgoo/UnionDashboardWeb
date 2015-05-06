@@ -12,6 +12,8 @@
             template: 'mf_index_media_sitePosition',
             UI_PROP: {
                 list: {
+                    subrow: 1,
+                    subrowMutex: 0
                     //select: 'single',
                     //selectMode: 'line'
                 }
@@ -116,9 +118,46 @@
                     'positionPreview'
                 );
             }, 300);
+            var previewWithCustomJS = mf.m.utils.throttle(function (js, data) {
+                //mf.m.preview.previewHTML(
+                //    mf.reflectDataInConfig(table.datasource[rowIndex], sitePositionList),
+                //'positionPreview'
+                //);
+                mf.m.preview.previewCustomJS(
+                    js, data,
+                    'positionPreview'
+                );
+            }, 300);
             table._rowOverHandler = function (rowIndex) {
                 esui.Table.prototype._rowOverHandler.call(this, rowIndex);
                 preview(rowIndex);
+            };
+            action.subAction = {};
+            table.onsubrowopen = mf.m.utils.nextTickWrapper(function(index, item) {
+                var me = this;
+                var subRow = me.getSubrow(index);
+                console.log('open subrow', subRow);
+                if (action.subAction[index]) {
+                    action.subAction[index].leave();
+                }
+                action.subAction[index] = er.controller.loadSub(
+                    subRow.id,
+                    'mf.index.media.siteTemplate',
+                    {
+                        queryMap: {
+                            adslot: operateData.get(item, 'id'),
+                            height: operateData.get(item, 'height')
+                        }
+                    }
+                );
+                action.subAction[index].preview = previewWithCustomJS;
+            });
+            table.onsubrowclose = function(index) {
+                var subAction = action.subAction[index];
+                if (subAction && subAction.leave) {
+                    subAction.leave();
+                    action.subAction[index] = null;
+                }
             };
             $.extend(action._controlMap, esui.init(table.main));
             model.set(
@@ -221,6 +260,13 @@
         },
         onleave: function () {
             console.log('onleave');
+            var action = this;
+            $.each(action.subAction || {}, function (index, subAction) {
+                if (subAction && subAction.leave) {
+                    subAction.leave();
+                }
+            });
+            action.subAction = null;
             var commands = this.model.get('commands');
             commands && mf.clickCommand.dispose(commands);
         }

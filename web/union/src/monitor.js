@@ -9,11 +9,13 @@ mf.monitor = {};
 er.config.TEMPLATE_LIST = [
     'asset/union-monitor.html'
 ];
-er.config.DEFAULT_INDEX = "/monitor/account";
+er.config.DEFAULT_INDEX = "/main/index";
 
 mf.urlDebugRouter.reg({
     // data all
     '/monitor/main/last': /^\/machine\/.*\/getdata_last/i,
+    // data all
+    '/monitor/main/history': /^\/machine\/.*\/index/i,
     // data all
     '/monitor/main/index': /^\/machine\/.*\/getdata/i
 });

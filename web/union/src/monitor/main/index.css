@@ -6,3 +6,9 @@
  */
 .mf-monitor-main-index {
 }
+#monitorChart > div .highcharts-button{
+
+}
+#monitorChart > div{
+    height: 300px;
+}

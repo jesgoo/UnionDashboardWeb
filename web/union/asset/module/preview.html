@@ -1,3 +1,14 @@
+<!-- target: position_preview_custom_js -->
+<script>var jesgoo_data={v:'${version}',d:${data}};</script>
+<!-- if: ${js} !== '' -->
+<script src='${js}.js?v=${version}'></script>
+<!-- elif: ${jsSource} !== '' -->
+<script>
+${jsSource}
+</script>
+<!-- else -->
+无有效的模版样式，暂无预览。
+<!-- /if -->
 <!-- target: position_preview_js -->
 <script type="text/javascript" src='http://${domain}/js/_jssdk.js?adslot=${adslot}&channelId=123'></script>
 <!--<script type="text/javascript" src='http://api.moogos.com/js/_jssdk.js?adslot=s63c825f&channelId='></script>-->

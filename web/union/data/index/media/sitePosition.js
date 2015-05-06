@@ -32,7 +32,7 @@ exports.response = {
                 "close": false,
                 "blank": false,
                 "place": 1,
-                "height": 60,
+                "height": 200,
                 "autoPlayInterval": 1000
             }
         },
@@ -48,7 +48,7 @@ exports.response = {
                 "close": true,
                 "blank": true,
                 "place": 2,
-                "height": 401,
+                "height": 100,
                 "autoPlayInterval": 0
             }
         }

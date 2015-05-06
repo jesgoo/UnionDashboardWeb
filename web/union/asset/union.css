@@ -725,7 +725,7 @@ div.main-info {
   line-height: 40px;
 }
 .plain-unit-item {
-  padding: 20px 0 20px 20px;
+  padding: 20px 10px;
 }
 .plain-unit-action,
 .plain-unit-item-caption,
@@ -761,22 +761,21 @@ div.main-info {
 .plain-unit-item-description {
   margin: 10px 0;
 }
-/*新建推广单元编辑区*/
+/*编辑区*/
 .plain-edit-area {
-  padding: 0 20px 20px 20px;
   border-width: 1px;
   border-bottom-width: 2px;
   zoom: 1;
   /*为了触发hasLayout，使得在IE6、7下，absolute以right、bottom等方式能准确定位*/
 }
 .plain-edit-area .plain-unit-item {
-  padding-left: 40px;
+  padding-left: 20px;
 }
 .plain-edit-area .plain-unit-item-caption {
   position: relative;
 }
 .plain-edit-area .plain-unit-action {
-  padding-left: 40px;
+  padding-left: 20px;
 }
 .plain-edit-area .plain-unit-item-caption .mark {
   position: absolute;
@@ -796,7 +795,6 @@ div.main-info {
   border-bottom-width: 1px;
 }
 .plain-notice-area {
-  background-color: #fbfbfd;
   border-bottom-width: 0;
 }
 .plain-notice-area .plain-unit-title {
@@ -812,10 +810,10 @@ div.main-info {
   background-color: #f6f7f9;
 }
 .plain-notice-area .plain-unit {
-  padding: 10px 0;
+  padding: 20px 0;
 }
 .plain-notice-area .plain-unit-item {
-  padding: 10px 0 10px 20px;
+  padding: 20px 10px;
 }
 .plain-notice-area .plain-unit-item-caption {
   font-weight: bold;
@@ -825,7 +823,7 @@ div.main-info {
   vertical-align: text-top;
 }
 .plain-edit-area .ui-radiobox-label {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 .plain-edit-area .ui-text-virtual,
 .ui-cal-disabled .ui-cal-text {
@@ -833,4 +831,8 @@ div.main-info {
 }
 .ui-cal-disabled .ui-cal-arrow {
   background: url(img/esui.png) -73px -143px;
+}
+.plain-edit-area .plain-unit-title,
+.plain-notice-area {
+  background-color: #fbfbfd;
 }

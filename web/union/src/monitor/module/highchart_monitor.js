@@ -6,9 +6,21 @@
  * shortcut mf.m.highchart_monitor
  */
 (function (exports, module) {
-    var highchart_monitor = function (element, cData) {
+    var oneDay = 1000 * 60 * 60 * 24;
+    function getTime(dateChange) {
+        var d = new Date();
+        d = (Math.floor(d / oneDay) + (dateChange || 0)) * oneDay;
+        return d;
+    }
+    function getTimeString(timeNumber) {
+        var timeObj = new Date(timeNumber);
+        var date = ('0' + timeObj.getDate()).substr(-2);
+        return date;
+    }
+    var highchart_monitor = function (element, cData, opt) {
         console.log('chart original', element, cData);
-        var startDate = new Date(cData.time[0] * 60000);
+
+        var startDate = new Date(((+cData.time.slice(-1)[0] + 2) * 60000) - oneDay);
         var UTCStartDate = Date.UTC(
             startDate.getFullYear(),
             startDate.getMonth(),
@@ -16,15 +28,27 @@
             startDate.getHours(),
             startDate.getMinutes()
         );
+        console.log(UTCStartDate, cData.time.slice(-1)[0], cData.time.slice(-1)[0] * 60000 - oneDay);
+        var serials = $.map(cData.data, function (data, index){
+            return {
+                name: getTimeString(getTime(-index)) + '号',
+                type: 'spline',
+                yAxis: 0,
+                pointInterval: 2 * 60 * 1000,
+                pointStart: UTCStartDate,
+                data: data,
+                lineWidth: 2,
+                tooltip: {
+                    valueSuffix: ' 次'
+                }
+            }
+        });
         return $(element).highcharts({
             chart: {
                 animation: false,
                 spacingTop: 60,
                 marginTop: 60,
                 zoomType: 'x'
-            },
-            title: {
-                text: null
             },
             colors: ["#f6505c", "#1c62b8", "#f6c928", "#19b2b7", "#8772cd", "#eb6f25"],
             credits: {
@@ -41,11 +65,19 @@
                     dashStyle: 'shortdot'
                 }
             },
+            title: {
+                text: null
+            },
             legend: {
-                align: 'left',
+                title: {
+                    text: opt.name
+                },
+                align: 'right',
+                layout: 'vertical',
                 verticalAlign: 'top',
-                itemMarginTop: -40,
-                floating: true,
+                //itemMarginTop: -45,
+                itemMarginTop: 10,
+                floating: false,
                 itemStyle: {
                     fontWeight: 'normal',
                     color: '#777',
@@ -79,7 +111,7 @@
                     style: {
                         color: '#7a7a7a'
                     },
-                    rotation: -45,
+                    //rotation: -30,
                     align: 'right'
                 },
                 tickPosition: 'inside',
@@ -87,73 +119,20 @@
                 tickmarkPlacement: 'on'
             },
             yAxis: [
-                { // Primary yAxis
-                    min: 0,
+                { // Secondary yAxis
+                    //min: 0,
                     gridLineWidth: 1,
                     title: {
                         text: null
                     },
                     labels: {
-                        align: 'left',
-                        enabled: true
-                    },
-                    opposite: true
-                }, { // Secondary yAxis
-                    min: 0,
-                    gridLineWidth: 0,
-                    title: {
-                        text: null
-                    },
-                    labels: {
                         align: 'right',
-                        enabled: true
+                        enabled: false
                     }
 
                 }
             ],
-            series: [
-                {
-                    name: '点击数',
-                    field: 'event',
-                    type: 'spline',
-                    pointInterval: 2 * 60 * 1000,
-                    pointStart: UTCStartDate,
-                    yAxis: 0,
-                    data: cData.data.event,
-                    marker: {
-                        symbol: null
-                    },
-                    tooltip: {
-                        valueSuffix: ' 次'
-                    },
-                    lineWidth: 2
-                }, {
-                    name: '展现数',
-                    type: 'spline',
-                    yAxis: 1,
-                    pointInterval: 2 * 60 * 1000,
-                    pointStart: UTCStartDate,
-                    field: 'show',
-                    data: cData.data.show,
-                    lineWidth: 2,
-                    tooltip: {
-                        valueSuffix: ' 次'
-                    }
-
-                }, {
-                    name: '请求数',
-                    type: 'spline',
-                    yAxis: 1,
-                    pointInterval: 2 * 60 * 1000,
-                    pointStart: UTCStartDate,
-                    field: 'ui',
-                    data: cData.data.ui,
-                    lineWidth: 2,
-                    tooltip: {
-                        valueSuffix: ' 次'
-                    }
-                }
-            ]
+            series: serials
         }).highcharts();
     };
     exports.highchart_monitor = highchart_monitor;

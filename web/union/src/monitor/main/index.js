@@ -6,10 +6,20 @@
  */
 (function () {
     var fieldMap = {
-        'event' : 0,
-        'show' : 1,
-        'ui' : 2
+        'event': {
+            index: 0,
+            name: '点击数'
+        },
+        'show': {
+            index: 1,
+            name: '展现数'
+        },
+        'ui': {
+            index: 2,
+            name: '请求数'
+        }
     };
+
     function getTimeString(timeNumber) {
         var timeObj = new Date(timeNumber * 1000);
         var date = ('0' + timeObj.getDate()).substr(-2);
@@ -46,22 +56,22 @@
         $.each(dataList, function (index, data) {
             $.deepExtend(result, data);
             /*$.each(data.timeMap, function (field, timeObj) {
-                var item = result.timeMap[field] = result.timeMap[field] || {};
-                $.each(timeObj, function (time, targetObj) {
-                    var timeCollection = item[time] = item[time] || {};
-                    $.each(targetObj, function (target, value) {
-                        timeCollection[target] = value;
-                    });
-                });
-            });*/
+             var item = result.timeMap[field] = result.timeMap[field] || {};
+             $.each(timeObj, function (time, targetObj) {
+             var timeCollection = item[time] = item[time] || {};
+             $.each(targetObj, function (target, value) {
+             timeCollection[target] = value;
+             });
+             });
+             });*/
         });
         //console.log('mergeData', dataList, result);
         return result;
     }
 
-    function objectCount (obj) {
-        var count = 0 ;
-        var sum = 0 ;
+    function objectCount(obj) {
+        var count = 0;
+        var sum = 0;
         $.each(obj, function (key, value) {
             count += 1;
             sum += +value || 0;
@@ -71,6 +81,9 @@
             sum: sum
         };
     }
+    var emptyData = $.map(new Array(723), function () {
+        return 0;
+    });
     function convertData(data) {
         var result = {
             data: {},
@@ -86,51 +99,149 @@
         result.time.sort(function (a, b) {
             return a > b ? 1 : -1;
         });
-        $.each(result.time, function (index, time) {
-            var item = timeMap[time];
+
+        var timeDistance = 0;
+        var previousIndex = result.time.length;
+        while (previousIndex > 0) {
+            var currentIndex = previousIndex - 720;
+            if (currentIndex < 0) {
+                currentIndex = 0
+            }
+            var timeList = result.time.slice(currentIndex, previousIndex);
+            //console.log(timeDistance, currentIndex, previousIndex, timeList);
             $.each(fieldMap, function (field) {
-                var target = result.data[field] = result.data[field] || [];
-                var value = item[field];
-                target[index] = value && value.sum || 0;
+                result.data[field] = result.data[field] || {};
+                var target = result.data[field][timeDistance] = [];
+                $.each(timeList, function (index, time) {
+                    var item = timeMap[time] || {};
+                    var value = item[field];
+                    target[index] = value && value.sum || 0;
+                });
+                if (timeList.length < 720) {
+                    console.log('补充时间');
+                    target.splice.apply(target, emptyData.slice(0, 720 - target.length + 2));
+                }
             });
-        });
-        console.log('convertData', data, result);
+            previousIndex = currentIndex;
+            timeDistance += 1;
+
+        }
+
+
+        /*var maxTime = +result.time.slice(-1)[0];
+        var minTime = +result.time[0];
+        var oneDay = 60 * 24;
+        console.log(maxTime, minTime);
+        var timeDistance = 0;
+        var previousIndex = result.time.length, currentIndex, currentTime = maxTime;
+        while (currentTime > minTime) {
+            currentTime -= oneDay * (timeDistance + 1);
+            currentIndex = mf.m.utils.indexOfArray(result.time, currentTime) + 1;
+            if (currentIndex < 1) {
+/!*
+                $.each(result.time, function (index, time) {
+                    if (index && time > currentTime && result.time[index - 1] < currentTime) {
+                        result.time.splice(index, 0, currentTime);
+                        currentIndex = index;
+                    } else if (time > currentTime) {
+                        currentIndex = 0;
+                        return false;
+                    }
+                });
+*!/
+                currentIndex = 0;
+            }
+
+            var timeList = result.time.slice(currentIndex, previousIndex);
+            console.log(timeDistance, currentTime, currentIndex, previousIndex, timeList);
+            $.each(fieldMap, function (field) {
+                result.data[field] = result.data[field] || {};
+                var target = result.data[field][timeDistance] = [];
+                $.each(timeList, function (index, time) {
+                    var item = timeMap[time] || {};
+                    var value = item[field];
+                    target[index] = value && value.sum || 0;
+                });
+                if (timeList.length < 720) {
+                    console.log('补充时间');
+                    target.splice.apply(target, emptyData.slice(0, 720 - target.length + 3));
+                }
+            });
+            previousIndex = currentIndex;
+            timeDistance += 1;
+        }*/
+        //console.log('convertData', data, timeMap, result);
         return result;
     }
 
-    function requestData(requestURL) {
+    function requestData(requestURL, target) {
         //console.log('requestData', requestURL);
-        return $.getJSON(requestURL).pipe(parseData(requestURL.substring(0, requestURL.lastIndexOf('/'))));
+        return $.getJSON(requestURL).pipe(parseData(target));
     }
 
-    function RunMonitor(charElement, requestList, monitorList) {
-        console.log('RunMonitor', charElement, requestList);
+    function RunMonitor(charElement, lookBackDays) {
+        lookBackDays = lookBackDays || -3;
+        console.log('RunMonitor', charElement);
         var me = this;
-        me.element = charElement;
-        me.monitorList = $.map(monitorList, function (requestURL) {
-            requestURL = mf.ajaxParamFactory({ url:requestURL });
+        me.monitorList = $.map(mf.monitor.main.model.machineList, function (machine) {
+            var requestURL = mf.ajaxParamFactory({
+                url: '/machine/' + machine + ':' + mf.monitor.main.model.realTimePort + '/getdata_last'
+            });
             return requestURL.url;
+
         });
-        var dataRequest = $.map(requestList, function (requestURL) {
-            requestURL = mf.ajaxParamFactory({ url:requestURL });
-            return requestData(requestURL.url);
+        var logField = $.map(fieldMap, function (obj, field) {
+            return field + '.log';
+        }).join(',');
+        var historyList = $.map(mf.monitor.main.model.machineList, function (machine) {
+            return '/machine/' + machine + ':' + mf.monitor.main.model.historyPort + '/index?'
+                   + 'begin=' + getDateTime(lookBackDays) + '&end=' + getDateTime() + '&name=' + logField;
+        });
+        var dataRequest = $.map(historyList, function (requestURL, index) {
+            var def = $.Deferred();
+            mf.parallelAjax(requestURL, function (data) {
+                var historyData = $.map(data, function (fieldData, field) {
+                    return {
+                        table_name: field,
+                        counters: $.map(fieldData, function (n) {
+                            return {
+                                time: new Date(n.time).getTime() / 1000,
+                                number: n.value
+                            }
+                        })
+                    }
+                });
+                def.resolve(parseData(mf.monitor.main.model.machineList[index])(historyData));
+            });
+            return def.promise();
         });
         $.when.apply($, dataRequest)
             .pipe(mergeData)
             .done(function (data) {
                 me.data = data;
-                me.chart = mf.m.highchart_monitor(me.element, convertData(data));
+                me.chart = {};
+                me.element = {};
+                var chartData = convertData(data);
+                $.each(fieldMap, function (field, opt) {
+                    me.element[field] = $('<div/>', {id: 'chart_' + field}).appendTo(charElement);
+                    me.chart[field] = mf.m.highchart_monitor(me.element[field], {
+                        time: chartData.time,
+                        data: chartData.data[field]
+                    }, opt);
+                });
                 me.monitor();
             }).fail(function () {
                 console.log('%cwarning', 'color: #f00;', arguments);
                 //RunMonitor();
             });
     }
+
     RunMonitor.prototype.appendData = function (data) {
         var me = this;
-        var maxLength = 30 * 24;
         var chartData = convertData($.deepExtend(me.data, data));
         console.log('new Chart Data', chartData);
+/*
+        var maxLength = 30 * 24 * 3;
         var discardLength = chartData.time.length - maxLength;
         if (discardLength > 0) {
             var discardTime = chartData.time.splice(0, discardLength);
@@ -142,6 +253,7 @@
                 delete me.data[time];
             });
         }
+*/
         return chartData;
     };
     RunMonitor.prototype.monitor = function (interval) {
@@ -149,14 +261,14 @@
         interval = interval || 3;
         setTimeout(function () {
             console.log('monitor interval', interval);
-            var dataRequest = $.map(me.monitorList, function (requestURL) {
-                return requestData(requestURL);
+            var dataRequest = $.map(me.monitorList, function (requestURL, index) {
+                return requestData(requestURL, mf.monitor.main.model.machineList[index]);
             });
             $.when.apply($, dataRequest)
                 .pipe(mergeData)
                 .pipe(me.appendData.bind(me))
                 .done(function (chartData) {
-                    var startDate = new Date(chartData.time[0] * 60000);
+                    var startDate = new Date(((+chartData.time.slice(-1)[0] + 2) * 60000) - 1000 * 3600 * 24);
                     var UTCStartDate = Date.UTC(
                         startDate.getFullYear(),
                         startDate.getMonth(),
@@ -166,13 +278,15 @@
                         startDate.getUTCSeconds()
                     );
                     console.log('startDate', startDate);
-                    $.each(fieldMap, function (field, index) {
-                        me.chart.series[index].setData(chartData.data[field], false, true);
-                        me.chart.series[index].update({
-                            pointStart: UTCStartDate
-                        }, false);
+                    $.each(fieldMap, function (field) {
+                        $.each(chartData.data[field], function (index, data) {
+                            me.chart[field].series[index].setData(data, false, true);
+                            me.chart[field].series[index].update({
+                                pointStart: UTCStartDate
+                            }, false);
+                        });
+                        me.chart[field].redraw();
                     });
-                    me.chart.redraw();
                     me.monitor(20);
                 }).fail(function () {
                     console.log('%cwarning', 'color: #f00;', arguments);
@@ -180,6 +294,14 @@
                 });
         }, interval * 1000);
     };
+    var OneDay = 1000 * 60 * 60 * 24;
+
+    function getDateTime(dateChange) {
+        var d = new Date().getTime();
+        d = d + (dateChange || 0) * OneDay;
+        d = new Date(d);
+        return T.date.format(d, 'yyyyMMddHHmmss');
+    }
 
     mf.monitor.main.index = new er.Action({
         model: mf.monitor.main.model.index,
@@ -206,13 +328,14 @@
             mf.loaded();
             var action = this;
             var model = action.model;
-            var requestList = $.map(mf.monitor.main.model.machineList, function (machine) {
-                return '/machine/' + machine + '/getdata';
-            });
-            var monitorList = $.map(mf.monitor.main.model.machineList, function (machine) {
-                return '/machine/' + machine + '/getdata_last';
-            });
-            window.monitor = new RunMonitor('#monitorChart', requestList, monitorList);
+
+            /*var requestList = $.map(mf.monitor.main.model.machineList, function (machine) {
+             return '/machine/' + machine + ':' + mf.monitor.main.model.realTimePort + '/getdata';
+             });*/
+
+
+            window.monitor = new RunMonitor('#monitorChart', -model.get('days'));
+
         },
         onleave: function () {
             console.log('onleave');

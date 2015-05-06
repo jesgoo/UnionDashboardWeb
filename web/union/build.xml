@@ -52,8 +52,14 @@
                 <exclude name="src/**"/>
                 <exclude name="data/**"/>
                 <exclude name="build.xml"/>
+                <exclude name="build-page.xml"/>
                 <exclude name="gen.properties"/>
                 <exclude name="sitemap.js"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${out.m.dir}/asset/images">
+            <fileset dir="${site.dir}/asset/module/images">
             </fileset>
         </copy>
 

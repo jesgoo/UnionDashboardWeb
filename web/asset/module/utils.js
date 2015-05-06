@@ -333,5 +333,29 @@
         exp = String(exp).replace(/[\.\\\/\+\-\*\?\$\(\)\{\}\[\]]/g, '\\$&');
         return new RegExp(exp, globalOptionString === _undefined ? 'i' : globalOptionString);
     };
+
+    utils.writeInIframe = function (win, html, charset) {
+        console.log('write in ifame', (html || '').length, charset);
+        var doc = win.document;
+        charset = charset || 'UTF-8';
+        doc.open();
+        doc.write('<!doctype html><html lang="en" style="height:100%;"><head>');
+        doc.write('<meta charset="' + charset + '">');
+        doc.write('<style>html,body,div,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}img{border:0;}</style>');
+        doc.write('</head><body style="height:100%;">');
+        doc.write(html);
+        doc.write('</body></html>');
+        doc.close();
+    };
+    utils.writeInNewWindow = function (html, opt) {
+        opt = opt || {};
+        var dataType = opt.type || 'json';
+        if (dataType === 'json') {
+            html = '<pre>' + JSON.stringify(html, null, 4) + '</pre>';
+        }
+        var win = window.open('about:blank');
+        mf.m.utils.writeInIframe(win, html);
+        opt.name && (win.document.title = opt.name);
+    };
     module.exports = exports.utils = utils;
 })(mf && mf.m || exports || {}, mf || module);

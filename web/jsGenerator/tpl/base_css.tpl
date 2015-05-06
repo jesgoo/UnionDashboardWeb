@@ -1,0 +1,40 @@
+.logImg {
+width: 1px;
+height: 1px;
+position: absolute;
+left:0;
+top:0;
+opacity: 0;
+}
+.layout-area {
+padding: 0;
+margin: 0;
+display: table;
+height: 100%;
+table-layout: fixed;
+box-sizing: border-box;
+}
+.jg-banner {
+display: block;
+width: 100%;
+height: 100%;
+position: relative;
+text-align: center;
+}
+.jg-banner .jq-container {
+display: table-cell;
+vertical-align: middle;
+box-sizing: border-box;
+width: 100%;
+height: 100%;
+}
+
+.jg-banner .btn-area .jg-btn:before {
+word-break: break-all;
+box-sizing: border-box;
+display: inline-block;
+}
+.no-image .image-area,
+.no-image .icon-area {
+display: none;
+}
