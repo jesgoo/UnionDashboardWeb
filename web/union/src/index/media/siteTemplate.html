@@ -1,0 +1,29 @@
+<!-- target: mf_index_media_siteTemplate -->
+    加载中。。。
+<!-- target: mf_index_media_siteTemplateList -->
+<div class="mf-index-media-siteTemplate">
+    <div id="template_tabs_<%=data.adslot%>">
+        <ul>
+    <% for (var adTypeName in data.adTypeList) { %>
+            <li>
+                <div><%=data.adTypeList[adTypeName].name%></div>
+            </li>
+    <% } %>
+        </ul>
+    <% for (var adTypeName in data.adTypeList) { %>
+        <div>
+            <div class="list-op">
+                <div class="ui-button mgL15 mgR10">
+                    <span class="ui-button-label" data-cmd="save_template" data-name="<%=adTypeName%>">保存当前修改</span>
+                </div>
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add_template" data-name="<%=adTypeName%>">添加新的模版</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:list_<%=data.adslot%>_<%=adTypeName%>;editable:1;"></div>
+            </div>
+        </div>
+    <% } %>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<!-- target: mf_index_media_templateBannerImage -->
+<div class="mf-index-media-templateBannerImage template-config">
+    <div class="layout-2-right">
+        <div class="plain-edit-area left">
+            <div class="plain-unit-title">模版布局</div>
+            <div class="plain-unit plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        尺寸设置
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <div ui="type:ButtonSelect;id:scaleToggle_${template}_${styleName};skin:simple;
+            single:true;datasource:*toggleMap;textField:name;valueField:string;"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        模版预览
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <div class="layout-container" id="layoutContainer_${template}_${styleName}">
+                            <div class="layout-scale" id="layoutScale_${template}_${styleName}"></div>
+                            <div class="layout-demo" style="height: ${heightValue};" id="layoutDemo_${template}_${styleName}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="plain-edit-area right">
+            <div class="plain-unit-title">内容编辑</div>
+            <div class="plain-unit">
+                <div id="contentTab_${template}_${styleName}" class="u-jqx-tabs u-jqx-tabs-content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="operation-area plain-edit-area">
+        <div class="plain-unit">
+            <div class="plain-unit-item">
+                <div class="plain-unit-action">
+                    <div ui="type:Button;id:saveStyle_${template}_${styleName};" style="margin-right: 40px;">保存</div>
+                    <div ui="type:Button;id:closeStyle_${template}_${styleName};">关闭</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
