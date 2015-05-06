@@ -17,16 +17,17 @@
             if (areaWidth[iconAreaIndex] < 1) {
                 areaWidth[textAreaIndex] += areaWidth[iconAreaIndex];
             }
-            var area = areaWidth.map(function (n) {
-                return n <= 0.3 ? 'display: none;' : 'width: ' + n + '%;'
-            });
+            var area = [];
+            for (var i = 0; i < areaWidth.length; i += 1){
+                var n = areaWidth[i];
+                area[i]  = n <= 0.3 ? 'display: none;' : 'width: ' + n + '%;'
+            }
             area[0] += 'float:left;';
             area[2] += 'float:right;';
             var data = {};
-            $.each(scaleOption.layout, function (name, value) {
-                data[name] = area[value];
-            });
-
+            for (var name in scaleOption.layout) {
+                data[name] = area[scaleOption.layout[name]];
+            }
             return data;
         },
         'image': function (scaleOption) {

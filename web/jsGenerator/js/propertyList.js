@@ -86,8 +86,10 @@
                     propertyConfig.transform
                 ]
             };
-            root.baidu && (configs = root.baidu.object.clone(configs));
-            configs.btnArea.properties[3].children[0].value = 3;
+            if (root.baidu) {
+                configs = root.baidu.object.clone(configs);
+                configs.btnArea.properties[3].children[0].value = 3
+            }
             return configs;
         },
         'image': function (propertyConfig) {
@@ -121,8 +123,10 @@
                     propertyConfig.transform
                 ]
             };
-            root.baidu && (configs = root.baidu.object.clone(configs));
-            configs.btnArea.properties[3].children[0].value = 3;
+            if (root.baidu) {
+                configs = root.baidu.object.clone(configs);
+                configs.btnArea.properties[3].children[0].value = 3
+            }
             return configs;
         }
     };

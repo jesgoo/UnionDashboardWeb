@@ -159,7 +159,7 @@
                                 console.log('editor data', row, adTypeOption, options.name);
                                 disposeSubAction();
                                 var dialog = esui.Dialog.confirm({
-                                    width: 900,
+                                    width: 960,
                                     okText: '保存修改',
                                     cancelText: '放弃修改并关闭',
                                     height: 500,
@@ -167,8 +167,9 @@
                                     content: '<div class="loading">载入中...</div>',
                                     onok: function () {
                                         var saveData = mf.grepDataInConfig(row, siteTemplateList);
-                                        saveData.data = action.subAction.save();
-                                        console.log('save data', saveData.data);
+                                        var data = action.subAction.save();
+                                        console.log('save data', data);
+                                        operateData.set(saveData, 'data', data);
                                         mf.loading();
                                         mf.parallelAjax({
                                             type: 'POST',

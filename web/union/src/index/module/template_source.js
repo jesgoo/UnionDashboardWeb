@@ -45,16 +45,17 @@
             if (areaWidth[iconAreaIndex] < 1) {
                 areaWidth[textAreaIndex] += areaWidth[iconAreaIndex];
             }
-            var area = areaWidth.map(function (n) {
-                return n <= 0.3 ? 'display: none;' : 'width: ' + n + '%;'
-            });
+            var area = [];
+            for (var i = 0; i < areaWidth.length; i += 1){
+                var n = areaWidth[i];
+                area[i]  = n <= 0.3 ? 'display: none;' : 'width: ' + n + '%;'
+            }
             area[0] += 'float:left;';
             area[2] += 'float:right;';
             var data = {};
-            $.each(scaleOption.layout, function (name, value) {
-                data[name] = area[value];
-            });
-
+            for (var name in scaleOption.layout) {
+                data[name] = area[scaleOption.layout[name]];
+            }
             return data;
         },
         'image': function (scaleOption) {
@@ -360,11 +361,11 @@
                     "dataField": "fames",
                     "property": "动画内容" +
                                 '<div ui="type:Tip;title:<h6>说明</h6>;content:<p>动画的具体播放内容，具体可搜索css3-animation参考书写。</p>;skin:help;arrow:tl;"></div>',
-                    "value": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }"
+                    "value": "from {-webkit-transform:scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }"
                              + "25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}"
-                             + "50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}"
+                             + "50% {background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}"
                              + "75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}"
-                             + "to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}",
+                             + "to {-webkit-transform:scale(1.1);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}",
                     "type": "dialog"
                 }
             ]
@@ -581,8 +582,10 @@
                     propertyConfig.transform
                 ]
             };
-            root.baidu && (configs = root.baidu.object.clone(configs));
-            configs.btnArea.properties[3].children[0].value = 3;
+            if (root.baidu) {
+                configs = root.baidu.object.clone(configs);
+                configs.btnArea.properties[3].children[0].value = 3
+            }
             return configs;
         },
         'image': function (propertyConfig) {
@@ -616,8 +619,10 @@
                     propertyConfig.transform
                 ]
             };
-            root.baidu && (configs = root.baidu.object.clone(configs));
-            configs.btnArea.properties[3].children[0].value = 3;
+            if (root.baidu) {
+                configs = root.baidu.object.clone(configs);
+                configs.btnArea.properties[3].children[0].value = 3
+            }
             return configs;
         }
     };
@@ -632,7 +637,7 @@
 }.call(this));
 _('base_css').templateCache(function(data){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
-__p+='.logImg {\nwidth: 1px;\nheight: 1px;\nposition: absolute;\nleft:0;\ntop:0;\nopacity: 0;\n}\n.layout-area {\npadding: 0;\nmargin: 0;\ndisplay: table;\nheight: 100%;\ntable-layout: fixed;\nbox-sizing: border-box;\n}\n.jg-banner {\ndisplay: block;\nwidth: 100%;\nheight: 100%;\nposition: relative;\ntext-align: center;\n}\n.jg-banner .jq-container {\ndisplay: table-cell;\nvertical-align: middle;\nbox-sizing: border-box;\nwidth: 100%;\nheight: 100%;\n}\n\n.jg-banner .btn-area .jg-btn:before {\nword-break: break-all;\nbox-sizing: border-box;\ndisplay: inline-block;\n}\n.no-image .image-area,\n.no-image .icon-area {\ndisplay: none;\n}';
+__p+='.logImg {\nwidth: 1px;\nheight: 1px;\nposition: absolute;\nleft:0;\ntop:0;\nopacity: 0;\n}\n.layout-area {\npadding: 0;\nmargin: 0;\ndisplay: table;\nheight: 100%;\ntable-layout: fixed;\nbox-sizing: border-box;\n}\na.jg-banner {\ncolor:inherit;\ntext-decoration:none;\n}\n.jg-banner {\ndisplay: block;\nwidth: 100%;\nheight: 100%;\nposition: relative;\ntext-align: center;\n}\n.jg-banner .jq-container {\ndisplay: table-cell;\nvertical-align: middle;\nbox-sizing: border-box;\nwidth: 100%;\nheight: 100%;\n}\n\n.jg-banner .btn-area .jg-btn:before {\nword-break: break-all;\nbox-sizing: border-box;\ndisplay: inline-block;\n}\n.no-image .image-area,\n.no-image .icon-area {\ndisplay: none;\n}';
 return __p;
 });
 _('custom_js').templateCache(function(data){
@@ -729,6 +734,6 @@ return __p;
 });
 _('text_icon_textArea').templateCache(function(data){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
-__p+='<div class="layout-area text-area">\n    <div class="jq-container">\n        <div class="text-container">\n            <div class="jg-title"><\\\\%=data.Title%\\\\></div>\n            <div class="jg-description"><\\\\%=data.Description1%\\\\></div>\n        </div>\n    </div>\n</div>';
+__p+='<div class="layout-area text-area">\n    <div class="jq-container">\n        <div class="text-container">\n            <div class="jg-title"><span class="text"><\\\\%=data.Title%\\\\></span></div>\n            <div class="jg-description"><span class="text"><\\\\%=data.Description1%\\\\></span></div>\n        </div>\n    </div>\n</div>';
 return __p;
 });

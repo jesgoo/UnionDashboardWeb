@@ -14,6 +14,10 @@ height: 100%;
 table-layout: fixed;
 box-sizing: border-box;
 }
+a.jg-banner {
+color:inherit;
+text-decoration:none;
+}
 .jg-banner {
 display: block;
 width: 100%;

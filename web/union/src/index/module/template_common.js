@@ -199,12 +199,12 @@ function getGridPropertyEditorConfig($treeGrid, properties) {
                 editable: false,
                 columnType: 'none',
                 dataField: 'property',
-                width: 170
+                width: 150
             },
             {
                 text: '值',
                 dataField: 'value',
-                width: 150,
+                width: 230,
                 columnType: "custom",
 
                 // creates an editor depending on the "type" value.
