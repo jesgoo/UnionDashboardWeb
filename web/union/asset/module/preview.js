@@ -11,7 +11,7 @@
  */
 (function (exports, module) {
     var previewJS = function (data, target) {
-        var contextId = '_preview';
+        var contextId = '_previewJS';
         var adslot = 's0000000';
         var sdkConfig = {
             maxage: 3600 * 24,
@@ -60,25 +60,45 @@
         }).appendTo(target).get(0);
         mf.m.utils.writeInIframe(iframe.contentWindow, container.innerHTML);
     };
-    var previewCustomJS = function (js, data, target, jsSource) {
-        var contextId = '_preview';
-        js = js || '';
+    var previewCustomJS = function (data) {
+        var $container;
+        if (data === null) {
+            data = {
+                jsSource: arguments[3],
+                data: arguments[1]
+            };
+            $container = $('#' + arguments[2]);
+        } else {
+            var $target = $('#' + arguments[1]);
+            $target.children().remove();
+            var parentContent = previewHTML(data);
+            $target.append(parentContent);
+            $container = $target.find('.position-banner');
+        }
+
+        $container.children().remove();
+
+        var jsSource = data.jsSource || '';
+        var js = data.js || '';
         if (js !== 'result' && js !== '') {
             js = '//cdn.jesgoo.com/template/' + js;
         }
         var customData = {
             version: 'test',
-            js: js || '',
-            jsSource: jsSource || '',
-            data: JSON.stringify(data || {})
+            js: js,
+            jsSource: jsSource,
+            data: JSON.stringify(data.data || {})
         };
+        var contextId = '_previewCustomJS';
         var contextOption = {
             contextId: contextId
         };
         er.context.addPrivate(contextId);
+
         $.each(customData, function (i, n) {
             er.context.set(i, n, contextOption);
         });
+
         var container = {
             innerHTML: 'invalid'
         };
@@ -89,18 +109,19 @@
         );
         er.context.removePrivate(contextId);
 
-        var $target = $('#' + target);
-        $target.children().remove();
-        var iframe = $('<iframe/>', {
-            'class': 'position-wrapper',
+
+        var $iframe = $('<iframe/>', {
+            'class': 'position-container',
             frameborder: '0',
             scrolling: 'no'
-        }).appendTo($target).get(0);
-        console.log('previewCustomJS', $target, container.innerHTML);
-        mf.m.utils.writeInIframe(iframe.contentWindow, container.innerHTML);
+        }).appendTo($container).get(0);
+
+        console.log('previewCustomJS', customData, container);
+
+        mf.m.utils.writeInIframe($iframe.contentWindow, container.innerHTML);
     };
     var previewHTML = function (data, target) {
-        var contextId = '_preview';
+        var contextId = '_previewHTML';
         var contextOption = {
             contextId: contextId
         };

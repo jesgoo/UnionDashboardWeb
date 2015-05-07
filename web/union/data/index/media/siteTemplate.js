@@ -96,7 +96,7 @@ exports.response = {
             id: 0, // 模版id
             adType: 5, // 模版类型 值同 AdType
             percent: 80, // 流量百分比 0 - 100
-            jsSource: 'result.js', // cdn js文件地址
+            version: 'result', // cdn js文件地址
             data: {
                 "content": {
                     "iconArea": {
@@ -298,7 +298,7 @@ exports.response = {
             adType: 2, // 模版类型 值同 AdType
             type: 1, // 广告位展现形式 Banner
             percent: 20, // 流量百分比 0 - 100
-            jsSource: "", // cdn js文件地址
+            version: "", // cdn js文件地址
             data: {} // 数据文件，很大一坨json
         },
         {
@@ -306,14 +306,14 @@ exports.response = {
             adType: 5, // 模版类型 值同 AdType
             type: 1, // 广告位展现形式 Banner
             percent: 80, // 流量百分比 0 - 100
-            jsSource: "", // cdn js文件地址
+            version: "", // cdn js文件地址
             data: {} // 数据文件，很大一坨json
         },
         {
             id: 4, // 模版id
             adType: 5, // 模版类型 值同 AdType
             percent: 30, // 流量百分比 0 - 100
-            jsSource: '' // cdn js文件地址
+            version: '' // cdn js文件地址
         }
     ]
 };

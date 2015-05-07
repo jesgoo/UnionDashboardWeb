@@ -26,13 +26,13 @@ exports.response = {
             "media": "e2131231",
             "name": "广告位1",
             "type": 1,
-            "subtype": 1,
+            "subtype": 2,
             "modify_time": "2014年1月1日 0时0分1秒",
             "config": {
-                "close": false,
+                "close": true,
                 "blank": false,
-                "place": 1,
-                "height": 200,
+                "place": 2,
+                "height": 60,
                 "autoPlayInterval": 1000
             }
         },
@@ -41,7 +41,7 @@ exports.response = {
             "media": "e2131231",
             "name": "广告位2",
             "type": 10,
-            "subtype": 1,
+            "subtype": 2,
             "modify_time": "2014年1月1日 0时0分1秒",
             "config": {
                 "test": true,

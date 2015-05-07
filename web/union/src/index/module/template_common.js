@@ -419,7 +419,7 @@ MockData.prototype.get = function () {
 function initCustomEditor(opt) {
     var scaleConfig = opt.scaleConfig;
     var elementID = opt.templateID + '_' + opt.styleName;
-    var preview = generatePreview(opt.styleName, elementID, opt.getCustomLayout, opt.mockData.get.bind(opt.mockData));
+    var preview = generatePreview(opt.styleName, elementID, opt.getCustomLayout, opt.mockData.get.bind(opt.mockData), opt.adslotData);
 
     var contentConfig = opt.contentConfig;
 

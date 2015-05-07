@@ -89,16 +89,18 @@
                     adTypeList[config.maps.adTypeMap[adType]].list.push(template);
                 });
 
-                var height = loader.get('height') || 0;
+                var adslotData = loader.get('adslotData') || {};
+                var height = adslotData.height || 0;
                 var heightValue;
                 if (height == -1) {
                     height = 480
                 }
                 height = 1.2 * height;
                 heightValue = height + 'px';
-                loader.set('heightValue', heightValue);
-                loader.set('height', height);
 
+                adslotData.heightValue = heightValue;
+
+                loader.set('adslotData', adslotData);
                 loader.set('fields', FIELDS);
                 loader.set('config', config);
                 loader.set('adTypeList', adTypeList);

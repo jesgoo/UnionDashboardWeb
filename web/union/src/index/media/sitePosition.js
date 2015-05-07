@@ -118,16 +118,20 @@
                     'positionPreview'
                 );
             }, 300);
-            var previewWithCustomJS = mf.m.utils.throttle(function (js, data) {
-                //mf.m.preview.previewHTML(
-                //    mf.reflectDataInConfig(table.datasource[rowIndex], sitePositionList),
-                //'positionPreview'
-                //);
-                mf.m.preview.previewCustomJS(
-                    js, data,
-                    'positionPreview'
-                );
-            }, 300);
+            var previewWithCustomJS = function (adslotData) {
+                return mf.m.utils.throttle(function (js, data) {
+                    //mf.m.preview.previewHTML(
+                    //    mf.reflectDataInConfig(table.datasource[rowIndex], sitePositionList),
+                    //'positionPreview'
+                    //);
+                    adslotData.js = js;
+                    adslotData.data = data;
+                    mf.m.preview.previewCustomJS(
+                        adslotData,
+                        'positionPreview'
+                    );
+                }, 300);
+            };
             table._rowOverHandler = function (rowIndex) {
                 esui.Table.prototype._rowOverHandler.call(this, rowIndex);
                 preview(rowIndex);
@@ -140,17 +144,18 @@
                 if (action.subAction[index]) {
                     action.subAction[index].leave();
                 }
+                var adslotData = mf.reflectDataInConfig(item, sitePositionList);
                 action.subAction[index] = er.controller.loadSub(
                     subRow.id,
                     'mf.index.media.siteTemplate',
                     {
                         queryMap: {
                             adslot: operateData.get(item, 'id'),
-                            height: operateData.get(item, 'height')
+                            adslotData: adslotData
                         }
                     }
                 );
-                action.subAction[index].preview = previewWithCustomJS;
+                action.subAction[index].preview = previewWithCustomJS(adslotData);
             });
             table.onsubrowclose = function(index) {
                 var subAction = action.subAction[index];

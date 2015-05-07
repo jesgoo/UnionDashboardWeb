@@ -29,7 +29,7 @@
             var action = this;
             var model = action.model;
             var adslot = model.get('adslot');
-            var adslotHeightValue = model.get('heightValue');
+            var adslotData = model.get('adslotData');
             var config = model.get('config');
             var fields = model.get('fields');
             var adTypeList = model.get('adTypeList');
@@ -195,7 +195,7 @@
                                         queryMap: {
                                             styleName: options.name,
                                             config: config,
-                                            heightValue: adslotHeightValue,
+                                            heightValue: adslotData.heightValue,
                                             template: templateID,
                                             templateData: operateData.get(row, 'data') || {}
                                         }

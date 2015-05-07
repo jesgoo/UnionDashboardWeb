@@ -8,12 +8,14 @@
         }
         .right {
             margin-left: 510px;
+            position: relative;
+            z-index: 2;
         }
         .left {
             width: 500px;
             &:hover {
                 position: relative;
-                z-index: 1;
+                z-index: 10;
             }
         }
     }
@@ -69,6 +71,7 @@
             position: absolute;
             top: 50px;
             left: 0;
+            z-index: 1;
             transition: 1s top;
         }
         &.scale-modal{
