@@ -94,10 +94,11 @@ exports.response = {
     "entities": [
         {
             id: 0, // 模版id
-            adType: 5, // 模版类型 值同 AdType
+            adslot: 's12312', // 模版类型 值同 AdType
+            adtype: 5, // 模版类型 值同 AdType
             percent: 80, // 流量百分比 0 - 100
             version: 'result', // cdn js文件地址
-            data: {
+            json: {
                 "content": {
                     "iconArea": {
                         "backgroundColor": {
@@ -295,23 +296,21 @@ exports.response = {
         },
         {
             id: 1, // 模版id
-            adType: 2, // 模版类型 值同 AdType
-            type: 1, // 广告位展现形式 Banner
+            adtype: 2, // 模版类型 值同 AdType
             percent: 20, // 流量百分比 0 - 100
             version: "", // cdn js文件地址
-            data: {} // 数据文件，很大一坨json
+            json: {} // 数据文件，很大一坨json
         },
         {
             id: 2, // 模版id
-            adType: 5, // 模版类型 值同 AdType
-            type: 1, // 广告位展现形式 Banner
+            adtype: 5, // 模版类型 值同 AdType
             percent: 80, // 流量百分比 0 - 100
             version: "", // cdn js文件地址
-            data: {} // 数据文件，很大一坨json
+            json: {} // 数据文件，很大一坨json
         },
         {
             id: 4, // 模版id
-            adType: 5, // 模版类型 值同 AdType
+            adtype: 5, // 模版类型 值同 AdType
             percent: 30, // 流量百分比 0 - 100
             version: '' // cdn js文件地址
         }

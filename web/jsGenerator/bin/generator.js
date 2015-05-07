@@ -36,7 +36,7 @@ var maps = {
 };
 
 var g = function (data) {
-    var adType = data.adType;
+    var adType = data.adtype;
     adType === 1 && (adType = 5);
     var adTypeName = maps.adTypeMap[adType];
 
@@ -47,8 +47,6 @@ var g = function (data) {
     var layoutData = layoutList[adTypeName](scale);
     var contentProperty = new PropertyConfig(property, templateData.content);
     var contentData = contentProperty.getData();
-//console.log(require('util').inspect(contentProperty, { depth:1 }));
-//console.log(require('util').inspect(contentData, { depth: null }));
     return generator(adTypeName, contentData, layoutData, templateData.scale);
 
 };
@@ -65,6 +63,11 @@ process.stdin.on('end', function () {
     process.stdout.write('// jesgoo\n;');
     process.stdout.write(customJS);
     process.stdout.write('\n;// jesgoo\n');
+    process.exit();
+});
+
+process.on('uncaughtException', function(err) {
+    process.stderr.write('Caught exception: ' + err);
     process.exit();
 });
 

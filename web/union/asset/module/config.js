@@ -350,7 +350,7 @@
                     "isShow": false
                 },
                 "adType": {
-                    "field": "adType",
+                    "field": "adtype",
                     "defaultValue": "",
                     "title": "广告类型",
                     "request": true,
