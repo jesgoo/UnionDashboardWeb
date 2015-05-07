@@ -52,7 +52,10 @@
             'type': {
                 subEntry:1,
                 isSubEntryShow: function (item, index, col) {
-                    return operateData.get(item, 'type') === config.maps.sitePositionType.banner;
+                    return !item._isNew && operateData.get(item, 'type') === config.maps.sitePositionType.banner;
+                },
+                editable: function (item, index, col) {
+                  return !!item._isNew;
                 },
                 datasource: config.maps.sitePositionTypeMap,
                 content: function (item) {

@@ -100,6 +100,9 @@
             var property = propertyList[styleName](propertyConfig);
             var getCustomLayout = layoutList[styleName];
 
+            property = baidu.object.clone(property);
+            property.btnArea.properties[3].children[0].value = 3;
+
             var customTemplate = initCustomEditor({
                 templateID: templateID,
                 styleName: styleName,

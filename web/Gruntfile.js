@@ -313,7 +313,7 @@ module.exports = function (grunt) {
                 req.body.id = req.body.id || ('t' + Math.round(Math.random() * 10000));
                 res.type('json');
                 if (req.body.json) {
-                    console.log('result.js ', util.inspect(req.body, { depth:null }));
+                    //console.log('result.js ', util.inspect(req.body, { depth:null }));
                     var generator = require('child_process').exec(
                         'export SOURCE=1 && echo "' + JSON.stringify(req.body).replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '" | node ./jsGenerator/bin/generator.js > ./output/union/result.js',
                         function (error, stdout, stderr) {

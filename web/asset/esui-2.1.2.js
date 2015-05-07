@@ -10482,7 +10482,7 @@ esui.Table.prototype = {
             content     = field.content;
             colWidth    = me._colsWidth[ i ];
             subentry    = subrow && field.subEntry;
-            editable    = me.editable && field.editable && field.edittype;
+            editable    = me.editable  && field.edittype;
             
             // 生成可换行列的样式
             if ( esui.Table.BREAK_LINE 
@@ -10494,7 +10494,10 @@ esui.Table.prototype = {
             
             // 表格可编辑的样式
             if ( editable ) {
-                textClass.push( me.__getClass( 'cell-editable' ) );
+                if (typeof field.editable != 'function'
+                       || field.editable.call( me, data, index, i ) !== false) {
+                    textClass.push( me.__getClass( 'cell-editable' ) );
+                }
             }
 
             // 生成选择列的样式
