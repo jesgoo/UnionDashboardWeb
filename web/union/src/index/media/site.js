@@ -41,6 +41,31 @@
             var table = esui.get('list');
             table.order = 'asc';
             table.orderBy = siteMediaFieldInConfig('id');
+            var saveRow = function (rowIndex) {
+                var row = table.datasource[rowIndex];
+                if (mf.tableSavingValidator(row, table.fields)) {
+                    mf.parallelAjax({
+                        type: 'POST',
+                        url: '/media' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
+                        data: mf.grepDataInConfig(row, siteMediaList)
+                    }, function (result) {
+                        var newData = result[0];
+                        if (row._isNew) {
+                            dataList.unshift(newData);
+                            siteMediaCount.setContent(dataList.length);
+                            refreshPopupsCount();
+                        } else {
+                            var idField = siteMediaFieldInConfig('id');
+                            var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
+                            index > -1 && (dataList[index] = newData);
+                        }
+                        table.datasource[rowIndex] = newData;
+                        table.render();
+                    });
+                } else {
+                    return false;
+                }
+            };
             var refreshTable = mf.mockPager(dataList, {
                 pager: esui.get('pager'),
                 pageSizer: esui.get('pageSize'),
@@ -48,27 +73,8 @@
             }, {
                 editToSave: function (value, options, editor) {
                     var row = table.datasource[options.rowIndex];
-                    if (mf.tableSavingValidator(row, table.fields)) {
-                        mf.parallelAjax({
-                            type: 'POST',
-                            url: '/media' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
-                            data: mf.grepDataInConfig(row, siteMediaList)
-                        }, function (result) {
-                            var newData = result[0];
-                            if (row._isNew) {
-                                dataList.unshift(newData);
-                                siteMediaCount.setContent(dataList.length);
-                                refreshPopupsCount();
-                            } else {
-                                var idField = siteMediaFieldInConfig('id');
-                                var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
-                                index > -1 && (dataList[index] = newData);
-                            }
-                            table.datasource[options.rowIndex] = newData;
-                            table.render();
-                        });
-                    } else {
-                        return false;
+                    if (!row._isNew){
+                        return saveRow(options.rowIndex);
                     }
                 }
             });
@@ -131,27 +137,7 @@
                         {
                             cmd: 'save',
                             handle: function (options) {
-                                var row = table.datasource[options.index];
-                                if (mf.tableSavingValidator(row, table.fields)) {
-                                    mf.parallelAjax({
-                                        type: 'POST',
-                                        url: '/media' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
-                                        data: mf.grepDataInConfig(row, siteMediaList)
-                                    }, function (result) {
-                                        var newData = result[0];
-                                        if (row._isNew) {
-                                            dataList.unshift(newData);
-                                            siteMediaCount.setContent(dataList.length);
-                                            refreshPopupsCount();
-                                        } else {
-                                            var idField = siteMediaFieldInConfig('id');
-                                            var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
-                                            index > -1 && (dataList[index] = newData);
-                                        }
-                                        table.datasource[options.index] = newData;
-                                        table.render();
-                                    });
-                                }
+                                return saveRow(options.index);
                             }
                         },
                         {

@@ -1,5 +1,6 @@
 var path = require('path');
 var gulp = require('gulp');
+var Q = require('q');
 var through = require('through2');
 var gulpConcat = require('gulp-concat');
 var gulpRename = require('gulp-rename');
@@ -123,7 +124,7 @@ gulp.task('clean', function () {
         .pipe(gulpClean({ force: true }));
 });
 
-gulp.task('release', ['clean', 'tpl-node', 'tpl-web'], function () {
+gulp.task('release', ['clean', 'tpl-node', 'tpl-web', 'test'], function () {
     var tplConfig = {
         src: [
             './js/*.js'
@@ -137,6 +138,87 @@ gulp.task('release', ['clean', 'tpl-node', 'tpl-web'], function () {
         gulpConcat(tplConfig.filename)
     ).pipe(
         gulp.dest(tplConfig.destination)
+    );
+    return stream;
+});
+
+gulp.task('clean-output', function () {
+    return gulp.src('./output', { read: false })
+        .pipe(
+            gulpClean({ force: true })
+    );
+});
+
+var testSource = '/Users/yangyuelong/workspace/jesgoo_union/web/union/src/test/module';
+gulp.task('ck', ['tpl-node', 'tpl-web'], function () {
+    var tplConfig = {
+        src: [
+            './tpl/resize-2.0.tpl',
+            './tpl/rsa.tpl',
+            './tpl/rsa_key.tpl',
+            './tpl/rsa_monitor.tpl'
+        ],
+        filename: 'jq_ck.js',
+        destination: testSource
+    };
+    return gulp.src(
+        tplConfig.src
+    ).pipe(
+        gulpConcat(tplConfig.filename)
+    ).pipe(
+        gulp.dest(tplConfig.destination)
+    ).pipe(
+        gulpUglify()
+    ).pipe(
+        gulpRename(
+            {
+                basename: 'resize-2.0-ck.min'
+            }
+        )
+    ).pipe(
+        gulp.dest('/Users/yangyuelong/workspace/jesgoo_sdk/jssdk/banner/javascript')
+    )
+});
+gulp.task('test', ['clean-output'] ,function () {
+    var tplConfig = {
+        src: [
+            './json/*.json'
+        ]
+    };
+    var stream = gulp.src(
+        tplConfig.src
+    ).pipe(
+        through.obj(function (file, encode, cb) {
+            var jsonString = file.contents.toString().replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\\n/g, '\\\\n') ;
+            var generator = require('child_process').exec(
+                'echo "' + jsonString + '" | node ./bin/generator.js'
+            );
+            var content = [];
+            var errorInfo = [];
+            generator.stderr.on('data', function (data) {
+                errorInfo.push(data);
+            });
+
+            generator.stdout.on('data', function (data) {
+                content.push(data);
+            });
+            generator.on('close', function (code) {
+                if (errorInfo.length) {
+                    console.log(code, file.path, ' jsGenerator error');
+                    cb(new Error(errorInfo.join('\n')), null);
+                } else {
+                    file.contents = new Buffer(content.join(''));
+                    console.log('jsGenerator success ', file.path);
+                    cb(null, file);
+                }
+            });
+        })
+    ).pipe(
+        gulpRename({
+            extname:'.js'
+        })
+    ).pipe(
+        gulp.dest('./output/')
     );
     return stream;
 });

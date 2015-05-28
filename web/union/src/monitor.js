@@ -17,7 +17,9 @@ mf.urlDebugRouter.reg({
     // data all
     '/monitor/main/history': /^\/machine\/.*\/index/i,
     // data all
-    '/monitor/main/index': /^\/machine\/.*\/getdata/i
+    '/monitor/main/index': /^\/machine\/.*\/getdata/i,
+    // data all
+    '/monitor/analyze/json_click_xy': /click_hot/i
 });
 
 mf.windowMinWidth = 980;

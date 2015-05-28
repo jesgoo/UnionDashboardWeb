@@ -38,8 +38,9 @@
         $.each(data, function (i, n) {
             er.context.set(i, n, contextOption);
         });
-        er.context.set('domain', location.host.replace(/^union\./i, 'api.'), contextOption);
+        er.context.set('domain', location.host.replace(/^union\./i, 'cdn.'), contextOption);
         er.context.set('adslot', adslot, contextOption);
+        er.context.set('aid', adslot, contextOption);
         var container = {
             innerHTML: 'invalid'
         };
@@ -50,7 +51,7 @@
         );
         er.context.removePrivate(contextId);
 
-        localStorage.setItem('adslotConf_' + sdkConfig.adslots[0].adslot, JSON.stringify(sdkConfig));
+        localStorage.setItem(/*'adslotConf_' + */sdkConfig.adslots[0].adslot, JSON.stringify(sdkConfig));
         target = $('#' + target);
         target.children().remove();
         var iframe = $('<iframe/>', {
@@ -81,7 +82,7 @@
         var jsSource = data.jsSource || '';
         var js = data.js || '';
         if (js !== 'result' && js !== '') {
-            js = '//cdn.jesgoo.com/template/' + js;
+            js = '//cdn.jesgoo.com/newtpl/js/' + js;
         }
         var customData = {
             version: 'test',
@@ -89,6 +90,7 @@
             jsSource: jsSource,
             data: JSON.stringify(data.data || {})
         };
+
         var contextId = '_previewCustomJS';
         var contextOption = {
             contextId: contextId
@@ -116,7 +118,10 @@
             scrolling: 'no'
         }).appendTo($container).get(0);
 
-        console.log('previewCustomJS', customData, container);
+        //console.log('previewCustomJS', customData, container);
+        if (window.__DEBUG) {
+            $('#coder1').val(container.innerHTML);
+        }
 
         mf.m.utils.writeInIframe($iframe.contentWindow, container.innerHTML);
     };
@@ -126,11 +131,6 @@
             contextId: contextId
         };
         er.context.addPrivate(contextId);
-        var height = parseInt(data.height || 0, 10);
-        if (height < 20) {
-            height = 20;
-        }
-        height = height / 12;
         $.each(data, function (i, n) {
             er.context.set(i, n, contextOption);
         });
@@ -138,16 +138,31 @@
         if (data.displayType == 2 && data.position == 2) {
             positionExtraClass.push('position-absolute-bottom');
         }
+        var height = parseInt(data.height || 0, 10);
+        var heightValue;
+        if (height === -1) {
+            heightValue = '100%';
+        } else{
+            if (height < 20) {
+                height = 20;
+            }
+            height = height / 12;
+            heightValue = height + 'em';
+        }
         if (data.type == 10) {
+            if (height == -1) {
+                height = 800;
+            }
             var width = height / 500 * 600;
             if (width > 26.66) {
                 width = 26.66;
                 height = width / 600 * 500;
             }
-            er.context.set('relativeWidth', width, contextOption);
-            er.context.set('halfRelativeWidth', width / 2, contextOption);
+            heightValue = height + 'em';
+            er.context.set('relativeWidth', width + 'em', contextOption);
+            er.context.set('halfRelativeWidth', width / 2 + 'em', contextOption);
         }
-        er.context.set('relativeHeight', height, contextOption);
+        er.context.set('relativeHeight', heightValue, contextOption);
         er.context.set('positionExtraClass', positionExtraClass.join(' '), contextOption);
 
         if (typeof target === 'string') {
@@ -163,6 +178,9 @@
         er.context.removePrivate(contextId);
         return target.innerHTML;
     };
+    if (window.__DEBUG) {
+        $('<textarea id="coder" style="width: 100%;height: 20em;"></textarea><textarea id="coder1" style="width: 100%;height: 20em;"></textarea>').insertAfter('#Main');
+    }
     exports.preview = {
         writeInIframe: mf.m.utils.writeInIframe,
         previewHTML: previewHTML,

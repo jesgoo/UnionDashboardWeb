@@ -51,6 +51,30 @@
             emptySitePosition = mf.initEntityInConfig(appPositionList, emptySitePosition);
             table.order = 'asc';
             table.orderBy = appPositionFieldInConfig('id');
+            var saveRow = function (rowIndex) {
+                var row = table.datasource[rowIndex];
+                if (mf.tableSavingValidator(row, table.fields)) {
+                    mf.parallelAjax({
+                        type: 'POST',
+                        url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
+                        data: mf.grepDataInConfig(row, appPositionList)
+                    }, function (result) {
+                        var newData = result[0];
+                        if (row._isNew) {
+                            dataList.unshift(newData);
+                            appPositionCount.setContent(dataList.length);
+                        } else {
+                            var idField = appPositionFieldInConfig('id');
+                            var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
+                            index > -1 && (dataList[index] = newData);
+                        }
+                        table.datasource[rowIndex] = newData;
+                        table.render();
+                    });
+                } else {
+                    return false;
+                }
+            };
             var refreshTable = mf.mockPager(dataList, {
                 pager: pager,
                 pageSizer: pageSizer,
@@ -58,26 +82,8 @@
             }, {
                 editToSave: function (value, options, editor) {
                     var row = table.datasource[options.rowIndex];
-                    if (mf.tableSavingValidator(row, table.fields)) {
-                        mf.parallelAjax({
-                            type: 'POST',
-                            url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
-                            data: mf.grepDataInConfig(row, appPositionList)
-                        }, function (result) {
-                            var newData = result[0];
-                            if (row._isNew) {
-                                dataList.unshift(newData);
-                                appPositionCount.setContent(dataList.length);
-                            } else {
-                                var idField = appPositionFieldInConfig('id');
-                                var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
-                                index > -1 && (dataList[index] = newData);
-                            }
-                            table.datasource[options.rowIndex] = newData;
-                            table.render();
-                        });
-                    } else {
-                        return false;
+                    if (!row._isNew){
+                        return saveRow(options.rowIndex);
                     }
                 }
             });
@@ -125,26 +131,7 @@
                         {
                             cmd: 'save',
                             handle: function (options) {
-                                var row = table.datasource[options.index];
-                                if (mf.tableSavingValidator.call(table, row, table.fields)) {
-                                    mf.parallelAjax({
-                                        type: 'POST',
-                                        url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
-                                        data: mf.grepDataInConfig(row, appPositionList)
-                                    }, function (result) {
-                                        var newData = result[0];
-                                        if (row._isNew) {
-                                            dataList.unshift(newData);
-                                            appPositionCount.setContent(dataList.length);
-                                        } else {
-                                            var idField = appPositionFieldInConfig('id');
-                                            var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
-                                            index > -1 && (dataList[index] = newData);
-                                        }
-                                        table.datasource[options.index] = newData;
-                                        table.render();
-                                    });
-                                }
+                                return saveRow(options.index);
                             }
                         },
                         {

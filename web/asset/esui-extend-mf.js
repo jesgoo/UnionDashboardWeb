@@ -3058,7 +3058,6 @@ esui.PlainSelect.prototype = {
                         item.style.lineHeight = item.style.height = calc + 'px';
                     }
                 }
-                ;
             }
         }
         if (!me.selectAll || me.dataLength < 1) {
@@ -3626,4 +3625,166 @@ esui.Table.EditorManager.add('select',
             };
         }
 
+    }));
+
+// 增加内建表格编辑部件 - dateRange类型
+esui.Table.EditorManager.add('dateRange',
+    new esui.Table.Editor({
+        /**
+         * 编辑器类型
+         *
+         * @public
+         */
+        type: 'dateRange',
+
+        /**
+         * 编辑器层内容模板
+         *
+         * @public
+         */
+        tpl: '<div ui="type:MultiCalendar;id:{5};okText:确认修改;cancelText:关闭面板;" style="margin-right: 0.5em;"></div>'
+             + '<div ui="id:{0};type:Button;skin:em" style="display: none;">{2}</div>'
+             + '<div ui="id:{1};type:Button;" style="display: none;">{3}</div>'
+             + '<div id="{4}" class="ui-table-editor-error"></div>',
+        calendarId: '_ctrlTableEditorSelectInput',
+
+        /**
+         * 初始化编辑器浮层
+         *
+         * @public
+         */
+        initLayer: function () {
+            this.fillLayer([this.calendarId]);
+            var controlMap = this.initLayerControl();
+            this.calendarCtrl = controlMap[this.calendarId];
+            this.calendarCtrl._controlMap['cancel'].onclick =
+                this.calendarCtrl._controlMap['close'].onclick =
+                    this.getCancelHandler();
+            this.calendarCtrl.getLayer().main.style.zIndex = 202;
+            this.initButton(controlMap);
+        },
+
+        /**
+         * 设置当前编辑器的值
+         *
+         * @public
+         * @param {string} value 值内容
+         */
+        setValue: function (value) {
+            var me = this;
+            var field = me.currentOptions.field;
+            me.calendarCtrl.setValue(value);
+            me.calendarCtrl.width = field.width || 200;
+            me.calendarCtrl.render();
+            me.calendarCtrl.onchange = this.getOkHandler();
+            me.calendarCtrl.getLayer()._preventHide();
+            me.calendarCtrl.toggleLayer();
+            //mf.m.utils.nextTick(me, me.calendarCtrl.showLayer);
+        },
+
+        /**
+         * 获取当前编辑器所编辑的值
+         *
+         * @public
+         * @return {string}
+         */
+        getValue: function () {
+            return this.calendarCtrl.getValue();
+        },
+        getCancelHandler: function () {
+            var me = this;
+            return function () {
+                me.calendarCtrl.hideLayer();
+                me.stop();
+            };
+        },
+        getOkHandler: function () {
+            var me = this;
+            return mf.m.utils.nextTickWrapper(function (value) {
+                if (me.currentOptions.field.validator) {
+                    var err = me.currentOptions.field.validator.call(me.currentTable, me.calendarCtrl.getValue(), me.currentTable.datasource[me.currentOptions.rowIndex]);
+                    if (err) {
+                        me.setError(err);
+                        return;
+                    }
+                }
+                me.doOk();
+            });
+        }
+
+    }));
+// 初始化内建表格编辑部件 - float类型
+esui.Table.EditorManager.add( 'float',
+    new esui.Table.Editor( {
+        /**
+         * 编辑器类型
+         *
+         * @public
+         */
+        type:'float',
+
+        /**
+         * 编辑器层内容模板
+         *
+         * @public
+         */
+        tpl: '<input type="text" ui="type:TextInput;id:{5}" />'
+             + '<div ui="id:{0};type:Button;skin:em">{2}</div>'
+             + '<div ui="id:{1};type:Button;">{3}</div>'
+             + '<div id="{4}" class="ui-table-editor-error"></div>',
+        inputId: '_ctrlTableEditorFloatInput',
+
+        /**
+         * 初始化编辑器浮层
+         *
+         * @public
+         */
+        initLayer: function () {
+            this.fillLayer( [ this.inputId ] );
+            var controlMap = this.initLayerControl();
+            this.inputCtrl = controlMap[ this.inputId ];
+            this.inputCtrl.onenter = this.getOkHandler();
+            this.initButton( controlMap );
+        },
+
+        /**
+         * 设置当前编辑器的值
+         *
+         * @public
+         * @param {string} value 值内容
+         */
+        setValue: function ( value ) {
+            this.inputCtrl.setValue( value );
+        },
+
+        /**
+         * 获取当前编辑器所编辑的值
+         *
+         * @public
+         * @return {string}
+         */
+        getValue: function () {
+            return parseFloat( this.inputCtrl.getValue(), 10 );
+        },
+
+        getOkHandler: function () {
+            var me = this;
+
+            return function () {
+                var value = me.inputCtrl.getValue();
+                if ( !/^[+-]?([1-9][0-9]*|0)(\.[0-9]{1,3})?$/.test( value ) ) {
+                    me.setError('请输入正确的数字，最多三位小数，谢谢。');
+                    return;
+                }
+                if (me.currentOptions.field.validator) {
+                    var err = me.currentOptions.field.validator.call(me.currentTable, value, me.currentTable.datasource[me.currentOptions.rowIndex]);
+                    if (err) {
+                        me.setError(err);
+                        return;
+                    }
+                }
+
+                me.doOk();
+            };
+        }
     }));

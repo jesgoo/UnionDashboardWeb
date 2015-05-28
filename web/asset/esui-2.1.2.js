@@ -10482,7 +10482,7 @@ esui.Table.prototype = {
             content     = field.content;
             colWidth    = me._colsWidth[ i ];
             subentry    = subrow && field.subEntry;
-            editable    = me.editable  && field.edittype;
+            editable    = me.editable && field.edittype;
             
             // 生成可换行列的样式
             if ( esui.Table.BREAK_LINE 
@@ -10497,6 +10497,8 @@ esui.Table.prototype = {
                 if (typeof field.editable != 'function'
                        || field.editable.call( me, data, index, i ) !== false) {
                     textClass.push( me.__getClass( 'cell-editable' ) );
+                } else {
+                    editable = false;
                 }
             }
 
@@ -10528,7 +10530,7 @@ esui.Table.prototype = {
             );
             contentHtml = '<div class="' + textClass.join( ' ' ) + '">'
                             + contentText
-                            + me._getEditEntryHtml( field, index, i )
+                            + (editable ? me._getEditEntryHtml( field, index, i ) : '')
                             + '</div>';
 
             subentryHtml = '&nbsp;';

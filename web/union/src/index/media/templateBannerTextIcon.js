@@ -254,6 +254,8 @@
 
             property = baidu.object.clone(property);
             property.btnArea.properties[3].children[0].value = 3;
+            var getMockData = new MockData(mf.index.media.model.mockData_text_icon);
+
 
             var customTemplate = initCustomEditor({
                 templateID: templateID,
@@ -262,7 +264,7 @@
                 contentConfig: new PropertyConfig(property, templateData.content),
                 getCustomLayout: getCustomLayout,
                 refreshESUI: refreshActionNewESUI,
-                mockData: new MockData(mf.index.media.model.mockData_text_icon)
+                mockData: getMockData
             });
 
             customTemplate.preview();
@@ -271,6 +273,40 @@
             action.save = function () {
                 return customTemplate.toJSON();
             };
+            if (window.__DEBUG) {
+                window.t = customTemplate;
+            }
+            var elementID = templateID + '_' + styleName;
+            var configSelect = esui.get('configSelect_' + elementID);
+            if (configSelect) {
+                configSelect.onchange = function (values, value) {
+                    var item = mf.m.utils.deepSearch(configSelect.datasource, value, 'value');
+                    if (item && item.data) {
+                        var scaleData = item.data.scale;
+                        var layoutData = getCustomLayout(item.data.scale);
+                        var demoContent = new PropertyConfig(baidu.object.clone(property), item.data.content);
+                        var contentData = demoContent.getData();
+                        var templateData = getMockData.get();
+                        var customJS = generator(styleName, contentData, layoutData, scaleData, true);
+                        mf.m.preview.previewCustomJS(null, templateData, 'configDemo_' + elementID, customJS);
+                        $('#configDemoArea_' + elementID).show();
+                        copyStyle.enable();
+                    }
+                };
+                var copyStyle = esui.get('copyStyle_' + elementID);
+                copyStyle.onclick = function () {
+                    copyStyle.disable();
+                    var value = configSelect.getValue()[0];
+                    var item = mf.m.utils.deepSearch(configSelect.datasource, value, 'value');
+                    action.reloadBaseDemo && action.reloadBaseDemo(item.data, value);
+                };
+
+                var defaultDemo = model.get('defaultDemo');
+                if (defaultDemo) {
+                    configSelect.setValue(defaultDemo, { dispatch: true });
+                }
+            }
+
             var saveBtn = esui.get('saveStyle_' + templateID + '_' + styleName);
             saveBtn.onclick = function () {
                 console.log('save');
@@ -283,6 +319,9 @@
             closeStyle.onclick = function () {
                 console.log('close');
             };
+            if (window.__DEBUG) {
+                $('.operation-area', '#' + action.view.target).show()
+            }
             refreshActionNewESUI.call(document.getElementById(action.view.target));
         },
         onleave: function () {

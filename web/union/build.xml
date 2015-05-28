@@ -71,7 +71,7 @@
         <replace dir="${out.m.dir}" includes="*.html" encoding="${encoding}">
             <replacefilter token="[__version__]" value="${DSTAMP}${TSTAMP}"/>
         </replace>
-        
+
     </target>
 
     <target name="deploy-rmlog" depends="build" unless="enableDebugLog"
@@ -96,6 +96,7 @@
             -a html
             "/>
         </java>
+
     </target>
 
     <target name="deploy-gzip" depends="deploy-min" if="enableGzip" description="gzip">
@@ -107,6 +108,13 @@
     </target>
 
     <target name="release" depends="deploy-gzip" description="线上环境部署包">
+        <!-- add generator -->
+        <copy todir="${out.m.dir}/jsGenerator">
+            <fileset dir="${basedir}/jsGenerator">
+                <exclude name="node_modules/**"/>
+            </fileset>
+        </copy>
+
         <zip destfile="${m.release.file}">
             <fileset dir="${out.m.dir}">
                 <exclude name="data/**"/>

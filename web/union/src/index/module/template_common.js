@@ -5,8 +5,16 @@ function generatePreview(styleName, elementID, customLayout, getMockData) {
         var contentData = contentOption.getData();
         var templateData = getMockData();
         console.log('preview', contentData, layoutData, scaleData);
-        var customJS = generator(styleName, contentData, layoutData, scaleData);
+        var customJS = generator(styleName, contentData, layoutData, scaleData, true);
         mf.m.preview.previewCustomJS(null, templateData, 'layoutDemo_' + elementID, customJS);
+        if (window.__DEBUG) {
+            $('#coder').val(_.templateList(styleName, {
+                content: contentData,
+                layout: layoutData,
+                scale: scaleData || {},
+                debug: true
+            }).replace(/<\\\\%/g, '<%').replace(/%\\\\>/g, '%>'));
+        }
         //$('#coder').val(html);
         //$('#coder1').val(htmlRender(templateData));
     };
@@ -49,6 +57,9 @@ function getGridCreateEditor($treeGrid, uniqueName) {
         var row = $treeGrid.jqxTreeGrid('getRow', rowKey);
         switch (row["type"]) {
             case "dialog":
+                var textarea = $("<textarea class='textbox' style='border: none;'/>").appendTo(editor);
+                textarea.jqxInput({width: '100%', height: '100%'});
+                break;
             case "string":
             case "number":
                 var input = $("<input class='textbox' style='border: none;'/>").appendTo(editor);
@@ -60,7 +71,7 @@ function getGridCreateEditor($treeGrid, uniqueName) {
                     width: '100%',
                     height: '100%',
                     autoDropDownHeight: true,
-                    source: ["Left", "Center", "Right"]
+                    source: ["left", "center", "right"]
                 });
                 break;
             case "color":
@@ -354,6 +365,7 @@ function layoutScale(elementID, option) {
 
 PropertyConfig.prototype.init = function () {
     var me = this;
+    me.setJSON(me.initData);
     $.each(me.fields, function (name, field) {
         me.data[name] = new $.jqx.dataAdapter({
             dataType: "json",
@@ -368,15 +380,66 @@ PropertyConfig.prototype.init = function () {
             },
             localData: baidu.object.clone(field.properties),
             loadComplete: function () {
-                me.refreshValue(name);
+                //console.log(name, me.data[name])
             }
         });
+        //me.data[name].dataBind();
     });
+};
+
+/*PropertyConfig.prototype.setJSON = function (initData) {
+    var me = this;
+    initData = initData || {};
+    function recursionValue(data, records, properties) {
+        properties.forEach(function (orgData, index) {
+            var record = records[index];
+            if (orgData.children) {
+                recursionValue(data[orgData.dataField] || {}, record.records, orgData.children);
+                return true;
+            } else {
+                var value =  data[orgData.dataField];
+                if (value !== null && value !== undefined) {
+                    orgData.value = record.value = value;
+                }
+            }
+        });
+    }
+    for (var name in initData) {
+        var field = me.fields[name];
+        if (!field) continue;
+        recursionValue(initData[name], me.data[name].records, field.properties);
+        me.refreshValue(name);
+    }
+};*/
+
+PropertyConfig.prototype.toJSON = function () {
+    var me = this;
+    var result = {};
+
+    function recursionValue(object, records, properties) {
+        records.forEach(function (record, index) {
+            var orgData = properties[index], value;
+            if (orgData.children) {
+                object[orgData.dataField] = {};
+                recursionValue(object[orgData.dataField], record.children, orgData.children);
+                return true;
+            } else {
+                object[orgData.dataField] = record.value;
+            }
+        });
+    }
+    for (var name in me.fields) {
+        var field = me.fields[name];
+        result[name] = {};
+        recursionValue(result[name], me.data[name].records, field.properties);
+    }
+    return result;
 };
 
 PropertyConfig.prototype.refreshValue = function (name) {
     var me = this;
     var result = {
+        property: {},
         animate: [],
         css: []
     };
@@ -384,22 +447,26 @@ PropertyConfig.prototype.refreshValue = function (name) {
     function recursionValue(records, properties) {
         records.forEach(function (record, index) {
             var orgData = properties[index], value;
+            if (orgData.children && orgData.children.length) {
+                recursionValue(record.children, orgData.children);
+            }
             if (orgData.valueFactory) {
-                value = orgData.valueFactory(record, orgData);
-            } else if (orgData.children) {
-                recursionValue(record.records, orgData.children);
-                return true;
+                value = orgData.value = orgData.valueFactory(record, orgData);
             } else {
-                value = record.value
+                value = record.value;
             }
             if (orgData.cssField) {
                 value && result.css.push(orgData.cssField + ':' + value + ';');
-            } else if (orgData.animationField && value.length) {
-                var animationName = '\'' + orgData.animationField + '_' + name + '\'';
-                value.unshift(animationName);
-                var animationString = value.pop();
-                result.animate.push('@-webkit-keyframes ' + animationName + ' {' + animationString + '}');
-                result.css.push('-webkit-animation:' + value.join(' ') + ';');
+            } else if (orgData.animationField) {
+                if (value.length) {
+                    var animationName = '\'' + orgData.animationField + '_' + name + '\'';
+                    value.unshift(animationName);
+                    var animationString = value.pop();
+                    result.animate.push('@-webkit-keyframes ' + animationName + ' {' + animationString + '}');
+                    result.css.push('-webkit-animation:' + value.join(' ') + ';');
+                }
+            } else if (orgData.propertyField) {
+                value !== undefined && (result.property[orgData.propertyField] = value);
             }
         });
     }
@@ -429,25 +496,31 @@ function initCustomEditor(opt) {
     });
     //mf.m.utils.nextTick(null, preview, templateConfig, contentConfig);
 
-    var $demoContainer = $('#layoutContainer_' + elementID);
     var toggleScale = esui.get('scaleToggle_' + elementID);
+    if (toggleScale) {
+        var $demoContainer = $('#layoutContainer_' + elementID);
 
-    toggleScale.onchange = function (values, value) {
-        if (value == 2) {
-            $demoContainer.addClass('scale-modal');
-            $scale.fadeIn(1000);
-        } else {
-            $demoContainer.removeClass('scale-modal');
-            $scale.fadeOut(1000);
-        }
-    };
-    toggleScale.setValue(toggleScale.datasource[1].string, {dispatch: true});
+        toggleScale.onchange = function (values, value) {
+            if (value == 2) {
+                $demoContainer.addClass('scale-modal');
+                $scale.fadeIn(1000);
+            } else {
+                $demoContainer.removeClass('scale-modal');
+                $scale.fadeOut(1000);
+            }
+        };
+        toggleScale.setValue(toggleScale.datasource[1].string, {dispatch: true});
+    } else {
+        $scale.fadeOut();
+    }
 
     var $contentTab = $('#contentTab_' + elementID);
     var $ul = $('<ul/>').appendTo($contentTab);
+    contentConfig.grids = [];
     $.each(contentConfig.fields, function (name, field) {
         console.log('init table', name, field);
         var $treeGrid = $('<div/>', {id: 'contentImage_' + elementID + '_' + name, html: '123'});
+        contentConfig.grids.push($treeGrid.prop('id'));
         $ul.append($('<li/>', {html: field.text}));
         $contentTab.append($treeGrid.wrapAll($('<div/>')).parent());
         $treeGrid.on('rowEndEdit', function () {
@@ -480,6 +553,11 @@ function initCustomEditor(opt) {
             $scale.jqxRangeSelector('setRange', scaleConfig.from, scaleConfig.to);
             preview(scaleConfig, contentConfig);
         },
+        refreshGrid: function () {
+            /*$(contentConfig.grids).each(function (index, id) {
+                $('#' + id).jqxTreeGrid('source').dataBind();
+            })*/
+        },
         toJSON: function () {
             return {
                 content: contentConfig.toJSON(),
@@ -491,8 +569,4 @@ function initCustomEditor(opt) {
         },
         preview: preview.bind(null, scaleConfig, contentConfig)
     }
-}
-
-if (__DEBUG) {
-    $('<textarea id="coder" style="width: 100%;height: 20em;"></textarea><textarea id="coder1" style="width: 100%;height: 20em;"></textarea>').insertAfter('#Main');
 }

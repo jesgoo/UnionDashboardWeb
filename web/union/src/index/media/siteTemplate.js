@@ -5,6 +5,28 @@
  * Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved
  */
 (function () {
+    function loadTemplateEditor(action, target, subActionName, queryMap, templateData) {
+        action.subAction = er.controller.loadSub(
+            target,
+            subActionName,
+            {
+                queryMap: $.extend(queryMap, {
+                    templateData: templateData
+                })
+            }
+        );
+        mf.loaded();
+        action.subAction.reloadBaseDemo = function (demoData, value) {
+            mf.loading();
+            mf.m.utils.nextTick(function () {
+                action.subAction.leave();
+                action.subAction = null;
+                queryMap.defaultDemo = value;
+                loadTemplateEditor(action, target, subActionName, queryMap, demoData);
+            });
+        }
+    }
+
     mf.index.media.siteTemplate = new er.Action({
         model: mf.index.media.model.siteTemplate,
         view: new er.View({
@@ -53,7 +75,7 @@
             $.extend(action._controlMap, esui.init(actionViewTarget, ui_prop));
 
             var preview = action.preview;
-            mf.m.utils.nextTick(function (){
+            mf.m.utils.nextTick(function () {
                 $('#template_tabs_' + adslot).jqxTabs({
                     selectionTracker: true
                 }).jqxTabs('select', 0);
@@ -102,6 +124,7 @@
                                 newRow[siteTemplateFieldInConfig('adType')] = adType[options.name];
                                 newRow = mf.grepDataInConfig(newRow, siteTemplateList);
                                 newRow._isNew = true;
+                                newRow._isModify = true;
                                 table.datasource = table.datasource || [];
                                 table.datasource.unshift(newRow);
                                 table.render();
@@ -124,16 +147,18 @@
                                 var saveList = [];
                                 $.each(list, function (index, row) {
                                     percent += +operateData.get(row, 'percent');
-                                    saveList.push(
-                                        {
-                                            type: 'POST',
-                                            url: '/template' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
-                                            data: mf.grepDataInConfig(row, siteTemplateList)
-                                        }
-                                    );
+                                    if (row._isModify) {
+                                        saveList.push(
+                                            {
+                                                type: 'POST',
+                                                url: '/template' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
+                                                data: mf.grepDataInConfig(row, siteTemplateList)
+                                            }
+                                        );
+                                    }
                                 });
                                 console.log('save', list, percent);
-                                if (percent === 100) {
+                                if (percent <= 100 && percent >= 0) {
                                     mf.parallelAjax(saveList, function () {
                                         $.each(arguments, function (index, result) {
                                             table.datasource[index] = result[0];
@@ -143,8 +168,8 @@
                                 } else {
                                     var dialog = esui.Dialog.alert({
                                         title: '操作失败',
-                                        content: '请保证当前页面内所有模版【流量百分比】的总和为 100 。' +
-                                                 '<br>当前总和为：'+ percent
+                                        content: '请保证当前页面内所有模版【流量百分比】的总和不超过 100 。' +
+                                                 '<br>当前总和为：' + percent
                                     });
                                 }
                             }
@@ -187,20 +212,16 @@
                                         dialog = null;
                                     }
                                 });
-                                console.log('start edit', dialog.getBody());
-                                action.subAction = er.controller.loadSub(
-                                    dialog.getBody().id,
-                                    adTypeOption.action,
-                                    {
-                                        queryMap: {
+                                mf.loading();
+                                mf.m.utils.nextTick(function () {
+                                    loadTemplateEditor(action, dialog.getBody().id, adTypeOption.action, {
                                             styleName: options.name,
                                             config: config,
                                             heightValue: adslotData.heightValue,
-                                            template: templateID,
-                                            templateData: operateData.get(row, 'data') || {}
-                                        }
-                                    }
-                                );
+                                            template: templateID
+                                        }, operateData.get(row, 'data')
+                                    );
+                                });
                             }
                         }
                     ],
@@ -209,7 +230,8 @@
                         rewrite: true
                     }
                 )
-            );
+            )
+            ;
         },
         onleave: function () {
             console.log('onleave');
@@ -221,5 +243,7 @@
             var commands = this.model.get('commands');
             commands && mf.clickCommand.dispose(commands);
         }
-    });
-})();
+    })
+    ;
+})
+();

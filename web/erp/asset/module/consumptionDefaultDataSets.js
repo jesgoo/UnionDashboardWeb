@@ -9,7 +9,8 @@
     var consumptionDefaultDataSets = {
         "normalOrderList": [
             {
-                "id": 1,
+                "serial": "T-0001"
+                , "id": 1,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -18,12 +19,11 @@
                 "amount": 50,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 2,
+                "serial": "T-0002"
+                , "id": 2,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -32,12 +32,11 @@
                 "amount": 100,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 3,
+                "serial": "T-0003"
+                , "id": 3,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -46,12 +45,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 4,
+                "serial": "T-0004"
+                , "id": 4,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -60,12 +58,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 5,
+                "serial": "T-0005"
+                , "id": 5,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -74,12 +71,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 6,
+                "serial": "T-0006"
+                , "id": 6,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -88,12 +84,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 7,
+                "serial": "T-0007"
+                , "id": 7,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -102,12 +97,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 8,
+                "serial": "T-0008"
+                , "id": 8,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -116,12 +110,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 9,
+                "serial": "T-0009"
+                , "id": 9,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -130,12 +123,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 10,
+                "serial": "T-0010"
+                , "id": 10,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -144,12 +136,11 @@
                 "amount": 290,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 11,
+                "serial": "T-0011"
+                , "id": 11,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -158,12 +149,11 @@
                 "amount": 60,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 12,
+                "serial": "T-0012"
+                , "id": 12,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -172,12 +162,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 13,
+                "serial": "T-0013"
+                , "id": 13,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -186,12 +175,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 14,
+                "serial": "T-0014"
+                , "id": 14,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -200,12 +188,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 15,
+                "serial": "T-0015"
+                , "id": 15,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -214,12 +201,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 16,
+                "serial": "T-0016"
+                , "id": 16,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -228,12 +214,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 17,
+                "serial": "T-0017"
+                , "id": 17,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -242,12 +227,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 18,
+                "serial": "T-0018"
+                , "id": 18,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -256,12 +240,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 19,
+                "serial": "T-0019"
+                , "id": 19,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -270,12 +253,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 20,
+                "serial": "T-0020"
+                , "id": 20,
                 "year": 2,
                 "quality": 85,
                 "market": 0,
@@ -284,12 +266,11 @@
                 "amount": 220,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 21,
+                "serial": "T-0021"
+                , "id": 21,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -298,12 +279,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 22,
+                "serial": "T-0022"
+                , "id": 22,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -312,12 +292,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 23,
+                "serial": "T-0023"
+                , "id": 23,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -326,12 +305,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 24,
+                "serial": "T-0024"
+                , "id": 24,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -340,12 +318,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 25,
+                "serial": "T-0025"
+                , "id": 25,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -354,12 +331,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 26,
+                "serial": "T-0026"
+                , "id": 26,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -368,12 +344,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 27,
+                "serial": "T-0027"
+                , "id": 27,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -382,12 +357,11 @@
                 "amount": 70,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 28,
+                "serial": "T-0028"
+                , "id": 28,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -396,12 +370,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 29,
+                "serial": "T-0029"
+                , "id": 29,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -410,12 +383,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 30,
+                "serial": "T-0030"
+                , "id": 30,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -424,12 +396,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 31,
+                "serial": "T-0031"
+                , "id": 31,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -438,12 +409,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 32,
+                "serial": "T-0032"
+                , "id": 32,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -452,12 +422,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 33,
+                "serial": "T-0033"
+                , "id": 33,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -466,12 +435,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 34,
+                "serial": "T-0034"
+                , "id": 34,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -480,12 +448,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 35,
+                "serial": "T-0035"
+                , "id": 35,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -494,12 +461,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 36,
+                "serial": "T-0036"
+                , "id": 36,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -508,12 +474,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 37,
+                "serial": "T-0037"
+                , "id": 37,
                 "year": 2,
                 "quality": 85,
                 "market": 1,
@@ -522,12 +487,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 38,
+                "serial": "T-0038"
+                , "id": 38,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -536,12 +500,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 39,
+                "serial": "T-0039"
+                , "id": 39,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -550,12 +513,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 40,
+                "serial": "T-0040"
+                , "id": 40,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -564,12 +526,11 @@
                 "amount": 220,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 41,
+                "serial": "T-0041"
+                , "id": 41,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -578,12 +539,11 @@
                 "amount": 210,
                 "delivery": 1,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 42,
+                "serial": "T-0042"
+                , "id": 42,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -592,12 +552,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 43,
+                "serial": "T-0043"
+                , "id": 43,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -606,12 +565,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 44,
+                "serial": "T-0044"
+                , "id": 44,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -620,12 +578,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 45,
+                "serial": "T-0045"
+                , "id": 45,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -634,12 +591,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 46,
+                "serial": "T-0046"
+                , "id": 46,
                 "year": 2,
                 "quality": 85,
                 "market": 2,
@@ -648,12 +604,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 47,
+                "serial": "T-0047"
+                , "id": 47,
                 "year": 2,
                 "quality": 85,
                 "market": 3,
@@ -662,12 +617,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 48,
+                "serial": "T-0048"
+                , "id": 48,
                 "year": 2,
                 "quality": 85,
                 "market": 3,
@@ -676,12 +630,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 49,
+                "serial": "T-0049"
+                , "id": 49,
                 "year": 2,
                 "quality": 85,
                 "market": 3,
@@ -690,12 +643,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 50,
+                "serial": "T-0050"
+                , "id": 50,
                 "year": 2,
                 "quality": 85,
                 "market": 3,
@@ -704,12 +656,11 @@
                 "amount": 200,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 51,
+                "serial": "T-0051"
+                , "id": 51,
                 "year": 2,
                 "quality": 85,
                 "market": 3,
@@ -718,12 +669,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 52,
+                "serial": "T-0052"
+                , "id": 52,
                 "year": 2,
                 "quality": 85,
                 "market": 3,
@@ -732,12 +682,11 @@
                 "amount": 280,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 53,
+                "serial": "T-0053"
+                , "id": 53,
                 "year": 2,
                 "quality": 85,
                 "market": 3,
@@ -746,12 +695,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 54,
+                "serial": "T-0054"
+                , "id": 54,
                 "year": 2,
                 "quality": 85,
                 "market": 3,
@@ -760,12 +708,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 55,
+                "serial": "T-0055"
+                , "id": 55,
                 "year": 2,
                 "quality": 85,
                 "market": 4,
@@ -774,12 +721,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 56,
+                "serial": "T-0056"
+                , "id": 56,
                 "year": 2,
                 "quality": 85,
                 "market": 4,
@@ -788,12 +734,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 57,
+                "serial": "T-0057"
+                , "id": 57,
                 "year": 2,
                 "quality": 85,
                 "market": 4,
@@ -802,12 +747,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 58,
+                "serial": "T-0058"
+                , "id": 58,
                 "year": 2,
                 "quality": 85,
                 "market": 4,
@@ -816,12 +760,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 59,
+                "serial": "T-0059"
+                , "id": 59,
                 "year": 2,
                 "quality": 85,
                 "market": 4,
@@ -830,12 +773,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 60,
+                "serial": "T-0060"
+                , "id": 60,
                 "year": 2,
                 "quality": 85,
                 "market": 4,
@@ -844,12 +786,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 61,
+                "serial": "T-0061"
+                , "id": 61,
                 "year": 2,
                 "quality": 85,
                 "market": 4,
@@ -858,12 +799,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 62,
+                "serial": "T-0062"
+                , "id": 62,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -872,12 +812,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 63,
+                "serial": "T-0063"
+                , "id": 63,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -886,12 +825,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 64,
+                "serial": "T-0064"
+                , "id": 64,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -900,12 +838,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 65,
+                "serial": "T-0065"
+                , "id": 65,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -914,12 +851,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 66,
+                "serial": "T-0066"
+                , "id": 66,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -928,12 +864,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 67,
+                "serial": "T-0067"
+                , "id": 67,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -942,12 +877,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 68,
+                "serial": "T-0068"
+                , "id": 68,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -956,12 +890,11 @@
                 "amount": 180,
                 "delivery": 1,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 69,
+                "serial": "T-0069"
+                , "id": 69,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -970,12 +903,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 70,
+                "serial": "T-0070"
+                , "id": 70,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -984,12 +916,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 71,
+                "serial": "T-0071"
+                , "id": 71,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -998,12 +929,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 72,
+                "serial": "T-0072"
+                , "id": 72,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1012,12 +942,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 73,
+                "serial": "T-0073"
+                , "id": 73,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1026,12 +955,11 @@
                 "amount": 240,
                 "delivery": 1,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 74,
+                "serial": "T-0074"
+                , "id": 74,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1040,12 +968,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 75,
+                "serial": "T-0075"
+                , "id": 75,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1054,12 +981,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 76,
+                "serial": "T-0076"
+                , "id": 76,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1068,12 +994,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 77,
+                "serial": "T-0077"
+                , "id": 77,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1082,12 +1007,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 78,
+                "serial": "T-0078"
+                , "id": 78,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1101,7 +1025,8 @@
                 ]
             },
             {
-                "id": 79,
+                "serial": "T-0079"
+                , "id": 79,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1115,7 +1040,8 @@
                 ]
             },
             {
-                "id": 80,
+                "serial": "T-0080"
+                , "id": 80,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1129,7 +1055,8 @@
                 ]
             },
             {
-                "id": 81,
+                "serial": "T-0081"
+                , "id": 81,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1138,12 +1065,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 82,
+                "serial": "T-0082"
+                , "id": 82,
                 "year": 3,
                 "quality": 85,
                 "market": 0,
@@ -1152,12 +1078,11 @@
                 "amount": 310,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 83,
+                "serial": "T-0083"
+                , "id": 83,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1166,12 +1091,11 @@
                 "amount": 50,
                 "delivery": 1,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 84,
+                "serial": "T-0084"
+                , "id": 84,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1180,12 +1104,11 @@
                 "amount": 50,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 85,
+                "serial": "T-0085"
+                , "id": 85,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1194,12 +1117,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 86,
+                "serial": "T-0086"
+                , "id": 86,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1208,12 +1130,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 87,
+                "serial": "T-0087"
+                , "id": 87,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1222,12 +1143,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 88,
+                "serial": "T-0088"
+                , "id": 88,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1236,12 +1156,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 89,
+                "serial": "T-0089"
+                , "id": 89,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1250,12 +1169,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 90,
+                "serial": "T-0090"
+                , "id": 90,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1264,12 +1182,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 91,
+                "serial": "T-0091"
+                , "id": 91,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1278,12 +1195,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 92,
+                "serial": "T-0092"
+                , "id": 92,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1292,12 +1208,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 93,
+                "serial": "T-0093"
+                , "id": 93,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1306,12 +1221,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 94,
+                "serial": "T-0094"
+                , "id": 94,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1320,12 +1234,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 95,
+                "serial": "T-0095"
+                , "id": 95,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1334,12 +1247,11 @@
                 "amount": 310,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 96,
+                "serial": "T-0096"
+                , "id": 96,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1348,12 +1260,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 97,
+                "serial": "T-0097"
+                , "id": 97,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1362,12 +1273,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 98,
+                "serial": "T-0098"
+                , "id": 98,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1376,12 +1286,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 99,
+                "serial": "T-0099"
+                , "id": 99,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1390,12 +1299,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 100,
+                "serial": "T-0100"
+                , "id": 100,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1404,12 +1312,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 101,
+                "serial": "T-0101"
+                , "id": 101,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1418,12 +1325,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 102,
+                "serial": "T-0102"
+                , "id": 102,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1432,12 +1338,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 103,
+                "serial": "T-0103"
+                , "id": 103,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1446,12 +1351,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 104,
+                "serial": "T-0104"
+                , "id": 104,
                 "year": 3,
                 "quality": 85,
                 "market": 1,
@@ -1460,12 +1364,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 105,
+                "serial": "T-0105"
+                , "id": 105,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1474,12 +1377,11 @@
                 "amount": 60,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 106,
+                "serial": "T-0106"
+                , "id": 106,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1488,12 +1390,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 107,
+                "serial": "T-0107"
+                , "id": 107,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1502,12 +1403,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 108,
+                "serial": "T-0108"
+                , "id": 108,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1516,12 +1416,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 109,
+                "serial": "T-0109"
+                , "id": 109,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1530,12 +1429,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 110,
+                "serial": "T-0110"
+                , "id": 110,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1544,12 +1442,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 111,
+                "serial": "T-0111"
+                , "id": 111,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1558,12 +1455,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 112,
+                "serial": "T-0112"
+                , "id": 112,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1572,12 +1468,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 113,
+                "serial": "T-0113"
+                , "id": 113,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1586,12 +1481,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 114,
+                "serial": "T-0114"
+                , "id": 114,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1600,12 +1494,11 @@
                 "amount": 80,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 115,
+                "serial": "T-0115"
+                , "id": 115,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1614,12 +1507,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 116,
+                "serial": "T-0116"
+                , "id": 116,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1628,12 +1520,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 117,
+                "serial": "T-0117"
+                , "id": 117,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1642,12 +1533,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 118,
+                "serial": "T-0118"
+                , "id": 118,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1656,12 +1546,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 119,
+                "serial": "T-0119"
+                , "id": 119,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1670,12 +1559,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 120,
+                "serial": "T-0120"
+                , "id": 120,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1684,12 +1572,11 @@
                 "amount": 310,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 121,
+                "serial": "T-0121"
+                , "id": 121,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1698,12 +1585,11 @@
                 "amount": 320,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 122,
+                "serial": "T-0122"
+                , "id": 122,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1712,12 +1598,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 123,
+                "serial": "T-0123"
+                , "id": 123,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1726,12 +1611,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 124,
+                "serial": "T-0124"
+                , "id": 124,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1740,12 +1624,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 125,
+                "serial": "T-0125"
+                , "id": 125,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1754,12 +1637,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 126,
+                "serial": "T-0126"
+                , "id": 126,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1768,12 +1650,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 127,
+                "serial": "T-0127"
+                , "id": 127,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1782,12 +1663,11 @@
                 "amount": 320,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 128,
+                "serial": "T-0128"
+                , "id": 128,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1796,12 +1676,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 129,
+                "serial": "T-0129"
+                , "id": 129,
                 "year": 3,
                 "quality": 85,
                 "market": 2,
@@ -1810,12 +1689,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 130,
+                "serial": "T-0130"
+                , "id": 130,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1824,12 +1702,11 @@
                 "amount": 80,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 131,
+                "serial": "T-0131"
+                , "id": 131,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1838,12 +1715,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 132,
+                "serial": "T-0132"
+                , "id": 132,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1852,12 +1728,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 133,
+                "serial": "T-0133"
+                , "id": 133,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1866,12 +1741,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 134,
+                "serial": "T-0134"
+                , "id": 134,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1880,12 +1754,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 135,
+                "serial": "T-0135"
+                , "id": 135,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1894,12 +1767,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 136,
+                "serial": "T-0136"
+                , "id": 136,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1908,12 +1780,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 137,
+                "serial": "T-0137"
+                , "id": 137,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1922,12 +1793,11 @@
                 "amount": 290,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 138,
+                "serial": "T-0138"
+                , "id": 138,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1936,12 +1806,11 @@
                 "amount": 340,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 139,
+                "serial": "T-0139"
+                , "id": 139,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1950,12 +1819,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 140,
+                "serial": "T-0140"
+                , "id": 140,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1964,12 +1832,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 141,
+                "serial": "T-0141"
+                , "id": 141,
                 "year": 3,
                 "quality": 85,
                 "market": 3,
@@ -1978,12 +1845,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 142,
+                "serial": "T-0142"
+                , "id": 142,
                 "year": 3,
                 "quality": 85,
                 "market": 4,
@@ -1992,12 +1858,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 143,
+                "serial": "T-0143"
+                , "id": 143,
                 "year": 3,
                 "quality": 85,
                 "market": 4,
@@ -2006,12 +1871,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 144,
+                "serial": "T-0144"
+                , "id": 144,
                 "year": 3,
                 "quality": 85,
                 "market": 4,
@@ -2020,12 +1884,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 145,
+                "serial": "T-0145"
+                , "id": 145,
                 "year": 3,
                 "quality": 85,
                 "market": 4,
@@ -2034,12 +1897,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 146,
+                "serial": "T-0146"
+                , "id": 146,
                 "year": 3,
                 "quality": 85,
                 "market": 4,
@@ -2048,12 +1910,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 147,
+                "serial": "T-0147"
+                , "id": 147,
                 "year": 3,
                 "quality": 85,
                 "market": 4,
@@ -2062,12 +1923,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 148,
+                "serial": "T-0148"
+                , "id": 148,
                 "year": 3,
                 "quality": 85,
                 "market": 4,
@@ -2076,12 +1936,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 149,
+                "serial": "T-0149"
+                , "id": 149,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2095,7 +1954,8 @@
                 ]
             },
             {
-                "id": 150,
+                "serial": "T-0150"
+                , "id": 150,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2109,7 +1969,8 @@
                 ]
             },
             {
-                "id": 151,
+                "serial": "T-0151"
+                , "id": 151,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2118,12 +1979,11 @@
                 "amount": 50,
                 "delivery": 1,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 152,
+                "serial": "T-0152"
+                , "id": 152,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2132,12 +1992,11 @@
                 "amount": 50,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 153,
+                "serial": "T-0153"
+                , "id": 153,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2146,12 +2005,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 154,
+                "serial": "T-0154"
+                , "id": 154,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2160,12 +2018,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 155,
+                "serial": "T-0155"
+                , "id": 155,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2174,12 +2031,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 156,
+                "serial": "T-0156"
+                , "id": 156,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2188,12 +2044,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 157,
+                "serial": "T-0157"
+                , "id": 157,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2202,12 +2057,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 158,
+                "serial": "T-0158"
+                , "id": 158,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2216,12 +2070,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 159,
+                "serial": "T-0159"
+                , "id": 159,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2230,12 +2083,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 160,
+                "serial": "T-0160"
+                , "id": 160,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2244,12 +2096,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 161,
+                "serial": "T-0161"
+                , "id": 161,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2258,12 +2109,11 @@
                 "amount": 240,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 162,
+                "serial": "T-0162"
+                , "id": 162,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2272,12 +2122,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 163,
+                "serial": "T-0163"
+                , "id": 163,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2286,12 +2135,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 164,
+                "serial": "T-0164"
+                , "id": 164,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2300,12 +2148,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 165,
+                "serial": "T-0165"
+                , "id": 165,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2314,12 +2161,11 @@
                 "amount": 330,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 166,
+                "serial": "T-0166"
+                , "id": 166,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2328,12 +2174,11 @@
                 "amount": 410,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 167,
+                "serial": "T-0167"
+                , "id": 167,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2347,7 +2192,8 @@
                 ]
             },
             {
-                "id": 168,
+                "serial": "T-0168"
+                , "id": 168,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2356,12 +2202,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 169,
+                "serial": "T-0169"
+                , "id": 169,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2370,12 +2215,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 170,
+                "serial": "T-0170"
+                , "id": 170,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2384,12 +2228,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 171,
+                "serial": "T-0171"
+                , "id": 171,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2398,12 +2241,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 172,
+                "serial": "T-0172"
+                , "id": 172,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2412,12 +2254,11 @@
                 "amount": 330,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 173,
+                "serial": "T-0173"
+                , "id": 173,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2426,12 +2267,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 174,
+                "serial": "T-0174"
+                , "id": 174,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2440,12 +2280,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 175,
+                "serial": "T-0175"
+                , "id": 175,
                 "year": 4,
                 "quality": 85,
                 "market": 0,
@@ -2454,12 +2293,11 @@
                 "amount": 280,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 176,
+                "serial": "T-0176"
+                , "id": 176,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2473,7 +2311,8 @@
                 ]
             },
             {
-                "id": 177,
+                "serial": "T-0177"
+                , "id": 177,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2482,12 +2321,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 178,
+                "serial": "T-0178"
+                , "id": 178,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2496,12 +2334,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 179,
+                "serial": "T-0179"
+                , "id": 179,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2510,12 +2347,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 180,
+                "serial": "T-0180"
+                , "id": 180,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2524,12 +2360,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 181,
+                "serial": "T-0181"
+                , "id": 181,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2543,7 +2378,8 @@
                 ]
             },
             {
-                "id": 182,
+                "serial": "T-0182"
+                , "id": 182,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2552,12 +2388,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 183,
+                "serial": "T-0183"
+                , "id": 183,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2566,12 +2401,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 184,
+                "serial": "T-0184"
+                , "id": 184,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2580,12 +2414,11 @@
                 "amount": 220,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 185,
+                "serial": "T-0185"
+                , "id": 185,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2594,12 +2427,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 186,
+                "serial": "T-0186"
+                , "id": 186,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2608,12 +2440,11 @@
                 "amount": 360,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 187,
+                "serial": "T-0187"
+                , "id": 187,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2627,7 +2458,8 @@
                 ]
             },
             {
-                "id": 188,
+                "serial": "T-0188"
+                , "id": 188,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2636,12 +2468,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 189,
+                "serial": "T-0189"
+                , "id": 189,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2650,12 +2481,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 190,
+                "serial": "T-0190"
+                , "id": 190,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2664,12 +2494,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 191,
+                "serial": "T-0191"
+                , "id": 191,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2678,12 +2507,11 @@
                 "amount": 330,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 192,
+                "serial": "T-0192"
+                , "id": 192,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2692,12 +2520,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 193,
+                "serial": "T-0193"
+                , "id": 193,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2706,12 +2533,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 194,
+                "serial": "T-0194"
+                , "id": 194,
                 "year": 4,
                 "quality": 85,
                 "market": 1,
@@ -2720,12 +2546,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 195,
+                "serial": "T-0195"
+                , "id": 195,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2734,12 +2559,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 196,
+                "serial": "T-0196"
+                , "id": 196,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2748,12 +2572,11 @@
                 "amount": 140,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 197,
+                "serial": "T-0197"
+                , "id": 197,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2762,12 +2585,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 198,
+                "serial": "T-0198"
+                , "id": 198,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2776,12 +2598,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 199,
+                "serial": "T-0199"
+                , "id": 199,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2790,12 +2611,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 200,
+                "serial": "T-0200"
+                , "id": 200,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2804,12 +2624,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 201,
+                "serial": "T-0201"
+                , "id": 201,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2818,12 +2637,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 202,
+                "serial": "T-0202"
+                , "id": 202,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2832,12 +2650,11 @@
                 "amount": 90,
                 "delivery": 1,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 203,
+                "serial": "T-0203"
+                , "id": 203,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2846,12 +2663,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 204,
+                "serial": "T-0204"
+                , "id": 204,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2860,12 +2676,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 205,
+                "serial": "T-0205"
+                , "id": 205,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2874,12 +2689,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 206,
+                "serial": "T-0206"
+                , "id": 206,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2888,12 +2702,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 207,
+                "serial": "T-0207"
+                , "id": 207,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2902,12 +2715,11 @@
                 "amount": 310,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 208,
+                "serial": "T-0208"
+                , "id": 208,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2916,12 +2728,11 @@
                 "amount": 390,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 209,
+                "serial": "T-0209"
+                , "id": 209,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2930,12 +2741,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 210,
+                "serial": "T-0210"
+                , "id": 210,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2944,12 +2754,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 211,
+                "serial": "T-0211"
+                , "id": 211,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2958,12 +2767,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 212,
+                "serial": "T-0212"
+                , "id": 212,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2972,12 +2780,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 213,
+                "serial": "T-0213"
+                , "id": 213,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -2986,12 +2793,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 214,
+                "serial": "T-0214"
+                , "id": 214,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -3000,12 +2806,11 @@
                 "amount": 330,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 215,
+                "serial": "T-0215"
+                , "id": 215,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -3014,12 +2819,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 216,
+                "serial": "T-0216"
+                , "id": 216,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -3028,12 +2832,11 @@
                 "amount": 280,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 217,
+                "serial": "T-0217"
+                , "id": 217,
                 "year": 4,
                 "quality": 85,
                 "market": 2,
@@ -3042,12 +2845,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 218,
+                "serial": "T-0218"
+                , "id": 218,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3061,7 +2863,8 @@
                 ]
             },
             {
-                "id": 219,
+                "serial": "T-0219"
+                , "id": 219,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3070,12 +2873,11 @@
                 "amount": 50,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 220,
+                "serial": "T-0220"
+                , "id": 220,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3084,12 +2886,11 @@
                 "amount": 80,
                 "delivery": 1,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 221,
+                "serial": "T-0221"
+                , "id": 221,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3098,12 +2899,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 222,
+                "serial": "T-0222"
+                , "id": 222,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3112,12 +2912,11 @@
                 "amount": 120,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 223,
+                "serial": "T-0223"
+                , "id": 223,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3126,12 +2925,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 224,
+                "serial": "T-0224"
+                , "id": 224,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3140,12 +2938,11 @@
                 "amount": 120,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 225,
+                "serial": "T-0225"
+                , "id": 225,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3154,12 +2951,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 226,
+                "serial": "T-0226"
+                , "id": 226,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3168,12 +2964,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 227,
+                "serial": "T-0227"
+                , "id": 227,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3182,12 +2977,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 228,
+                "serial": "T-0228"
+                , "id": 228,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3196,12 +2990,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 229,
+                "serial": "T-0229"
+                , "id": 229,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3210,12 +3003,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 230,
+                "serial": "T-0230"
+                , "id": 230,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3224,12 +3016,11 @@
                 "amount": 220,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 231,
+                "serial": "T-0231"
+                , "id": 231,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3238,12 +3029,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 232,
+                "serial": "T-0232"
+                , "id": 232,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3252,12 +3042,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 233,
+                "serial": "T-0233"
+                , "id": 233,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3266,12 +3055,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 234,
+                "serial": "T-0234"
+                , "id": 234,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3280,12 +3068,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 235,
+                "serial": "T-0235"
+                , "id": 235,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3299,7 +3086,8 @@
                 ]
             },
             {
-                "id": 236,
+                "serial": "T-0236"
+                , "id": 236,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3308,12 +3096,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 237,
+                "serial": "T-0237"
+                , "id": 237,
                 "year": 4,
                 "quality": 85,
                 "market": 3,
@@ -3322,12 +3109,11 @@
                 "amount": 350,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 238,
+                "serial": "T-0238"
+                , "id": 238,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3336,12 +3122,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 239,
+                "serial": "T-0239"
+                , "id": 239,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3350,12 +3135,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 240,
+                "serial": "T-0240"
+                , "id": 240,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3364,12 +3148,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 241,
+                "serial": "T-0241"
+                , "id": 241,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3378,12 +3161,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 242,
+                "serial": "T-0242"
+                , "id": 242,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3392,12 +3174,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 243,
+                "serial": "T-0243"
+                , "id": 243,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3406,12 +3187,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 244,
+                "serial": "T-0244"
+                , "id": 244,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3420,12 +3200,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 245,
+                "serial": "T-0245"
+                , "id": 245,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3434,12 +3213,11 @@
                 "amount": 220,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 246,
+                "serial": "T-0246"
+                , "id": 246,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3448,12 +3226,11 @@
                 "amount": 390,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 247,
+                "serial": "T-0247"
+                , "id": 247,
                 "year": 4,
                 "quality": 85,
                 "market": 4,
@@ -3462,12 +3239,11 @@
                 "amount": 400,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 248,
+                "serial": "T-0248"
+                , "id": 248,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3476,12 +3252,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 249,
+                "serial": "T-0249"
+                , "id": 249,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3490,12 +3265,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 250,
+                "serial": "T-0250"
+                , "id": 250,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3504,12 +3278,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 251,
+                "serial": "T-0251"
+                , "id": 251,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3518,12 +3291,11 @@
                 "amount": 120,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 252,
+                "serial": "T-0252"
+                , "id": 252,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3532,12 +3304,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 253,
+                "serial": "T-0253"
+                , "id": 253,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3546,12 +3317,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 254,
+                "serial": "T-0254"
+                , "id": 254,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3560,12 +3330,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 255,
+                "serial": "T-0255"
+                , "id": 255,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3574,12 +3343,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 256,
+                "serial": "T-0256"
+                , "id": 256,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3588,12 +3356,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 257,
+                "serial": "T-0257"
+                , "id": 257,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3602,12 +3369,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 258,
+                "serial": "T-0258"
+                , "id": 258,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3616,12 +3382,11 @@
                 "amount": 220,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 259,
+                "serial": "T-0259"
+                , "id": 259,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3630,12 +3395,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 260,
+                "serial": "T-0260"
+                , "id": 260,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3644,12 +3408,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 261,
+                "serial": "T-0261"
+                , "id": 261,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3658,12 +3421,11 @@
                 "amount": 310,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 262,
+                "serial": "T-0262"
+                , "id": 262,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3672,12 +3434,11 @@
                 "amount": 350,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 263,
+                "serial": "T-0263"
+                , "id": 263,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3691,7 +3452,8 @@
                 ]
             },
             {
-                "id": 264,
+                "serial": "T-0264"
+                , "id": 264,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3706,7 +3468,8 @@
                 ]
             },
             {
-                "id": 265,
+                "serial": "T-0265"
+                , "id": 265,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3715,12 +3478,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 266,
+                "serial": "T-0266"
+                , "id": 266,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3729,12 +3491,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 267,
+                "serial": "T-0267"
+                , "id": 267,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3743,12 +3504,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 268,
+                "serial": "T-0268"
+                , "id": 268,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3757,12 +3517,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 269,
+                "serial": "T-0269"
+                , "id": 269,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3771,12 +3530,11 @@
                 "amount": 420,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 270,
+                "serial": "T-0270"
+                , "id": 270,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3790,7 +3548,8 @@
                 ]
             },
             {
-                "id": 271,
+                "serial": "T-0271"
+                , "id": 271,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3799,12 +3558,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 272,
+                "serial": "T-0272"
+                , "id": 272,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3813,12 +3571,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 273,
+                "serial": "T-0273"
+                , "id": 273,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3827,12 +3584,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 274,
+                "serial": "T-0274"
+                , "id": 274,
                 "year": 5,
                 "quality": 85,
                 "market": 0,
@@ -3841,12 +3597,11 @@
                 "amount": 360,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 275,
+                "serial": "T-0275"
+                , "id": 275,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3855,12 +3610,11 @@
                 "amount": 50,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 276,
+                "serial": "T-0276"
+                , "id": 276,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3869,12 +3623,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 277,
+                "serial": "T-0277"
+                , "id": 277,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3883,12 +3636,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 278,
+                "serial": "T-0278"
+                , "id": 278,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3897,12 +3649,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 279,
+                "serial": "T-0279"
+                , "id": 279,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3911,12 +3662,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 280,
+                "serial": "T-0280"
+                , "id": 280,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3930,7 +3680,8 @@
                 ]
             },
             {
-                "id": 281,
+                "serial": "T-0281"
+                , "id": 281,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3939,12 +3690,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 282,
+                "serial": "T-0282"
+                , "id": 282,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3953,12 +3703,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 283,
+                "serial": "T-0283"
+                , "id": 283,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3967,12 +3716,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 284,
+                "serial": "T-0284"
+                , "id": 284,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -3981,12 +3729,11 @@
                 "amount": 290,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 285,
+                "serial": "T-0285"
+                , "id": 285,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4000,7 +3747,8 @@
                 ]
             },
             {
-                "id": 286,
+                "serial": "T-0286"
+                , "id": 286,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4014,7 +3762,8 @@
                 ]
             },
             {
-                "id": 287,
+                "serial": "T-0287"
+                , "id": 287,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4028,7 +3777,8 @@
                 ]
             },
             {
-                "id": 288,
+                "serial": "T-0288"
+                , "id": 288,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4037,12 +3787,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 289,
+                "serial": "T-0289"
+                , "id": 289,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4051,12 +3800,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 290,
+                "serial": "T-0290"
+                , "id": 290,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4070,7 +3818,8 @@
                 ]
             },
             {
-                "id": 291,
+                "serial": "T-0291"
+                , "id": 291,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4085,7 +3834,8 @@
                 ]
             },
             {
-                "id": 292,
+                "serial": "T-0292"
+                , "id": 292,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4099,7 +3849,8 @@
                 ]
             },
             {
-                "id": 293,
+                "serial": "T-0293"
+                , "id": 293,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4108,12 +3859,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 294,
+                "serial": "T-0294"
+                , "id": 294,
                 "year": 5,
                 "quality": 85,
                 "market": 1,
@@ -4122,12 +3872,11 @@
                 "amount": 360,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 295,
+                "serial": "T-0295"
+                , "id": 295,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4136,12 +3885,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 296,
+                "serial": "T-0296"
+                , "id": 296,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4150,12 +3898,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 297,
+                "serial": "T-0297"
+                , "id": 297,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4164,12 +3911,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 298,
+                "serial": "T-0298"
+                , "id": 298,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4178,12 +3924,11 @@
                 "amount": 120,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 299,
+                "serial": "T-0299"
+                , "id": 299,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4192,12 +3937,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 300,
+                "serial": "T-0300"
+                , "id": 300,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4206,12 +3950,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 301,
+                "serial": "T-0301"
+                , "id": 301,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4220,12 +3963,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 302,
+                "serial": "T-0302"
+                , "id": 302,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4234,12 +3976,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 303,
+                "serial": "T-0303"
+                , "id": 303,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4248,12 +3989,11 @@
                 "amount": 150,
                 "delivery": 1,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 304,
+                "serial": "T-0304"
+                , "id": 304,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4262,12 +4002,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 305,
+                "serial": "T-0305"
+                , "id": 305,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4276,12 +4015,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 306,
+                "serial": "T-0306"
+                , "id": 306,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4290,12 +4028,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 307,
+                "serial": "T-0307"
+                , "id": 307,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4304,12 +4041,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 308,
+                "serial": "T-0308"
+                , "id": 308,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4318,12 +4054,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 309,
+                "serial": "T-0309"
+                , "id": 309,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4337,7 +4072,8 @@
                 ]
             },
             {
-                "id": 310,
+                "serial": "T-0310"
+                , "id": 310,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4346,12 +4082,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 311,
+                "serial": "T-0311"
+                , "id": 311,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4360,12 +4095,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 312,
+                "serial": "T-0312"
+                , "id": 312,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4374,12 +4108,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 313,
+                "serial": "T-0313"
+                , "id": 313,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4388,12 +4121,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 314,
+                "serial": "T-0314"
+                , "id": 314,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4402,12 +4134,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 315,
+                "serial": "T-0315"
+                , "id": 315,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4416,12 +4147,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 316,
+                "serial": "T-0316"
+                , "id": 316,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4430,12 +4160,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 317,
+                "serial": "T-0317"
+                , "id": 317,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4444,12 +4173,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 318,
+                "serial": "T-0318"
+                , "id": 318,
                 "year": 5,
                 "quality": 85,
                 "market": 2,
@@ -4458,12 +4186,11 @@
                 "amount": 280,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 319,
+                "serial": "T-0319"
+                , "id": 319,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4477,7 +4204,8 @@
                 ]
             },
             {
-                "id": 320,
+                "serial": "T-0320"
+                , "id": 320,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4486,12 +4214,11 @@
                 "amount": 40,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 321,
+                "serial": "T-0321"
+                , "id": 321,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4500,12 +4227,11 @@
                 "amount": 80,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 322,
+                "serial": "T-0322"
+                , "id": 322,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4514,12 +4240,11 @@
                 "amount": 70,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 323,
+                "serial": "T-0323"
+                , "id": 323,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4528,12 +4253,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 324,
+                "serial": "T-0324"
+                , "id": 324,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4542,12 +4266,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 325,
+                "serial": "T-0325"
+                , "id": 325,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4561,7 +4284,8 @@
                 ]
             },
             {
-                "id": 326,
+                "serial": "T-0326"
+                , "id": 326,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4575,7 +4299,8 @@
                 ]
             },
             {
-                "id": 327,
+                "serial": "T-0327"
+                , "id": 327,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4589,7 +4314,8 @@
                 ]
             },
             {
-                "id": 328,
+                "serial": "T-0328"
+                , "id": 328,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4603,7 +4329,8 @@
                 ]
             },
             {
-                "id": 329,
+                "serial": "T-0329"
+                , "id": 329,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4617,7 +4344,8 @@
                 ]
             },
             {
-                "id": 330,
+                "serial": "T-0330"
+                , "id": 330,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4626,12 +4354,11 @@
                 "amount": 120,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 331,
+                "serial": "T-0331"
+                , "id": 331,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4645,7 +4372,8 @@
                 ]
             },
             {
-                "id": 332,
+                "serial": "T-0332"
+                , "id": 332,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4654,12 +4382,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 333,
+                "serial": "T-0333"
+                , "id": 333,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4668,12 +4395,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 334,
+                "serial": "T-0334"
+                , "id": 334,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4682,12 +4408,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 335,
+                "serial": "T-0335"
+                , "id": 335,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4696,12 +4421,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 336,
+                "serial": "T-0336"
+                , "id": 336,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4710,12 +4434,11 @@
                 "amount": 350,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 337,
+                "serial": "T-0337"
+                , "id": 337,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4729,7 +4452,8 @@
                 ]
             },
             {
-                "id": 338,
+                "serial": "T-0338"
+                , "id": 338,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4743,7 +4467,8 @@
                 ]
             },
             {
-                "id": 339,
+                "serial": "T-0339"
+                , "id": 339,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4752,12 +4477,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 340,
+                "serial": "T-0340"
+                , "id": 340,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4766,12 +4490,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 341,
+                "serial": "T-0341"
+                , "id": 341,
                 "year": 5,
                 "quality": 85,
                 "market": 3,
@@ -4780,12 +4503,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 342,
+                "serial": "T-0342"
+                , "id": 342,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4799,7 +4521,8 @@
                 ]
             },
             {
-                "id": 343,
+                "serial": "T-0343"
+                , "id": 343,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4808,12 +4531,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 344,
+                "serial": "T-0344"
+                , "id": 344,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4822,12 +4544,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 345,
+                "serial": "T-0345"
+                , "id": 345,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4836,12 +4557,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 346,
+                "serial": "T-0346"
+                , "id": 346,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4850,12 +4570,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 347,
+                "serial": "T-0347"
+                , "id": 347,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4864,12 +4583,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 348,
+                "serial": "T-0348"
+                , "id": 348,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4878,12 +4596,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 349,
+                "serial": "T-0349"
+                , "id": 349,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4892,12 +4609,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 350,
+                "serial": "T-0350"
+                , "id": 350,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4906,12 +4622,11 @@
                 "amount": 230,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 351,
+                "serial": "T-0351"
+                , "id": 351,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4920,12 +4635,11 @@
                 "amount": 220,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 352,
+                "serial": "T-0352"
+                , "id": 352,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4939,7 +4653,8 @@
                 ]
             },
             {
-                "id": 353,
+                "serial": "T-0353"
+                , "id": 353,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4948,12 +4663,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 354,
+                "serial": "T-0354"
+                , "id": 354,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4962,12 +4676,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 355,
+                "serial": "T-0355"
+                , "id": 355,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4976,12 +4689,11 @@
                 "amount": 220,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 356,
+                "serial": "T-0356"
+                , "id": 356,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -4990,12 +4702,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 357,
+                "serial": "T-0357"
+                , "id": 357,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -5004,12 +4715,11 @@
                 "amount": 280,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 358,
+                "serial": "T-0358"
+                , "id": 358,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -5018,12 +4728,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 359,
+                "serial": "T-0359"
+                , "id": 359,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -5032,12 +4741,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 360,
+                "serial": "T-0360"
+                , "id": 360,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -5046,12 +4754,11 @@
                 "amount": 150,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 361,
+                "serial": "T-0361"
+                , "id": 361,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -5060,12 +4767,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 362,
+                "serial": "T-0362"
+                , "id": 362,
                 "year": 5,
                 "quality": 85,
                 "market": 4,
@@ -5074,12 +4780,11 @@
                 "amount": 340,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 363,
+                "serial": "T-0363"
+                , "id": 363,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5088,12 +4793,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 364,
+                "serial": "T-0364"
+                , "id": 364,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5102,12 +4806,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 365,
+                "serial": "T-0365"
+                , "id": 365,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5116,12 +4819,11 @@
                 "amount": 100,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 366,
+                "serial": "T-0366"
+                , "id": 366,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5130,12 +4832,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 367,
+                "serial": "T-0367"
+                , "id": 367,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5144,12 +4845,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 368,
+                "serial": "T-0368"
+                , "id": 368,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5163,7 +4863,8 @@
                 ]
             },
             {
-                "id": 369,
+                "serial": "T-0369"
+                , "id": 369,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5177,7 +4878,8 @@
                 ]
             },
             {
-                "id": 370,
+                "serial": "T-0370"
+                , "id": 370,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5186,12 +4888,11 @@
                 "amount": 70,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 371,
+                "serial": "T-0371"
+                , "id": 371,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5200,12 +4901,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 372,
+                "serial": "T-0372"
+                , "id": 372,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5214,12 +4914,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 373,
+                "serial": "T-0373"
+                , "id": 373,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5228,12 +4927,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 374,
+                "serial": "T-0374"
+                , "id": 374,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5242,12 +4940,11 @@
                 "amount": 300,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 375,
+                "serial": "T-0375"
+                , "id": 375,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5261,7 +4958,8 @@
                 ]
             },
             {
-                "id": 376,
+                "serial": "T-0376"
+                , "id": 376,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5275,7 +4973,8 @@
                 ]
             },
             {
-                "id": 377,
+                "serial": "T-0377"
+                , "id": 377,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5289,7 +4988,8 @@
                 ]
             },
             {
-                "id": 378,
+                "serial": "T-0378"
+                , "id": 378,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5303,7 +5003,8 @@
                 ]
             },
             {
-                "id": 379,
+                "serial": "T-0379"
+                , "id": 379,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5317,7 +5018,8 @@
                 ]
             },
             {
-                "id": 380,
+                "serial": "T-0380"
+                , "id": 380,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5331,7 +5033,8 @@
                 ]
             },
             {
-                "id": 381,
+                "serial": "T-0381"
+                , "id": 381,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5340,12 +5043,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 382,
+                "serial": "T-0382"
+                , "id": 382,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5354,12 +5056,11 @@
                 "amount": 400,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 383,
+                "serial": "T-0383"
+                , "id": 383,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5373,7 +5074,8 @@
                 ]
             },
             {
-                "id": 384,
+                "serial": "T-0384"
+                , "id": 384,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5388,7 +5090,8 @@
                 ]
             },
             {
-                "id": 385,
+                "serial": "T-0385"
+                , "id": 385,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5397,12 +5100,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 386,
+                "serial": "T-0386"
+                , "id": 386,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5411,12 +5113,11 @@
                 "amount": 290,
                 "delivery": 1,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 387,
+                "serial": "T-0387"
+                , "id": 387,
                 "year": 6,
                 "quality": 85,
                 "market": 0,
@@ -5425,12 +5126,11 @@
                 "amount": 360,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 388,
+                "serial": "T-0388"
+                , "id": 388,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5439,12 +5139,11 @@
                 "amount": 50,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 389,
+                "serial": "T-0389"
+                , "id": 389,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5453,12 +5152,11 @@
                 "amount": 50,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 390,
+                "serial": "T-0390"
+                , "id": 390,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5467,12 +5165,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 391,
+                "serial": "T-0391"
+                , "id": 391,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5481,12 +5178,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 392,
+                "serial": "T-0392"
+                , "id": 392,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5500,7 +5196,8 @@
                 ]
             },
             {
-                "id": 393,
+                "serial": "T-0393"
+                , "id": 393,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5514,7 +5211,8 @@
                 ]
             },
             {
-                "id": 394,
+                "serial": "T-0394"
+                , "id": 394,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5528,7 +5226,8 @@
                 ]
             },
             {
-                "id": 395,
+                "serial": "T-0395"
+                , "id": 395,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5542,7 +5241,8 @@
                 ]
             },
             {
-                "id": 396,
+                "serial": "T-0396"
+                , "id": 396,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5551,12 +5251,11 @@
                 "amount": 120,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 397,
+                "serial": "T-0397"
+                , "id": 397,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5570,7 +5269,8 @@
                 ]
             },
             {
-                "id": 398,
+                "serial": "T-0398"
+                , "id": 398,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5584,7 +5284,8 @@
                 ]
             },
             {
-                "id": 399,
+                "serial": "T-0399"
+                , "id": 399,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5598,7 +5299,8 @@
                 ]
             },
             {
-                "id": 400,
+                "serial": "T-0400"
+                , "id": 400,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5607,12 +5309,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 401,
+                "serial": "T-0401"
+                , "id": 401,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5621,12 +5322,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 402,
+                "serial": "T-0402"
+                , "id": 402,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5640,7 +5340,8 @@
                 ]
             },
             {
-                "id": 403,
+                "serial": "T-0403"
+                , "id": 403,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5654,7 +5355,8 @@
                 ]
             },
             {
-                "id": 404,
+                "serial": "T-0404"
+                , "id": 404,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5668,7 +5370,8 @@
                 ]
             },
             {
-                "id": 405,
+                "serial": "T-0405"
+                , "id": 405,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5682,7 +5385,8 @@
                 ]
             },
             {
-                "id": 406,
+                "serial": "T-0406"
+                , "id": 406,
                 "year": 6,
                 "quality": 85,
                 "market": 1,
@@ -5691,12 +5395,11 @@
                 "amount": 190,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 407,
+                "serial": "T-0407"
+                , "id": 407,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5705,12 +5408,11 @@
                 "amount": 40,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 408,
+                "serial": "T-0408"
+                , "id": 408,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5719,12 +5421,11 @@
                 "amount": 80,
                 "delivery": 1,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 409,
+                "serial": "T-0409"
+                , "id": 409,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5733,12 +5434,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 410,
+                "serial": "T-0410"
+                , "id": 410,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5747,12 +5447,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 411,
+                "serial": "T-0411"
+                , "id": 411,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5761,12 +5460,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 412,
+                "serial": "T-0412"
+                , "id": 412,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5775,12 +5473,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 413,
+                "serial": "T-0413"
+                , "id": 413,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5789,12 +5486,11 @@
                 "amount": 120,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 414,
+                "serial": "T-0414"
+                , "id": 414,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5803,12 +5499,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 415,
+                "serial": "T-0415"
+                , "id": 415,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5817,12 +5512,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 416,
+                "serial": "T-0416"
+                , "id": 416,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5831,12 +5525,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 417,
+                "serial": "T-0417"
+                , "id": 417,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5845,12 +5538,11 @@
                 "amount": 210,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 418,
+                "serial": "T-0418"
+                , "id": 418,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5859,12 +5551,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 419,
+                "serial": "T-0419"
+                , "id": 419,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5878,7 +5569,8 @@
                 ]
             },
             {
-                "id": 420,
+                "serial": "T-0420"
+                , "id": 420,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5892,7 +5584,8 @@
                 ]
             },
             {
-                "id": 421,
+                "serial": "T-0421"
+                , "id": 421,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5906,7 +5599,8 @@
                 ]
             },
             {
-                "id": 422,
+                "serial": "T-0422"
+                , "id": 422,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5920,7 +5614,8 @@
                 ]
             },
             {
-                "id": 423,
+                "serial": "T-0423"
+                , "id": 423,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5934,7 +5629,8 @@
                 ]
             },
             {
-                "id": 424,
+                "serial": "T-0424"
+                , "id": 424,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5948,7 +5644,8 @@
                 ]
             },
             {
-                "id": 425,
+                "serial": "T-0425"
+                , "id": 425,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5957,12 +5654,11 @@
                 "amount": 320,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 426,
+                "serial": "T-0426"
+                , "id": 426,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5976,7 +5672,8 @@
                 ]
             },
             {
-                "id": 427,
+                "serial": "T-0427"
+                , "id": 427,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -5990,7 +5687,8 @@
                 ]
             },
             {
-                "id": 428,
+                "serial": "T-0428"
+                , "id": 428,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -6004,7 +5702,8 @@
                 ]
             },
             {
-                "id": 429,
+                "serial": "T-0429"
+                , "id": 429,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -6013,12 +5712,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 430,
+                "serial": "T-0430"
+                , "id": 430,
                 "year": 6,
                 "quality": 85,
                 "market": 2,
@@ -6027,12 +5725,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 431,
+                "serial": "T-0431"
+                , "id": 431,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6041,12 +5738,11 @@
                 "amount": 70,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 432,
+                "serial": "T-0432"
+                , "id": 432,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6055,12 +5751,11 @@
                 "amount": 90,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 433,
+                "serial": "T-0433"
+                , "id": 433,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6069,12 +5764,11 @@
                 "amount": 120,
                 "delivery": 1,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 434,
+                "serial": "T-0434"
+                , "id": 434,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6083,12 +5777,11 @@
                 "amount": 130,
                 "delivery": 1,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 435,
+                "serial": "T-0435"
+                , "id": 435,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6102,7 +5795,8 @@
                 ]
             },
             {
-                "id": 436,
+                "serial": "T-0436"
+                , "id": 436,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6116,7 +5810,8 @@
                 ]
             },
             {
-                "id": 437,
+                "serial": "T-0437"
+                , "id": 437,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6125,12 +5820,11 @@
                 "amount": 70,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 438,
+                "serial": "T-0438"
+                , "id": 438,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6139,12 +5833,11 @@
                 "amount": 140,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 439,
+                "serial": "T-0439"
+                , "id": 439,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6153,12 +5846,11 @@
                 "amount": 200,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 440,
+                "serial": "T-0440"
+                , "id": 440,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6167,12 +5859,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 441,
+                "serial": "T-0441"
+                , "id": 441,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6186,7 +5877,8 @@
                 ]
             },
             {
-                "id": 442,
+                "serial": "T-0442"
+                , "id": 442,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6200,7 +5892,8 @@
                 ]
             },
             {
-                "id": 443,
+                "serial": "T-0443"
+                , "id": 443,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6214,7 +5907,8 @@
                 ]
             },
             {
-                "id": 444,
+                "serial": "T-0444"
+                , "id": 444,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6228,7 +5922,8 @@
                 ]
             },
             {
-                "id": 445,
+                "serial": "T-0445"
+                , "id": 445,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6242,7 +5937,8 @@
                 ]
             },
             {
-                "id": 446,
+                "serial": "T-0446"
+                , "id": 446,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6251,12 +5947,11 @@
                 "amount": 340,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 447,
+                "serial": "T-0447"
+                , "id": 447,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6270,7 +5965,8 @@
                 ]
             },
             {
-                "id": 448,
+                "serial": "T-0448"
+                , "id": 448,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6284,7 +5980,8 @@
                 ]
             },
             {
-                "id": 449,
+                "serial": "T-0449"
+                , "id": 449,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6298,7 +5995,8 @@
                 ]
             },
             {
-                "id": 450,
+                "serial": "T-0450"
+                , "id": 450,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6312,7 +6010,8 @@
                 ]
             },
             {
-                "id": 451,
+                "serial": "T-0451"
+                , "id": 451,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6326,7 +6025,8 @@
                 ]
             },
             {
-                "id": 452,
+                "serial": "T-0452"
+                , "id": 452,
                 "year": 6,
                 "quality": 85,
                 "market": 3,
@@ -6340,7 +6040,8 @@
                 ]
             },
             {
-                "id": 453,
+                "serial": "T-0453"
+                , "id": 453,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6354,7 +6055,8 @@
                 ]
             },
             {
-                "id": 454,
+                "serial": "T-0454"
+                , "id": 454,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6369,7 +6071,8 @@
                 ]
             },
             {
-                "id": 455,
+                "serial": "T-0455"
+                , "id": 455,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6383,7 +6086,8 @@
                 ]
             },
             {
-                "id": 456,
+                "serial": "T-0456"
+                , "id": 456,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6392,12 +6096,11 @@
                 "amount": 60,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 457,
+                "serial": "T-0457"
+                , "id": 457,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6406,12 +6109,11 @@
                 "amount": 120,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 458,
+                "serial": "T-0458"
+                , "id": 458,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6420,12 +6122,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 459,
+                "serial": "T-0459"
+                , "id": 459,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6434,12 +6135,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 460,
+                "serial": "T-0460"
+                , "id": 460,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6448,12 +6148,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 461,
+                "serial": "T-0461"
+                , "id": 461,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6462,12 +6161,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 462,
+                "serial": "T-0462"
+                , "id": 462,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6481,7 +6179,8 @@
                 ]
             },
             {
-                "id": 463,
+                "serial": "T-0463"
+                , "id": 463,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6495,7 +6194,8 @@
                 ]
             },
             {
-                "id": 464,
+                "serial": "T-0464"
+                , "id": 464,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6509,7 +6209,8 @@
                 ]
             },
             {
-                "id": 465,
+                "serial": "T-0465"
+                , "id": 465,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6523,7 +6224,8 @@
                 ]
             },
             {
-                "id": 466,
+                "serial": "T-0466"
+                , "id": 466,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6537,7 +6239,8 @@
                 ]
             },
             {
-                "id": 467,
+                "serial": "T-0467"
+                , "id": 467,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6546,12 +6249,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 468,
+                "serial": "T-0468"
+                , "id": 468,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6560,12 +6262,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 469,
+                "serial": "T-0469"
+                , "id": 469,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6574,12 +6275,11 @@
                 "amount": 270,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 470,
+                "serial": "T-0470"
+                , "id": 470,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6593,7 +6293,8 @@
                 ]
             },
             {
-                "id": 471,
+                "serial": "T-0471"
+                , "id": 471,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6602,12 +6303,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 472,
+                "serial": "T-0472"
+                , "id": 472,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6616,12 +6316,11 @@
                 "amount": 160,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 473,
+                "serial": "T-0473"
+                , "id": 473,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6630,12 +6329,11 @@
                 "amount": 180,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 474,
+                "serial": "T-0474"
+                , "id": 474,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6644,12 +6342,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 475,
+                "serial": "T-0475"
+                , "id": 475,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6658,12 +6355,11 @@
                 "amount": 240,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 476,
+                "serial": "T-0476"
+                , "id": 476,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6672,12 +6368,11 @@
                 "amount": 340,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 477,
+                "serial": "T-0477"
+                , "id": 477,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6686,12 +6381,11 @@
                 "amount": 100,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 478,
+                "serial": "T-0478"
+                , "id": 478,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6700,12 +6394,11 @@
                 "amount": 180,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 479,
+                "serial": "T-0479"
+                , "id": 479,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6714,12 +6407,11 @@
                 "amount": 280,
                 "delivery": 3,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 480,
+                "serial": "T-0480"
+                , "id": 480,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6728,12 +6420,11 @@
                 "amount": 290,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 481,
+                "serial": "T-0481"
+                , "id": 481,
                 "year": 6,
                 "quality": 85,
                 "market": 4,
@@ -6742,12 +6433,11 @@
                 "amount": 380,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 482,
+                "serial": "T-0482"
+                , "id": 482,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6756,12 +6446,11 @@
                 "amount": 60,
                 "delivery": 4,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 483,
+                "serial": "T-0483"
+                , "id": 483,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6770,12 +6459,11 @@
                 "amount": 70,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 484,
+                "serial": "T-0484"
+                , "id": 484,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6784,12 +6472,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 485,
+                "serial": "T-0485"
+                , "id": 485,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6798,12 +6485,11 @@
                 "amount": 130,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 486,
+                "serial": "T-0486"
+                , "id": 486,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6812,12 +6498,11 @@
                 "amount": 60,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 487,
+                "serial": "T-0487"
+                , "id": 487,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6826,12 +6511,11 @@
                 "amount": 100,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 488,
+                "serial": "T-0488"
+                , "id": 488,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6840,12 +6524,11 @@
                 "amount": 110,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 489,
+                "serial": "T-0489"
+                , "id": 489,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6854,12 +6537,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 490,
+                "serial": "T-0490"
+                , "id": 490,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6868,12 +6550,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 491,
+                "serial": "T-0491"
+                , "id": 491,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6882,12 +6563,11 @@
                 "amount": 170,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 492,
+                "serial": "T-0492"
+                , "id": 492,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6896,12 +6576,11 @@
                 "amount": 220,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 493,
+                "serial": "T-0493"
+                , "id": 493,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6916,7 +6595,8 @@
                 ]
             },
             {
-                "id": 494,
+                "serial": "T-0494"
+                , "id": 494,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6931,7 +6611,8 @@
                 ]
             },
             {
-                "id": 495,
+                "serial": "T-0495"
+                , "id": 495,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6946,7 +6627,8 @@
                 ]
             },
             {
-                "id": 496,
+                "serial": "T-0496"
+                , "id": 496,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6961,7 +6643,8 @@
                 ]
             },
             {
-                "id": 497,
+                "serial": "T-0497"
+                , "id": 497,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6976,7 +6659,8 @@
                 ]
             },
             {
-                "id": 498,
+                "serial": "T-0498"
+                , "id": 498,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -6991,7 +6675,8 @@
                 ]
             },
             {
-                "id": 499,
+                "serial": "T-0499"
+                , "id": 499,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -7006,7 +6691,8 @@
                 ]
             },
             {
-                "id": 500,
+                "serial": "T-0500"
+                , "id": 500,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -7021,7 +6707,8 @@
                 ]
             },
             {
-                "id": 501,
+                "serial": "T-0501"
+                , "id": 501,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -7036,7 +6723,8 @@
                 ]
             },
             {
-                "id": 502,
+                "serial": "T-0502"
+                , "id": 502,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -7051,7 +6739,8 @@
                 ]
             },
             {
-                "id": 503,
+                "serial": "T-0503"
+                , "id": 503,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -7066,7 +6755,8 @@
                 ]
             },
             {
-                "id": 504,
+                "serial": "T-0504"
+                , "id": 504,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -7081,7 +6771,8 @@
                 ]
             },
             {
-                "id": 505,
+                "serial": "T-0505"
+                , "id": 505,
                 "year": 7,
                 "quality": 85,
                 "market": 0,
@@ -7096,7 +6787,8 @@
                 ]
             },
             {
-                "id": 506,
+                "serial": "T-0506"
+                , "id": 506,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7111,7 +6803,8 @@
                 ]
             },
             {
-                "id": 507,
+                "serial": "T-0507"
+                , "id": 507,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7126,7 +6819,8 @@
                 ]
             },
             {
-                "id": 508,
+                "serial": "T-0508"
+                , "id": 508,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7141,7 +6835,8 @@
                 ]
             },
             {
-                "id": 509,
+                "serial": "T-0509"
+                , "id": 509,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7156,7 +6851,8 @@
                 ]
             },
             {
-                "id": 510,
+                "serial": "T-0510"
+                , "id": 510,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7171,7 +6867,8 @@
                 ]
             },
             {
-                "id": 511,
+                "serial": "T-0511"
+                , "id": 511,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7186,7 +6883,8 @@
                 ]
             },
             {
-                "id": 512,
+                "serial": "T-0512"
+                , "id": 512,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7201,7 +6899,8 @@
                 ]
             },
             {
-                "id": 513,
+                "serial": "T-0513"
+                , "id": 513,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7216,7 +6915,8 @@
                 ]
             },
             {
-                "id": 514,
+                "serial": "T-0514"
+                , "id": 514,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7231,7 +6931,8 @@
                 ]
             },
             {
-                "id": 515,
+                "serial": "T-0515"
+                , "id": 515,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7246,7 +6947,8 @@
                 ]
             },
             {
-                "id": 516,
+                "serial": "T-0516"
+                , "id": 516,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7261,7 +6963,8 @@
                 ]
             },
             {
-                "id": 517,
+                "serial": "T-0517"
+                , "id": 517,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7276,7 +6979,8 @@
                 ]
             },
             {
-                "id": 518,
+                "serial": "T-0518"
+                , "id": 518,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7291,7 +6995,8 @@
                 ]
             },
             {
-                "id": 519,
+                "serial": "T-0519"
+                , "id": 519,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7306,7 +7011,8 @@
                 ]
             },
             {
-                "id": 520,
+                "serial": "T-0520"
+                , "id": 520,
                 "year": 7,
                 "quality": 85,
                 "market": 1,
@@ -7321,7 +7027,8 @@
                 ]
             },
             {
-                "id": 521,
+                "serial": "T-0521"
+                , "id": 521,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7330,12 +7037,11 @@
                 "amount": 60,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 522,
+                "serial": "T-0522"
+                , "id": 522,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7344,12 +7050,11 @@
                 "amount": 70,
                 "delivery": 1,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 523,
+                "serial": "T-0523"
+                , "id": 523,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7358,12 +7063,11 @@
                 "amount": 110,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 524,
+                "serial": "T-0524"
+                , "id": 524,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7372,12 +7076,11 @@
                 "amount": 110,
                 "delivery": 2,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 525,
+                "serial": "T-0525"
+                , "id": 525,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7386,12 +7089,11 @@
                 "amount": 110,
                 "delivery": 2,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 526,
+                "serial": "T-0526"
+                , "id": 526,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7405,7 +7107,8 @@
                 ]
             },
             {
-                "id": 527,
+                "serial": "T-0527"
+                , "id": 527,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7414,12 +7117,11 @@
                 "amount": 110,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 528,
+                "serial": "T-0528"
+                , "id": 528,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7428,12 +7130,11 @@
                 "amount": 110,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 529,
+                "serial": "T-0529"
+                , "id": 529,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7442,12 +7143,11 @@
                 "amount": 110,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 530,
+                "serial": "T-0530"
+                , "id": 530,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7456,12 +7156,11 @@
                 "amount": 150,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 531,
+                "serial": "T-0531"
+                , "id": 531,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7470,12 +7169,11 @@
                 "amount": 210,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 532,
+                "serial": "T-0532"
+                , "id": 532,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7489,7 +7187,8 @@
                 ]
             },
             {
-                "id": 533,
+                "serial": "T-0533"
+                , "id": 533,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7504,7 +7203,8 @@
                 ]
             },
             {
-                "id": 534,
+                "serial": "T-0534"
+                , "id": 534,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7513,12 +7213,11 @@
                 "amount": 80,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 535,
+                "serial": "T-0535"
+                , "id": 535,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7527,12 +7226,11 @@
                 "amount": 150,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 536,
+                "serial": "T-0536"
+                , "id": 536,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7541,12 +7239,11 @@
                 "amount": 170,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 537,
+                "serial": "T-0537"
+                , "id": 537,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7555,12 +7252,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 538,
+                "serial": "T-0538"
+                , "id": 538,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7569,12 +7265,11 @@
                 "amount": 250,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 539,
+                "serial": "T-0539"
+                , "id": 539,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7583,12 +7278,11 @@
                 "amount": 310,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 540,
+                "serial": "T-0540"
+                , "id": 540,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7602,7 +7296,8 @@
                 ]
             },
             {
-                "id": 541,
+                "serial": "T-0541"
+                , "id": 541,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7616,7 +7311,8 @@
                 ]
             },
             {
-                "id": 542,
+                "serial": "T-0542"
+                , "id": 542,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7630,7 +7326,8 @@
                 ]
             },
             {
-                "id": 543,
+                "serial": "T-0543"
+                , "id": 543,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7644,7 +7341,8 @@
                 ]
             },
             {
-                "id": 544,
+                "serial": "T-0544"
+                , "id": 544,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7658,7 +7356,8 @@
                 ]
             },
             {
-                "id": 545,
+                "serial": "T-0545"
+                , "id": 545,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7673,7 +7372,8 @@
                 ]
             },
             {
-                "id": 546,
+                "serial": "T-0546"
+                , "id": 546,
                 "year": 7,
                 "quality": 85,
                 "market": 2,
@@ -7688,7 +7388,8 @@
                 ]
             },
             {
-                "id": 547,
+                "serial": "T-0547"
+                , "id": 547,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7702,7 +7403,8 @@
                 ]
             },
             {
-                "id": 548,
+                "serial": "T-0548"
+                , "id": 548,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7716,7 +7418,8 @@
                 ]
             },
             {
-                "id": 549,
+                "serial": "T-0549"
+                , "id": 549,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7725,12 +7428,11 @@
                 "amount": 40,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 550,
+                "serial": "T-0550"
+                , "id": 550,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7739,12 +7441,11 @@
                 "amount": 70,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 551,
+                "serial": "T-0551"
+                , "id": 551,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7753,12 +7454,11 @@
                 "amount": 140,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 552,
+                "serial": "T-0552"
+                , "id": 552,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7772,7 +7472,8 @@
                 ]
             },
             {
-                "id": 553,
+                "serial": "T-0553"
+                , "id": 553,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7786,7 +7487,8 @@
                 ]
             },
             {
-                "id": 554,
+                "serial": "T-0554"
+                , "id": 554,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7801,7 +7503,8 @@
                 ]
             },
             {
-                "id": 555,
+                "serial": "T-0555"
+                , "id": 555,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7816,7 +7519,8 @@
                 ]
             },
             {
-                "id": 556,
+                "serial": "T-0556"
+                , "id": 556,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7831,7 +7535,8 @@
                 ]
             },
             {
-                "id": 557,
+                "serial": "T-0557"
+                , "id": 557,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7845,7 +7550,8 @@
                 ]
             },
             {
-                "id": 558,
+                "serial": "T-0558"
+                , "id": 558,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7859,7 +7565,8 @@
                 ]
             },
             {
-                "id": 559,
+                "serial": "T-0559"
+                , "id": 559,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7873,7 +7580,8 @@
                 ]
             },
             {
-                "id": 560,
+                "serial": "T-0560"
+                , "id": 560,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7887,7 +7595,8 @@
                 ]
             },
             {
-                "id": 561,
+                "serial": "T-0561"
+                , "id": 561,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7901,7 +7610,8 @@
                 ]
             },
             {
-                "id": 562,
+                "serial": "T-0562"
+                , "id": 562,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7916,7 +7626,8 @@
                 ]
             },
             {
-                "id": 563,
+                "serial": "T-0563"
+                , "id": 563,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7931,7 +7642,8 @@
                 ]
             },
             {
-                "id": 564,
+                "serial": "T-0564"
+                , "id": 564,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7946,7 +7658,8 @@
                 ]
             },
             {
-                "id": 565,
+                "serial": "T-0565"
+                , "id": 565,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7961,7 +7674,8 @@
                 ]
             },
             {
-                "id": 566,
+                "serial": "T-0566"
+                , "id": 566,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7976,7 +7690,8 @@
                 ]
             },
             {
-                "id": 567,
+                "serial": "T-0567"
+                , "id": 567,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -7991,7 +7706,8 @@
                 ]
             },
             {
-                "id": 568,
+                "serial": "T-0568"
+                , "id": 568,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -8006,7 +7722,8 @@
                 ]
             },
             {
-                "id": 569,
+                "serial": "T-0569"
+                , "id": 569,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -8021,7 +7738,8 @@
                 ]
             },
             {
-                "id": 570,
+                "serial": "T-0570"
+                , "id": 570,
                 "year": 7,
                 "quality": 85,
                 "market": 3,
@@ -8036,7 +7754,8 @@
                 ]
             },
             {
-                "id": 571,
+                "serial": "T-0571"
+                , "id": 571,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8045,12 +7764,11 @@
                 "amount": 110,
                 "delivery": 1,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 572,
+                "serial": "T-0572"
+                , "id": 572,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8059,12 +7777,11 @@
                 "amount": 180,
                 "delivery": 2,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 573,
+                "serial": "T-0573"
+                , "id": 573,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8073,12 +7790,11 @@
                 "amount": 170,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 574,
+                "serial": "T-0574"
+                , "id": 574,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8087,12 +7803,11 @@
                 "amount": 170,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 575,
+                "serial": "T-0575"
+                , "id": 575,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8101,12 +7816,11 @@
                 "amount": 230,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 576,
+                "serial": "T-0576"
+                , "id": 576,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8115,12 +7829,11 @@
                 "amount": 220,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 577,
+                "serial": "T-0577"
+                , "id": 577,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8129,12 +7842,11 @@
                 "amount": 220,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 578,
+                "serial": "T-0578"
+                , "id": 578,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8143,12 +7855,11 @@
                 "amount": 280,
                 "delivery": 2,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 579,
+                "serial": "T-0579"
+                , "id": 579,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8157,12 +7868,11 @@
                 "amount": 310,
                 "delivery": 2,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 580,
+                "serial": "T-0580"
+                , "id": 580,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8176,7 +7886,8 @@
                 ]
             },
             {
-                "id": 581,
+                "serial": "T-0581"
+                , "id": 581,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8190,7 +7901,8 @@
                 ]
             },
             {
-                "id": 582,
+                "serial": "T-0582"
+                , "id": 582,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8204,7 +7916,8 @@
                 ]
             },
             {
-                "id": 583,
+                "serial": "T-0583"
+                , "id": 583,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8213,12 +7926,11 @@
                 "amount": 140,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 584,
+                "serial": "T-0584"
+                , "id": 584,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8227,12 +7939,11 @@
                 "amount": 150,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 585,
+                "serial": "T-0585"
+                , "id": 585,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8241,12 +7952,11 @@
                 "amount": 190,
                 "delivery": 3,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 586,
+                "serial": "T-0586"
+                , "id": 586,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8255,12 +7965,11 @@
                 "amount": 210,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 587,
+                "serial": "T-0587"
+                , "id": 587,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8269,12 +7978,11 @@
                 "amount": 260,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 588,
+                "serial": "T-0588"
+                , "id": 588,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8288,7 +7996,8 @@
                 ]
             },
             {
-                "id": 589,
+                "serial": "T-0589"
+                , "id": 589,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8302,7 +8011,8 @@
                 ]
             },
             {
-                "id": 590,
+                "serial": "T-0590"
+                , "id": 590,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8311,12 +8021,11 @@
                 "amount": 80,
                 "delivery": 4,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 591,
+                "serial": "T-0591"
+                , "id": 591,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8325,12 +8034,11 @@
                 "amount": 170,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 592,
+                "serial": "T-0592"
+                , "id": 592,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8339,12 +8047,11 @@
                 "amount": 250,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 593,
+                "serial": "T-0593"
+                , "id": 593,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8353,12 +8060,11 @@
                 "amount": 260,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 594,
+                "serial": "T-0594"
+                , "id": 594,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8367,12 +8073,11 @@
                 "amount": 330,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 595,
+                "serial": "T-0595"
+                , "id": 595,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8381,12 +8086,11 @@
                 "amount": 340,
                 "delivery": 4,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 596,
+                "serial": "T-0596"
+                , "id": 596,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8395,12 +8099,11 @@
                 "amount": 200,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 597,
+                "serial": "T-0597"
+                , "id": 597,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8409,12 +8112,11 @@
                 "amount": 190,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 598,
+                "serial": "T-0598"
+                , "id": 598,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8423,12 +8125,11 @@
                 "amount": 190,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 599,
+                "serial": "T-0599"
+                , "id": 599,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8437,12 +8138,11 @@
                 "amount": 280,
                 "delivery": 3,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 600,
+                "serial": "T-0600"
+                , "id": 600,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8451,12 +8151,11 @@
                 "amount": 300,
                 "delivery": 3,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 601,
+                "serial": "T-0601"
+                , "id": 601,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8465,12 +8164,11 @@
                 "amount": 290,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 602,
+                "serial": "T-0602"
+                , "id": 602,
                 "year": 7,
                 "quality": 85,
                 "market": 4,
@@ -8479,12 +8177,11 @@
                 "amount": 380,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 603,
+                "serial": "T-0603"
+                , "id": 603,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8493,12 +8190,11 @@
                 "amount": 60,
                 "delivery": 2,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 604,
+                "serial": "T-0604"
+                , "id": 604,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8507,12 +8203,11 @@
                 "amount": 60,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 605,
+                "serial": "T-0605"
+                , "id": 605,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8521,12 +8216,11 @@
                 "amount": 110,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 606,
+                "serial": "T-0606"
+                , "id": 606,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8535,12 +8229,11 @@
                 "amount": 110,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 607,
+                "serial": "T-0607"
+                , "id": 607,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8549,12 +8242,11 @@
                 "amount": 110,
                 "delivery": 2,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 608,
+                "serial": "T-0608"
+                , "id": 608,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8563,12 +8255,11 @@
                 "amount": 150,
                 "delivery": 2,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 609,
+                "serial": "T-0609"
+                , "id": 609,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8577,12 +8268,11 @@
                 "amount": 230,
                 "delivery": 2,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 610,
+                "serial": "T-0610"
+                , "id": 610,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8591,12 +8281,11 @@
                 "amount": 170,
                 "delivery": 2,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 611,
+                "serial": "T-0611"
+                , "id": 611,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8605,12 +8294,11 @@
                 "amount": 160,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 612,
+                "serial": "T-0612"
+                , "id": 612,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8619,12 +8307,11 @@
                 "amount": 170,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 613,
+                "serial": "T-0613"
+                , "id": 613,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8633,12 +8320,11 @@
                 "amount": 250,
                 "delivery": 2,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 614,
+                "serial": "T-0614"
+                , "id": 614,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8647,12 +8333,11 @@
                 "amount": 270,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 615,
+                "serial": "T-0615"
+                , "id": 615,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8661,12 +8346,11 @@
                 "amount": 250,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 616,
+                "serial": "T-0616"
+                , "id": 616,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8675,12 +8359,11 @@
                 "amount": 350,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 617,
+                "serial": "T-0617"
+                , "id": 617,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8695,7 +8378,8 @@
                 ]
             },
             {
-                "id": 618,
+                "serial": "T-0618"
+                , "id": 618,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8710,7 +8394,8 @@
                 ]
             },
             {
-                "id": 619,
+                "serial": "T-0619"
+                , "id": 619,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8725,7 +8410,8 @@
                 ]
             },
             {
-                "id": 620,
+                "serial": "T-0620"
+                , "id": 620,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8740,7 +8426,8 @@
                 ]
             },
             {
-                "id": 621,
+                "serial": "T-0621"
+                , "id": 621,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8755,7 +8442,8 @@
                 ]
             },
             {
-                "id": 622,
+                "serial": "T-0622"
+                , "id": 622,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8770,7 +8458,8 @@
                 ]
             },
             {
-                "id": 623,
+                "serial": "T-0623"
+                , "id": 623,
                 "year": 8,
                 "quality": 85,
                 "market": 0,
@@ -8785,7 +8474,8 @@
                 ]
             },
             {
-                "id": 624,
+                "serial": "T-0624"
+                , "id": 624,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8800,7 +8490,8 @@
                 ]
             },
             {
-                "id": 625,
+                "serial": "T-0625"
+                , "id": 625,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8815,7 +8506,8 @@
                 ]
             },
             {
-                "id": 626,
+                "serial": "T-0626"
+                , "id": 626,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8830,7 +8522,8 @@
                 ]
             },
             {
-                "id": 627,
+                "serial": "T-0627"
+                , "id": 627,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8845,7 +8538,8 @@
                 ]
             },
             {
-                "id": 628,
+                "serial": "T-0628"
+                , "id": 628,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8860,7 +8554,8 @@
                 ]
             },
             {
-                "id": 629,
+                "serial": "T-0629"
+                , "id": 629,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8875,7 +8570,8 @@
                 ]
             },
             {
-                "id": 630,
+                "serial": "T-0630"
+                , "id": 630,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8890,7 +8586,8 @@
                 ]
             },
             {
-                "id": 631,
+                "serial": "T-0631"
+                , "id": 631,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8905,7 +8602,8 @@
                 ]
             },
             {
-                "id": 632,
+                "serial": "T-0632"
+                , "id": 632,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8920,7 +8618,8 @@
                 ]
             },
             {
-                "id": 633,
+                "serial": "T-0633"
+                , "id": 633,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8934,7 +8633,8 @@
                 ]
             },
             {
-                "id": 634,
+                "serial": "T-0634"
+                , "id": 634,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8949,7 +8649,8 @@
                 ]
             },
             {
-                "id": 635,
+                "serial": "T-0635"
+                , "id": 635,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8964,7 +8665,8 @@
                 ]
             },
             {
-                "id": 636,
+                "serial": "T-0636"
+                , "id": 636,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8979,7 +8681,8 @@
                 ]
             },
             {
-                "id": 637,
+                "serial": "T-0637"
+                , "id": 637,
                 "year": 8,
                 "quality": 85,
                 "market": 1,
@@ -8994,7 +8697,8 @@
                 ]
             },
             {
-                "id": 638,
+                "serial": "T-0638"
+                , "id": 638,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9003,12 +8707,11 @@
                 "amount": 80,
                 "delivery": 1,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 639,
+                "serial": "T-0639"
+                , "id": 639,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9017,12 +8720,11 @@
                 "amount": 60,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 640,
+                "serial": "T-0640"
+                , "id": 640,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9031,12 +8733,11 @@
                 "amount": 60,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 641,
+                "serial": "T-0641"
+                , "id": 641,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9045,12 +8746,11 @@
                 "amount": 90,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 642,
+                "serial": "T-0642"
+                , "id": 642,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9064,7 +8764,8 @@
                 ]
             },
             {
-                "id": 643,
+                "serial": "T-0643"
+                , "id": 643,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9078,7 +8779,8 @@
                 ]
             },
             {
-                "id": 644,
+                "serial": "T-0644"
+                , "id": 644,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9092,7 +8794,8 @@
                 ]
             },
             {
-                "id": 645,
+                "serial": "T-0645"
+                , "id": 645,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9106,7 +8809,8 @@
                 ]
             },
             {
-                "id": 646,
+                "serial": "T-0646"
+                , "id": 646,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9120,7 +8824,8 @@
                 ]
             },
             {
-                "id": 647,
+                "serial": "T-0647"
+                , "id": 647,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9129,12 +8834,11 @@
                 "amount": 120,
                 "delivery": 2,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 648,
+                "serial": "T-0648"
+                , "id": 648,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9148,7 +8852,8 @@
                 ]
             },
             {
-                "id": 649,
+                "serial": "T-0649"
+                , "id": 649,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9163,7 +8868,8 @@
                 ]
             },
             {
-                "id": 650,
+                "serial": "T-0650"
+                , "id": 650,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9177,7 +8883,8 @@
                 ]
             },
             {
-                "id": 651,
+                "serial": "T-0651"
+                , "id": 651,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9191,7 +8898,8 @@
                 ]
             },
             {
-                "id": 652,
+                "serial": "T-0652"
+                , "id": 652,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9200,12 +8908,11 @@
                 "amount": 240,
                 "delivery": 1,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 653,
+                "serial": "T-0653"
+                , "id": 653,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9214,12 +8921,11 @@
                 "amount": 260,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 654,
+                "serial": "T-0654"
+                , "id": 654,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9228,12 +8934,11 @@
                 "amount": 260,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 655,
+                "serial": "T-0655"
+                , "id": 655,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9242,12 +8947,11 @@
                 "amount": 340,
                 "delivery": 1,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 656,
+                "serial": "T-0656"
+                , "id": 656,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9261,7 +8965,8 @@
                 ]
             },
             {
-                "id": 657,
+                "serial": "T-0657"
+                , "id": 657,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9275,7 +8980,8 @@
                 ]
             },
             {
-                "id": 658,
+                "serial": "T-0658"
+                , "id": 658,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9289,7 +8995,8 @@
                 ]
             },
             {
-                "id": 659,
+                "serial": "T-0659"
+                , "id": 659,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9303,7 +9010,8 @@
                 ]
             },
             {
-                "id": 660,
+                "serial": "T-0660"
+                , "id": 660,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9317,7 +9025,8 @@
                 ]
             },
             {
-                "id": 661,
+                "serial": "T-0661"
+                , "id": 661,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9331,7 +9040,8 @@
                 ]
             },
             {
-                "id": 662,
+                "serial": "T-0662"
+                , "id": 662,
                 "year": 8,
                 "quality": 85,
                 "market": 2,
@@ -9340,12 +9050,11 @@
                 "amount": 290,
                 "delivery": 2,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 663,
+                "serial": "T-0663"
+                , "id": 663,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9360,7 +9069,8 @@
                 ]
             },
             {
-                "id": 664,
+                "serial": "T-0664"
+                , "id": 664,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9375,7 +9085,8 @@
                 ]
             },
             {
-                "id": 665,
+                "serial": "T-0665"
+                , "id": 665,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9390,7 +9101,8 @@
                 ]
             },
             {
-                "id": 666,
+                "serial": "T-0666"
+                , "id": 666,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9405,7 +9117,8 @@
                 ]
             },
             {
-                "id": 667,
+                "serial": "T-0667"
+                , "id": 667,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9420,7 +9133,8 @@
                 ]
             },
             {
-                "id": 668,
+                "serial": "T-0668"
+                , "id": 668,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9435,7 +9149,8 @@
                 ]
             },
             {
-                "id": 669,
+                "serial": "T-0669"
+                , "id": 669,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9450,7 +9165,8 @@
                 ]
             },
             {
-                "id": 670,
+                "serial": "T-0670"
+                , "id": 670,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9465,7 +9181,8 @@
                 ]
             },
             {
-                "id": 671,
+                "serial": "T-0671"
+                , "id": 671,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9480,7 +9197,8 @@
                 ]
             },
             {
-                "id": 672,
+                "serial": "T-0672"
+                , "id": 672,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9495,7 +9213,8 @@
                 ]
             },
             {
-                "id": 673,
+                "serial": "T-0673"
+                , "id": 673,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9510,7 +9229,8 @@
                 ]
             },
             {
-                "id": 674,
+                "serial": "T-0674"
+                , "id": 674,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9525,7 +9245,8 @@
                 ]
             },
             {
-                "id": 675,
+                "serial": "T-0675"
+                , "id": 675,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9540,7 +9261,8 @@
                 ]
             },
             {
-                "id": 676,
+                "serial": "T-0676"
+                , "id": 676,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9555,7 +9277,8 @@
                 ]
             },
             {
-                "id": 677,
+                "serial": "T-0677"
+                , "id": 677,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9570,7 +9293,8 @@
                 ]
             },
             {
-                "id": 678,
+                "serial": "T-0678"
+                , "id": 678,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9585,7 +9309,8 @@
                 ]
             },
             {
-                "id": 679,
+                "serial": "T-0679"
+                , "id": 679,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9600,7 +9325,8 @@
                 ]
             },
             {
-                "id": 680,
+                "serial": "T-0680"
+                , "id": 680,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9615,7 +9341,8 @@
                 ]
             },
             {
-                "id": 681,
+                "serial": "T-0681"
+                , "id": 681,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9630,7 +9357,8 @@
                 ]
             },
             {
-                "id": 682,
+                "serial": "T-0682"
+                , "id": 682,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9645,7 +9373,8 @@
                 ]
             },
             {
-                "id": 683,
+                "serial": "T-0683"
+                , "id": 683,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9660,7 +9389,8 @@
                 ]
             },
             {
-                "id": 684,
+                "serial": "T-0684"
+                , "id": 684,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9675,7 +9405,8 @@
                 ]
             },
             {
-                "id": 685,
+                "serial": "T-0685"
+                , "id": 685,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9690,7 +9421,8 @@
                 ]
             },
             {
-                "id": 686,
+                "serial": "T-0686"
+                , "id": 686,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9705,7 +9437,8 @@
                 ]
             },
             {
-                "id": 687,
+                "serial": "T-0687"
+                , "id": 687,
                 "year": 8,
                 "quality": 85,
                 "market": 3,
@@ -9720,7 +9453,8 @@
                 ]
             },
             {
-                "id": 688,
+                "serial": "T-0688"
+                , "id": 688,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9729,12 +9463,11 @@
                 "amount": 170,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 689,
+                "serial": "T-0689"
+                , "id": 689,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9743,12 +9476,11 @@
                 "amount": 170,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 690,
+                "serial": "T-0690"
+                , "id": 690,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9757,12 +9489,11 @@
                 "amount": 160,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 691,
+                "serial": "T-0691"
+                , "id": 691,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9771,12 +9502,11 @@
                 "amount": 240,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 692,
+                "serial": "T-0692"
+                , "id": 692,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9785,12 +9515,11 @@
                 "amount": 220,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 693,
+                "serial": "T-0693"
+                , "id": 693,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9799,12 +9528,11 @@
                 "amount": 220,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 694,
+                "serial": "T-0694"
+                , "id": 694,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9813,12 +9541,11 @@
                 "amount": 290,
                 "delivery": 2,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 695,
+                "serial": "T-0695"
+                , "id": 695,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9827,12 +9554,11 @@
                 "amount": 270,
                 "delivery": 1,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 696,
+                "serial": "T-0696"
+                , "id": 696,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9841,12 +9567,11 @@
                 "amount": 340,
                 "delivery": 3,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 697,
+                "serial": "T-0697"
+                , "id": 697,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9855,12 +9580,11 @@
                 "amount": 140,
                 "delivery": 1,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 698,
+                "serial": "T-0698"
+                , "id": 698,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9869,12 +9593,11 @@
                 "amount": 140,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 699,
+                "serial": "T-0699"
+                , "id": 699,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9883,12 +9606,11 @@
                 "amount": 140,
                 "delivery": 2,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 700,
+                "serial": "T-0700"
+                , "id": 700,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9897,12 +9619,11 @@
                 "amount": 210,
                 "delivery": 2,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 701,
+                "serial": "T-0701"
+                , "id": 701,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9911,12 +9632,11 @@
                 "amount": 220,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 702,
+                "serial": "T-0702"
+                , "id": 702,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9925,12 +9645,11 @@
                 "amount": 220,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 703,
+                "serial": "T-0703"
+                , "id": 703,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9939,12 +9658,11 @@
                 "amount": 300,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 704,
+                "serial": "T-0704"
+                , "id": 704,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9958,7 +9676,8 @@
                 ]
             },
             {
-                "id": 705,
+                "serial": "T-0705"
+                , "id": 705,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9967,12 +9686,11 @@
                 "amount": 170,
                 "delivery": 1,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 706,
+                "serial": "T-0706"
+                , "id": 706,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9981,12 +9699,11 @@
                 "amount": 260,
                 "delivery": 2,
                 "payment": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 707,
+                "serial": "T-0707"
+                , "id": 707,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -9995,12 +9712,11 @@
                 "amount": 260,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 708,
+                "serial": "T-0708"
+                , "id": 708,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10009,12 +9725,11 @@
                 "amount": 250,
                 "delivery": 3,
                 "payment": 0,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 709,
+                "serial": "T-0709"
+                , "id": 709,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10023,12 +9738,11 @@
                 "amount": 260,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 710,
+                "serial": "T-0710"
+                , "id": 710,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10037,12 +9751,11 @@
                 "amount": 360,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 711,
+                "serial": "T-0711"
+                , "id": 711,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10051,12 +9764,11 @@
                 "amount": 340,
                 "delivery": 3,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 712,
+                "serial": "T-0712"
+                , "id": 712,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10065,12 +9777,11 @@
                 "amount": 420,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 713,
+                "serial": "T-0713"
+                , "id": 713,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10084,7 +9795,8 @@
                 ]
             },
             {
-                "id": 714,
+                "serial": "T-0714"
+                , "id": 714,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10099,7 +9811,8 @@
                 ]
             },
             {
-                "id": 715,
+                "serial": "T-0715"
+                , "id": 715,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10108,12 +9821,11 @@
                 "amount": 180,
                 "delivery": 2,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 716,
+                "serial": "T-0716"
+                , "id": 716,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10122,12 +9834,11 @@
                 "amount": 280,
                 "delivery": 2,
                 "payment": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 717,
+                "serial": "T-0717"
+                , "id": 717,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10136,12 +9847,11 @@
                 "amount": 290,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 718,
+                "serial": "T-0718"
+                , "id": 718,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10150,12 +9860,11 @@
                 "amount": 400,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 719,
+                "serial": "T-0719"
+                , "id": 719,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10164,12 +9873,11 @@
                 "amount": 380,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 720,
+                "serial": "T-0720"
+                , "id": 720,
                 "year": 8,
                 "quality": 85,
                 "market": 4,
@@ -10178,14 +9886,13 @@
                 "amount": 460,
                 "delivery": 3,
                 "payment": 2,
-                "iso": [
-
-                ]
+                "iso": []
             }
         ],
         "auctionOrderList": [
             {
-                "id": 1,
+                "serial": "T-0001"
+                , "id": 1,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10195,7 +9902,8 @@
                 ]
             },
             {
-                "id": 2,
+                "serial": "T-0002"
+                , "id": 2,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10205,7 +9913,8 @@
                 ]
             },
             {
-                "id": 3,
+                "serial": "T-0003"
+                , "id": 3,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10215,7 +9924,8 @@
                 ]
             },
             {
-                "id": 4,
+                "serial": "T-0004"
+                , "id": 4,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10225,7 +9935,8 @@
                 ]
             },
             {
-                "id": 5,
+                "serial": "T-0005"
+                , "id": 5,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10235,7 +9946,8 @@
                 ]
             },
             {
-                "id": 6,
+                "serial": "T-0006"
+                , "id": 6,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10245,7 +9957,8 @@
                 ]
             },
             {
-                "id": 7,
+                "serial": "T-0007"
+                , "id": 7,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10255,7 +9968,8 @@
                 ]
             },
             {
-                "id": 8,
+                "serial": "T-0008"
+                , "id": 8,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10265,7 +9979,8 @@
                 ]
             },
             {
-                "id": 9,
+                "serial": "T-0009"
+                , "id": 9,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10275,7 +9990,8 @@
                 ]
             },
             {
-                "id": 10,
+                "serial": "T-0010"
+                , "id": 10,
                 "year": 3,
                 "market": 0,
                 "cid": 1,
@@ -10285,7 +10001,8 @@
                 ]
             },
             {
-                "id": 11,
+                "serial": "T-0011"
+                , "id": 11,
                 "year": 3,
                 "market": 0,
                 "cid": 2,
@@ -10295,7 +10012,8 @@
                 ]
             },
             {
-                "id": 12,
+                "serial": "T-0012"
+                , "id": 12,
                 "year": 3,
                 "market": 0,
                 "cid": 2,
@@ -10305,7 +10023,8 @@
                 ]
             },
             {
-                "id": 13,
+                "serial": "T-0013"
+                , "id": 13,
                 "year": 3,
                 "market": 0,
                 "cid": 2,
@@ -10315,17 +10034,17 @@
                 ]
             },
             {
-                "id": 14,
+                "serial": "T-0014"
+                , "id": 14,
                 "year": 3,
                 "market": 0,
                 "cid": 2,
                 "count": 1,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 15,
+                "serial": "T-0015"
+                , "id": 15,
                 "year": 3,
                 "market": 0,
                 "cid": 2,
@@ -10336,7 +10055,8 @@
                 ]
             },
             {
-                "id": 16,
+                "serial": "T-0016"
+                , "id": 16,
                 "year": 3,
                 "market": 0,
                 "cid": 2,
@@ -10346,7 +10066,8 @@
                 ]
             },
             {
-                "id": 17,
+                "serial": "T-0017"
+                , "id": 17,
                 "year": 3,
                 "market": 0,
                 "cid": 2,
@@ -10356,7 +10077,8 @@
                 ]
             },
             {
-                "id": 18,
+                "serial": "T-0018"
+                , "id": 18,
                 "year": 3,
                 "market": 0,
                 "cid": 2,
@@ -10366,7 +10088,8 @@
                 ]
             },
             {
-                "id": 19,
+                "serial": "T-0019"
+                , "id": 19,
                 "year": 3,
                 "market": 0,
                 "cid": 3,
@@ -10377,7 +10100,8 @@
                 ]
             },
             {
-                "id": 20,
+                "serial": "T-0020"
+                , "id": 20,
                 "year": 3,
                 "market": 0,
                 "cid": 3,
@@ -10388,7 +10112,8 @@
                 ]
             },
             {
-                "id": 21,
+                "serial": "T-0021"
+                , "id": 21,
                 "year": 3,
                 "market": 1,
                 "cid": 2,
@@ -10398,7 +10123,8 @@
                 ]
             },
             {
-                "id": 22,
+                "serial": "T-0022"
+                , "id": 22,
                 "year": 3,
                 "market": 1,
                 "cid": 2,
@@ -10408,7 +10134,8 @@
                 ]
             },
             {
-                "id": 23,
+                "serial": "T-0023"
+                , "id": 23,
                 "year": 3,
                 "market": 1,
                 "cid": 2,
@@ -10419,17 +10146,17 @@
                 ]
             },
             {
-                "id": 24,
+                "serial": "T-0024"
+                , "id": 24,
                 "year": 3,
                 "market": 1,
                 "cid": 2,
                 "count": 2,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 25,
+                "serial": "T-0025"
+                , "id": 25,
                 "year": 3,
                 "market": 1,
                 "cid": 2,
@@ -10439,17 +10166,17 @@
                 ]
             },
             {
-                "id": 26,
+                "serial": "T-0026"
+                , "id": 26,
                 "year": 3,
                 "market": 1,
                 "cid": 2,
                 "count": 5,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 27,
+                "serial": "T-0027"
+                , "id": 27,
                 "year": 3,
                 "market": 1,
                 "cid": 2,
@@ -10460,7 +10187,8 @@
                 ]
             },
             {
-                "id": 28,
+                "serial": "T-0028"
+                , "id": 28,
                 "year": 3,
                 "market": 1,
                 "cid": 3,
@@ -10470,7 +10198,8 @@
                 ]
             },
             {
-                "id": 29,
+                "serial": "T-0029"
+                , "id": 29,
                 "year": 3,
                 "market": 1,
                 "cid": 3,
@@ -10481,7 +10210,8 @@
                 ]
             },
             {
-                "id": 30,
+                "serial": "T-0030"
+                , "id": 30,
                 "year": 3,
                 "market": 1,
                 "cid": 3,
@@ -10491,17 +10221,17 @@
                 ]
             },
             {
-                "id": 31,
+                "serial": "T-0031"
+                , "id": 31,
                 "year": 3,
                 "market": 1,
                 "cid": 3,
                 "count": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 32,
+                "serial": "T-0032"
+                , "id": 32,
                 "year": 3,
                 "market": 2,
                 "cid": 2,
@@ -10512,17 +10242,17 @@
                 ]
             },
             {
-                "id": 33,
+                "serial": "T-0033"
+                , "id": 33,
                 "year": 3,
                 "market": 2,
                 "cid": 2,
                 "count": 5,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 34,
+                "serial": "T-0034"
+                , "id": 34,
                 "year": 3,
                 "market": 2,
                 "cid": 2,
@@ -10533,7 +10263,8 @@
                 ]
             },
             {
-                "id": 35,
+                "serial": "T-0035"
+                , "id": 35,
                 "year": 3,
                 "market": 2,
                 "cid": 2,
@@ -10543,7 +10274,8 @@
                 ]
             },
             {
-                "id": 36,
+                "serial": "T-0036"
+                , "id": 36,
                 "year": 3,
                 "market": 2,
                 "cid": 2,
@@ -10553,7 +10285,8 @@
                 ]
             },
             {
-                "id": 37,
+                "serial": "T-0037"
+                , "id": 37,
                 "year": 3,
                 "market": 2,
                 "cid": 2,
@@ -10563,7 +10296,8 @@
                 ]
             },
             {
-                "id": 38,
+                "serial": "T-0038"
+                , "id": 38,
                 "year": 3,
                 "market": 2,
                 "cid": 3,
@@ -10574,7 +10308,8 @@
                 ]
             },
             {
-                "id": 39,
+                "serial": "T-0039"
+                , "id": 39,
                 "year": 3,
                 "market": 2,
                 "cid": 3,
@@ -10584,17 +10319,17 @@
                 ]
             },
             {
-                "id": 40,
+                "serial": "T-0040"
+                , "id": 40,
                 "year": 3,
                 "market": 2,
                 "cid": 3,
                 "count": 6,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 41,
+                "serial": "T-0041"
+                , "id": 41,
                 "year": 3,
                 "market": 2,
                 "cid": 3,
@@ -10604,7 +10339,8 @@
                 ]
             },
             {
-                "id": 42,
+                "serial": "T-0042"
+                , "id": 42,
                 "year": 3,
                 "market": 2,
                 "cid": 3,
@@ -10614,7 +10350,8 @@
                 ]
             },
             {
-                "id": 43,
+                "serial": "T-0043"
+                , "id": 43,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10624,17 +10361,17 @@
                 ]
             },
             {
-                "id": 44,
+                "serial": "T-0044"
+                , "id": 44,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
                 "count": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 45,
+                "serial": "T-0045"
+                , "id": 45,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10644,7 +10381,8 @@
                 ]
             },
             {
-                "id": 46,
+                "serial": "T-0046"
+                , "id": 46,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10654,17 +10392,17 @@
                 ]
             },
             {
-                "id": 47,
+                "serial": "T-0047"
+                , "id": 47,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
                 "count": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 48,
+                "serial": "T-0048"
+                , "id": 48,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10674,17 +10412,17 @@
                 ]
             },
             {
-                "id": 49,
+                "serial": "T-0049"
+                , "id": 49,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
                 "count": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 50,
+                "serial": "T-0050"
+                , "id": 50,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10694,17 +10432,17 @@
                 ]
             },
             {
-                "id": 51,
+                "serial": "T-0051"
+                , "id": 51,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
                 "count": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 52,
+                "serial": "T-0052"
+                , "id": 52,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10714,7 +10452,8 @@
                 ]
             },
             {
-                "id": 53,
+                "serial": "T-0053"
+                , "id": 53,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10724,7 +10463,8 @@
                 ]
             },
             {
-                "id": 54,
+                "serial": "T-0054"
+                , "id": 54,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10734,7 +10474,8 @@
                 ]
             },
             {
-                "id": 55,
+                "serial": "T-0055"
+                , "id": 55,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
@@ -10744,47 +10485,44 @@
                 ]
             },
             {
-                "id": 56,
+                "serial": "T-0056"
+                , "id": 56,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
                 "count": 6,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 57,
+                "serial": "T-0057"
+                , "id": 57,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
                 "count": 6,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 58,
+                "serial": "T-0058"
+                , "id": 58,
                 "year": 6,
                 "market": 4,
                 "cid": 1,
                 "count": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 59,
+                "serial": "T-0059"
+                , "id": 59,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 7,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 60,
+                "serial": "T-0060"
+                , "id": 60,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10794,7 +10532,8 @@
                 ]
             },
             {
-                "id": 61,
+                "serial": "T-0061"
+                , "id": 61,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10804,17 +10543,17 @@
                 ]
             },
             {
-                "id": 62,
+                "serial": "T-0062"
+                , "id": 62,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 8,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 63,
+                "serial": "T-0063"
+                , "id": 63,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10824,7 +10563,8 @@
                 ]
             },
             {
-                "id": 64,
+                "serial": "T-0064"
+                , "id": 64,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10834,57 +10574,53 @@
                 ]
             },
             {
-                "id": 65,
+                "serial": "T-0065"
+                , "id": 65,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 5,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 66,
+                "serial": "T-0066"
+                , "id": 66,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 7,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 67,
+                "serial": "T-0067"
+                , "id": 67,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 5,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 68,
+                "serial": "T-0068"
+                , "id": 68,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 8,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 69,
+                "serial": "T-0069"
+                , "id": 69,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 6,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 70,
+                "serial": "T-0070"
+                , "id": 70,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10894,27 +10630,26 @@
                 ]
             },
             {
-                "id": 71,
+                "serial": "T-0071"
+                , "id": 71,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 5,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 72,
+                "serial": "T-0072"
+                , "id": 72,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 7,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 73,
+                "serial": "T-0073"
+                , "id": 73,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10924,7 +10659,8 @@
                 ]
             },
             {
-                "id": 74,
+                "serial": "T-0074"
+                , "id": 74,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10935,17 +10671,17 @@
                 ]
             },
             {
-                "id": 75,
+                "serial": "T-0075"
+                , "id": 75,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 3,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 76,
+                "serial": "T-0076"
+                , "id": 76,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10955,27 +10691,26 @@
                 ]
             },
             {
-                "id": 77,
+                "serial": "T-0077"
+                , "id": 77,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 4,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 78,
+                "serial": "T-0078"
+                , "id": 78,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
                 "count": 8,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 79,
+                "serial": "T-0079"
+                , "id": 79,
                 "year": 6,
                 "market": 4,
                 "cid": 2,
@@ -10986,17 +10721,17 @@
                 ]
             },
             {
-                "id": 80,
+                "serial": "T-0080"
+                , "id": 80,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
                 "count": 6,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 81,
+                "serial": "T-0081"
+                , "id": 81,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
@@ -11007,27 +10742,26 @@
                 ]
             },
             {
-                "id": 82,
+                "serial": "T-0082"
+                , "id": 82,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
                 "count": 10,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 83,
+                "serial": "T-0083"
+                , "id": 83,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
                 "count": 9,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 84,
+                "serial": "T-0084"
+                , "id": 84,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
@@ -11038,7 +10772,8 @@
                 ]
             },
             {
-                "id": 85,
+                "serial": "T-0085"
+                , "id": 85,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
@@ -11049,7 +10784,8 @@
                 ]
             },
             {
-                "id": 86,
+                "serial": "T-0086"
+                , "id": 86,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
@@ -11059,7 +10795,8 @@
                 ]
             },
             {
-                "id": 87,
+                "serial": "T-0087"
+                , "id": 87,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
@@ -11069,7 +10806,8 @@
                 ]
             },
             {
-                "id": 88,
+                "serial": "T-0088"
+                , "id": 88,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
@@ -11080,17 +10818,17 @@
                 ]
             },
             {
-                "id": 89,
+                "serial": "T-0089"
+                , "id": 89,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
                 "count": 8,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 90,
+                "serial": "T-0090"
+                , "id": 90,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
@@ -11100,17 +10838,17 @@
                 ]
             },
             {
-                "id": 91,
+                "serial": "T-0091"
+                , "id": 91,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
                 "count": 7,
-                "iso": [
-
-                ]
+                "iso": []
             },
             {
-                "id": 92,
+                "serial": "T-0092"
+                , "id": 92,
                 "year": 6,
                 "market": 4,
                 "cid": 3,
@@ -11120,7 +10858,8 @@
                 ]
             },
             {
-                "id": 93,
+                "serial": "T-0093"
+                , "id": 93,
                 "year": 6,
                 "market": 4,
                 "cid": 3,

@@ -280,10 +280,12 @@
                     console.log('startDate', startDate);
                     $.each(fieldMap, function (field) {
                         $.each(chartData.data[field], function (index, data) {
-                            me.chart[field].series[index].setData(data, false, true);
-                            me.chart[field].series[index].update({
-                                pointStart: UTCStartDate
-                            }, false);
+                            if (me.chart[field].series[index]) {
+                                me.chart[field].series[index].setData(data, false, true);
+                                me.chart[field].series[index].update({
+                                    pointStart: UTCStartDate
+                                }, false);
+                            }
                         });
                         me.chart[field].redraw();
                     });

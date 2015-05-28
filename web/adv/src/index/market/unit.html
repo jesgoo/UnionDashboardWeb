@@ -1,0 +1,108 @@
+<!-- target: mf_index_market_unit -->
+<div class="mf-index-market-unit layout-2-left">
+    <div class="right">
+        <div class="plain-notice-area">
+            <div class="plain-unit-title">投放策略统计</div>
+            <div class="plain-unit plain-unit-middle-caption">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        投放策略总计
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <div ui="type:Plain;id:unitCount;content:*unitCount;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left plain-notice-area">
+        <div class="plain-unit-title">投放计划 ${planName}( ID: ${planId} )&nbsp;➡&nbsp;投放策略列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:投放策略名称:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:unitName;width:150;value:*unitName;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search">搜索</span>
+                </div>
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add">创建新的投放策略</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:unitList;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <div class="list-pager">
+                <div class="list-pager-pagesize">
+                    <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                    <div
+                            ui="type:Select;id:unitPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                </div>
+                <div class="list-pager-page">
+                    <div ui="type:Pager;id:unitPager;total:*total;page:*page;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ui="type:Dialog;id:targetEditor;width:900;mask:1;">
+    <div>定向投放设定</div>
+    <div>
+        <div class="plain-edit-area">
+            <div class="plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">操作系统</div>
+                    <div class="plain-unit-item-field">
+                        <div ui="type:ButtonSelect;skin:simple;id:osTarget;datasource:*osTypeMap;valueField:value;textField:name;"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">地域定向</div>
+                    <div class="plain-unit-item-field plain-wrapper clear-left">
+                        <div ui="type:PlainSelect;id:regionPlain;datasource:*regionMap;height:100%;searchable:true;"></div>
+                        <div ui="type:PlainView;id:regionView;datasource:*regionMap;width:285px;height:100%;autoLocate:true;"></div>
+                        <div class="clear-view" id="regionClearView">清空选择</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div ui="type:Button;">确定</div>
+        <div ui="type:Button;">关闭</div>
+    </div>
+</div>
+<div ui="type:Dialog;id:ideasEditor;width:900;mask:1;">
+    <div>使用本策略的创意集合</div>
+    <div>
+        <div class="plain-edit-area">
+            <div class="plain-unit">
+                <div class="plain-unit-table">
+                    <div class="list-op">
+                        <div ui="type:Plain;content:创意名称:;" class="mgR10"></div>
+                        <input type="text" class="mgR20" ui="type:TextInput;id:ideaName;width:150;value:*ideaName;"/>
+                        <div class="ui-button mgR40">
+                            <span class="ui-button-label" data-cmd="search-idea">搜索</span>
+                        </div>
+                    </div>
+                    <div class="list-table">
+                        <div ui="type:Table;id:ideaList;fields:*ideaFields;editable:1;sortable:1;"></div>
+                    </div>
+                    <div class="list-pager">
+                        <div class="list-pager-pagesize">
+                            <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                            <div
+                                    ui="type:Select;id:ideaPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                        </div>
+                        <div class="list-pager-page">
+                            <div ui="type:Pager;id:ideaPager;total:*total;page:*page;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div ui="type:Button;">确定</div>
+        <div ui="type:Button;">关闭</div>
+    </div>
+</div>

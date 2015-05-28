@@ -1,1 +1,0 @@
-ant local -Dsite=ott -Dminimize=true -Droot=D:\work\Web\ott\admin -DdebugLog=fasle

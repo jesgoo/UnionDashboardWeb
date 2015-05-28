@@ -5,10 +5,12 @@ var commonConfig = require('./config');
 module.exports = function (_) {
     var loadTemplate = function (templateName) {
         try {
+            templateName = /\.\w+$/i.test(templateName) ? templateName : (templateName + '.tpl');
+
             //console.info('load tpl ', path.join(commonConfig.templateSourcePath, templateName));
             var compiledFunc = _.template(
                 fs.readFileSync(
-                    path.join(commonConfig.templateSourcePath, templateName + '.tpl'), {encoding: 'utf-8'}
+                    path.join(commonConfig.templateSourcePath, templateName), {encoding: 'utf-8'}
                 ),
                 {
                     variable: commonConfig.templateVariable

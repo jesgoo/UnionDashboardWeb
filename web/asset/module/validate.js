@@ -79,6 +79,9 @@
                 content = euiObj.getValue();
                 if (content === euiObj.placeholder) content = '';
                 eui = euiObj.main;
+                if (euiObj.isChecked && !euiObj.isChecked()) {
+                    content = '';
+                }
             }
             else {
                 eui = document.getElementById(id);

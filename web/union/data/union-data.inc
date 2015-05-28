@@ -305,6 +305,685 @@ Response
         }
     ]
 
+### /monitor/analyze/clickArea
+
+Request 
+
+`GET /monitor/analyze/clickArea.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        success: true,
+        entities: {
+            positionTypes: [
+                {
+                    "name": "华数TV_华数TV底部悬浮",
+                    "value": "s5381cc7"
+                },
+                {
+                    "name": "越来越好_fc7f3040_嵌入",
+                    "value": "s3fd57cd"
+                },
+                {
+                    "name": "越来越好_fc7f3040_下悬浮",
+                    "value": "s2ac20a0"
+                },
+                {
+                    "name": "HQW_WAP_HQW_WAP_T1",
+                    "value": "s0d5aa3c"
+                },
+                {
+                    "name": "酷六Mobile_酷六-通栏4方形图片",
+                    "value": "sf00772f"
+                },
+                {
+                    "name": "HQW_WAP_HQW_WAP_文章页下通栏",
+                    "value": "s52fd23c"
+                },
+                {
+                    "name": "酷六Mobile_酷六通栏4方形_浏览器屏蔽",
+                    "value": "s37327f4"
+                },
+                {
+                    "name": "铁血网站1_铁血广告位1",
+                    "value": "se6bebda"
+                },
+                {
+                    "name": "渠道4--齐济_晋江文学网中部嵌入 banner",
+                    "value": "s4bf44fb"
+                },
+                {
+                    "name": "ZLW_WAP_ZLWWAP-Wap_t1",
+                    "value": "sdd058e3"
+                },
+                {
+                    "name": "ZLW_WAP_ZLWWAP-Wap_T2",
+                    "value": "sf0185e3"
+                },
+                {
+                    "name": "联想rom开屏测试_联想 ROM 开屏广告",
+                    "value": "se166de7"
+                },
+                {
+                    "name": "M1905_1905--下悬浮",
+                    "value": "sb9a3793"
+                },
+                {
+                    "name": "渠道4--齐济_晋江文学顶部嵌入 banner",
+                    "value": "s497315f"
+                },
+                {
+                    "name": "越来越好_fc7f3040_上悬浮",
+                    "value": "s6c5aa82"
+                },
+                {
+                    "name": "ZYMT_05_ZYMT_05_T1",
+                    "value": "s2f03eb1"
+                },
+                {
+                    "name": "酷六_Android_酷六Android_Banner",
+                    "value": "s926bd9d"
+                },
+                {
+                    "name": "qiyue3_横幅2",
+                    "value": "sb6e2c2a"
+                },
+                {
+                    "name": "xxx01 网站_下悬浮广告位1",
+                    "value": "se3dca77"
+                },
+                {
+                    "name": "酷六_iOS_酷六ios_插屏",
+                    "value": "s63c825f"
+                },
+                {
+                    "name": "光明网_光明网嵌入式1",
+                    "value": "s838b144"
+                },
+                {
+                    "name": "ZYMT_02_ZYMT_02_T1",
+                    "value": "s1113d23"
+                },
+                {
+                    "name": "爱笑不笑_-",
+                    "value": "s0000009"
+                },
+                {
+                    "name": "YTYY_WAP_YTYY_WAP_Banner",
+                    "value": "sdcc923f"
+                },
+                {
+                    "name": "起点Mobile_起点-底通",
+                    "value": "seffffa7"
+                },
+                {
+                    "name": "M_TQW_M_TQW_预报页中通",
+                    "value": "sc36f0ed"
+                },
+                {
+                    "name": "sf0010沈菲_sf0010沈菲_底部悬浮",
+                    "value": "sb2a15aa"
+                },
+                {
+                    "name": "ZGTQW_WAP_ZGTQW_WAP_T1",
+                    "value": "sff3b38e"
+                },
+                {
+                    "name": "zyhj_底部悬浮",
+                    "value": "scd9c19f"
+                },
+                {
+                    "name": "ZYMT_03_ZYMT_03_T1",
+                    "value": "s5eb03c7"
+                },
+                {
+                    "name": "酷六_iOS_酷六ios_开屏",
+                    "value": "s7e5b474"
+                },
+                {
+                    "name": "ZYMT_01_ZYMT_01_T1",
+                    "value": "sefd5e82"
+                },
+                {
+                    "name": "adview媒体02_adview媒体02_Banner01",
+                    "value": "se0c59a4"
+                },
+                {
+                    "name": "起点Mobile_起点底通_浏览器屏蔽",
+                    "value": "sfde2a4c"
+                },
+                {
+                    "name": "起点M站北上广_起点底通－北上广",
+                    "value": "s6bcf207"
+                },
+                {
+                    "name": "ZGRBW_WAP_ZGRBW_内容页顶部Banner",
+                    "value": "s0e973c2"
+                },
+                {
+                    "name": "HQW_M_HQW_M_文章页下通栏",
+                    "value": "saa55f86"
+                },
+                {
+                    "name": "酷六Mobile_酷六-通栏4.3",
+                    "value": "sf0001ff"
+                },
+                {
+                    "name": "酷六Mobile_酷六-通栏4.1",
+                    "value": "sf00501f"
+                },
+                {
+                    "name": "酷六Mobile_酷六-通栏4.2",
+                    "value": "sf00290f"
+                },
+                {
+                    "name": "刘剑_小说站_1",
+                    "value": "s0e84b06"
+                },
+                {
+                    "name": "沈菲3060_底部悬浮",
+                    "value": "sc641761"
+                },
+                {
+                    "name": "ZGRBW_WAP_ZGRBW_文章页底部矩形广告",
+                    "value": "s934ce1c"
+                },
+                {
+                    "name": "酷六Mobile_酷六通栏2_浏览器屏蔽",
+                    "value": "s2ec788c"
+                },
+                {
+                    "name": "FX_WAP_FX_WAP_T1",
+                    "value": "s8f65a9e"
+                },
+                {
+                    "name": "酷六Mobile_酷六通栏1_浏览器屏蔽",
+                    "value": "sf1246f6"
+                },
+                {
+                    "name": "ZGTQW_WAP_ZGTQW_北上广_T1",
+                    "value": "sb823a9f"
+                },
+                {
+                    "name": "渠道8--齐济_光明网今日头条--齐济",
+                    "value": "s6ce3581"
+                },
+                {
+                    "name": "起点Mobile_起点中通_浏览器屏蔽",
+                    "value": "sa54584d"
+                },
+                {
+                    "name": "xxx04 网站1_xxx04 下悬浮广告位",
+                    "value": "s2ed7758"
+                },
+                {
+                    "name": "qiyue2_通栏2",
+                    "value": "s3585fb9"
+                },
+                {
+                    "name": "酷六Mobile_酷六-m站前贴方形图片",
+                    "value": "s3e4f98d"
+                },
+                {
+                    "name": "酷六Mobile_酷六-通栏2",
+                    "value": "sf00019b"
+                },
+                {
+                    "name": "qiyue2_通栏1",
+                    "value": "s81a47ba"
+                },
+                {
+                    "name": "JRTT_WAP_JRTT_WAP_T1",
+                    "value": "s4b4682d"
+                },
+                {
+                    "name": "起点Mobile_起点-中通",
+                    "value": "seffff43"
+                },
+                {
+                    "name": "酷六Mobile_酷六-通栏1",
+                    "value": "sf0000d3"
+                },
+                {
+                    "name": "刘剑_小说站_2",
+                    "value": "s49890ca"
+                }
+            ]
+        }
+    }
+
+### /test/main/index
+
+Request 
+
+`GET /test/main/index.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /admin/user
+
+Request 
+
+`GET /admin/user.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "entities": {
+            "default_channel": "88888888",
+            "display_name": "捷酷管理员",
+            "username": "admin"
+        }
+    }
+
+### /admin/index/login
+
+Request 
+
+`GET /admin/index/login.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /admin/account/userList
+
+Request 
+
+`GET /admin/account/userList.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "entities": [
+            {
+                "display_name": "测试用户",
+                "id": 1,
+                "username": "test"
+            },
+            {
+                "display_name": "捷酷管理员",
+                "id": 2,
+                "username": "admin"
+            },
+            {
+                "display_name": "传域",
+                "id": 3,
+                "username": "chuanyu"
+            },
+            {
+                "display_name": "联想游戏",
+                "id": 4,
+                "username": "lenovo_game"
+            },
+            {
+                "display_name": "常州",
+                "id": 5,
+                "username": "changzhou"
+            },
+            {
+                "display_name": "易查",
+                "id": 6,
+                "username": "yicha"
+            },
+            {
+                "display_name": "齐济",
+                "id": 7,
+                "username": "qiji"
+            },
+            {
+                "display_name": "沈菲",
+                "id": 8,
+                "username": "shenfei"
+            },
+            {
+                "display_name": "传立",
+                "id": 9,
+                "username": "chuanli"
+            },
+            {
+                "display_name": "抓猫",
+                "id": 10,
+                "username": "zhuamao"
+            },
+            {
+                "display_name": "zz1_沈菲",
+                "id": 11,
+                "username": "zz1"
+            },
+            {
+                "display_name": "zz2_沈菲",
+                "id": 12,
+                "username": "zz2"
+            },
+            {
+                "display_name": "blm_沈菲",
+                "id": 14,
+                "username": "blm"
+            },
+            {
+                "display_name": "SH01",
+                "id": 15,
+                "username": "SH01"
+            },
+            {
+                "display_name": "HZ01",
+                "id": 16,
+                "username": "HZ01"
+            },
+            {
+                "display_name": "LX1_沈菲",
+                "id": 17,
+                "username": "LX1"
+            },
+            {
+                "display_name": "zys1_沈菲",
+                "id": 18,
+                "username": "zys1"
+            },
+            {
+                "display_name": "blm1_沈菲",
+                "id": 19,
+                "username": "blm1"
+            },
+            {
+                "display_name": "hyx1_沈菲",
+                "id": 20,
+                "username": "hyx1"
+            },
+            {
+                "display_name": "联连免费WIFI",
+                "id": 21,
+                "username": "lianlian"
+            },
+            {
+                "display_name": "fc7f3057-沈菲",
+                "id": 22,
+                "username": "fc7f3057"
+            },
+            {
+                "display_name": "fc7f3058-沈菲",
+                "id": 23,
+                "username": "fc7f3058"
+            },
+            {
+                "display_name": "SH02-老刘",
+                "id": 24,
+                "username": "SH02"
+            },
+            {
+                "display_name": "fc7f3060--沈菲",
+                "id": 25,
+                "username": "fc7f3060"
+            },
+            {
+                "display_name": "fc7f3061--沈菲",
+                "id": 26,
+                "username": "fc7f3061"
+            },
+            {
+                "display_name": "fc7f3062——沈菲",
+                "id": 27,
+                "username": "fc7f3062"
+            },
+            {
+                "display_name": "fc7f3063——沈菲",
+                "id": 28,
+                "username": "fc7f3063"
+            },
+            {
+                "display_name": "fc7f3064——沈菲",
+                "id": 29,
+                "username": "fc7f3064"
+            },
+            {
+                "display_name": "芒果",
+                "id": 30,
+                "username": "mogo"
+            },
+            {
+                "display_name": "SH03-老刘",
+                "id": 31,
+                "username": "SH03"
+            },
+            {
+                "display_name": "互众",
+                "id": 33,
+                "username": "huzhong"
+            },
+            {
+                "display_name": "fc8f3060--沈菲",
+                "id": 34,
+                "username": "fc8f3060"
+            },
+            {
+                "display_name": "fc9f3060--沈菲",
+                "id": 35,
+                "username": "fc9f3060"
+            },
+            {
+                "display_name": "联想rom",
+                "id": 36,
+                "username": "lenovo_rom"
+            },
+            {
+                "display_name": "捷酷自有应用账户",
+                "id": 37,
+                "username": "jesgoo"
+            },
+            {
+                "display_name": "华数 TV",
+                "id": 38,
+                "username": "wasu"
+            },
+            {
+                "display_name": "adview",
+                "id": 39,
+                "username": "adview"
+            },
+            {
+                "display_name": "巨网",
+                "id": 40,
+                "username": "juwang"
+            },
+            {
+                "display_name": "kiki",
+                "id": 41,
+                "username": "kiki"
+            },
+            {
+                "display_name": "测试账户",
+                "id": 43,
+                "username": "test01"
+            },
+            {
+                "display_name": "xxx01",
+                "id": 44,
+                "username": "xxx01"
+            },
+            {
+                "display_name": "xxx02",
+                "id": 45,
+                "username": "xxx02"
+            },
+            {
+                "display_name": "qiyue1",
+                "id": 46,
+                "username": "wangzhan2"
+            },
+            {
+                "display_name": "qiyue2",
+                "id": 47,
+                "username": "wangzhan1"
+            },
+            {
+                "display_name": "xxx03",
+                "id": 49,
+                "username": "xxx03"
+            },
+            {
+                "display_name": "xxx04",
+                "id": 50,
+                "username": "xxx04"
+            },
+            {
+                "display_name": "xxx05",
+                "id": 51,
+                "username": "xxx05"
+            },
+            {
+                "display_name": "铁血",
+                "id": 52,
+                "username": "tiexue"
+            },
+            {
+                "display_name": "光明网",
+                "id": 53,
+                "username": "gmw"
+            },
+            {
+                "display_name": "晋江文学网",
+                "id": 54,
+                "username": "jjwx"
+            },
+            {
+                "display_name": "33军事",
+                "id": 55,
+                "username": "33js"
+            },
+            {
+                "display_name": "比特网",
+                "id": 57,
+                "username": "byte"
+            },
+            {
+                "display_name": "一笑千金",
+                "id": 58,
+                "username": "yixiaoqianjin"
+            },
+            {
+                "display_name": "中国手游网",
+                "id": 60,
+                "username": "zshouyou"
+            }
+        ]
+    }
+
+### /admin/account/mockLoginBack
+
+Request 
+
+`GET /admin/account/mockLoginBack.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true
+    }
+
+### /admin/account/mockLogin
+
+Request 
+
+`GET /admin/account/mockLogin.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true
+    }
+
+### /admin/manage/template
+
+Request 
+
+`GET /admin/manage/template.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "entities": {
+            "id": 1
+        }
+    }
+
+### /admin/manage/templateTaskStatus
+
+Request 
+
+`GET /admin/manage/templateTaskStatus.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "entities": {
+            "beginTime": "2015-05-19:16:30:42",
+            "done": true,
+            "endTime": "2015-05-19:16:30:43",
+            "id": 1,
+            "output": "模板3的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板4的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板5的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板6的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板7的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板8的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板9的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板10的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板11的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板12的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板13的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板14的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板15的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板16的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板17的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板18的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n模板19的版本重建未生效，原模板可能已经发生变化，或重建后的模板与原模板相同\n",
+            "success": true
+        }
+    }
+
 ### /index/config
 
 Request 
@@ -583,6 +1262,24 @@ Response
         "success": true
     }
 
+### /index/index/register
+
+Request 
+
+`GET /index/index/register.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
 ### /index/index/dailyReport
 
 Request 
@@ -692,13 +1389,13 @@ Response
                 "media": "e2131231",
                 "name": "广告位1",
                 "type": 1,
-                "subtype": 1,
+                "subtype": 2,
                 "modify_time": "2014年1月1日 0时0分1秒",
                 "config": {
-                    "close": false,
+                    "close": true,
                     "blank": false,
-                    "place": 1,
-                    "height": 200,
+                    "place": 2,
+                    "height": 60,
                     "autoPlayInterval": 1000
                 }
             },
@@ -707,7 +1404,7 @@ Response
                 "media": "e2131231",
                 "name": "广告位2",
                 "type": 10,
-                "subtype": 1,
+                "subtype": 2,
                 "modify_time": "2014年1月1日 0时0分1秒",
                 "config": {
                     "test": true,
@@ -794,15 +1491,83 @@ Response
         "entities": [
             {
                 id: 0, // 模版id
-                adType: 5, // 模版类型 值同 AdType
+                adslot: 's12312', // 模版类型 值同 AdType
+                adtype: 5, // 模版类型 值同 AdType
                 percent: 80, // 流量百分比 0 - 100
-                jsSource: 'result.js', // cdn js文件地址
-                data: {
+                version: 'result', // cdn js文件地址
+                json: {
                     "content": {
                         "iconArea": {
                             "backgroundColor": {
-                                "color": "#60cb1b",
-                                "opacity": "0"
+                                "color": "#f2f2f2",
+                                "opacity": "100"
+                            },
+                            "border": {
+                                "border": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": "0",
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "padding": {
+                                "padding": "0",
+                                "paddingTop": "0",
+                                "paddingBottom": "0",
+                                "paddingRight": "0",
+                                "paddingLeft": "0"
+                            },
+                            "boxShadow": {
+                                "hShadow": "0",
+                                "vShadow": "0",
+                                "blur": "0",
+                                "spread": "0",
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "style": ""
                             },
                             "transform": {
                                 "translate_x": "0",
@@ -819,13 +1584,163 @@ Response
                                 "delay": "0",
                                 "iteration_count": "0",
                                 "direction": "alternate",
-                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                                "frames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                            }
+                        },
+                        "image": {
+                            "backgroundColor": {
+                                "color": "#60cb1b",
+                                "opacity": "0"
+                            },
+                            "border": {
+                                "border": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": 5,
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "boxShadow": {
+                                "hShadow": 1,
+                                "vShadow": 1,
+                                "blur": 3,
+                                "spread": "0",
+                                "color": {
+                                    "color": "#0C0211",
+                                    "opacity": 100
+                                },
+                                "style": ""
+                            },
+                            "transform": {
+                                "translate_x": "0",
+                                "translate_y": "0",
+                                "rotate_x": "0",
+                                "rotate_y": "0",
+                                "rotate_z": "0",
+                                "skew": "0",
+                                "scale": "100"
+                            },
+                            "animate": {
+                                "duration": "0",
+                                "timing_function": "ease-in-out",
+                                "delay": "0",
+                                "iteration_count": "0",
+                                "direction": "alternate",
+                                "frames": "from {-webkit-transform:scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:scale(1.1);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
                             }
                         },
                         "textArea": {
                             "backgroundColor": {
-                                "color": "#60cb1b",
-                                "opacity": "0"
+                                "color": "#f2f2f2",
+                                "opacity": "100"
+                            },
+                            "border": {
+                                "border": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": "0",
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "padding": {
+                                "padding": "0",
+                                "paddingTop": "0",
+                                "paddingBottom": "0",
+                                "paddingRight": 5,
+                                "paddingLeft": 5
+                            },
+                            "boxShadow": {
+                                "hShadow": "0",
+                                "vShadow": "0",
+                                "blur": "0",
+                                "spread": "0",
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "style": ""
                             },
                             "transform": {
                                 "translate_x": "0",
@@ -842,15 +1757,82 @@ Response
                                 "delay": "0",
                                 "iteration_count": "0",
                                 "direction": "alternate",
-                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                                "frames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
                             }
                         },
                         "textTitleArea": {
-                            "text_align": "Center",
+                            "text_align": "center",
                             "backgroundColor": {
                                 "color": "#60cb1b",
                                 "opacity": "0"
                             },
+                            "border": {
+                                "border": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": "0",
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "padding": {
+                                "padding": "0",
+                                "paddingTop": "0",
+                                "paddingBottom": "0",
+                                "paddingRight": "0",
+                                "paddingLeft": "0"
+                            },
+                            "boxShadow": {
+                                "hShadow": "0",
+                                "vShadow": "0",
+                                "blur": "0",
+                                "spread": "0",
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "style": ""
+                            },
                             "transform": {
                                 "translate_x": "0",
                                 "translate_y": "0",
@@ -866,7 +1848,7 @@ Response
                                 "delay": "0",
                                 "iteration_count": "0",
                                 "direction": "alternate",
-                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                                "frames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
                             }
                         },
                         "textTitleText": {
@@ -874,11 +1856,90 @@ Response
                                 "fontSize": "12",
                                 "lineHeight": "110",
                                 "fontFamily": "Microsoft Yahei",
-                                "color": "#000000"
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "textShadow": {
+                                    "hShadow": "0",
+                                    "vShadow": "0",
+                                    "blur": "0",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
                             },
                             "backgroundColor": {
                                 "color": "#60cb1b",
                                 "opacity": "0"
+                            },
+                            "border": {
+                                "border": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": "0",
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "padding": {
+                                "padding": "0",
+                                "paddingTop": "0",
+                                "paddingBottom": "0",
+                                "paddingRight": "0",
+                                "paddingLeft": "0"
+                            },
+                            "boxShadow": {
+                                "hShadow": "0",
+                                "vShadow": "0",
+                                "blur": "0",
+                                "spread": "0",
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "style": ""
                             },
                             "transform": {
                                 "translate_x": "0",
@@ -891,10 +1952,77 @@ Response
                             }
                         },
                         "textDescriptionArea": {
-                            "text_align": "Center",
+                            "text_align": "center",
                             "backgroundColor": {
                                 "color": "#60cb1b",
                                 "opacity": "0"
+                            },
+                            "border": {
+                                "border": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": "0",
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "padding": {
+                                "padding": "0",
+                                "paddingTop": "0",
+                                "paddingBottom": "0",
+                                "paddingRight": "0",
+                                "paddingLeft": "0"
+                            },
+                            "boxShadow": {
+                                "hShadow": "0",
+                                "vShadow": "0",
+                                "blur": "0",
+                                "spread": "0",
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "style": ""
                             },
                             "transform": {
                                 "translate_x": "0",
@@ -911,19 +2039,98 @@ Response
                                 "delay": "0",
                                 "iteration_count": "0",
                                 "direction": "alternate",
-                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                                "frames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
                             }
                         },
                         "textDescriptionText": {
                             "font": {
-                                "fontSize": "12",
+                                "fontSize": 10,
                                 "lineHeight": "110",
                                 "fontFamily": "Microsoft Yahei",
-                                "color": "#000000"
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "textShadow": {
+                                    "hShadow": "0",
+                                    "vShadow": "0",
+                                    "blur": "0",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
                             },
                             "backgroundColor": {
                                 "color": "#60cb1b",
                                 "opacity": "0"
+                            },
+                            "border": {
+                                "border": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": "0",
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "padding": {
+                                "padding": "0",
+                                "paddingTop": "0",
+                                "paddingBottom": "0",
+                                "paddingRight": "0",
+                                "paddingLeft": "0"
+                            },
+                            "boxShadow": {
+                                "hShadow": "0",
+                                "vShadow": "0",
+                                "blur": "0",
+                                "spread": "0",
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "style": ""
                             },
                             "transform": {
                                 "translate_x": "0",
@@ -936,10 +2143,77 @@ Response
                             }
                         },
                         "btnArea": {
-                            "text_align": "Center",
+                            "text_align": "center",
                             "backgroundColor": {
-                                "color": "#60cb1b",
-                                "opacity": "0"
+                                "color": "#f2f2f2",
+                                "opacity": "100"
+                            },
+                            "border": {
+                                "border": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": 0,
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "padding": {
+                                "padding": 0,
+                                "paddingTop": "0",
+                                "paddingBottom": "0",
+                                "paddingRight": 0,
+                                "paddingLeft": "0"
+                            },
+                            "boxShadow": {
+                                "hShadow": "0",
+                                "vShadow": "0",
+                                "blur": "0",
+                                "spread": "0",
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "style": ""
                             },
                             "transform": {
                                 "translate_x": "0",
@@ -951,25 +2225,104 @@ Response
                                 "scale": "100"
                             },
                             "animate": {
-                                "duration": 3,
+                                "duration": 0,
                                 "timing_function": "ease-in-out",
                                 "delay": "0",
                                 "iteration_count": "0",
                                 "direction": "alternate",
-                                "fames": "from {-webkit-transform:translateY(-2em) scale(0.3);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {-webkit-transform:scale(0.8);background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:translateY(2em) scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
+                                "frames": ""
                             }
                         },
                         "btnContent": {
-                            "content": "看一看",
+                            "content": "点击查看",
                             "font": {
-                                "fontSize": "12",
+                                "fontSize": 10,
                                 "lineHeight": "110",
                                 "fontFamily": "Microsoft Yahei",
-                                "color": "#000000"
+                                "color": {
+                                    "color": "#FFFFFF",
+                                    "opacity": 100
+                                },
+                                "textShadow": {
+                                    "hShadow": "0",
+                                    "vShadow": "0",
+                                    "blur": "0",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
                             },
                             "backgroundColor": {
-                                "color": "#60cb1b",
-                                "opacity": "0"
+                                "color": "#CF2020",
+                                "opacity": 100
+                            },
+                            "border": {
+                                "border": {
+                                    "width": 0,
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderTop": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderBottom": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderRight": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                },
+                                "borderLeft": {
+                                    "width": "0",
+                                    "style": "",
+                                    "color": {
+                                        "color": "#60cb1b",
+                                        "opacity": "0"
+                                    }
+                                }
+                            },
+                            "borderRadius": {
+                                "borderRadius": 6,
+                                "borderTopLeftRadius": "0",
+                                "borderBottomLeftRadius": "0",
+                                "borderTopRightRadius": "0",
+                                "borderBottomRightRadius": "0"
+                            },
+                            "padding": {
+                                "padding": 6,
+                                "paddingTop": "0",
+                                "paddingBottom": "0",
+                                "paddingRight": 6,
+                                "paddingLeft": 6
+                            },
+                            "boxShadow": {
+                                "hShadow": "0",
+                                "vShadow": "0",
+                                "blur": "0",
+                                "spread": "0",
+                                "color": {
+                                    "color": "#60cb1b",
+                                    "opacity": "0"
+                                },
+                                "style": ""
                             },
                             "transform": {
                                 "translate_x": "0",
@@ -979,41 +2332,53 @@ Response
                                 "rotate_z": "0",
                                 "skew": "0",
                                 "scale": "100"
+                            },
+                            "animate": {
+                                "duration": "0",
+                                "timing_function": "ease-in-out",
+                                "delay": "0",
+                                "iteration_count": "0",
+                                "direction": "alternate",
+                                "frames": "from {-webkit-transform:scale(0.5);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: red; }25% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: blue;}50% {background: rgba(196, 203, 127,1);-webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);color: orange;}75% {background: rgba(196, 203, 27,0.8);-webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);color: black;}to {-webkit-transform:scale(1.1);;background: rgba(96, 203, 27,0.5);-webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);color: green;}"
                             }
                         }
                     },
                     "scale": {
                         "from": 75,
-                        "to": 352,
+                        "to": 324,
                         "layout": {
-                            "iconArea": 2,
+                            "iconArea": 0,
                             "textArea": 1,
-                            "btnArea": 0
+                            "btnArea": 2
                         }
                     }
                 }
             },
             {
                 id: 1, // 模版id
-                adType: 2, // 模版类型 值同 AdType
-                type: 1, // 广告位展现形式 Banner
+                adtype: 2, // 模版类型 值同 AdType
                 percent: 20, // 流量百分比 0 - 100
-                jsSource: "", // cdn js文件地址
-                data: {} // 数据文件，很大一坨json
+                version: "", // cdn js文件地址
+                json: {} // 数据文件，很大一坨json
             },
             {
                 id: 2, // 模版id
-                adType: 5, // 模版类型 值同 AdType
-                type: 1, // 广告位展现形式 Banner
+                adtype: 5, // 模版类型 值同 AdType
                 percent: 80, // 流量百分比 0 - 100
-                jsSource: "", // cdn js文件地址
-                data: {} // 数据文件，很大一坨json
+                version: "", // cdn js文件地址
+                json: {} // 数据文件，很大一坨json
             },
             {
                 id: 4, // 模版id
-                adType: 5, // 模版类型 值同 AdType
+                adtype: 5, // 模版类型 值同 AdType
                 percent: 30, // 流量百分比 0 - 100
-                jsSource: '' // cdn js文件地址
+                version: '' // cdn js文件地址
+            },
+            {
+                id: 5, // 模版id
+                adtype: 6, // 模版类型 值同 AdType
+                percent: 100, // 流量百分比 0 - 100
+                version: '' // cdn js文件地址
             }
         ]
     }
@@ -1040,6 +2405,24 @@ Response
 Request 
 
 `GET /index/media/templateBannerImage.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /index/media/templateBannerFree
+
+Request 
+
+`GET /index/media/templateBannerFree.json`
 
     :::javascript
     {
@@ -1180,23 +2563,23 @@ Response
         "entities": [
             {
                 "click": 0,
-                "cpm": 0,
-                "ctr": 0,
+                "cpm": 123456.123456,
+                "ctr": 0.012345,
                 "date": "2015-03-29",
                 "fr": 1,
                 "impression": 1,
-                "income": 0,
+                "income": 45.045,
                 "request": 1,
                 "served_request": 1
             },
             {
                 "click": 2,
-                "cpm": 0,
+                "cpm": 0.045,
                 "ctr": 0.019230769230769232,
                 "date": "2015-03-27",
                 "fr": 1,
                 "impression": 104,
-                "income": 0,
+                "income": 5.4,
                 "request": 104,
                 "served_request": 104
             },
@@ -1213,12 +2596,12 @@ Response
             },
             {
                 "click": 14,
-                "cpm": 25.018450184501845,
+                "cpm": 5.059,
                 "ctr": 0.025830258302583026,
                 "date": "2015-03-25",
                 "fr": 1,
                 "impression": 542,
-                "income": 13.56,
+                "income": 1013.056,
                 "request": 548,
                 "served_request": 548
             },
@@ -1229,7 +2612,7 @@ Response
                 "date": "2015-03-20",
                 "fr": 1,
                 "impression": 2,
-                "income": 0,
+                "income": 3.071,
                 "request": 2,
                 "served_request": 2
             }
@@ -1422,7 +2805,7 @@ Response
                 "ctr": 0.007048458149779736,
                 "fr": 1,
                 "impression": 49940,
-                "income": 0,
+                "income": 11032.08,
                 "media": "fc9f3010",
                 "media_income": 0,
                 "name": "fc9f3010-齐济15",
@@ -1436,7 +2819,7 @@ Response
                 "ctr": 0.03805496828752643,
                 "fr": 1,
                 "impression": 473,
-                "income": 0.197,
+                "income": 6032.017,
                 "media": "fc7f3061",
                 "media_income": 0.197,
                 "name": "fc7f3061——沈菲",

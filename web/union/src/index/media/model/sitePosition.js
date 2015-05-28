@@ -32,7 +32,7 @@
                 title: '操作',
                 content: function (item, index) {
                     var ops = [];
-                    if (item._isModify) {
+                    if (item._isNew && item._isModify) {
                         ops.unshift('<a data-cmd="save" data-index="' + index + '">保存</a>');
                     }
                     /* else if (!item._isNew) {
@@ -65,6 +65,9 @@
                 }
             },
             'displayType': {
+                editable: function (item, index, col) {
+                    return !!item._isNew;
+                },
                 datasource: config.maps.sitePositionDisplayTypeMap,
                 content: function (item, index, col, textClass) {
                     if (operateData.get(item, 'type') !== config.maps.sitePositionType.popups) {

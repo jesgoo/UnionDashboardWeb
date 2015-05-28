@@ -1,0 +1,49 @@
+{"adslot":"s6c5aa82","adtype":6,"percent":70,"json":{
+    "content": {
+        "html": {
+            "html": "<style>\n body,html,div,p,img,h1,h2,h3,h4,h5,h6 {\n padding:0;\n margin:0;\n border-width:0;\n }\n html,\n body,\n {\n height: 100%;\n width: 100%;\n text-align: center;\n }\n html {\n background: #fff;\n color: #000;\n font: 12px/1 \"microsoft yahei\" , Arial, sonti, Verdana, Geneva, Helvetica, sans-serif;\n }\n body {\n font-size: 100%;\n font-family: inherit;\n background-color: #f2f2f2;\n }\n table {\n border-collapse: collapse;\n border-spacing: 0;\n }\n div, img {\n box-sizing: border-box;\n }\n a {\n color:inherit;\n text-decoration: none;\n display: none;\n }\n a.jq-banner, .jq-banner a{\n display: initial\n }\n .logImg {\n width: 1px;\n height: 1px;\n position: absolute;\n left:0;\n top:0;\n opacity: 0;\n }\n .layout-area {\n padding: 0;\n margin: 0;\n display: table;\n height: 100%;\n table-layout: fixed;\n }\n a.jg-banner {\n color:inherit;\n text-decoration:none;\n }\n .jg-banner {\n display: block;\n width: 100%;\n height: 100%;\n position: relative;\n text-align: center;\n }\n .jg-banner .jq-container {\n display: table-cell;\n vertical-align: middle;\n width: 100%;\n height: 100%;\n }\n .jg-banner .btn-area .jg-btn:before {\n word-break: break-all;\n box-sizing: border-box;\n display: inline-block;\n }\n .no-image .image-area,\n .no-image .icon-area {\n display: none;\n }\n .icon-area img {\n height: auto;\n width: auto;\n max-width: 100%;\n max-height: 100%;\n }\n .text-area {\n overflow: hidden;\n }\n .text-area .jg-description,\n .text-area .jg-title {\n overflow: hidden;\n white-space: nowrap;\n text-overflow: ellipsis;\n }\n .jg-banner {\n background-color:#f2f2f2;\n }\n .icon-area {\n width: 19.53125%;float:left;\n }\n .icon-area img{\n border-radius:0.5em;\n -webkit-animation:jq-animate-image_image 3s ease-in-out 0s infinite alternate;\n }\n .btn-area {\n width: 19.010416666666664%;float:right;\n border-radius:0.3em;\n }\n .btn-area .jg-btn:before {\n content:'查看';\n font-size:160%;\n line-height:1.1;\n font-family:Microsoft Yahei;\n color:#FFFFFF;\n background-color:#CF2020;\n border-radius:0.6em;\n padding:0.6em;\n padding-right:0.6em;\n padding-left:0.6em;\n -webkit-animation:jq-animate-image_btnContent 3s ease-in-out 0s infinite alternate;\n }\n .text-area {\n width: 61.458333333333336%;\n padding-right:0.5em;\n padding-left:0.5em;\n }\n .no-image .text-area {\n width: 80.98958333333334%;\n }\n .text-area .text-container {\n }\n .text-area .jg-title {\n text-align:left;\n }\n .text-area .jg-title .text {\n font-size:160%;\n line-height:1.5;\n font-family:Microsoft Yahei;\n }\n .text-area .jg-description {\n text-align:left;\n }\n .text-area .jg-description .text {\n font-size:100%;\n line-height:1.5;\n font-family:Microsoft Yahei;\n }\n @-webkit-keyframes jq-animate-image_image {from {\n -webkit-transform: scale(0.5) rotateX(0deg);\n }\n 12% {\n -webkit-transform: scale(0.8) rotateX(360deg);\n }\n 50% {\n -webkit-transform: scale(1.1) rotateX(360deg);\n }\n to {\n -webkit-transform: scale(1) rotateX(360deg);\n }}\n @-webkit-keyframes jq-animate-image_btnContent {from {\n background: rgba(96, 203, 27, 0.5);\n -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);\n color: red;\n }\n 25% {\n background: rgba(196, 203, 27, 0.8);\n -webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);\n color: blue;\n }\n 50% {\n background: rgba(196, 203, 127, 1);\n -webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);\n color: orange;\n }\n 75% {\n background: rgba(196, 203, 27, 0.8);\n -webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);\n color: black;\n }\n to {\n background: rgba(96, 203, 27, 0.5);\n -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);\n color: green;\n }}\n </style>\n <div class=\"jg-banner jg-text-icon layout-area\">\n <div class=\"layout-area icon-area\">\n <div class=\"jg-icon jq-container\">\n <img src=\"<%=data.LogoUrl%>\" onerror=\"this.parentNode.parentNode.parentNode.className+=' no-image'\" />\n </div>\n </div>\n <div class=\"layout-area btn-area\">\n <div class=\"jg-btn jq-container\"></div>\n </div>\n <div class=\"layout-area text-area\">\n <div class=\"jq-container\">\n <div class=\"text-container\">\n <div class=\"jg-title\"><span class=\"text\"><%=data.Title%></span></div>\n <div class=\"jg-description\"><span class=\"text\"><%=data.Description1%></span></div>\n </div>\n </div>\n </div>\n </div>"
+        },
+        "banner": {
+            "backgroundColor": {
+                "color": "#f2f2f2",
+                "opacity": "100"
+            },
+            "borderRadius": {
+                "borderRadius": "0",
+                "borderTopLeftRadius": "0",
+                "borderBottomLeftRadius": "0",
+                "borderTopRightRadius": "0",
+                "borderBottomRightRadius": "0"
+            },
+            "boxShadow": {
+                "hShadow": "0",
+                "vShadow": "0",
+                "blur": "0",
+                "spread": "0",
+                "color": {
+                    "color": "#000000",
+                    "opacity": "0"
+                },
+                "style": ""
+            },
+            "transform": {
+                "translate_x": "0",
+                "translate_y": "0",
+                "rotate_x": "0",
+                "rotate_y": "0",
+                "rotate_z": "0",
+                "skew": "0",
+                "scale": "100"
+            },
+            "animate": {
+                "duration": "0",
+                "timing_function": "",
+                "delay": "0",
+                "iteration_count": "0",
+                "direction": "",
+                "frames": ""
+            }
+        }
+    },
+    "scale": { }
+}}

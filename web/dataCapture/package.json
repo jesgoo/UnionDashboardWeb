@@ -1,0 +1,12 @@
+{
+  "name": "dataCapture",
+  "version": "1.0.0",
+  "description": "百度数据抓取",
+  "author": "longgeyang@jesgoo.com",
+  "dependencies": {},
+  "devDependencies": {
+    "underscore": "*",
+    "underscore": "*",
+    "underscore.deep": "*"
+  }
+}

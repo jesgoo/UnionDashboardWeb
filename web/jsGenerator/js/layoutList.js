@@ -3,6 +3,9 @@
     var baseFontSize = 10;
     var baseWidth = 320 * 12 / baseFontSize;
     var layoutList = {
+        'free': function (scaleOption) {
+            return {};
+        },
         'text_icon': function (scaleOption) {
             var from = scaleOption.from;
             var to = scaleOption.to;
@@ -14,9 +17,7 @@
             ];
             var iconAreaIndex = scaleOption.layout.iconArea;
             var textAreaIndex = scaleOption.layout.textArea;
-            if (areaWidth[iconAreaIndex] < 1) {
-                areaWidth[textAreaIndex] += areaWidth[iconAreaIndex];
-            }
+            areaWidth[3] = areaWidth[textAreaIndex] + areaWidth[iconAreaIndex];
             var area = [];
             for (var i = 0; i < areaWidth.length; i += 1){
                 var n = areaWidth[i];
@@ -28,6 +29,7 @@
             for (var name in scaleOption.layout) {
                 data[name] = area[scaleOption.layout[name]];
             }
+            data.noIcon = area[3];
             return data;
         },
         'image': function (scaleOption) {
@@ -40,6 +42,7 @@
             if (to - from < 1) {
                 data.btnArea = 'display: none;'
             }
+            data.noImage = 'background-image:url(http://ubmcmm.baidustatic.com/media/v1/0f000FtbHOko08TnpKpGO6.gif);background-size:100% 100%;';
             return data;
         }
     };

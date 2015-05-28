@@ -1490,7 +1490,7 @@ esui.Table.prototype.startEdit = function (type, rowIndex, columnIndex) {
             rowIndex: rowIndex,
             columnIndex: columnIndex,
             field: field,
-            value: mf.m.utils.recursion.get(this.datasource[rowIndex], field.field)
+            value: mf.m.utils.recursion.get(this.datasource[rowIndex], field.field + '')
         });
     }
 };
@@ -1659,7 +1659,7 @@ esui.Select.prototype.setValue = function (value) {
      * {Object} data
      * */
     function dataParse(data, filterFn) {
-        if (!data.success) {
+        if ('success' in data && !data.success) {
             if (data.errorType === 'NoLogin') {
                 throw 'sessionTimeout';
             } else if (data.message) {
@@ -1755,7 +1755,7 @@ esui.Select.prototype.setValue = function (value) {
             })(target);
         }
         mf.loading();
-        $.when.apply($, deferredList)
+        return $.when.apply($, deferredList)
             .done(function () {
                 var args = [].slice.call(arguments);
                 mf.loaded();
@@ -1946,12 +1946,15 @@ mf.mockPager = function (dataList, targets, opt) {
     table.onedit = function (value, options, editor) {
         var row = table.datasource[options.rowIndex];
         mf.m.utils.recursion.set(row, options.field.field, value);
+        var saveStatus;
         if (opt.editToSave) {
-            return opt.editToSave(value, options, editor);
-        } else {
-            row._isModify = true;
-            table.render();
+            saveStatus = opt.editToSave(value, options, editor);
         }
+        if (saveStatus === false) {
+            return saveStatus;
+        }
+        row._isModify = true;
+        table.render();
     };
     pager.onchange = mf.m.utils.nextTickWrapper(function () {
         refreshTable();
@@ -2024,6 +2027,7 @@ mf.initEntities = function (opt) {
     console.log('initEntities', opt);
     var loader = opt.loader;
     var entities = opt.entities;
+    var configList = opt.configList;
 
     if (loader.get('from') && loader.get('to')) {
         loader.set('date', loader.get('from') + ',' + loader.get('to'));
@@ -2039,6 +2043,33 @@ mf.initEntities = function (opt) {
         loader.set('total',
             Math.ceil(entities.length / loader.get('pageSize')));
     }
+};
+
+mf.setValueEntity = function (configList, entity) {
+    for (var i in configList) {
+        var item = configList[i];
+        if (item.setValue) {
+            var value = mf.m.utils.recursion.get(entity, item.field);
+            mf.m.utils.recursion.set(entity, item.field, item.setValue(value, entity));
+        }
+    }
+};
+mf.getValueEntity = function (configList, entity) {
+    var result = $.deepExtend({}, entity);
+    for (var i in configList) {
+        var item = configList[i];
+        if (item.getValue) {
+            var value = mf.m.utils.recursion.get(result, item.field);
+            mf.m.utils.recursion.set(result, item.field, item.getValue(value, result));
+        }
+    }
+    return result;
+};
+mf.setValueEntities = function (configList, entities) {
+    entities.forEach(mf.setValueEntity.bind(null, configList));
+};
+mf.getValueEntities = function (configList, entities) {
+    entities.forEach(mf.getValueEntity.bind(null, configList));
 };
 mf.etplFetch = function (tplName, data) {
     var contextId = '_fetch';
@@ -2071,20 +2102,23 @@ mf.getEnglishNumber = function (number, hasUnitClass, unit) {
         numberStr[position] = value + numberStr[position];
     });
     if (decimal) {
-        decimal = '.' + decimal.substr(0, 2);
+        if (decimal.length > 2) {
+            decimal = decimal.charAt(0) + Math.round(+(decimal.substr(1, 2)) / 10);
+        }
+        numberStr[0] = numberStr[0] + '.' + decimal;
     }
     if (hasUnitClass) {
         numberStr = $.map(numberStr, function (numberStrValue, index) {
             return '<span class="number-unit number-unit-' + unit[index] + '">' + numberStrValue + '</span>';
         });
     }
-    return numberStr.reverse().join(',') + (decimal || '');
+    return numberStr.reverse().join(',');
 };
 mf.getFieldContentPercent = function (field, unit) {
     unit = unit || '%';
     unit = '<span class="percent-unit">' + unit + '</span>';
     return function (item) {
-        return (item[field] * 100).toString().substr(0, 5) + unit;
+        return (Math.round(item[field] * 100) / 100).toString().substr(0, 5) + unit;
     };
 };
 mf.getFieldContentLess = function (field, unit) {

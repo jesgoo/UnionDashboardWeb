@@ -54,6 +54,30 @@
             emptySitePosition = mf.initEntityInConfig(sitePositionList, emptySitePosition);
             table.order = 'asc';
             table.orderBy = sitePositionFieldInConfig('id');
+            var saveRow = function (rowIndex) {
+                var row = table.datasource[rowIndex];
+                if (mf.tableSavingValidator.call(table, row, table.fields)) {
+                    mf.parallelAjax({
+                        type: 'POST',
+                        url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
+                        data: mf.grepDataInConfig(row, sitePositionList)
+                    }, function (result) {
+                        var newData = result[0];
+                        if (row._isNew) {
+                            dataList.unshift(newData);
+                            sitePositionCount.setContent(dataList.length);
+                        } else {
+                            var idField = sitePositionFieldInConfig('id');
+                            var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
+                            index > -1 && (dataList[index] = newData);
+                        }
+                        table.datasource[rowIndex] = newData;
+                        table.render();
+                    });
+                } else {
+                    return false;
+                }
+            };
             var refreshTable = mf.mockPager(dataList, {
                 pager: pager,
                 pageSizer: pageSizer,
@@ -61,31 +85,14 @@
             }, {
                 editToSave: function (value, options, editor) {
                     var row = table.datasource[options.rowIndex];
-                    if (mf.tableSavingValidator(row, table.fields)) {
-                        mf.parallelAjax({
-                            type: 'POST',
-                            url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
-                            data: mf.grepDataInConfig(row, sitePositionList)
-                        }, function (result) {
-                            var newData = result[0];
-                            if (row._isNew) {
-                                dataList.unshift(newData);
-                                sitePositionCount.setContent(dataList.length);
-                            } else {
-                                var idField = sitePositionFieldInConfig('id');
-                                var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
-                                index > -1 && (dataList[index] = newData);
-                            }
-                            table.datasource[options.rowIndex] = newData;
-                            table.render();
-                        });
-                    } else {
-                        return false;
+                    if (!row._isNew){
+                        return saveRow(options.rowIndex);
                     }
                 }
             });
             refreshTable();
-            var jssdkDomain = location.host.replace(/^union\./i, 'api.');
+            var jssdkDomain = location.host.replace(/^union\./i, 'cdn.');
+            //var jssdkDomain = location.host.replace(/^union\./i, 'api.');
 
             table.onedit = (function (fn) {
                 return function (value, options) {
@@ -207,26 +214,7 @@
                         {
                             cmd: 'save',
                             handle: function (options) {
-                                var row = table.datasource[options.index];
-                                if (mf.tableSavingValidator.call(table, row, table.fields)) {
-                                    mf.parallelAjax({
-                                        type: 'POST',
-                                        url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
-                                        data: mf.grepDataInConfig(row, sitePositionList)
-                                    }, function (result) {
-                                        var newData = result[0];
-                                        if (row._isNew) {
-                                            dataList.unshift(newData);
-                                            sitePositionCount.setContent(dataList.length);
-                                        } else {
-                                            var idField = sitePositionFieldInConfig('id');
-                                            var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
-                                            index > -1 && (dataList[index] = newData);
-                                        }
-                                        table.datasource[options.index] = newData;
-                                        table.render();
-                                    });
-                                }
+                                return saveRow(options.index);
                             }
                         },
                         {

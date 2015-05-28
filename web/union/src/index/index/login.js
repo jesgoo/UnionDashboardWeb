@@ -4,19 +4,16 @@
  * @date Tue Mar 17 2015 09:45:32 GMT+0800 (CST)
  * Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved
  */
-(function () {
-    function checkLogin() {
-        if (mf.authority.isUserLogin()) {
-            $('#Nav1, #Nav2, .header-login').show();
-            mf.updateNav1.__called = 0;
-            er.locator.redirect('/media/site~force=1');
-            return true;
-        }
-        return false;
+function checkLogin() {
+    if (mf.authority.isUserLogin()) {
+        $('#Nav1, #Nav2, .header-login').show();
+        mf.updateNav1.__called = 0;
+        er.locator.redirect('/report/index~force=1');
+        return true;
     }
-
-    var prefix = 'union_userpwd';
-
+    return false;
+}
+(function () {
     mf.index.index.login = new er.Action({
         model: mf.index.index.model.login,
         view: new er.View(
@@ -34,17 +31,13 @@
             this.model.set('username', username);
         },
         onentercomplete: function () {
+            mf.loaded();
             if (!this.model.get('force')) {
                 checkLogin();
             }
         },
-        onafterrepaint: function () {
-            console.log('onafterrepaint');
-            mf.loaded();
-        },
         onafterrender: function () {
             console.log('onafterrender');
-            mf.loaded();
             var action = this;
             var V = mf.m.validate();
 
@@ -74,7 +67,7 @@
                     ]
                 }
             );
-
+            var infoDialog;
             esui.get('submit').onclick = function () {
                 if (!action.validateForm() || !V.check()) {
                     return;
@@ -105,7 +98,7 @@
                         T.cookie.set(mf.cookieKeyMap.authority, user.authority);
                         mf.authority.parse(user.authority);
                         if (!checkLogin()) {
-                            esui.Dialog.alert(
+                            infoDialog = esui.Dialog.alert(
                                 {
                                     title: '登录失败',
                                     content: '请联系管理员'
@@ -120,12 +113,21 @@
                 .bind(
                 'keypress.login', function (e) {
                     if (e.keyCode === 13) {
-                        esui.get('username').main.blur();
-                        esui.get('password').main.blur();
-                        esui.get('submit').onclick();
+                        if (infoDialog) {
+                            infoDialog.oncommand();
+                            infoDialog = null;
+                        } else {
+                            esui.get('username').main.blur();
+                            esui.get('password').main.blur();
+                            esui.get('submit').onclick();
+                        }
                     }
                 }
             );
+
+            esui.get('register').onclick = mf.m.utils.nextTickWrapper(function () {
+                er.locator.redirect('/index/register');
+            });
         },
         onleave: function () {
             $('body').unbind('keypress.login');

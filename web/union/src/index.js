@@ -16,13 +16,15 @@ mf.cookieKeyMap = {
     'username': 'union_username',
     'display_name': 'union_display_name',
     'default_channel': 'union_default_channel',
-    'authority': 'union_adminauthority'
+    'authority': 'union_user_authority'
 };
+
 mf.authority.register(
     {
         LOGIN: 1 // 登录
     }
 );
+
 mf.authority.isUserLogin = function () {
     return er.permission.isAllow('LOGIN');
 };

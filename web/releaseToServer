@@ -1,5 +1,5 @@
 #!/usr/bin/expect -f
 spawn scp ./outputmini/union.zip rundeck@192.168.2.5:/var/lib/rundeck/shangxian/union_web
-expect "password:"
-send "MhxzKhl\r"
+#expect "password:"
+#send "MhxzKhl\r"
 interact

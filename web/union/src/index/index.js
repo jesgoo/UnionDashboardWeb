@@ -8,7 +8,7 @@
    mf.index.index = new er.Module({
     config:{
       'action': mf.index.indexActions.concat(
-          {"path": "\/", "action": "mf.union.index.dailyReport"}
+          {"path": "\/", "action": "mf.index.report.index"}
       )
     }
   });

@@ -8,10 +8,10 @@
     var reports= {
         dailyPosition: {
             action: 'dailyPosition'
-        },
+        }/*,
         hourlyPosition: {
             action: 'hourlyPosition'
-        }
+        }*/
     };
     mf.index.report.position = new er.Action({
         model: mf.index.report.model.position,

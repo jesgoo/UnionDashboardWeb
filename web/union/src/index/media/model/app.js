@@ -27,6 +27,8 @@
                 }
             },
             'note': {},
+            'url': {},
+            'package': {},
             'createTime': {
                 stable:1,
                 width: 100

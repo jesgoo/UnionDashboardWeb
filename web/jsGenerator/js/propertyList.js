@@ -1,20 +1,70 @@
-(function (){
+(function () {
     var root = this;
 
     var baseFontSize = 10;
     var baseWidth = 320 * 12 / baseFontSize;
+
     function getEmValue(value) {
         return value / baseFontSize + 'em';
     }
 
     var propertyList = {
+        'free': function (propertyConfig) {
+            var configs = {};
+            configs.html = {
+                text: '内容',
+                name: 'html',
+                properties: [
+                    propertyConfig.html
+                ]
+            };
+            configs.banner = {
+                text: 'Banner整体',
+                name: 'bannerStyle',
+                properties: [
+                    propertyConfig.backgroundColor,
+                    propertyConfig.radius,
+                    propertyConfig.shadow,
+                    propertyConfig.transform,
+                    propertyConfig.animation
+                ]
+            };
+            return configs;
+        },
         'text_icon': function (propertyConfig) {
             var configs = {};
+            configs.banner = {
+                text: 'Banner整体',
+                name: 'bannerStyle',
+                properties: [
+                    propertyConfig.backgroundColor,
+                    propertyConfig.radius,
+                    propertyConfig.shadow,
+                    propertyConfig.transform,
+                    propertyConfig.animation
+                ]
+            };
             configs.iconArea = {
                 text: '图标区域',
                 name: 'iconAreaStyle',
                 properties: [
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
+                    propertyConfig.transform,
+                    propertyConfig.animation
+                ]
+            };
+            configs.image = {
+                text: '图标',
+                name: 'iconStyle',
+                properties: [
+                    propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.shadow,
                     propertyConfig.transform,
                     propertyConfig.animation
                 ]
@@ -24,6 +74,10 @@
                 name: 'textAreaStyle',
                 properties: [
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
                     propertyConfig.transform,
                     propertyConfig.animation
                 ]
@@ -34,6 +88,10 @@
                 properties: [
                     propertyConfig.textAlign,
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
                     propertyConfig.transform,
                     propertyConfig.animation
                 ]
@@ -44,6 +102,10 @@
                 properties: [
                     propertyConfig.font,
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
                     propertyConfig.transform
                 ]
             };
@@ -53,6 +115,10 @@
                 properties: [
                     propertyConfig.textAlign,
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
                     propertyConfig.transform,
                     propertyConfig.animation
                 ]
@@ -63,6 +129,10 @@
                 properties: [
                     propertyConfig.font,
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
                     propertyConfig.transform
                 ]
             };
@@ -72,6 +142,10 @@
                 properties: [
                     propertyConfig.textAlign,
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
                     propertyConfig.transform,
                     propertyConfig.animation
                 ]
@@ -83,18 +157,50 @@
                     propertyConfig.content,
                     propertyConfig.font,
                     propertyConfig.backgroundColor,
-                    propertyConfig.transform
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
+                    propertyConfig.transform,
+                    propertyConfig.animation
                 ]
             };
             return configs;
         },
         'image': function (propertyConfig) {
             var configs = {};
+            configs.banner = {
+                text: 'Banner整体',
+                name: 'bannerStyle',
+                properties: [
+                    propertyConfig.backgroundColor,
+                    propertyConfig.radius,
+                    propertyConfig.shadow,
+                    propertyConfig.transform,
+                    propertyConfig.animation
+                ]
+            };
             configs.imageArea = {
                 text: '图片区域',
                 name: 'imageAreaStyle',
                 properties: [
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
+                    propertyConfig.transform,
+                    propertyConfig.animation
+                ]
+            };
+            configs.image = {
+                text: '图片',
+                name: 'imageStyle',
+                properties: [
+                    propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.shadow,
                     propertyConfig.transform,
                     propertyConfig.animation
                 ]
@@ -105,6 +211,10 @@
                 properties: [
                     propertyConfig.textAlign,
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
                     propertyConfig.transform,
                     propertyConfig.animation
                 ]
@@ -116,7 +226,12 @@
                     propertyConfig.content,
                     propertyConfig.font,
                     propertyConfig.backgroundColor,
-                    propertyConfig.transform
+                    propertyConfig.border,
+                    propertyConfig.radius,
+                    propertyConfig.padding,
+                    propertyConfig.shadow,
+                    propertyConfig.transform,
+                    propertyConfig.animation
                 ]
             };
             return configs;

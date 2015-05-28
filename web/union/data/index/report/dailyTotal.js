@@ -25,23 +25,23 @@ exports.response = {
     "entities": [
         {
             "click": 0,
-            "cpm": 0,
-            "ctr": 0,
+            "cpm": 123456.123456,
+            "ctr": 0.012345,
             "date": "2015-03-29",
             "fr": 1,
             "impression": 1,
-            "income": 0,
+            "income": 45.045,
             "request": 1,
             "served_request": 1
         },
         {
             "click": 2,
-            "cpm": 0,
+            "cpm": 0.045,
             "ctr": 0.019230769230769232,
             "date": "2015-03-27",
             "fr": 1,
             "impression": 104,
-            "income": 0,
+            "income": 5.4,
             "request": 104,
             "served_request": 104
         },
@@ -58,12 +58,12 @@ exports.response = {
         },
         {
             "click": 14,
-            "cpm": 25.018450184501845,
+            "cpm": 5.059,
             "ctr": 0.025830258302583026,
             "date": "2015-03-25",
             "fr": 1,
             "impression": 542,
-            "income": 13.56,
+            "income": 1013.056,
             "request": 548,
             "served_request": 548
         },
@@ -74,7 +74,7 @@ exports.response = {
             "date": "2015-03-20",
             "fr": 1,
             "impression": 2,
-            "income": 0,
+            "income": 3.071,
             "request": 2,
             "served_request": 2
         }

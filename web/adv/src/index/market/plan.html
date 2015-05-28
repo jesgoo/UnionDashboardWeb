@@ -1,0 +1,44 @@
+<!-- target: mf_index_market_plan -->
+<div class="mf-index-market-plan layout-2-left">
+    <div class="right plain-notice-area">
+        <div class="plain-unit-title">投放计划统计</div>
+        <div class="plain-unit plain-unit-middle-caption">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    投放计划总计
+                </div>
+                <div class="plain-unit-item-field">
+                    <div ui="type:Plain;id:planCount;content:*planCount;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left plain-notice-area">
+        <div class="plain-unit-title">投放计划列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:投放计划名称:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:planName;width:150;value:*planName;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search">搜索</span>
+                </div>
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add">创建新的投放计划</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:planList;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <div class="list-pager">
+                <div class="list-pager-pagesize">
+                    <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                    <div
+                            ui="type:Select;id:planPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                </div>
+                <div class="list-pager-page">
+                    <div ui="type:Pager;id:planPager;total:*total;page:*page;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -127,7 +127,14 @@
                     },
                     labels: {
                         align: 'right',
-                        enabled: false
+                        formatter: function () {
+                            if (this.value > 10000) {
+                                return Math.round(this.value / 1000) / 10 + '万次';
+                            } else {
+                                return this.value + '次';
+                            }
+                        },
+                        enabled: true
                     }
 
                 }

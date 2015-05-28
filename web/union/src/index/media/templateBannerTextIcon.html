@@ -34,6 +34,22 @@
                         </div>
                     </div>
                 </div>
+                <!-- if: ${hasConfigDemo} -->
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        预置参考
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <div ui="type:ButtonSelect;id:configSelect_${template}_${styleName};skin:simple;
+            single:true;datasource:*configMaps;textField:name;valueField:value;"></div>
+                        <div class="layout-container hide" id="configDemoArea_${template}_${styleName}">
+                            <div class="layout-demo" style="height: ${heightValue}; margin: 10px 0;" id="configDemo_${template}_${styleName}">
+                            </div>
+                            <div ui="type:Button;id:copyStyle_${template}_${styleName};" style="margin-right: 40px;">清除已有配置，复刻此参考样例</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /if -->
             </div>
         </div>
         <div class="plain-edit-area right">

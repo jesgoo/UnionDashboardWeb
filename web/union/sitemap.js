@@ -64,6 +64,70 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "__mockData": {}
         };
 
+        var analyzeNav2 = function (label) {
+            return {
+                "nav1": "analyze",
+                "list": [
+                    {"nav2": "/analyze/clickArea"}
+                ],
+                "label": label || ''
+            };
+        };
+
+        //Module index
+        page.analyze = {
+            "clickArea": analyzeNav2('点击区域'),
+            "__mockData": {}
+        };
+
+        //配置1级菜单(以下简称nav1）
+        page.__nav1 = {//配置1级菜单(以下简称nav1)
+            "main": {
+                "label": "首页",
+                "url": "#/main/index",
+                "hideNav2": true
+            },
+            "analyze": {
+                "label": "数据",
+                "url": "#/analyze/clickArea"
+            }
+        };
+        //nav2
+        page.__nav2 = {
+            "\/": {
+                "nav1": 'main',
+                "label": "首页"
+            }
+        };
+        return page;
+    })();
+
+    // Page index
+    mf.MAP.test = (function () {
+        // page级别模块
+        var page = {
+            "__module": {
+                "jq_ck": {"private": true}
+            },
+            "__mockData": {}
+        };
+
+        var mainNav2 = function (label) {
+            return {
+                "nav1": "main",
+                "list": [
+                    {"nav2": "/main/index"}
+                ],
+                "label": label || ''
+            };
+        };
+
+        //Module index
+        page.main = {
+            "index": mainNav2('测试'),
+            "__mockData": {}
+        };
+
         //配置1级菜单(以下简称nav1）
         page.__nav1 = {//配置1级菜单(以下简称nav1)
             "main": {
@@ -76,6 +140,101 @@ mf = typeof mf === 'undefined' ? {} : mf;
         page.__nav2 = {
             "\/": {
                 "nav1": 'main',
+                "label": "首页"
+            }
+        };
+        return page;
+    })();
+
+    mf.MAP.admin = (function () {
+        // page级别模块
+        var page = {
+            "__module": {},
+            "__mockData": {
+                "user": {}
+            }
+        };
+
+        var authorityAction = function (obj, authority, noAuthLocation) {
+            obj = obj || {};
+            authority = 'LOGIN' + (authority ? '&' + authority : '');
+            noAuthLocation = noAuthLocation || '/index/login';
+            return authorityActionBase(obj, authority, noAuthLocation);
+        };
+
+        var indexNav2 = function (label) {
+            return {
+                "nav1": "index",
+                "list": [
+                    //{"nav2": "/index/login"}
+                ],
+                "label": label || ''
+            };
+        };
+
+        //Module index
+        page.index = {
+            "login": indexNav2('登录'),
+            "__mockData": {}
+        };
+
+        var accountNav2 = function (label) {
+            return {
+                "nav1": "account",
+                "list": [
+                    {"nav2": "/account/userList"}
+                ],
+                "label": label || ''
+            };
+        };
+
+        //Module account
+        page.account = {
+            "userList": authorityAction(accountNav2('用户列表')),
+            "__mockData": {
+                "mockLoginBack": {},
+                "mockLogin": {}
+            }
+        };
+
+        var manageNav2 = function (label) {
+            return {
+                "nav1": "manage",
+                "list": [
+                    {"nav2": "/manage/template"}
+                ],
+                "label": label || ''
+            };
+        };
+
+        //Module manage
+        page.manage = {
+            "template": authorityAction(manageNav2('新模版js更新')),
+            "__mockData": {
+                "templateTaskStatus": {}
+            }
+        };
+
+        //配置1级菜单(以下简称nav1）
+        page.__nav1 = {//配置1级菜单(以下简称nav1)
+            /*"index": {
+             "label": "首页",
+             "url": "#/index/login",
+             "hideNav2": true
+             },*/
+            "account": {
+                "label": "账户管理",
+                "url": "#/account/userList"
+            },
+            "manage": {
+                "label": "系统管理",
+                "url": "#/manage/template"
+            }
+        };
+        //nav2
+        page.__nav2 = {
+            "\/": {
+                "nav1": 'index',
                 "label": "首页"
             }
         };
@@ -138,6 +297,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
         //Module index
         index.index = {
             "login": indexNav2('登录'),
+            "register": indexNav2('注册'),
             "dailyReport": authorityAction(indexNav2('日况')),
             "__mockData": {}
         };
@@ -164,6 +324,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "siteTemplate": authorityAction(mediaNav2('网站自定义模版')),
             "templateBannerTextIcon": authorityAction(mediaNav2('Banner 图文')),
             "templateBannerImage": authorityAction(mediaNav2('Banner 图片')),
+            "templateBannerFree": authorityAction(mediaNav2('Banner 自定义图文')),
             "__mockData": {}
         };
 

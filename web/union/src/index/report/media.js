@@ -9,18 +9,20 @@
         dailyMedia: {
             action: 'dailyMedia'
         },
+/*
         hourlyMedia: {
             action: 'hourlyMedia'
         },
+*/
         dailyPositions: {
             action: 'dailyPositions'
         },
         dayPositions: {
             action: 'dayPositions'
-        },
+        }/*,
         hourlyPositions: {
             action: 'hourlyPositions'
-        }
+        }*/
     };
     mf.index.report.media = new er.Action({
         model: mf.index.report.model.media,

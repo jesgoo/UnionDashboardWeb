@@ -10,7 +10,7 @@ ${jsSource}
 无有效的模版样式，暂无预览。
 <!-- /if -->
 <!-- target: position_preview_js -->
-<script type="text/javascript" src='http://${domain}/js/_jssdk.js?adslot=${adslot}&channelId=123'></script>
+<script type="text/javascript" src='http://${domain}/js/_jssdk.js?aid=${adslot}&channelId=123'></script>
 <!--<script type="text/javascript" src='http://api.moogos.com/js/_jssdk.js?adslot=s63c825f&channelId='></script>-->
 <!-- target: position_preview -->
 <div class="position-wrapper">
@@ -31,28 +31,28 @@ ${jsSource}
     </div>
 </div>
 <!-- target: position_banner -->
-<div class="${positionExtraClass} position-banner" style="height: ${relativeHeight}em;">
+<div class="${positionExtraClass} position-banner" style="height: ${relativeHeight};">
     <img src="asset/img/demo_banner.jpg" alt="${name|html}"/>
 </div>
 <!-- target: position_popups -->
 <div class="${positionExtraClass} position-popups
-    " style="height: ${relativeHeight}em;">
+    " style="height: ${relativeHeight};">
     <img src="asset/img/demo_banner.jpg" alt="${name|html}"/>
 </div>
 <!-- target: position_square_image -->
-<div class="${positionExtraClass} position-square-image" style="width: ${relativeWidth}em;margin-left: -${halfRelativeWidth}em;"><img src="asset/img/demo_square.jpg" alt="${name|html}" style="height: ${relativeHeight}em;"/></div>
+<div class="${positionExtraClass} position-square-image" style="width: ${relativeWidth}em;margin-left: -${halfRelativeWidth}em;"><img src="asset/img/demo_square.jpg" alt="${name|html}" style="height: ${relativeHeight};"/></div>
 <!-- target: position_text -->
 <!-- if: ${height} > 35 -->
-<div class="${positionExtraClass} position-text" style="height: ${relativeHeight}em;">
+<div class="${positionExtraClass} position-text" style="height: ${relativeHeight};">
     <div class="title"><span class="text">文字链标题 ${name}</span></div>
     <div class="description"><span class="text">文字链描述 ${id}</span></div>
 </div>
 <!-- else -->
-<div class="${positionExtraClass} position-text position-text-only-title" style="height: ${relativeHeight}em;line-height: ${relativeHeight}em;">
+<div class="${positionExtraClass} position-text position-text-only-title" style="height: ${relativeHeight};line-height: ${relativeHeight};">
     <div class="title"><span class="text">文字链标题 ${name}</span></div>
 </div>
 <!-- /if -->
 <!-- target: position_video -->
-<div class="${positionExtraClass} position-video" style="height: ${relativeHeight}em;">
+<div class="${positionExtraClass} position-video" style="height: ${relativeHeight};">
     <img src="asset/img/demo_video.jpg" alt="${name|html}"/>
 </div>

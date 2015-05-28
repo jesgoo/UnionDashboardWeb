@@ -29,6 +29,9 @@
             loader.set('template', template);
             loader.set('heightValue', heightValue);
 
+            var configMaps = mf.index.media.model['mockTemplate_' + styleName];
+            configMaps && loader.set('hasConfigDemo', true);
+            configMaps && loader.set('configMaps', configMaps);
         })
     });
 })();

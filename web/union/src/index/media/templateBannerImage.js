@@ -99,6 +99,7 @@
 
             var property = propertyList[styleName](propertyConfig);
             var getCustomLayout = layoutList[styleName];
+            var getMockData = new MockData(mf.index.media.model.mockData_image);
 
             property = baidu.object.clone(property);
             property.btnArea.properties[3].children[0].value = 3;
@@ -110,25 +111,67 @@
                 contentConfig: new PropertyConfig(property, templateData.content),
                 getCustomLayout: getCustomLayout,
                 refreshESUI: refreshActionNewESUI,
-                mockData: new MockData(mf.index.media.model.mockData_image)
+                mockData: getMockData
             });
             customTemplate.preview();
 
-            var saveBtn = esui.get('saveStyle_' + templateID + '_' + styleName);
             action.save = function () {
                 return customTemplate.toJSON();
             };
-            saveBtn.onclick = function () {
-                console.log('save');
-                var result = customTemplate.toJSON();
-                var getData = customTemplate.contentConfig.getData();
-                mf.m.utils.writeInNewWindow(result);
-                mf.m.utils.writeInNewWindow(getData);
-            };
+
+            var elementID = templateID + '_' + styleName;
+            var configSelect = esui.get('configSelect_' + elementID);
+            if (configSelect) {
+                configSelect.onchange = function (values, value) {
+                    var item = mf.m.utils.deepSearch(configSelect.datasource, value, 'value');
+                    if (item && item.data) {
+                        var scaleData = item.data.scale;
+                        var layoutData = getCustomLayout(item.data.scale);
+                        var demoContent = new PropertyConfig(baidu.object.clone(property), item.data.content);
+                        demoContent.setJSON(item.data.content);
+                        var contentData = demoContent.getData();
+                        var templateData = getMockData.get();
+                        var customJS = generator(styleName, contentData, layoutData, scaleData, true);
+                        mf.m.preview.previewCustomJS(null, templateData, 'configDemo_' + elementID, customJS);
+                        $('#configDemoArea_' + elementID).show();
+                        copyStyle.enable();
+                    }
+                };
+                var copyStyle = esui.get('copyStyle_' + elementID);
+                copyStyle.onclick = function () {
+                    copyStyle.disable();
+                    var value = configSelect.getValue()[0];
+                    var item = mf.m.utils.deepSearch(configSelect.datasource, value, 'value');
+                    action.reloadBaseDemo && action.reloadBaseDemo(item.data, value);
+                };
+
+                var defaultDemo = model.get('defaultDemo');
+                if (defaultDemo) {
+                    configSelect.setValue(defaultDemo, { dispatch: true });
+                }
+            }
+
+            var saveBtn = esui.get('saveStyle_' + templateID + '_' + styleName);
+            if (saveBtn) {
+                saveBtn.onclick = function () {
+                    console.log('save');
+                    var result = customTemplate.toJSON();
+                    var getData = customTemplate.contentConfig.getData();
+                    mf.m.utils.writeInNewWindow(result);
+                    mf.m.utils.writeInNewWindow(getData);
+                };
+            }
             var closeStyle = esui.get('closeStyle_' + templateID + '_' + styleName);
-            closeStyle.onclick = function () {
-                console.log('close');
-            };
+            if (closeStyle) {
+                closeStyle.onclick = function () {
+                    console.log('close');
+                };
+            }
+
+            if (window.__DEBUG) {
+                $('.operation-area', '#' + action.view.target).show()
+            }
+
             refreshActionNewESUI.call(document.getElementById(action.view.target));
         },
         onleave: function () {

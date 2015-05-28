@@ -20,10 +20,10 @@ $.extend({
             if (!$.isPlainObject(o))return true;
             $.each(o, function(i, n) {
                 if ($.isPlainObject(n)) {
-                    a[i] = $.deepExtend(a[i], n);
+                    a[i] = $.deepExtend(a[i] || {}, n);
                 }
                 else if ($.isArray(n)) {
-                    a[i] = [].concat(a[i], n);
+                    a[i] = (a[i] || []).concat(n);
                 }
                 else {
                     a[i] = n;

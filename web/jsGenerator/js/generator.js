@@ -1,18 +1,20 @@
 ﻿(function (){
     var root = this;
-    var generator = function (adTypeName, contentData, layoutData, scaleData) {
+    var generator = function (adTypeName, contentData, layoutData, scaleData, debug) {
 
         var templateResult = _.templateList(adTypeName, {
             content: contentData,
             layout: layoutData,
-            scale: scaleData || {}
+            scale: scaleData || {},
+            debug: debug
         });
 
         _.regTemplate('custom_tpl_source', templateResult.replace(/<\\\\%/g, '<%').replace(/%\\\\>/g, '%>'), {
 
         });
         var customJS = _.templateList('custom_js', {
-            source: _.templateCache('custom_tpl_source').source
+            source: _.templateCache('custom_tpl_source').source,
+            debug: debug
         });
         return customJS;
     };

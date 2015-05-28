@@ -13,14 +13,16 @@
                 "image" : 2,
                 "html" : 3,
                 "video" : 4,
-                "text_icon" : 5
+                "text_icon" : 5,
+                "free" : 6
             },
             "adTypeMap": {
                 "1" : "text",
                 "2" : "image",
                 "3" : "html",
                 "4" : "video",
-                "5" : "text_icon"
+                "5" : "text_icon",
+                "6" : "free"
             },
             "mediaType": {
                 "app" : 0,
@@ -148,7 +150,7 @@
                     "request": true
                 },
                 "note": {
-                    "field": "note",
+                    "field": "comment",
                     "defaultValue": "",
                     "title": "媒体备注",
                     "editable": true,
@@ -288,9 +290,24 @@
                     "edittype": "string"
                 },
                 "note": {
-                    "field": "note",
+                    "field": "comment",
                     "defaultValue": "",
                     "title": "媒体备注",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "url": {
+                    "field": "url",
+                    "defaultValue": "",
+                    "title": "下载页地址",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "package": {
+                    "field": "package",
+                    "defaultValue": "",
+                    "title": "应用包名",
+                    "sortable": true,
                     "editable": true,
                     "edittype": "string"
                 },
@@ -384,6 +401,23 @@
                     "field": "json",
                     "defaultValue": {},
                     "title": "自定义模版数据",
+                    "request": false
+                }
+            },
+            "userList": {
+                "id": {
+                    "field": "id",
+                    "title": "账户名",
+                    "request": false
+                },
+                "username": {
+                    "field": "username",
+                    "title": "账户名",
+                    "request": false
+                },
+                "display": {
+                    "field": "display_name",
+                    "title": "账户名",
                     "request": false
                 }
             }

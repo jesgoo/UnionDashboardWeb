@@ -199,6 +199,7 @@ a.notice-close:hover {
   font-weight: bold;
   color: #000000;
 }
+.nav-1 li.on .nav-1-analyze,
 .nav-1 li.on .nav-1-main,
 .nav-1 li.on .nav-1-index {
   background-position: 0 0;
@@ -210,10 +211,12 @@ a.notice-close:hover {
 .nav-1 li.on .nav-1-account {
   background-position: -90px 0;
 }
+.nav-1 li .nav-1-manage,
 .nav-1 li .nav-1-media {
   width: 114px;
   background-position: -533px -30px;
 }
+.nav-1 li.on .nav-1-manage,
 .nav-1 li.on .nav-1-media {
   background-position: -533px 0;
 }
