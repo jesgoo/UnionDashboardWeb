@@ -185,4 +185,51 @@
 </concat>
 <replaceregexp file="${out.m.dir}/asset/${site}-index.html"
                encoding="${encoding}"
+               match="&gt;\s+?&lt;" replace="&gt;&lt;" flags="g m"/>
+<!--asset js for ud-->
+<echo>${out.m.dir}/asset/${site}-ud.js</echo>
+<concat destfile="${out.m.dir}/asset/${site}-ud.js" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="asset" files="${lib.js.file}"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulejs.files}"/>
+    <filelist dir="${module.dir}" files="${udcommonmodulejs.files}"/>
+    <filelist dir="${out.m.dir}" files="${site}.js"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulejs.files}
+    ${udsiteCommonmodulejs.files}
+    "/>
+    <filelist dir="${site.dir}/src/ud/module" files="${udprivatemodulejs.files}"/>
+    <filelist dir="${site.dir}/src" files="${udjs.files}"/>
+</concat>
+
+<!--asset css for ud-->
+<echo>${out.m.dir}/asset/${site}-ud.css</echo>
+<concat destfile="${out.m.dir}/asset/${site}-ud.css" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.css"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulecss.files}"/>
+    <filelist dir="${module.dir}" files="${udcommonmodulecss.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulecss.files}
+    ${udsiteCommonmodulecss.files}
+    "/>
+    <filelist dir="${site.dir}/src/ud/module" files="${udprivatemodulecss.files}"/>
+    <filelist dir="${site.dir}/src" files="${udcss.files}"/>
+</concat>
+<!--asset html for ud-->
+<echo>${out.m.dir}/asset/${site}-ud.html</echo>
+<concat destfile="${out.m.dir}/asset/${site}-ud.html" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.html"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulehtml.files}"/>
+    <filelist dir="${module.dir}" files="${udcommonmodulehtml.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulehtml.files}
+    ${udsiteCommonmodulehtml.files}
+    "/>
+    <filelist dir="${site.dir}/src/ud/module" files="${udprivatemodulehtml.files}"/>
+    <filelist dir="${site.dir}/src" files="${udtpl.files}"/>
+</concat>
+<replaceregexp file="${out.m.dir}/asset/${site}-ud.html"
+               encoding="${encoding}"
                match="&gt;\s+?&lt;" replace="&gt;&lt;" flags="g m"/></target></project>

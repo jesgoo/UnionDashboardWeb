@@ -3,8 +3,8 @@ body,html,div,p,img,h1,h2,h3,h4,h5,h6 {
     margin:0;
     border-width:0;
 }
-html,
 body,
+html
  {
     height: 100%;
     width: 100%;

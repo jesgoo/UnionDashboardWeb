@@ -43,6 +43,10 @@ var g = function (data, debug) {
     var adTypeName = maps.adTypeMap[adType];
 
     var templateData = data.json || {};
+    if (!templateData.content || !adTypeName) {
+        throw 'Empty content';
+        return false;
+    }
     var scale = templateData.scale || {};
     var property = propertyList[adTypeName](properties);
     property = _.deepClone(property);
@@ -54,8 +58,16 @@ var g = function (data, debug) {
 
 
 process.stdin.on('end', function () {
-    var data = JSON.parse(originalData.join(''));
-    var customJS = g(data, !!process.env.SOURCE);
+    var data = originalData.join('');
+    if (!data.replace(/\s/g, '').length) {
+        throw 'empty data';
+    }
+    try {
+        var data = JSON.parse(data);
+        var customJS = g(data, !!process.env.SOURCE);
+    } catch(e) {
+        throw e;
+    }
     if (process.env.SOURCE != 1) {
         customJS = UglifyJS.minify(customJS, {
             fromString: true
@@ -64,13 +76,13 @@ process.stdin.on('end', function () {
     process.stdout.write('// jesgoo\n;');
     process.stdout.write(customJS);
     process.stdout.write('\n;// jesgoo\n');
-    process.exit();
+    process.exit(0);
 });
 
 process.on('uncaughtException', function (err, stack) {
     //process.stderr.write('data: ' + originalData.join(''));
-    process.stderr.write('Caught exception: ' + err + ' stack:' + stack);
-    process.exit(1);
+    process.stderr.write('Caught exception: ' + err);
+    process.exit(1, err);
 });
 /*var data =
 ;

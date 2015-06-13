@@ -1970,7 +1970,18 @@ mf.mockPager = function (dataList, targets, opt) {
         });
     });
 
-    var filterCache;
+    var filterCache, afterRender = opt.afterRender;
+    refreshTable.getState = function () {
+        return {
+            page: pager.page,
+            pageSizer: pageSizer.getValue(),
+            order: table.order,
+            orderBy: table.orderBy
+        }
+    };
+    refreshTable.setFilter = function (fn) {
+        filterCache = fn;
+    };
     return refreshTable;
 
     function refreshTable(opt) {
@@ -1983,8 +1994,6 @@ mf.mockPager = function (dataList, targets, opt) {
         var mockList = dataList;
         if ('filter' in opt) {
             filterCache = opt.filter;
-        } else {
-            filterCache = null;
         }
         if (filterCache) {
             mockList = $.grep(mockList, filterCache);
@@ -2020,6 +2029,7 @@ mf.mockPager = function (dataList, targets, opt) {
             opt.page * opt.pageSize, (opt.page + 1) * opt.pageSize
         );
         table.render();
+        afterRender && afterRender();
     }
 };
 
@@ -2081,7 +2091,7 @@ mf.etplFetch = function (tplName, data) {
         er.context.set(i, n, contextOption);
     });
     var target = {};
-    console.log('render etpl', tplName, data);
+    //console.log('render etpl', tplName, data);
     er.template.merge(
         target,
         tplName,

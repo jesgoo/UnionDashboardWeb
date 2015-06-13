@@ -959,6 +959,122 @@ Response
         }
     }
 
+### /admin/manage/strategy
+
+Request 
+
+`GET /admin/manage/strategy.json`
+
+    :::javascript
+    {}
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "entities": [
+            {
+                id: 'fc7f3040',
+                data: {
+                    "data": [
+                        {
+                            "rules": [],
+                            "result": [
+                                {
+                                    "percent": 500,
+                                    "firstDspInfo": [{"dspid": 5, "dspPercent": 1000, "dspCpm": 10}],
+                                    "secondDspInfo": [
+                                        {"dspid": 0, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 1, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 2, "dspPercent": 1000, "dspCpm": 100}
+                                    ]
+                                }, {
+                                    "percent": 1000,
+                                    "firstDspInfo": [{"dspid": 0, "dspPercent": 1000, "dspCpm": 10}],
+                                    "secondDspInfo": [
+                                        {"dspid": 5, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 1, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 2, "dspPercent": 1000, "dspCpm": 100}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                comment: '越来越好，50%流量优先讯飞',
+                modified_time: '2015-06-02 17:04:01'
+            },
+            {
+                id: 'first',
+                data: {
+                    "data": [
+                        {
+                            "rules": [{"id": "browser", "value": "uc"}],
+                            "result": [
+                                {
+                                    "percent": 1000,
+                                    "firstDspInfo": [{"dspid": 2, "dspPercent": 1000, "dspCpm": 100}],
+                                    "secondDspInfo": [
+                                        {"dspid": 0, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 1, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 5, "dspPercent": 1000, "dspCpm": 100}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                comment: '最优先的请求策略,UC全流量切给广点通',
+                modified_time: '2015-06-02 17:04:02'
+            },
+            {
+                id: 'global',
+                data: {
+                    "data": [
+                        {
+                            "rules": [{"id": "browser", "value": "uc"}],
+                            "result": [
+                                {
+                                    "percent": 1000,
+                                    "firstDspInfo": [{"dspid": 2, "dspPercent": 1000, "dspCpm": 100}],
+                                    "secondDspInfo": [
+                                        {"dspid": 0, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 1, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 5, "dspPercent": 1000, "dspCpm": 100}
+                                    ]
+                                }
+                            ]
+                        }, {
+                            "rules": [],
+                            "result": [
+                                {
+                                    "percent": 150,
+                                    "firstDspInfo": [{"dspid": 2, "dspPercent": 1000, "dspCpm": 10}],
+                                    "secondDspInfo": [
+                                        {"dspid": 0, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 1, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 5, "dspPercent": 1000, "dspCpm": 100}
+                                    ]
+                                }, {
+                                    "percent": 1000,
+                                    "firstDspInfo": [{"dspid": 0, "dspPercent": 1000, "dspCpm": 10}],
+                                    "secondDspInfo": [
+                                        {"dspid": 1, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 2, "dspPercent": 1000, "dspCpm": 100},
+                                        {"dspid": 5, "dspPercent": 1000, "dspCpm": 100}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                comment: '全局配置，uc流量全量给广点通，全局切15%流量给广点通',
+                modified_time: '2015-06-02 17:04:03'
+            }
+        ]
+    }
+
 ### /admin/manage/templateTaskStatus
 
 Request 
@@ -3989,5 +4105,293 @@ Response
                 "served_request": 19862293
             }
         ]
+    }
+
+### /ud/user
+
+Request 
+
+`GET /ud/user.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/allmedia
+
+Request 
+
+`GET /ud/allmedia.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/index/login
+
+Request 
+
+`GET /ud/index/login.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/account/info
+
+Request 
+
+`GET /ud/account/info.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/account/password
+
+Request 
+
+`GET /ud/account/password.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/index
+
+Request 
+
+`GET /ud/report/index.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/total
+
+Request 
+
+`GET /ud/report/total.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/media
+
+Request 
+
+`GET /ud/report/media.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/position
+
+Request 
+
+`GET /ud/report/position.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/dailyTotal
+
+Request 
+
+`GET /ud/report/dailyTotal.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/dailyMedias
+
+Request 
+
+`GET /ud/report/dailyMedias.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/dayMedias
+
+Request 
+
+`GET /ud/report/dayMedias.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/dailyMedia
+
+Request 
+
+`GET /ud/report/dailyMedia.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/dailyPosition
+
+Request 
+
+`GET /ud/report/dailyPosition.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/dayPositions
+
+Request 
+
+`GET /ud/report/dayPositions.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /ud/report/dailyPositions
+
+Request 
+
+`GET /ud/report/dailyPositions.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
     }
 

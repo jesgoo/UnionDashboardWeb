@@ -1,0 +1,29 @@
+<!-- target: adv_preview_image -->
+<a target="_blank" <!-- if: ${target} -->href="${target}" <!--/if--> class="resource-preview preview-image">
+    <img src="http://static.moogos.com/resource/${image}" />
+</a>
+<!-- target: adv_preview_text -->
+<a target="_blank" <!-- if: ${target} -->href="${target}" <!--/if-->  class="resource-preview preview-text-icon">
+    <div class="title">${title}</div>
+    <div class="desc">${description}</div>
+</a>
+<!-- target: adv_preview_text_icon -->
+<a target="_blank" <!-- if: ${target} -->href="${target}"<!--/if-->  class="resource-preview preview-text-icon">
+    <img src="http://static.moogos.com/resource/${image}" />
+    <div class="title">${title}</div>
+    <div class="desc">${description}</div>
+</a>
+<!-- target: adv_preview_image_resource -->
+<a target="_blank" <!-- if: ${target} -->href="http://static.moogos.com/resource/${target}"<!--/if--> class="resource-preview preview-image">
+    <img src="http://static.moogos.com/resource/${image}" />
+    <div class="desc">尺寸： ${height} * ${width}</div>
+    <div class="desc">大小： ${size} </div>
+</a>
+<!-- target: adv_preview_app_resource -->
+<a target="_blank" <!-- if: ${target} -->href="http://static.moogos.com/resource/${target}"<!--/if--> class="resource-preview preview-app">
+    <img src="http://static.moogos.com/resource/${image}" />
+    <div class="title">${appName}</div>
+    <div class="desc">包名：${appPackage}</div>
+    <div class="desc">版本：${appVersion}</div>
+    <div class="desc">大小：${size}</div>
+</a>

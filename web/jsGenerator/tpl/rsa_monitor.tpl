@@ -1,22 +1,25 @@
 (function (jesgoo) {
-    if (!jesgoo) {
-        return;
-    }
-    jesgoo.triggerCK();
     var runCount = 0;
+    var hasJesgoo = 0;
     var runner = function () {
-        var list = [
-            jesgoo.monitorID,
-            'jesgoo-link',
-            'jg-link'
-        ], $a;
-        for (var i = 0; i < list.length; i+=1) {
-            $a = document.getElementById(list[i]);
-            if ($a) break;
+        if (jesgoo && !hasJesgoo) {
+            jesgoo.triggerCK();
+            hasJesgoo = 1;
+        }
+        if (hasJesgoo) {
+            var list = [
+                jesgoo.monitorID,
+                'jesgoo-link',
+                'jg-link'
+            ], $a;
+            for (var i = 0; i < list.length; i+=1) {
+                $a = document.getElementById(list[i]);
+                if ($a) break;
+            }
         }
         if (!$a) {
             runCount += 1;
-            setTimeout(runner, 50);
+            setTimeout(runner, 25);
         } else {
             $a.onclick = (function (fn) {
                 return function () {

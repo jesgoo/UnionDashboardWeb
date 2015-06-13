@@ -1,0 +1,55 @@
+<!-- target: mf_ud_report_dailyMedias -->
+<div class="mf-ud-report-dailyMedias plain-notice-area report-area">
+    <div class="plain-unit-title">
+        <span>所有媒体单日数据</span>
+        <div ui="type:MultiCalendar;id:dailyMediasDateRegion;value:*dateRegion;"></div>
+    </div>
+
+    <div class="plain-unit-table" id="dailyMediasChart">
+        <div class="chart-md">
+        <div class="chart-tab">
+            <div class="tab-item cur" id="tab-income">
+                <span>收入</span>
+            </div>
+            <div class="tab-item" id="tab-impression">
+                <span>展现</span>
+            </div>
+            <div class="tab-item" id="tab-click">
+                <span>点击</span>
+            </div>
+            <div class="tab-item" id="tab-request">
+                <span>请求</span>
+            </div>
+            <div class="tab-item" id="tab-ctr">
+                <span>点击率</span>
+            </div>
+            <div class="tab-item" id="tab-cpm">
+                <span>千次展现收入</span>
+            </div>
+        </div>
+        <div class="chart-bd">
+            <div class="chart-area">
+                <div id="mediasChart"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="plain-unit-table">
+        <div class="list-op list-op-multi">
+            <div class="multi-caption" >日期定位：</div>
+            <div class="multi-field" ui="type:ButtonSelect;id:dailyMediasDateSelect;datasource:*dateRegionSelects;eachLine:0;skin:simple;"></div>
+        </div>
+        <div class="list-table">
+            <div ui="type:Table;id:dailyMediasList;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+        </div>
+        <div class="list-pager">
+            <div class="list-pager-pagesize">
+                <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                <div ui="type:Select;id:dailyMediasPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+            </div>
+            <div class="list-pager-page">
+                <div ui="type:Pager;id:dailyMediasPager;total:*total;page:*page;"></div>
+            </div>
+        </div>
+    </div>
+</div>

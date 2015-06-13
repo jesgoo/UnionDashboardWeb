@@ -1892,7 +1892,7 @@ baidu.inherits(esui.TreeSelect, esui.Control);
                 );
             }
             // 根据控件的值处理选项的选中状态
-            if (this.value) {
+            if (esui.util.hasValue(this.value)) {
                 this.setValue(this.value, { dispatch: true });
             }
         }
@@ -2127,7 +2127,8 @@ baidu.inherits(esui.TreeSelect, esui.Control);
         } else {
             targetValue = [].concat(targetValue);
             for (var i = 0, tmpData; tmpData = storage[i]; i++) {
-                for (var j = 0, tmpValue; tmpValue = targetValue[j]; j++) {
+                for (var j = 0, tmpValue; j < targetValue.length; j++) {
+                    tmpValue = targetValue[j];
                     if (tmpValue == tmpData.value) {
                         indexes.push(i);
                         targetValue.splice(j, 1);
@@ -2178,7 +2179,7 @@ baidu.inherits(esui.TreeSelect, esui.Control);
         var hasSingle = false;
         for (var i = 0, tmpData; tmpData = storage[indexes[i++]];) {
             hasSingle = hasSingle || tmpData.single;
-            tmpData[opt.field] === opt.value || setModify(tmpData);
+            tmpData[opt.field] == opt.value || setModify(tmpData);
             lastItem = tmpData;
         }
         // 下面这段是为了让同名radio与checkbox在各个浏览器里的点击切换保证一致

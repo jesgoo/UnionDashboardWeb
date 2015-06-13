@@ -1,0 +1,17 @@
+<!-- target: mf_ud_report_dailyPositions -->
+<div class="mf-ud-report-dailyPositions plain-notice-area report-area">
+    <div class="plain-unit-title">
+        <span>所属广告位单日数据</span>
+        <div ui="type:MultiCalendar;id:dailyPositionsDateRegion;value:*dateRegion;"></div>
+    </div>
+    <div class="plain-unit-table" id="dailyPositionsChart"></div>
+    <div class="plain-unit-table">
+        <div class="list-op list-op-multi">
+            <div class="multi-caption" >日期定位：</div>
+            <div class="multi-field" ui="type:ButtonSelect;id:dailyPositionsDateSelect;datasource:*dateRegionSelects;eachLine:0;skin:simple;"></div>
+        </div>
+        <div class="list-table">
+            <div ui="type:Table;id:dailyPositionsList;datasource:*lists;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+        </div>
+    </div>
+</div>

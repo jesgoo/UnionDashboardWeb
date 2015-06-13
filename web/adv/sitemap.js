@@ -40,7 +40,8 @@ mf = typeof mf === 'undefined' ? {} : mf;
         // page级别模块
         var index = {
             "__module": {
-                "regionTypes": {"private": true}
+                "regionTypes": {"private": true},
+                "Upload": {}
             },
             "__mockData": {
                 "user": {}
@@ -92,7 +93,9 @@ mf = typeof mf === 'undefined' ? {} : mf;
                 "list": [
                     {"nav2": "/market/plan"},
                     {"nav2": "/market/unit", "parentPath": "/market/plan"},
-                    {"nav2": "/market/idea"}
+                    {"nav2": "/market/idea"},
+                    {"nav2": "/market/ideaDetail", "parentPath": "/market/idea"},
+                    {"nav2": "/market/resource"}
                 ],
                 "label": label || ''
             };
@@ -102,6 +105,8 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "plan": authorityAction(marketNav2('投放计划')),
             "unit": authorityAction(marketNav2('策略设置')),
             "idea": authorityAction(marketNav2('创意设置')),
+            "ideaDetail": authorityAction(marketNav2('创意编辑')),
+            "resource": authorityAction(marketNav2('素材管理')),
             "__mockData": {}
         };
 
@@ -121,19 +126,19 @@ mf = typeof mf === 'undefined' ? {} : mf;
         };
 
         index.__nav1 = {
-            "account": {
+            /*"account": {
                 "label": "账户信息",
                 "url": "#/account/info"
-            },
+            },*/
             "market": {
                 "label": "推广管理",
                 "url": "#/market/plan"
-            },
+            }/*,
             "report": {
                 "label": "数据报表",
                 "url": "#/report/index",
                 "hideNav2": true
-            }
+            }*/
         };
         //nav2
         index.__nav2 = {

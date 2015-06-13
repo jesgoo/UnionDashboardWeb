@@ -9595,7 +9595,7 @@ esui.Table.prototype = {
             // 重绘时触发onselect事件
             switch ( me.select ) {
             case 'multi':
-                me.onselect( [] );
+                me.onselect( [] , true);
                 break;
             }
         }

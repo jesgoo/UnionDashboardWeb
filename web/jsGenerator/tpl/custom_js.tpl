@@ -8,11 +8,7 @@
     }
     setTimeout(function () {
         doc.open();doc.write(html);doc.close();
-        <%=_.templateList('resize', data)%>
         <%=_.templateList('rsa_monitor', data)%>
+        <%=_.templateList('resize', data)%>
     }, 0);
-<% if (!data.debug) { %>
-    <%=_.templateList('rsa', data)%>
-    <%=_.templateList('rsa_key', data)%>
-<% } %>
 }.call(this))

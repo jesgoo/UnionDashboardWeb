@@ -61,9 +61,9 @@ window.onload = function() {
         var btn = document.getElementById('jesgoo-btn');
         if(btn){
             if (attrObj.act == 2) {
-                btn.innerHTML = "\u4e0b\u8f7d";
+                btn.innerHTML = eval('("\\u4e' + '0b\\u8f' + '7d")');
             } else {
-                btn.innerHTML = "\u67e5\u770b";
+                btn.innerHTML = eval('("\\u67' + 'e5\\u7' + '70b")');
             }
             btn.style.display = "block"
         }
@@ -111,6 +111,5 @@ function resetFontsize() {
 
     document.body.style.fontSize = fz + 'px';
 }
-document.write('<div style="display: none;"><script src="http://s11.cnzz.com/z_stat.php?id=1254107932&web_id=1254107932" language="JavaScript"></script></div>');
 
 resetFontsize();

@@ -123,8 +123,29 @@ gulp.task('clean', function () {
     return gulp.src(releaseSource + '/template_source.js', { read: false })
         .pipe(gulpClean({ force: true }));
 });
-
-gulp.task('release', ['clean', 'tpl-node', 'tpl-web', 'test'], function () {
+gulp.task('tpl-css', function () {
+    var tplConfig = {
+        src: [
+            './tpl/base_css.tpl'
+        ],
+        filename: 'template_source.html',
+        destination: releaseSource
+    };
+    var stream = gulp.src(
+        tplConfig.src
+    ).pipe(
+        gulpConcat(tplConfig.filename)
+    ).pipe(
+        through.obj(function (file, encoding, cb) {
+            file.contents = new Buffer('<!-- target: tpl_base_css -->' + file.contents.toString());
+            cb(null, file);
+        })
+    ).pipe(
+        gulp.dest(tplConfig.destination)
+    );
+    return stream;
+});
+gulp.task('release', ['clean', 'tpl-node', 'tpl-web', 'test', 'tpl-css'], function () {
     var tplConfig = {
         src: [
             './js/*.js'
@@ -150,15 +171,44 @@ gulp.task('clean-output', function () {
 });
 
 var testSource = '/Users/yangyuelong/workspace/jesgoo_union/web/union/src/test/module';
-gulp.task('ck', ['tpl-node', 'tpl-web'], function () {
+var sdkSource = '/Users/yangyuelong/workspace/jesgoo_sdk/jssdk/banner/javascript/';
+gulp.task('clean-ck', function () {
+    return gulp.src([
+            sdkSource + 'resize-2.0-ck.min.js',
+            sdkSource + 'jesgoo-ck.min.js',
+            sdkSource + 'jesgoo.min.css',
+            testSource + 'jesgoo-ck.js'
+        ], { read: false })
+        .pipe(gulpClean({ force: true }));
+});
+gulp.task('ck-rsa', ['clean-ck', 'tpl-node', 'tpl-web'], function () {
     var tplConfig = {
         src: [
-            './tpl/resize-2.0.tpl',
+            './tpl/rsa.tpl',
+            './tpl/rsa_key.tpl'
+        ],
+        filename: 'jesgoo-ck.min.js',
+        destination: sdkSource
+    };
+    return gulp.src(
+        tplConfig.src
+    ).pipe(
+        gulpConcat(tplConfig.filename)
+    ).pipe(
+        gulpUglify()
+    ).pipe(
+        gulp.dest(tplConfig.destination)
+    )
+});
+gulp.task('ck', ['ck-rsa'], function () {
+    var tplConfig = {
+        src: [
             './tpl/rsa.tpl',
             './tpl/rsa_key.tpl',
+            './tpl/resize-2.0.tpl',
             './tpl/rsa_monitor.tpl'
         ],
-        filename: 'jq_ck.js',
+        filename: 'jesgoo-ck.js',
         destination: testSource
     };
     return gulp.src(
@@ -176,7 +226,25 @@ gulp.task('ck', ['tpl-node', 'tpl-web'], function () {
             }
         )
     ).pipe(
-        gulp.dest('/Users/yangyuelong/workspace/jesgoo_sdk/jssdk/banner/javascript')
+        gulp.dest(sdkSource)
+    )
+});
+gulp.task('sdk', ['ck'], function () {
+    var tplConfig = {
+        src: [
+            './tpl/base_css.tpl'
+        ],
+        filename: 'jesgoo.min.css',
+        destination: sdkSource
+    };
+    return gulp.src(
+        tplConfig.src
+    ).pipe(
+        gulpConcat(tplConfig.filename)
+    ).pipe(
+        gulpMinifyCss()
+    ).pipe(
+        gulp.dest(tplConfig.destination)
     )
 });
 gulp.task('test', ['clean-output'] ,function () {
@@ -189,7 +257,8 @@ gulp.task('test', ['clean-output'] ,function () {
         tplConfig.src
     ).pipe(
         through.obj(function (file, encode, cb) {
-            var jsonString = file.contents.toString().replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\\n/g, '\\\\n') ;
+            var contentStr = file.contents.toString() || '';
+            var jsonString = contentStr.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\\n/g, '\\\\n') ;
             var generator = require('child_process').exec(
                 'echo "' + jsonString + '" | node ./bin/generator.js'
             );
@@ -204,8 +273,8 @@ gulp.task('test', ['clean-output'] ,function () {
             });
             generator.on('close', function (code) {
                 if (errorInfo.length) {
-                    console.log(code, file.path, ' jsGenerator error');
-                    cb(new Error(errorInfo.join('\n')), null);
+                    console.log('jsGenerator error', file.path, code, errorInfo.join('\n'));
+                    cb(null, null);
                 } else {
                     file.contents = new Buffer(content.join(''));
                     console.log('jsGenerator success ', file.path);
@@ -221,4 +290,9 @@ gulp.task('test', ['clean-output'] ,function () {
         gulp.dest('./output/')
     );
     return stream;
+});
+process.on('uncaughtException', function (err, stack) {
+    //process.stderr.write('data: ' + originalData.join(''));
+    //process.stderr.write(err + ' stack:' + stack);
+    process.exit(1);
 });

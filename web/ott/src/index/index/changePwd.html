@@ -1,0 +1,38 @@
+<!-- target: mf_index_index_changePwd -->
+<div class="mf-index-index-changePwd">
+    <div class="ad-notice-area">
+        <div class="ad-unit-title">修改密码</div>
+        <div class="ad-unit">
+            <div class="ad-unit-item">
+                <div class="ad-unit-item-caption">请输入当前密码：</div>
+                <div class="ad-unit-item-field">
+                    <input ui="type:TextInput;id:oldpassword;" type="password">
+                    &nbsp;&nbsp;<span id="oldpasswordError"> 请输入管理员的登陆密码</span>
+                </div>
+            </div>
+            <div class="ad-unit-item">
+                <div class="ad-unit-item-caption">请您输入新的密码：</div>
+                <div class="ad-unit-item-field">
+                    <input ui="type:TextInput;id:newpassword;" type="password">
+                    &nbsp;&nbsp;<span id="newpasswordError"> 至少6位</span>
+                </div>
+            </div>
+            <div class="ad-unit-item">
+                <div class="ad-unit-item-caption">请再次输入新的密码：</div>
+                <div class="ad-unit-item-field">
+                    <input ui="type:TextInput;id:newpassword2;" type="password">
+                    &nbsp;&nbsp;<span id="newpassword2Error"> 必须和输入的新密码一致</span>
+                </div>
+            </div>
+            <div class="ad-unit-item">
+                <div class="ad-unit-item-caption"></div>
+                <div class="ad-unit-item-field" id="result"></div>
+                <div class="ad-unit-item-field">
+                    <div ui="type:Button;id:confirm;">确定</div>
+                    <div ui="type:Button;id:cancel;">返回</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- import: footer -->

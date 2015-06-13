@@ -2,7 +2,7 @@
  * @file 文件上传控件
  * @author Jefferson<dengyijun@baidu.com>
  * @date Fri Dec 07 2012 13:40:38 GMT+0800 (中国标准时间)
- * Copyright (c) 2012 Baidu.com, Inc. All Rights Reserved
+ * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
 
 (function () {
