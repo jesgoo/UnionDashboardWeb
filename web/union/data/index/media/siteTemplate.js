@@ -107,11 +107,11 @@ exports.response = {
                         },
                         "border": {
                             "border": {
-                                "width": "0",
-                                "style": "",
+                                "width": "1",
+                                "style": "solid",
                                 "color": {
                                     "color": "#60cb1b",
-                                    "opacity": "0"
+                                    "opacity": "100"
                                 }
                             },
                             "borderTop": {
@@ -123,11 +123,11 @@ exports.response = {
                                 }
                             },
                             "borderBottom": {
-                                "width": "0",
-                                "style": "",
+                                "width": "1",
+                                "style": "solid",
                                 "color": {
                                     "color": "#60cb1b",
-                                    "opacity": "0"
+                                    "opacity": "100"
                                 }
                             },
                             "borderRight": {
@@ -961,27 +961,27 @@ exports.response = {
             id: 1, // 模版id
             adtype: 2, // 模版类型 值同 AdType
             percent: 20, // 流量百分比 0 - 100
-            version: "", // cdn js文件地址
+            version: "result", // cdn js文件地址
             json: {} // 数据文件，很大一坨json
         },
         {
             id: 2, // 模版id
             adtype: 5, // 模版类型 值同 AdType
             percent: 80, // 流量百分比 0 - 100
-            version: "", // cdn js文件地址
+            version: "result", // cdn js文件地址
             json: {} // 数据文件，很大一坨json
         },
         {
             id: 4, // 模版id
             adtype: 5, // 模版类型 值同 AdType
             percent: 30, // 流量百分比 0 - 100
-            version: '' // cdn js文件地址
+            version: 'result' // cdn js文件地址
         },
         {
             id: 5, // 模版id
             adtype: 6, // 模版类型 值同 AdType
             percent: 100, // 流量百分比 0 - 100
-            version: '' // cdn js文件地址
+            version: 'result' // cdn js文件地址
         }
     ]
 };

@@ -5,11 +5,41 @@
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
 (function () {
+    var guide = function (action, element) {
+        var reportGuide = $(element, '#' + action.view.target);
+        return function (deepSearchItem) {
+            console.log('rend guide', deepSearchItem);
+            var guideHTML = [
+                deepSearchItem.text
+            ];
+            while (deepSearchItem.parent) {
+                deepSearchItem = deepSearchItem.parent;
+                guideHTML.unshift('<a data-cmd="' +
+                                  deepSearchItem.guideCmd +
+                                  (deepSearchItem[deepSearchItem.guideCmd]
+                                      ? '" data-' + deepSearchItem.guideCmd + '="'
+                                  + deepSearchItem[deepSearchItem.guideCmd]
+                                      : '') +
+                                  '">' + deepSearchItem.text +
+                                  '</a>');
+            }
+            reportGuide.html("<em>报表路径</em>&nbsp;" + guideHTML.join('&nbsp;>️&nbsp;'));
+        };
+    };
     mf.index.report.index = new er.Action({
         model: mf.index.report.model.index,
         view: new er.View({
             template: 'mf_index_report_index',
-            UI_PROP: {}
+            UI_PROP: {
+                side: {
+                    marginTop: 0
+                },
+                myTree: {
+                    collapsed: 0,
+                    expandSelected: false,
+                    clickExpand: false
+                }
+            }
         }),
         STATE_MAP: {},
 
@@ -17,11 +47,252 @@
             console.log('onenter');
             mf.onenter();
         },
-        onafterrepaint: function () {
+        onafterloadmodel: function () {
             console.log('onafterrepaint');
+            var model = this.model;
+            var operateData = mf.operateDataInConfigField(model.get('planList'));
+            var planTree = $.map(model.get('plans') || [], function (plan) {
+                var planId = operateData.get(plan, 'id');
+                var planName = operateData.get(plan, 'name');
+                return {
+                    text: planName,
+                    id: '_report_dailyPlan/' + planId,
+                    plan: planId,
+                    guideCmd: 'plan',
+                    hideChildren: true,
+                    reports: {
+                        plan: {
+                            action: 'plan',
+                            queryMap: {
+                                plan: planId,
+                                name: planName
+                            }
+                        }
+                    },
+                    children: [
+                        {
+                            text: '载入中...',
+                            id: '_load_/unit?plan=' + planId
+                        }
+                    ]
+                }
+            });
+            var treeSource = {
+                id: '_report_dailyTotal',
+                text: '我的账户',
+                guideCmd: 'total',
+                reports: {
+                    total: {
+                        action: 'total'
+                    }
+                },
+                children: planTree
+            };
+            model.set('treeSource', treeSource);
         },
         onafterrender: function () {
             console.log('onafterrender');
+            var action = this;
+            var model = action.model;
+            var methodReg = /^_(\w+)_(.+?)(?:\/(.*))?$/;
+            action.subAction = {};
+            var operateUnitData = mf.operateDataInConfigField(model.get('unitList'));
+            var operateIdeaData = mf.operateDataInConfigField(model.get('ideaList'));
+            var myTree = esui.get('myTree');
+            var treeSource = model.get('treeSource');
+            myTree.onexpand = function (value, cb) {
+                var item = this._dataMap[value];
+                item.hideChildren = false;
+                var method = methodReg.exec(item.children[0].id);
+                if (method && method[1] === 'load' && !item.loaded) {
+                    item.loaded = true;
+                    console.log('item', item);
+                    switch (method[2].match(/(\w+)/i)[1]) {
+                        case 'unit':
+                            mf.parallelAjax({
+                                url: method[2]
+                            }, function (units) {
+                                var tree = $.map(units, function (unit) {
+                                    var unitId = operateUnitData.get(unit, 'id');
+                                    var unitName = operateUnitData.get(unit, 'name');
+                                    var ideas = operateUnitData.get(unit, 'ideas');
+                                    return {
+                                        text: unitName,
+                                        id: '_report_unit/' + unitId,
+                                        unit: unitId,
+                                        plan: item.plan,
+                                        ideas: ideas || [],
+                                        guideCmd: 'unit',
+                                        hideChildren: true,
+                                        reports: {
+                                            unit: {
+                                                action: 'unit',
+                                                queryMap: {
+                                                    unit: unitId,
+                                                    name: unitName,
+                                                    plan: item.id
+                                                }
+                                            }
+                                        },
+                                        children: [
+                                            {
+                                                text: '载入中...',
+                                                id: '_load_/idea?plan=' + item.plan + '&unit=' + unitId
+                                            }
+                                        ]
+                                    }
+                                });
+                                item.children = tree;
+                                myTree.render();
+                                cb && cb();
+                            });
+                            break;
+                        case 'idea':
+                            mf.parallelAjax({
+                                url: method[2]
+                            }, function (ideas) {
+                                ideas = ideas.filter(function (n) {
+                                    return mf.m.utils.indexOfArray(item.ideas, n.id) > -1;
+                                });
+                                var tree = $.map(ideas, function (idea) {
+                                    var ideaId = operateIdeaData.get(idea, 'id');
+                                    var ideaName = operateIdeaData.get(idea, 'name');
+                                    return {
+                                        text: ideaName,
+                                        id: '_report_idea/' + ideaId,
+                                        idea: ideaId,
+                                        unit: item.unit,
+                                        plan: item.plan,
+                                        guideCmd: 'idea',
+                                        reports: {
+                                            idea: {
+                                                action: 'idea',
+                                                queryMap: {
+                                                    idea: ideaId,
+                                                    name: ideaName,
+                                                    plan: item.plan,
+                                                    unit: item.unit
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                item.children = tree;
+                                myTree.render();
+                                cb && cb();
+                            });
+                            break;
+                    }
+
+                }
+            };
+            myTree.onclappse = function (value) {
+                this._dataMap[value].hideChildren = true;
+            };
+            myTree.onchange = function (value, item) {
+                parseSelectTree(value, mf.m.utils.deepSearch('children', treeSource, value, 'id'));
+            };
+            myTree.select('_report_dailyTotal');
+            var reportLoader = mf.index.reportBind(action, '#reportArea');
+            var guidePainter = guide(action, '#reportGuide');
+            parseSelectTree('_report_dailyTotal', treeSource);
+
+            function parseSelectTree(value, item) {
+                var method = value.match(/^_(\w+)_(.+?)(?:\/(.*))?$/);
+                console.log('select tree node', method, item);
+                if (!method) {
+                    return false;
+                } else if (method[1] === 'report' && item.reports) {
+                    guidePainter(item);
+                    reportLoader(item.reports);
+                }
+            }
+
+            model.set(
+                'commands',
+                mf.clickCommand.register(
+                    [
+                        {
+                            cmd: 'total',
+                            handle: function (options) {
+                                parseSelectTree(treeSource.id, treeSource);
+                                myTree.select(treeSource.id);
+                            }
+                        },
+                        {
+                            cmd: 'step_plan',
+                            handle: function (options) {
+                                options.plan && window.open('#/report/dailyPlan~plan=' + options.plan + '&name='
+                                                            + options.name);
+                            }
+                        },
+                        {
+                            cmd: 'plan',
+                            handle: function (options) {
+                                var planItem = mf.m.utils.deepSearch('children', treeSource, options.plan, 'plan');
+                                if (planItem) {
+                                    parseSelectTree(planItem.id, planItem);
+                                    myTree.select(planItem.id);
+                                } else {
+                                    esui.Dialog.alert(
+                                        {
+                                            title: '跳转提示',
+                                            content: '<p>没有找到对应的报表。</p>\
+                                                     <p>请刷新重试或咨询管理员。</p>'
+                                        }
+                                    );
+                                }
+                            }
+                        },
+                        {
+                            cmd: 'unit',
+                            handle: function (options) {
+                                var unitItem = mf.m.utils.deepSearch('children', treeSource, options.unit,
+                                    'unit');
+                                if (unitItem) {
+                                    parseSelectTree(unitItem.id, unitItem);
+                                    myTree.expand(unitItem.parent.id);
+                                    myTree.select(unitItem.id);
+                                } else {
+                                    var mediaItem = mf.m.utils.deepSearch('children', treeSource, options.plan,
+                                        'plan');
+                                    if (mediaItem && !mediaItem.loaded) {
+                                        myTree.onexpand(mediaItem.id, function () {
+                                            var unitItem = mf.m.utils.deepSearch('children', treeSource,
+                                                options.unit, 'unit');
+                                            if (unitItem) {
+                                                parseSelectTree(unitItem.id, unitItem);
+                                                myTree.select(unitItem.id);
+                                            } else {
+                                                esui.Dialog.alert(
+                                                    {
+                                                        title: '跳转提示',
+                                                        content: '<p>没有找到对应的广告位报表。</p>\
+                                                     <p>请刷新重试或咨询管理员。</p>'
+                                                    }
+                                                );
+                                            }
+                                        });
+                                    } else {
+                                        esui.Dialog.alert(
+                                            {
+                                                title: '跳转提示',
+                                                content: '<p>没有找到对应的媒体信息。</p>\
+                                                     <p>请刷新重试或咨询管理员。</p>'
+                                            }
+                                        );
+                                    }
+
+                                }
+                            }
+                        }
+                    ],
+                    {
+                        region: '#' + action.view.target,
+                        rewrite: true
+                    }
+                )
+            );
         },
         onentercomplete: function () {
             console.log('onentercomplete');
@@ -31,6 +302,13 @@
         },
         onleave: function () {
             console.log('onleave');
+            var action = this;
+            $.each(action.subAction || {}, function (name, subAction) {
+                subAction && subAction.leave();
+            });
+            action.subAction = null;
+            var commands = action.model.get('commands');
+            commands && mf.clickCommand.dispose(commands);
         }
     });
 })();

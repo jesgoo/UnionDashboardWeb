@@ -1,0 +1,199 @@
+<!-- target: mf_index_account_info -->
+<div class="mf-index-account-info layout-2-right">
+    <div class="left">
+        <div class="plain-edit-area">
+            <div class="plain-unit-title">账户信息完善<span class="error mgR20 float-right">以下信息需正确填写以备后续结算使用</span></div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">企业基本信息</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        企业名称
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=1 ui="type:TextInput;width:300;id:company;value:*company;placeholder:您企业的完整名称;" />
+                        <div class="error" id="companyError"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        联系人姓名
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=2 ui="type:TextInput;width:300;id:payee;value:*payee;placeholder:账务结算时有效的联系人姓名;" />
+                        <div class="error" id="payeeError"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        联系电话
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=3 ui="type:TextInput;width:300;id:phone;value:*phone;placeholder:账务结算时有效的联系电话;" />
+                        <div class="error" id="phoneError"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        Email
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=4 ui="type:TextInput;width:300;id:email;value:*email;placeholder:正确的邮箱地址;" />
+
+                        <div class="error" id="emailError"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        QQ
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=5 ui="type:TextInput;width:300;id:qq;value:*qq;placeholder:有效的QQ号码;" />
+
+                        <div class="error" id="qqError"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">银行账户信息</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        收款银行
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=6 ui="type:TextInput;width:300;id:bank;value:*bank;placeholder:结算时您收款银行的名称，如 中国工商银行;" />
+
+                        <div class="error" id="bankError"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        开户地<div ui="type:Tip;title:具体的银行地址名称;content:如 上海市杨浦区长白支行;skin:info;"></div>
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=7 ui="type:TextInput;width:300;id:bank_address;value:*bank_address;placeholder:您银行账号的开户地，如 上海市杨浦区长白支行;" />
+
+                        <div class="error" id="bank_addressError"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        银行账号
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=8 ui="type:TextInput;width:300;id:bank_account;value:*bank_account;placeholder:正确的银行账号;" />
+
+                        <div class="error" id="bank_accountError"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">发票信息</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        发票类型
+                    </div>
+                    <div class="plain-unit-item-field">
+                        增值税专用发票
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        税号
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" tabindex=9 ui="type:TextInput;width:300;id:tax_number;value:*tax_number;placeholder:财务发票开具时使用的企业税号;" />
+
+                        <div class="error" id="tax_numberError"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        用户协议
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="checkbox" tabindex=10 ui="type:CheckBox;id:agreement;title:我已阅读并同意用户协议" />
+
+                        <div class="error" id="agreementError"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        验证码
+                    </div>
+                    <div class="plain-unit-item-field captcha-area">
+                        <input type="text" tabindex=11 ui="type:TextInput;id:captcha;width:80;" />
+                        <img id="captcha_img" />
+
+                        <div class="error" id="captchaError"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <div ui="type:Button;id:submit;" class="mgR40">保存信息</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="plain-edit-area">
+            <div class="plain-unit-title">用户协议</div>
+            <div class="agreement" style="padding: 1em 2em;">
+                <h3 align="center">联想广告平台接入补充协议</h3>
+                <p>鉴于, 经由贵方在ad.lenovomm.com链接页面点击“我已阅读并同意用户协议”按钮，贵方和北京神奇工场科技有限公司(以下简称“神奇工场”)就应用商店（以下简称“乐商店”）开发者合作之事宜已签署《应用商店开发者合作协议》（以下简称“原协议”），双方同意对原协议做本协议约定的修订或补充。贵方点击“我已阅读并同意用户协议”按钮的行为将表明贵方完全理解并接受本补充协议。</p>
+                <p>&nbsp;</p>
+                <p>经友好协商，就在贵方产品中集成神奇工场提供的广告展示平台SDK一事达成如下协议：</p>
+                <p>&nbsp;</p>
+                <h4>1. 定义</h4>
+                <p>1.SDK：是指通过调用SDK提供方技术或数据实现广告展示功能的软件开发工具包。</p>
+                <p>2.贵方用户：是指使用贵方产品的用户。</p>
+                <h4>2. 合作方式</h4>
+                <p>2.1 神奇工场向贵方提供SDK，由贵方集成在贵方产品中，用于广告展示。</p>
+                <p>2.2 贵方将集成有SDK的贵方产品按照双方原协议的有关约定提供给神奇工场进行推广。</p>
+                <p>2.3就贵方产品中展示的广告所产生的用户点击而带来的收入，由双方按本协议约定的比例和方式进行分配。</p>
+                <h4>3．神奇工场的权利、义务</h4>
+                <p>3.1 神奇工场向贵方提供SDK，并提供必要的技术支持帮助贵方在贵方产品中集成SDK。</p>
+                <p>3.2 神奇工场保证非经贵方事先书面同意，不对贵方产品进行反向工程（reverse engineer）、反向编译（decompile）或反汇编（disassemble），不得破坏其完整性（包括程序代码、数据等），不得删除其上的有关贵方版权的说明或声明等信息。</p>
+                <p>3.3 除为履行本协议之目的，神奇工场保证非经贵方事先书面同意，不得为任何目的，以任何方式，有偿或无偿地将本协议下所获得的贵方产品向第三方出借、出租、转让或转授权，也不得以贵方产品为基础制作、销售、使用衍生产品。</p>
+                <p>3.4如发现贵方产品存在任何形式的非本协议项下广告或第三方应用推荐模块（包括但不限于积分墙、精品推荐等），神奇工场有权要求贵方立即采取措施删除或关闭该功能，若贵方不予执行，神奇工场有权将贵方产品立即下架，且不为此承担任何责任。</p>
+                <p>3.5 神奇工场为贵方提供查询后台用于查询结算数据。</p>
+                <h4>4. 贵方的权利、义务</h4>
+                <p>4.1贵方负责在贵方产品中正确、完整地集成SDK，为此神奇工场将提供必要的技术支持。</p>
+                <p>4.2 贵方负责到神奇工场指定后台对集成SDK的贵方产品进行设置，从而实现在贵方产品中展示广告的目的。</p>
+                <p>4.3 贵方有权检测SDK功能的稳定性、准确性和完整性。如发现SDK的功能有差错或延迟等问题，贵方有权联系神奇工场进行修复。</p>
+                <p>4.4 贵方仅有权将神奇工场提供的SDK用于本协议约定之目的，未经神奇工场另行书面同意，不得提供给任何第三方使用。</p>
+                <p>4.5贵方保证就贵方产品或就其向用户提供的互联网信息服务以及与之相关的收费已经获得了合法的许可、资质。</p>
+                <p>4.6贵方负责贵方产品的合法性，并承担相应的法律责任。贵方提供的产品如涉及第三方权利，由贵方自行出资负责相关的知识产权及其他事宜，与神奇工场无关。</p>
+                <p>4.7贵方负责贵方产品及其在乐商店运营的建设，包括技术支持、内容产品支持等。</p>
+                <p>4.8贵方确保贵方产品的稳定性，贵方负责维护贵方产品的内容，且应保证该产品不包含推广第三方应用、游戏的推荐模块（包括但不限于积分墙、精品推荐等），并且保证不含有未经神奇工场同意的广告展示内容。</p>
+                <p>4.9贵方负责贵方服务器设置、运营、维护管理以及用户管理，并承担相应产生的一切费用。</p>
+                <p>4.10合作期间，贵方如需在神奇工场后台对贵方产品进行修改、更新，应提前 2 个自然日通知神奇工场，神奇工场予以配合。否则神奇工场不为因贵方擅自修改、更新导致其产品进入下架审核状态而造成的后果承担任何责任。</p>
+                <p>4.11合作期间，贵方须在贵方产品版本升级后立即在乐商店进行发布，如贵方产品在第三方渠道进行独家首发，则须在完成首发后立即在神奇工场渠道进行发布。在合同有效期内，贵方应保证在乐商店进行不少于三次的版本升级首发。自任一渠道发布起超过24小时未在乐商店进行新版本发布的，神奇工场有权立即停止贵方产品的推广，且无须退还余下服务费。</p>
+                <p>4.12 贵方保证贵方收款账户信息的准确性和真实性，如因贵方账户信息提供错误导致的资金延迟或无法到账，神奇工场不承担责任。</p>
+                <h4>5．结算与利润分配</h4>
+                <p>5.1就贵方产品中展示的广告所产生的用户点击而带来的收入，神奇工场和贵方按照如下方式之一进行分成：</p>
+                <p>5.1.1 神奇工场不参与分成，贵方有权获得全部广告收入；</p>
+                <p>5.1.2神奇工场和贵方按照0% : 100%的比例进行分成。</p>
+                <p>具体分成方式以神奇工场在乐商店上发布的最新公告为准，如公告与本协议有不一致之处，以公告为准。</p>
+                <p>5.2 结算数据以神奇工场后台数据为准。</p>
+                <p>5.3 贵方应当依照法律规定，自行缴纳相应的税费。</p>
+                <p>5.4 神奇工场于次一月的10日前，统计上一个月的收入，并将统计结果以书面/电子邮件形式提供给贵方，若有疑问，则双方协商解决；若无争议，神奇工场在收到贵方开具的等额增值税专用发票和盖章/签字的结算单（个人开发者还需提供身份证复印件）后三（3）个工作日内将分成收入支付给贵方。若贵方无法提供增值税专用发票，则贵方需承担6%的税点，神奇工场每月将扣除相应税费后的金额以书面/电子邮件形式提供给贵方，并在收到贵方开具的等额增值税普通发票和盖章/签字的结算单（个人开发者还需提供身份证复印件）后三（3）个工作日内将分成收入支付给贵方。</p>
+                <p>5.5 有关本协议项下的收入和结算等相关事宜，双方可以根据业务开展的情况不时签订补充协议，对相关事宜予以明确。</p>
+                <p>5.6 神奇工场开票信息：</p>
+                <ul>
+                    <li>公司名称：北京神奇工场科技有限公司</li>
+                    <li>注册地址：北京市海淀区上地信息产业基地创业路6号65区6507</li>
+                    <li>纳税人识别号：110108318338204</li>
+                    <li>开户行：中信银行股份有限公司北京北苑支行</li>
+                    <li>账号：7116310182600023506</li>
+                </ul>
+                <h4>6．其他</h4>
+                <p>本协议是双方签署的原协议的修订和补充，除本协议另有约定的部分外，不构成对原协议的取代，原协议在其未被修改的范围内仍具有完全的效力。</p>
+                </div>
+        </div>
+    </div>
+</div>

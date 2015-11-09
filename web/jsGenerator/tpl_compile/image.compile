@@ -23,6 +23,8 @@ __p+=''+
 '\n</style>\n<a id="jg-link" class="jg-banner jg-image layout-area" href="<\\\\%=data.ClickUrl%\\\\>" target="_blank">\n    <div class="layout-area image-area">\n        <div class="jg-image jq-container">\n            <img src="<\\\\%=data.ImageUrl%\\\\>" onerror="this.parentNode.parentNode.parentNode.className+=\' no-image\'" />\n        </div>\n    </div>\n    <div class="layout-area btn-area">\n        <div class="jg-btn jq-container"></div>\n    </div>\n</a>\n'+
 ((__t=(_.templateList('impression_monitor', data)))==null?'':__t)+
 '\n'+
+((__t=(_.templateList('click_monitor', data)))==null?'':__t)+
+'\n'+
 ((__t=(_.templateList('base_foot', data)))==null?'':__t)+
 '';
 return __p;

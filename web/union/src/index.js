@@ -9,7 +9,7 @@ mf.index = {};
 er.config.TEMPLATE_LIST = [
     'asset/union-index.html'
 ];
-er.config.DEFAULT_INDEX = "/media/site";
+er.config.DEFAULT_INDEX = "/account/index";
 //er.config.DEFAULT_INDEX = "/index/dailyReport";
 mf.authority = mf.m.authority('union', 'index');
 mf.cookieKeyMap = {
@@ -36,6 +36,8 @@ mf.urlDebugRouter.reg({
     '/index/index/login': '/login',
     // 用户信息
     '/index/user': '/user',
+    // 用户信息
+    '/index/account/settlement': '/withdraw',
     // 配置文件
     '/index/config': '/config',
     // 渠道列表
@@ -87,8 +89,7 @@ $(function () {
         mf.clickCommand.register({
             cmd: 'loginOut',
             handle: function () {
-                T.cookie.set(mf.cookieKeyMap.authority, 0);
-                window.location.reload();
+                mf.loginOut();
                 return false;
             },
             rewrite: true
@@ -121,38 +122,72 @@ $(function () {
         var name = $(this).data('name');
         mockLogin(name, passageway[name]);
     });
+    mf.getUserInfo();
 });
 
-mf.getUserInfo = mf.m.utils.throttle(function () {
+mf.getUserInfo = function () {
     var getUrl = mf.ajaxParamFactory({
         url: '/user'
     });
     $.getJSON(getUrl.url, function (result) {
+        console.log('getUserInfo', result);
         if (result.success) {
-            var user = result.entities;
-            console.log('user', user);
-            $.each([
-                'username',
-                'display_name',
-                'default_channel'
-            ], function (index, field) {
-                var key = mf.cookieKeyMap[field];
-                key && T.cookie.set(key, user[field] || '');
-            });
-            $('#' + mf.USERNAME_ID).html(user.display_name || user.username);
-            if (user.isAdmin) {
-                $('.passageway[data-name=admin]').show();
-            }
-            if (user.isUd) {
-                $('.passageway[data-name=ud]').show();
-            }
+            mf.loginIn(result);
         }
     });
-}, 200);
+};
 
-mf.onenter = (function (fn) {
-    return function () {
-        fn.apply(this, arguments);
-        mf.getUserInfo();
+mf.loginIn = function (result) {
+    var user = result.entities;
+    console.log('user', user);
+    var expObj = {expires: 3600000 * 24 * 15};
+    $.each([
+        'username',
+        'display_name',
+        'default_channel'
+    ], function (index, field) {
+        var key = mf.cookieKeyMap[field];
+        key && T.cookie.set(key, user[field] || '', expObj);
+    });
+    $('#' + mf.USERNAME_ID).html(user.display_name || user.username);
+    if (user.is_admin) {
+        $('.passageway[data-name=admin]').show();
     }
-})(mf.onenter);
+    if (user.is_ud) {
+        $('.passageway[data-name=ud]').show();
+    }
+    var authority = 255;
+    T.cookie.set(mf.cookieKeyMap.authority, authority);
+    mf.authority.parse(authority);
+    global_previousName = user.username;
+};
+
+mf.loginOut = function () {
+    var getUrl = mf.ajaxParamFactory({
+        url: '/logout'
+    });
+    $.getJSON(getUrl.url, function (result) {
+        T.cookie.set(mf.cookieKeyMap.authority, 0);
+        mf.authority.parse(0);
+        er.locator.redirect('/index/login');
+    });
+};
+
+//mf.onenter = (function (fn) {
+//    return function () {
+//        fn.apply(this, arguments);
+//        mf.getUserInfo();
+//    }
+//})(mf.onenter);
+
+var global_previousName = T.cookie.get(mf.cookieKeyMap.username);
+(function () {
+    setInterval(function () {
+        var currentName = T.cookie.get(mf.cookieKeyMap.username);
+        if (global_previousName !== currentName) {
+            T.cookie.set(mf.cookieKeyMap.authority, 0);
+            er.locator.redirect(mf.userLoad);
+        }
+        global_previousName = currentName;
+    }, 3000);
+})();

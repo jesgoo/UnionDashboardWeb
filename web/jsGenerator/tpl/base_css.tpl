@@ -9,16 +9,15 @@ html
     height: 100%;
     width: 100%;
     text-align: center;
+    background: transparent;
 }
 html {
-    background: #fff;
     color: #000;
     font: 12px/1 "microsoft yahei" , Arial, sonti, Verdana, Geneva, Helvetica, sans-serif;
 }
 body {
     font-size: 100%;
     font-family: inherit;
-    background-color: #f2f2f2;
 }
 table {
     border-collapse: collapse;
@@ -60,6 +59,7 @@ a.jg-banner {
     height: 100%;
     position: relative;
     text-align: center;
+    box-sizing: border-box;
 }
 .jg-banner .jq-container {
     display: table-cell;

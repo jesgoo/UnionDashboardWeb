@@ -20,7 +20,10 @@
             'media': {},
             'modifyTime': {},
             'name': {
-                width: 120
+                width: 120,
+                validator: function (value, item) {
+                    return (!value || value.length < 3) && '名称长度不能少于2位';
+                }
                 //breakLine: 1
                 /*content: function (item, index) {
                  return '<a data-cmd="edit" data-index="' + index + '">' + operateData.get(item, 'name', '') + '</a>'
@@ -52,7 +55,7 @@
             'type': {
                 subEntry:1,
                 isSubEntryShow: function (item, index, col) {
-                    return !item._isNew && operateData.get(item, 'type') === config.maps.sitePositionType.banner;
+                    return !item._isNew && (operateData.get(item, 'type') === config.maps.sitePositionType.banner || operateData.get(item, 'type') === config.maps.sitePositionType.square);
                 },
                 editable: function (item, index, col) {
                   return !!item._isNew;

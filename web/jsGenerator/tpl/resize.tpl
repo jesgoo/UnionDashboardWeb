@@ -1,3 +1,21 @@
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function (fn) {
+        for (var i = 0, l = this.length; i < l; i += 1) {
+            fn.call(window, this[i], i, this);
+        }
+    }
+}
+var gel = window.errorLog || [];
+gel.push('s');
+
+(function (log) {
+    var gel = window.errorLog || [];
+    gel.push('log');
+    if (!log) return false;
+    gel.push('logr');
+    log(document.body, { type: 12 });
+})(this.sendLog);
+
 (function () {
     var html = document.documentElement;
     var field = 'currentFontSize';

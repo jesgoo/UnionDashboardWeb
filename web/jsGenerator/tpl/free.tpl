@@ -9,4 +9,6 @@
 <a id="jg-link" class="jg-banner jg-free" href="<\\%=data.ClickUrl%\\>" target="_blank">
     <%=data.content.html%>
 </a>
+<%=_.templateList('impression_monitor', data)%>
+<%=_.templateList('click_monitor', data)%>
 <%=_.templateList('base_foot', data)%>

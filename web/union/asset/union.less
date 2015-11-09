@@ -229,11 +229,11 @@ a.notice-close:hover {
             color: #000000;
         }
 
-        &.on .nav-1-analyze,
         &.on .nav-1-main,
         &.on .nav-1-index {
             background-position: 0 0;
         }
+
         .nav-1-account {
             width: 114px;
             background-position: -90px -30px;
@@ -241,19 +241,23 @@ a.notice-close:hover {
         &.on .nav-1-account {
             background-position: -90px 0;
         }
+        .nav-1-analyze,
         .nav-1-manage,
         .nav-1-media {
             width: 114px;
             background-position: -533px -30px;
         }
+        &.on .nav-1-analyze,
         &.on .nav-1-manage,
         &.on .nav-1-media {
             background-position: -533px 0;
         }
+        .nav-1-demo,
         .nav-1-report {
             width: 114px;
             background-position: -568px -94px;
         }
+        &.on .nav-1-demo,
         &.on .nav-1-report {
             background-position: -568px -63px;
         }
@@ -821,6 +825,7 @@ div.main-info {
 .plain-notice-area,
 .plain-edit-area,
 .plain-unit,
+.plain-unit-item,
 .plain-unit-table,
 .plain-unit-title {
     border: 0 solid #eaeaea;
@@ -868,6 +873,9 @@ div.main-info {
 
 .plain-unit-item {
     padding: 20px 10px;
+}
+.plain-unit-item-border {
+    border-bottom-width: 1px;
 }
 
 .plain-unit-action,
@@ -1006,5 +1014,23 @@ div.main-info {
 .plain-notice-area {
     background-color: #fbfbfd;
 }
+
 .mf-union {
+}
+.header-bg {
+    a {
+        display: none;
+    }
+}
+.login-modal {
+    .header-bg {
+        a {
+            display: inline;
+        }
+    }
+    .nav-1,
+    .nav-2,
+    .header-login {
+        display: none;
+    }
 }

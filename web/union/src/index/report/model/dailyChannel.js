@@ -7,19 +7,19 @@
 (function () {
     var FIELDS = function (model) {
         return [
-            {
+            /*{
                 "field": "request",
                 "title": "请求数",
                 "content": mf.getFieldContentLess('request'),
                 "sortable": 1,
                 "align": "right"
-            }/*,
+            },
              {
              "field": "served_request",
              "title": "有效请求数",
              "content": "served_request",
              "sortable": 1
-             }*/,
+             },*/
             {
                 "field": "impression",
                 "title": "展现数",
@@ -85,7 +85,7 @@
                 "field": "media",
                 "title": "媒体ID",
                 "content": function (item, index) {
-                    return '<a data-cmd="step_media" data-media="' + item.media + '" data-name="' + item.name + '">' + item.name + '</a>';
+                    return item.media ? '<a data-cmd="step_media" data-media="' + item.media + '" data-name="' + item.name + '">' + item.media + '</a>' : '-';
                 },
                 "sortable": 1
             },
@@ -93,7 +93,7 @@
                 "field": "name",
                 "title": "媒体名称",
                 "content": function (item, index) {
-                    return '<a data-cmd="step_media" data-media="' + item.media + '" data-name="' + item.name + '">' + item.name + '</a>';
+                    return item.media ? '<a data-cmd="step_media" data-media="' + item.media + '" data-name="' + item.name + '">' + item.name + '</a>' : item.name || '-';
                 },
                 "sortable": 1
             }

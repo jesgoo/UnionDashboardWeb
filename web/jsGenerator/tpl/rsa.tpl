@@ -1118,12 +1118,16 @@
          5 clinetH
          6 clinetW
          7 eventTime 初始化ck到获取ck的时间间隔，单位 100毫秒
+         8 isPreventByMask 点击误点蒙板区域的状态  0 或 1
          * */
-        function getCkValue() {
+        function getCkValue(anchor, e) {
+            e = window.event || e;
             var eventTime = Math.floor((new Date().getTime() - initTime) / 100);
+            if (touchX === -1 || touchY === -1) {
+                touchX = e.clientX || e.pageX;
+                touchY = e.clientY || e.pageY;
+            }
             var keyList = {
-                '0': Math.ceil(touchX) || 0,
-                '1': Math.ceil(touchY) || 0,
                 '2': Math.round(pressTime) || 0,
                 '3': scrollNum,
                 '4': 1,
@@ -1131,12 +1135,16 @@
                 '6': clinetW,
                 '7': eventTime
             };
-            var value = [];
+            var value = ['0:' + (Math.ceil(touchX) || 0), '1:' + (Math.ceil(touchY) || 0)];
             for (var i in keyList) {
                 if (keyList[i] > -1) {
                     value.push(i + ':' + keyList[i]);
                 }
             }
+
+            (window.extraCK || []).forEach(function (n) {
+                n && value.push(n(touchX, touchY, anchor));
+            });
             value = value.join(',');
             return value;
         }
@@ -1180,12 +1188,12 @@
         triggerCK: function () {
             return global.jesgoo.ckInstance = ckInstance = Ck().getInstance();
         },
-        getCk: function () {
+        getCk: function (anchor) {
             if (!ckInstance) return '';
-            var ckValue = ckInstance.getCkValue();
+            var ckValue = ckInstance.getCkValue(anchor);
             global.jesgoo.ckValue = ckValue;
-            ckValue = passportPubKeyIndex + RSAEncrypt(ckValue);
-            return ckValue;
+            global.jesgoo.ckValueEncrypt = passportPubKeyIndex + RSAEncrypt(ckValue);
+            return global.jesgoo.ckValueEncrypt;
         }
     };
 })(this);

@@ -92,6 +92,7 @@
             });
             refreshTable();
             var jssdkDomain = location.host.replace(/^union\./i, 'cdn.');
+            jssdkDomain = jssdkDomain.replace('cdn.moogos', 'c3.moogos');
             //var jssdkDomain = location.host.replace(/^union\./i, 'api.');
 
             table.onedit = (function (fn) {
@@ -250,6 +251,9 @@
                     }
                 )
             );
+            if (model.get('addNew')) {
+                $('[data-cmd=add]','#' + action.view.target).trigger('click');
+            }
         },
         onleave: function () {
             console.log('onleave');

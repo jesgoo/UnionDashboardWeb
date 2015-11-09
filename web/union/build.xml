@@ -115,6 +115,10 @@
             </fileset>
         </copy>
 
+        <copy todir="${out.m.dir}/asset/">
+            <filelist dir="${site.dir}/asset" files="ace.js mode-json.js theme-tomorrow.js"/>
+        </copy>
+
         <zip destfile="${m.release.file}">
             <fileset dir="${out.m.dir}">
                 <exclude name="data/**"/>

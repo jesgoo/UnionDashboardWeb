@@ -203,7 +203,6 @@ a.notice-close:hover {
   font-weight: bold;
   color: #000000;
 }
-.nav-1 li.on .nav-1-analyze,
 .nav-1 li.on .nav-1-main,
 .nav-1 li.on .nav-1-index {
   background-position: 0 0;
@@ -215,19 +214,23 @@ a.notice-close:hover {
 .nav-1 li.on .nav-1-account {
   background-position: -90px 0;
 }
+.nav-1 li .nav-1-analyze,
 .nav-1 li .nav-1-manage,
 .nav-1 li .nav-1-media {
   width: 114px;
   background-position: -533px -30px;
 }
+.nav-1 li.on .nav-1-analyze,
 .nav-1 li.on .nav-1-manage,
 .nav-1 li.on .nav-1-media {
   background-position: -533px 0;
 }
+.nav-1 li .nav-1-demo,
 .nav-1 li .nav-1-report {
   width: 114px;
   background-position: -568px -94px;
 }
+.nav-1 li.on .nav-1-demo,
 .nav-1 li.on .nav-1-report {
   background-position: -568px -63px;
 }
@@ -692,6 +695,7 @@ div.main-info {
 .plain-notice-area,
 .plain-edit-area,
 .plain-unit,
+.plain-unit-item,
 .plain-unit-table,
 .plain-unit-title {
   border: 0 solid #eaeaea;
@@ -733,6 +737,9 @@ div.main-info {
 }
 .plain-unit-item {
   padding: 20px 10px;
+}
+.plain-unit-item-border {
+  border-bottom-width: 1px;
 }
 .plain-unit-action,
 .plain-unit-item-caption,
@@ -839,4 +846,15 @@ div.main-info {
 .plain-edit-area .plain-unit-title,
 .plain-notice-area {
   background-color: #fbfbfd;
+}
+.header-bg a {
+  display: none;
+}
+.login-modal .header-bg a {
+  display: inline;
+}
+.login-modal .nav-1,
+.login-modal .nav-2,
+.login-modal .header-login {
+  display: none;
 }

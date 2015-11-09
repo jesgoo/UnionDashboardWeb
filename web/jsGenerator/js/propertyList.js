@@ -23,6 +23,7 @@
                 name: 'bannerStyle',
                 properties: [
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
                     propertyConfig.radius,
                     propertyConfig.shadow,
                     propertyConfig.transform,
@@ -38,6 +39,7 @@
                 name: 'bannerStyle',
                 properties: [
                     propertyConfig.backgroundColor,
+                    propertyConfig.border,
                     propertyConfig.radius,
                     propertyConfig.shadow,
                     propertyConfig.transform,

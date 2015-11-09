@@ -81,7 +81,7 @@ function getGridCreateEditor($treeGrid, uniqueName) {
                 dropDownButton.jqxDropDownButton({width: '100%', height: '100%'});
                 var colorPicker = $(".colorPicker" + rowKey + uniqueName);
                 colorPicker.jqxColorPicker({width: 220, height: 220});
-                colorPicker.on('colorchange', function (event) {
+                colorPicker/*.off('colorchange')*/.on('colorchange', function (event) {
                     dropDownButton.jqxDropDownButton('setContent',
                         getTextElementByColor(event.args.color));
                 });

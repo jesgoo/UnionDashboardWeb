@@ -5,4 +5,4 @@
  * @author killeryyl<longgeyang@jesgoo.com>
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
- mf.index.indexActions = [{"path":"/index/login","action":"mf.index.index.login"},{"path":"/index/register","action":"mf.index.index.register"},{"path":"/index/dailyReport","action":"mf.index.index.dailyReport","authority":"LOGIN","noAuthLocation":"/index/login"}];
+ mf.index.indexActions = [{"path":"/index/login","action":"mf.index.index.login"},{"path":"/index/register","action":"mf.index.index.register"}];

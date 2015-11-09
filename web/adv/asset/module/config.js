@@ -103,6 +103,30 @@
                     "value": 1
                 }
             ],
+            "osReportType": {
+                'all' : 0,
+                'Android' : 1,
+                'iOS' : 2,
+                'WindowsPhone' : 3
+            },
+            "osReportTypeMap": [
+                {
+                    "name": "其他",
+                    "value": 0
+                },
+                {
+                    "name": "Android",
+                    "value": 1
+                },
+                {
+                    "name": "iOS",
+                    "value": 2
+                },
+                {
+                    "name": "WindowsPhone",
+                    "value": 3
+                }
+            ],
             "chargeType": {
                 'CPC' : 0,
                 'CPM' : 1
@@ -166,7 +190,10 @@
             ],
             "positionType": {
                 "banner" : 1,
-                "popups" : 4
+                "popups" : 4,
+                "insert" : 5,
+                "push" : 6,
+                "native" : 7
             },
             "positionTypeMap": [
                 {
@@ -176,6 +203,18 @@
                 {
                     "name": "开屏",
                     "value": 4
+                },
+                {
+                    "name": "插屏",
+                    "value": 5
+                },
+                /*{
+                    "name": "推送",
+                    "value": 6
+                },*/
+                {
+                    "name": "Native原生",
+                    "value": 7
                 }
             ],
             "judgeMap": [

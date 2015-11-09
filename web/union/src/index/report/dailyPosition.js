@@ -38,7 +38,7 @@
                     'dateRegion': dateRegion.getValue()
                 });
             }, dateRegion);
-            var listTable = esui.get('dailyPositionList');
+            /*var listTable = esui.get('dailyPositionList');
             listTable.onsort = mf.m.utils.nextTickWrapper(function (orderField, order) {
                 var orderBy = orderField.field;
                 order = order == 'asc' ? 1 : -1;
@@ -46,7 +46,7 @@
                     return a[orderBy] > b[orderBy] ? order : -order;
                 });
                 listTable.render();
-            }, listTable);
+            }, listTable);*/
 
         },
         onentercomplete: function () {
@@ -54,6 +54,39 @@
             mf.loaded();
             var action = this;
             var model = action.model;
+
+            var data = model.get('lists');
+            if (data.length) {
+                var total = data.reduce(function (memory, n) {
+                    memory.request += n.request;
+                    memory.served_request += n.served_request;
+                    memory.impression += n.impression;
+                    memory.click += n.click;
+                    memory.income += n.income;
+                    return memory;
+                }, {
+                    date: '总计',
+                    request: 0,
+                    served_request: 0,
+                    impression: 0,
+                    click: 0,
+                    income: 0
+                });
+                if (total.impression) {
+                    total.ctr = total.click / total.impression * 100;
+                    total.cpm = total.income / total.impression * 1000;
+                    total.fr = total.served_request / total.request * 100;
+                }
+            }
+
+            mf.mockPager(data, {
+                table: esui.get('dailyPositionList')
+            }, {
+                afterSort: function (dataList, targets, opt) {
+                    total && (targets.table.datasource || []).unshift(total);
+                }
+            })();
+
             var dateRegion = esui.get('dailyPositionDateRegion');
             mf.m.highchart_overview('#dailyPositionChart', model.get('lists'), dateRegion.getValueAsObject());
 

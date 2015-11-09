@@ -6,7 +6,7 @@
  */
 function checkLogin() {
     if (mf.authority.isUserLogin()) {
-        $('#Nav1, #Nav2, .header-login').show();
+        $('body').removeClass('login-modal');
         mf.updateNav1.__called = 0;
         er.locator.redirect(er.config.DEFAULT_INDEX + '~force=1');
         return true;
@@ -25,8 +25,8 @@ function checkLogin() {
         onenter: function () {
             console.log('onenter');
             mf.onenter();
-            $('#Nav1, #Nav2, .header-login').hide();
-            var username = T.cookie.get(mf.cookieKeyMap.name) || '';
+            $('body').addClass('login-modal');
+            var username = T.cookie.get(mf.cookieKeyMap.username) || '';
             this.model.set('username', username);
         },
         onentercomplete: function () {
@@ -93,7 +93,7 @@ function checkLogin() {
                         }
 
                         var expObj = {expires: 3600000 * 24 * 15};
-                        T.cookie.set(mf.cookieKeyMap.name, esui.get('username').getValue(), expObj);
+                        T.cookie.set(mf.cookieKeyMap.username, esui.get('username').getValue(), expObj);
                         T.cookie.set(mf.cookieKeyMap.authority, user.authority);
                         mf.authority.parse(user.authority);
                         if (!checkLogin()) {

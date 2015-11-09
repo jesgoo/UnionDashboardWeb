@@ -8,32 +8,85 @@
 (function (exports, module) {
     var config = {
         "maps": {
+            "adslotType": {
+                "banner": 1,
+                "wall": 2,
+                "recommend": 3,
+                "popups": 4,
+                "insert": 5,
+                "push": 6,
+                "native": 9,
+                "square": 10,
+                "video": 12,
+                "text": 13
+            },
+            "adslotTypeMap": [
+                {"name": "横幅", "value": 1},
+                {"name": "积分墙", "value": 2},
+                {"name": "推荐墙", "value": 3},
+                {"name": "开屏", "value": 4},
+                {"name": "插屏", "value": 5},
+                {"name": "推送", "value": 6},
+                {"name": "原生", "value": 9},
+                {"name": "方形图片", "value": 10},
+                {"name": "视频", "value": 12},
+                {"name": "文字链", "value": 13}
+            ],
+            "dspAdslotType": {
+                "banner": 1,
+                "wall": 2,
+                "recommend": 3,
+                "popups": 4,
+                "insert": 5,
+                "push": 6,
+                "native": 9,
+                "square": 10,
+                "video": 12,
+                "text": 13
+            },
+            "dspAdslotTypeMap": [
+                {"name": "横幅", "value": 1},
+                {"name": "积分墙", "value": 2},
+                {"name": "推荐墙", "value": 3},
+                {"name": "开屏", "value": 4},
+                {"name": "插屏", "value": 5},
+                {"name": "推送", "value": 6},
+                {"name": "原生", "value": 9},
+                {"name": "方形图片", "value": 10},
+                {"name": "视频", "value": 12},
+                {"name": "文字链", "value": 13}
+            ],
+            "userTypeMap": [
+                {"name": "未定", "value": 0},
+                {"name": "企业账户", "value": 2},
+                {"name": "个人账户", "value": 1}
+            ],
             "adType": {
-                "text" : 1,
-                "image" : 2,
-                "html" : 3,
-                "video" : 4,
-                "text_icon" : 5,
-                "free" : 6
+                "text": 1,
+                "image": 2,
+                "html": 3,
+                "video": 4,
+                "text_icon": 5,
+                "free": 6
             },
             "adTypeMap": {
-                "1" : "text",
-                "2" : "image",
-                "3" : "html",
-                "4" : "video",
-                "5" : "text_icon",
-                "6" : "free"
+                "1": "text",
+                "2": "image",
+                "3": "html",
+                "4": "video",
+                "5": "text_icon",
+                "6": "free"
             },
             "mediaType": {
-                "app" : 0,
-                "site" : 1
+                "app": 0,
+                "site": 1
             },
             "sitePositionType": {
-                "banner" : 1,
-                "popups" : 4,
-                "square" : 10,
-                "video" : 12,
-                "text" : 13
+                "banner": 1,
+                "popups": 4,
+                "square": 10,
+                "video": 12,
+                "text": 13
             },
             "sitePositionTypeMap": [
                 {
@@ -68,12 +121,12 @@
                 }
             ],
             "sitePositionDisplayType": {
-                "inbed" : 1,
-                "float" : 2
+                "inbed": 1,
+                "float": 2
             },
             "sitePositionDisplayTypeConvert": {
-                 "1" : "inbed",
-                 "2" : "float"
+                "1": "inbed",
+                "2": "float"
             },
             "sitePositionDisplayTypeMap": [
                 {
@@ -83,6 +136,30 @@
                 {
                     "name": "悬浮式",
                     "value": 2
+                }
+            ],
+            "appPositionType": {
+                "banner": 1,
+                "initialization": 4,
+                "insert": 5,
+                "native": 9
+            },
+            "appPositionTypeMap": [
+                {
+                    "name": "Banner",
+                    "value": 1
+                },
+                {
+                    "name": "开屏",
+                    "value": 4
+                },
+                {
+                    "name": "插屏",
+                    "value": 5
+                },
+                {
+                    "name": "原生",
+                    "value": 9
                 }
             ],
             "judgeMap": [
@@ -107,13 +184,37 @@
                     "string": '2'
                 }
             ],
+            "validMap": [
+                {
+                    "name": "有效",
+                    "value": 0
+                },
+                {
+                    "name": "无效",
+                    "value": 1
+                }
+            ],
+            "platformMap": [
+                {
+                    "name": "所有",
+                    "value": 0
+                },
+                {
+                    "name": "安卓",
+                    "value": 1
+                },
+                {
+                    "name": "苹果",
+                    "value": 2
+                }
+            ],
             "displayPositionType": {
-                "top" : 1,
-                "bottom" : 2
+                "top": 1,
+                "bottom": 2
             },
             "displayPositionTypeConvert": {
-                 "1": "top",
-                 "2": "bottom"
+                "1": "top",
+                "2": "bottom"
             },
             "displayPositionMap": [
                 {
@@ -124,6 +225,56 @@
                     "name": "底部",
                     "value": 2
                 }
+            ],
+            "dspName": [
+                {
+                    "name": 'Qiushi',
+                    "value": 0
+                },
+                {
+                    "name": 'Jesgoo',
+                    "value": 1
+                },
+                {
+                    "name": 'Tencent',
+                    "value": 2
+                },
+                {
+                    "name": 'Cy',
+                    "value": 3
+                },
+                {
+                    "name": 'Bidder',
+                    "value": 4
+                },
+                {
+                    "name": 'Xf',
+                    "value": 5
+                },
+                {
+                    "name": 'Yk',
+                    "value": 6
+                },
+                {
+                    "name": 'Inmobi',
+                    "value": 7
+                },
+                {
+                    "name": 'yeahmobi',
+                    "value": 8
+                },
+                {
+                    "name": 'adview',
+                    "value": 9
+                },
+                {
+                    "name": 'HuDongTong',
+                    "value": 10
+                },
+                {
+                    "name": 'newbaidu',
+                    "value": 11
+                }
             ]
         },
         "lists": {
@@ -132,7 +283,8 @@
                     "field": "id",
                     "title": "媒体ID",
                     "request": false,
-                    "sortable": true
+                    "sortable": true,
+                    "isShow": false
                 },
                 "mediaType": {
                     "field": "type",
@@ -142,7 +294,7 @@
                 },
                 "name": {
                     "field": "name",
-                    "defaultValue": "",
+                    "defaultValue": "新的网站媒体名称",
                     "title": "媒体名称",
                     "sortable": true,
                     "editable": true,
@@ -200,7 +352,7 @@
                 },
                 "name": {
                     "field": "name",
-                    "defaultValue": "",
+                    "defaultValue": "新的网站媒体广告位名称",
                     "title": "广告位名称",
                     "sortable": true,
                     "editable": true,
@@ -273,7 +425,8 @@
                     "field": "id",
                     "title": "媒体ID",
                     "request": false,
-                    "sortable": true
+                    "sortable": true,
+                    "isShow": false
                 },
                 "mediaType": {
                     "field": "type",
@@ -283,7 +436,7 @@
                 },
                 "name": {
                     "field": "name",
-                    "defaultValue": "",
+                    "defaultValue": "新的应用媒体名称",
                     "title": "媒体名称",
                     "sortable": true,
                     "editable": true,
@@ -339,12 +492,20 @@
                 },
                 "name": {
                     "field": "name",
-                    "defaultValue": "",
+                    "defaultValue": "新的应用广告位媒体名称",
                     "title": "广告位名称",
                     "sortable": true,
                     "editable": true,
                     "edittype": "string",
                     "request": true
+                },
+                "type": {
+                    "field": "type",
+                    "defaultValue": 1,
+                    "title": "广告位类型",
+                    "sortable": true,
+                    "editable": true,
+                    "edittype": "select"
                 },
                 "modifyTime": {
                     "field": "modified_time",
@@ -407,17 +568,334 @@
             "userList": {
                 "id": {
                     "field": "id",
-                    "title": "账户名",
+                    "title": "账户ID",
+                    "sortable": true,
                     "request": false
                 },
                 "username": {
                     "field": "username",
                     "title": "账户名",
+                    "sortable": true,
                     "request": false
                 },
                 "display": {
                     "field": "display_name",
-                    "title": "账户名",
+                    "title": "显示称谓",
+                    "sortable": true,
+                    "request": false
+                }
+            },
+            "DSPList": {
+                "id": {
+                    "field": "id",
+                    "title": "ID",
+                    "sortable": true,
+                    "request": false
+                },
+                "media": {
+                    "field": "media",
+                    "title": "媒体ID",
+                    "sortable": true,
+                    "request": true,
+                    "defaultValue": "",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "adslot": {
+                    "field": "adslot",
+                    "title": "广告位ID",
+                    "sortable": true,
+                    "request": true,
+                    "defaultValue": "",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "description": {
+                    "field": "description",
+                    "title": "说明",
+                    "request": true,
+                    "defaultValue": "",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "modifyTime": {
+                    "field": "modified_time",
+                    "title": "修改时间",
+                    "sortable": true,
+                    "request": false
+                },
+                "createTime": {
+                    "field": "create_time",
+                    "title": "创建时间",
+                    "sortable": true,
+                    "request": false
+                }
+            },
+            "adslotDSPList": {
+                "id": {
+                    "field": "id",
+                    "title": "广告位ID",
+                    "sortable": true,
+                    "defaultValue": "",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "dsp_type": {
+                    "field": "dsp_adslot_type",
+                    "title": "DSP类型",
+                    "sortable": true,
+                    "defaultValue": 1,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "platform": {
+                    "field": "platform",
+                    "title": "平台",
+                    "sortable": true,
+                    "defaultValue": 0,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "status": {
+                    "field": "status",
+                    "sortable": true,
+                    "title": "状态",
+                    "request": true,
+                    "defaultValue": 0,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "baidu": {
+                    "field": "baidu_adslot",
+                    "title": "百度DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "tencent": {
+                    "field": "tencent_adslot",
+                    "title": "腾讯DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "modifyTime": {
+                    "field": "modified_time",
+                    "title": "修改时间",
+                    "sortable": true,
+                    "request": false
+                },
+                "createTime": {
+                    "field": "create_time",
+                    "title": "创建时间",
+                    "sortable": true,
+                    "request": false
+                }
+            },
+            "mediaDSPList": {
+                "media": {
+                    "field": "media",
+                    "title": "媒体ID",
+                    "sortable": true,
+                    "defaultValue": "",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "type": {
+                    "field": "adslot",
+                    "title": "广告类型",
+                    "sortable": true,
+                    "defaultValue": 1,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "dsp_type": {
+                    "field": "dsp_adslot_type",
+                    "title": "DSP类型",
+                    "sortable": true,
+                    "defaultValue": 1,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "platform": {
+                    "field": "platform",
+                    "title": "平台",
+                    "sortable": true,
+                    "defaultValue": 0,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "status": {
+                    "field": "status",
+                    "sortable": true,
+                    "title": "状态",
+                    "request": true,
+                    "defaultValue": 0,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "baidu": {
+                    "field": "baidu_adslot",
+                    "title": "百度DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "tencent": {
+                    "field": "tencent_adslot",
+                    "title": "腾讯DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "modifyTime": {
+                    "field": "modified_time",
+                    "title": "修改时间",
+                    "sortable": true,
+                    "request": false
+                },
+                "createTime": {
+                    "field": "create_time",
+                    "title": "创建时间",
+                    "sortable": true,
+                    "request": false
+                }
+            },
+            "userDSPList": {
+                "user": {
+                    "field": "user",
+                    "title": "用户ID",
+                    "sortable": true,
+                    "defaultValue": "",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "type": {
+                    "field": "adslot",
+                    "title": "广告类型",
+                    "sortable": true,
+                    "defaultValue": 1,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "dsp_type": {
+                    "field": "dsp_adslot_type",
+                    "title": "DSP类型",
+                    "sortable": true,
+                    "defaultValue": 1,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "platform": {
+                    "field": "platform",
+                    "title": "平台",
+                    "sortable": true,
+                    "defaultValue": 0,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "status": {
+                    "field": "status",
+                    "sortable": true,
+                    "title": "状态",
+                    "request": true,
+                    "defaultValue": 0,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "baidu": {
+                    "field": "baidu_adslot",
+                    "title": "百度DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "tencent": {
+                    "field": "tencent_adslot",
+                    "title": "腾讯DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "modifyTime": {
+                    "field": "modified_time",
+                    "title": "修改时间",
+                    "sortable": true,
+                    "request": false
+                },
+                "createTime": {
+                    "field": "create_time",
+                    "title": "创建时间",
+                    "sortable": true,
+                    "request": false
+                }
+            },
+            "domainDSPList": {
+                "domain": {
+                    "field": "domain",
+                    "title": "域名",
+                    "sortable": true,
+                    "defaultValue": "",
+                    "editable": true,
+                    "edittype": "string"
+                },
+                "type": {
+                    "field": "adslot",
+                    "title": "广告类型",
+                    "sortable": true,
+                    "defaultValue": 1,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "dsp_type": {
+                    "field": "dsp_adslot_type",
+                    "title": "DSP类型",
+                    "sortable": true,
+                    "defaultValue": 1,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "platform": {
+                    "field": "platform",
+                    "title": "平台",
+                    "sortable": true,
+                    "defaultValue": 0,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "status": {
+                    "field": "status",
+                    "sortable": true,
+                    "title": "状态",
+                    "request": true,
+                    "defaultValue": 0,
+                    "editable": true,
+                    "edittype": "select"
+                },
+                "baidu": {
+                    "field": "baidu_adslot",
+                    "title": "百度DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "tencent": {
+                    "field": "tencent_adslot",
+                    "title": "腾讯DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "modifyTime": {
+                    "field": "modified_time",
+                    "title": "修改时间",
+                    "sortable": true,
+                    "request": false
+                },
+                "createTime": {
+                    "field": "create_time",
+                    "title": "创建时间",
+                    "sortable": true,
                     "request": false
                 }
             }

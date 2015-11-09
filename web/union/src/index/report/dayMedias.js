@@ -76,10 +76,39 @@
                     }
                 }
             );
-            mf.mockPager(model.get('lists'), {
+            var data = model.get('lists');
+            if (data.length) {
+                var total = data.reduce(function (memory, n) {
+                    memory.request += n.request;
+                    memory.served_request += n.served_request;
+                    memory.impression += n.impression;
+                    memory.click += n.click;
+                    memory.income += n.income;
+                    return memory;
+                }, {
+                    media: null,
+                    name: '总计',
+                    request: 0,
+                    served_request: 0,
+                    impression: 0,
+                    click: 0,
+                    income: 0
+                });
+                if (total.impression) {
+                    total.ctr = total.click / total.impression * 100;
+                    total.cpm = total.income / total.impression * 1000;
+                    total.fr = total.impression / total.request * 100;
+                }
+            }
+
+            mf.mockPager(data, {
                 pager: esui.get('dayMediasPager'),
                 pageSizer: esui.get('dayMediasPageSize'),
                 table: esui.get('dayMediasList')
+            }, {
+                afterSort: function (dataList, targets, opt) {
+                    total && (targets.table.datasource || []).unshift(total);
+                }
             })();
         },
         onleave: function () {

@@ -1,0 +1,31 @@
+<!-- target: mf_admin_manage_mediaDSPID -->
+<div class="mf-admin-manage-mediaDSPID">
+    <div class="plain-notice-area">
+        <div class="plain-unit-title">媒体DSP ID列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:媒体ID:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:mediaID;width:150;value:*mediaID;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search">搜索</span>
+                </div>
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add">添加新DSP配置</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:list;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <!-- import: listPager -->
+        </div>
+    </div>
+</div>
+<div ui="type:Dialog;id:selectDSPID;width:650;mask:1;">
+    <div>请选择一个ID</div>
+    <div></div>
+    <div>
+        <div ui="type:Button;">确定</div>
+        <div ui="type:Button;">关闭</div>
+        <div class="error" id="DSPIDError"></div>
+    </div>
+</div>

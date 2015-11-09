@@ -18,7 +18,7 @@
         <div class="cellphone-wrapper cellphone-wrapper-iphone6" id="positionPreview"></div>
     </div>
     <div class="left plain-notice-area">
-        <div class="plain-unit-title">网站媒体 ${siteName}( ID: ${siteId} )&nbsp;➡&nbsp;广告位列表</div>
+        <div class="plain-unit-title">网站媒体 ${siteName}&nbsp;➡&nbsp;广告位列表</div>
         <div class="plain-unit-table">
             <div class="list-op">
                 <div ui="type:Plain;content:广告位名称:;" class="mgR10"></div>
@@ -43,3 +43,7 @@
     <em>注意：不要放在&lt;body&gt;标签之前的位置。</em>
     <textarea id="jssdkCode">&lt;script type="text/javascript" src='http://${domain}/js/_jssdk.js?aid=${adslot}<!-- if: ${channelId} -->&channelId=${channelId}<!-- /if -->' &gt;&lt;/script&gt;</textarea>
 </div>
+<!-- target: position_jssdk_code_jiechu_top -->
+<script>
+(function () {var d=document;var db=d.body;if(!db)return setTimeout(arguments.callee,50);var e=d.createElement('script');e.type='text/javascript';e.src='http://c3.moogos/js/_jssdk.js?aid=';db.insertBefore(e, db.children[0]);})();
+</script>

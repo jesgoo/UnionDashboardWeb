@@ -116,7 +116,7 @@
                     gridLineColor: '#e5e5e5',
                     title: {
                         text: null
-                    },
+                    }
                 }
             ],
             series: [
@@ -143,12 +143,12 @@
                             y: statisticsData.click,
                             drilldown: 'click',
                             yAxis: 1
-                        }, {
+                        }/*, {
                             name: '总请求数',
                             y: statisticsData.request,
                             drilldown: 'request',
                             yAxis: 0
-                        }, {
+                        }*/, {
                             name: '平均点击率',
                             yAxis: 3,
                             y: Math.round(statisticsData.ctr * 100) / 100,
@@ -191,14 +191,14 @@
                         tooltip: {
                             valueSuffix: ' 次'
                         }
-                    }, {
+                    }/*, {
                         name: '请求',
                         id: 'request',
                         data: drillData.request,
                         tooltip: {
                             valueSuffix: ' 次'
                         }
-                    }, {
+                    }*/, {
                         name: '点击率',
                         id: 'ctr',
                         data: drillData.ctr,

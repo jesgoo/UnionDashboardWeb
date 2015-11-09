@@ -1,0 +1,41 @@
+.resource-preview {
+  display: block;
+  color: inherit;
+  overflow: hidden;
+  text-align: left;
+  padding: 5px 5px;
+  text-decoration: none;
+}
+.resource-preview img {
+  float: left;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+.resource-preview .title,
+.resource-preview .name {
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow: hidden;
+}
+.resource-preview .desc {
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: normal;
+}
+.resource-preview:hover {
+  transform: scale(1.2) translateX(10%);
+}
+.resource-preview.preview-image img {
+  height: 31px;
+}
+.resource-preview.preview-text-icon img {
+  height: 31px;
+}
+.resource-preview.preview-app img {
+  height: 63px;
+  width: 63px;
+}
+.ui-table-cell-text a.resource-preview:hover {
+  text-decoration: none;
+}

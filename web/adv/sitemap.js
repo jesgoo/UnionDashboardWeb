@@ -31,7 +31,10 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "uiFilterSelect": {},
             "highcharts": {},
             "preview": {"private": true},
-            "config": {"private": true}
+            "config": {"private": true},
+            "highchart_drill_cost": {"private": true},
+            "highchart_drill": {"private": true},
+            "highchart_overview": {"private": true}
         }
     };
     // Page about
@@ -122,7 +125,24 @@ mf = typeof mf === 'undefined' ? {} : mf;
         //Module report
         index.report = {
             "index": authorityAction(reportNav2('数据报表')),
-            "__mockData": {}
+            "total": authorityAction(reportNav2('总体数据报表')),
+            "plan": authorityAction(reportNav2('计划报表')),
+            "unit": authorityAction(reportNav2('策略报表')),
+            "idea": authorityAction(reportNav2('创意报表')),
+            "dailyTotal": authorityAction(reportNav2('账户总体多日')),
+            "dayPlan": authorityAction(reportNav2('计划单日')),
+            "dayOS": authorityAction(reportNav2('操作系统单日')),
+            "dayRegion": authorityAction(reportNav2('地域分布单日')),
+            "dailyPlan": authorityAction(reportNav2('单计划多日')),
+            "dayUnit": authorityAction(reportNav2('单计划多策略单日')),
+            "dailyUnit": authorityAction(reportNav2('单策略多日')),
+            "dayIdea": authorityAction(reportNav2('单策略多创意单日')),
+            "dailyIdea": authorityAction(reportNav2('单创意多日')),
+            "__mockData": {
+                "cost_total": {},
+                "cost_os": {},
+                "cost_region": {}
+            }
         };
 
         index.__nav1 = {
@@ -133,12 +153,12 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "market": {
                 "label": "推广管理",
                 "url": "#/market/plan"
-            }/*,
+            },
             "report": {
                 "label": "数据报表",
                 "url": "#/report/index",
                 "hideNav2": true
-            }*/
+            }
         };
         //nav2
         index.__nav2 = {

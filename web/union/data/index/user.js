@@ -23,8 +23,8 @@ exports.response = {
     "entities": {
         "default_channel": "00000001",
         "display_name": "联想",
-        "username": "lenovo",
-        "isAdmin": true,
-        "isUd": true
+        "username": "lenovo3123",
+        "is_admin": true,
+        "is_ud": true
     }
 };

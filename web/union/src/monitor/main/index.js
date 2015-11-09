@@ -5,101 +5,35 @@
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
 (function () {
-    var fieldMap = {
-        'event': {
-            index: 0,
-            name: '点击数'
-        },
-        'show': {
-            index: 1,
-            name: '展现数'
-        },
-        'ui': {
-            index: 2,
-            name: '请求数'
-        }
-    };
 
-    function getTimeString(timeNumber) {
-        var timeObj = new Date(timeNumber * 1000);
-        var date = ('0' + timeObj.getDate()).substr(-2);
-        var hour = ('0' + timeObj.getHours()).substr(-2);
-        //var minute = Math.floor(timeObj.getMinutes() / 2) * 2;
-        var minute = ('0' + timeObj.getMinutes()).substr(-2);
-        return date + '/' + hour + ':' + minute;
-    }
-
-    function parseData(target) {
-        return function (data) {
-            var result = {};
-            $.each(data || [], function (index, obj) {
-                if (!/\.log$/i.test(obj.table_name)) {
-                    return true;
-                }
-                var field = obj.table_name.slice(0, -4);
-                $.each(obj.counters || [], function (index, counter) {
-                    var time = Math.floor(counter.time / 60);
-                    //var time = getTimeString(counter.time);
-                    var item = result[time] = result[time] || {};
-                    var obj = item[field] = item[field] || {};
-                    obj[target] = counter.number;
-                });
-            });
-            //console.log('parseData', data, result);
-            return result;
-        }
-    }
-
-    function mergeData() {
-        var result = {};
-        var dataList = [].slice.call(arguments);
-        $.each(dataList, function (index, data) {
-            $.deepExtend(result, data);
-            /*$.each(data.timeMap, function (field, timeObj) {
-             var item = result.timeMap[field] = result.timeMap[field] || {};
-             $.each(timeObj, function (time, targetObj) {
-             var timeCollection = item[time] = item[time] || {};
-             $.each(targetObj, function (target, value) {
-             timeCollection[target] = value;
-             });
-             });
-             });*/
-        });
-        //console.log('mergeData', dataList, result);
-        return result;
-    }
-
-    function objectCount(obj) {
-        var count = 0;
-        var sum = 0;
-        $.each(obj, function (key, value) {
-            count += 1;
-            sum += +value || 0;
-        });
-        return {
-            count: count,
-            sum: sum
-        };
-    }
-    var emptyData = $.map(new Array(723), function () {
-        return 0;
-    });
     function convertData(data) {
         var result = {
             data: {},
             time: []
         };
+        //console.log('convertData', data);
         var timeMap = $.deepExtend({}, data);
         $.each(timeMap, function (time, list) {
             result.time.push(time);
             $.each(list, function (field, counters) {
-                list[field] = objectCount(counters);
+                var count = 0;
+                var sum = 0;
+                $.each(counters, function (key, value) {
+                    count += 1;
+                    sum += +value || 0;
+                });
+                list[field] = {
+                    count: count,
+                    sum: sum
+                };
             });
         });
         result.time.sort(function (a, b) {
-            return a > b ? 1 : -1;
+            return a > b ? -1 : 1;
         });
-
+        result.time.length = 720 * 9;
+        result.time.splice(720 * 3, 720 * 4);
+        result.time.reverse();
         var timeDistance = 0;
         var previousIndex = result.time.length;
         while (previousIndex > 0) {
@@ -108,8 +42,8 @@
                 currentIndex = 0
             }
             var timeList = result.time.slice(currentIndex, previousIndex);
-            //console.log(timeDistance, currentIndex, previousIndex, timeList);
-            $.each(fieldMap, function (field) {
+            //console.log('convertData', timeDistance, currentIndex, previousIndex, timeList);
+            $.each(mf.monitor.main.model.fieldMap, function (field) {
                 result.data[field] = result.data[field] || {};
                 var target = result.data[field][timeDistance] = [];
                 $.each(timeList, function (index, time) {
@@ -119,64 +53,19 @@
                 });
                 if (timeList.length < 720) {
                     console.log('补充时间');
-                    target.splice.apply(target, emptyData.slice(0, 720 - target.length + 2));
+                    target.splice.apply(target, mf.monitor.main.model.emptyData.slice(0, 720 - target.length + 2));
                 }
             });
             previousIndex = currentIndex;
             timeDistance += 1;
-
         }
-
-
-        /*var maxTime = +result.time.slice(-1)[0];
-        var minTime = +result.time[0];
-        var oneDay = 60 * 24;
-        console.log(maxTime, minTime);
-        var timeDistance = 0;
-        var previousIndex = result.time.length, currentIndex, currentTime = maxTime;
-        while (currentTime > minTime) {
-            currentTime -= oneDay * (timeDistance + 1);
-            currentIndex = mf.m.utils.indexOfArray(result.time, currentTime) + 1;
-            if (currentIndex < 1) {
-/!*
-                $.each(result.time, function (index, time) {
-                    if (index && time > currentTime && result.time[index - 1] < currentTime) {
-                        result.time.splice(index, 0, currentTime);
-                        currentIndex = index;
-                    } else if (time > currentTime) {
-                        currentIndex = 0;
-                        return false;
-                    }
-                });
-*!/
-                currentIndex = 0;
-            }
-
-            var timeList = result.time.slice(currentIndex, previousIndex);
-            console.log(timeDistance, currentTime, currentIndex, previousIndex, timeList);
-            $.each(fieldMap, function (field) {
-                result.data[field] = result.data[field] || {};
-                var target = result.data[field][timeDistance] = [];
-                $.each(timeList, function (index, time) {
-                    var item = timeMap[time] || {};
-                    var value = item[field];
-                    target[index] = value && value.sum || 0;
-                });
-                if (timeList.length < 720) {
-                    console.log('补充时间');
-                    target.splice.apply(target, emptyData.slice(0, 720 - target.length + 3));
-                }
-            });
-            previousIndex = currentIndex;
-            timeDistance += 1;
-        }*/
-        //console.log('convertData', data, timeMap, result);
         return result;
+
     }
 
     function requestData(requestURL, target) {
         //console.log('requestData', requestURL);
-        return $.getJSON(requestURL).pipe(parseData(target));
+        return $.getJSON(requestURL).pipe(mf.monitor.main.model.parseData.bind(null, target));
     }
 
     function RunMonitor(charElement, lookBackDays) {
@@ -190,14 +79,22 @@
             return requestURL.url;
 
         });
-        var logField = $.map(fieldMap, function (obj, field) {
+        var logField = $.map(mf.monitor.main.model.fieldMap, function (obj, field) {
             return field + '.log';
         }).join(',');
         var historyList = $.map(mf.monitor.main.model.machineList, function (machine) {
+/*
             return '/machine/' + machine + ':' + mf.monitor.main.model.historyPort + '/index?'
-                   + 'begin=' + getDateTime(lookBackDays) + '&end=' + getDateTime() + '&name=' + logField;
+                   + 'begin=' + mf.monitor.main.model.getDateTime(lookBackDays) + '&end=' + mf.monitor.main.model.getDateTime() + '&name=' + logField;
+*/
+            return mf.ajaxParamFactory({
+                url: '/machine/' + machine + ':' + mf.monitor.main.model.realTimePort + '/getdata'
+            }).url;
         });
         var dataRequest = $.map(historyList, function (requestURL, index) {
+            return requestData(requestURL, mf.monitor.main.model.machineList[index]);
+        });
+        /*var dataRequest = $.map(historyList, function (requestURL, index) {
             var def = $.Deferred();
             mf.parallelAjax(requestURL, function (data) {
                 var historyData = $.map(data, function (fieldData, field) {
@@ -205,24 +102,25 @@
                         table_name: field,
                         counters: $.map(fieldData, function (n) {
                             return {
-                                time: new Date(n.time).getTime() / 1000,
+                                //time: new Date(n.time.replace(/\-/g, '/').replace(':', " ")).getTime() / 1000,
+                                time: n.time,
                                 number: n.value
                             }
                         })
                     }
                 });
-                def.resolve(parseData(mf.monitor.main.model.machineList[index])(historyData));
+                def.resolve(mf.monitor.main.model.parseData(mf.monitor.main.model.machineList[index], historyData));
             });
             return def.promise();
-        });
+        });*/
         $.when.apply($, dataRequest)
-            .pipe(mergeData)
+            .pipe(mf.monitor.main.model.mergeData)
             .done(function (data) {
                 me.data = data;
                 me.chart = {};
                 me.element = {};
                 var chartData = convertData(data);
-                $.each(fieldMap, function (field, opt) {
+                $.each(mf.monitor.main.model.fieldMap, function (field, opt) {
                     me.element[field] = $('<div/>', {id: 'chart_' + field}).appendTo(charElement);
                     me.chart[field] = mf.m.highchart_monitor(me.element[field], {
                         time: chartData.time,
@@ -240,32 +138,18 @@
         var me = this;
         var chartData = convertData($.deepExtend(me.data, data));
         console.log('new Chart Data', chartData);
-/*
-        var maxLength = 30 * 24 * 3;
-        var discardLength = chartData.time.length - maxLength;
-        if (discardLength > 0) {
-            var discardTime = chartData.time.splice(0, discardLength);
-            console.log('discardTime', discardTime, discardLength);
-            $.each(fieldMap, function (field) {
-                chartData.data[field].splice(0, discardLength);
-            });
-            $.each(discardTime, function (index, time) {
-                delete me.data[time];
-            });
-        }
-*/
         return chartData;
     };
     RunMonitor.prototype.monitor = function (interval) {
         var me = this;
         interval = interval || 3;
-        setTimeout(function () {
+        me.monitorHandle = setTimeout(function () {
             console.log('monitor interval', interval);
             var dataRequest = $.map(me.monitorList, function (requestURL, index) {
                 return requestData(requestURL, mf.monitor.main.model.machineList[index]);
             });
             $.when.apply($, dataRequest)
-                .pipe(mergeData)
+                .pipe(mf.monitor.main.model.mergeData)
                 .pipe(me.appendData.bind(me))
                 .done(function (chartData) {
                     var startDate = new Date(((+chartData.time.slice(-1)[0] + 2) * 60000) - 1000 * 3600 * 24);
@@ -278,7 +162,7 @@
                         startDate.getUTCSeconds()
                     );
                     console.log('startDate', startDate);
-                    $.each(fieldMap, function (field) {
+                    $.each(mf.monitor.main.model.fieldMap, function (field) {
                         $.each(chartData.data[field], function (index, data) {
                             if (me.chart[field].series[index]) {
                                 me.chart[field].series[index].setData(data, false, true);
@@ -296,14 +180,10 @@
                 });
         }, interval * 1000);
     };
-    var OneDay = 1000 * 60 * 60 * 24;
-
-    function getDateTime(dateChange) {
-        var d = new Date().getTime();
-        d = d + (dateChange || 0) * OneDay;
-        d = new Date(d);
-        return T.date.format(d, 'yyyyMMddHHmmss');
-    }
+    RunMonitor.prototype.stop = function () {
+        clearTimeout(this.monitorHandle);
+        this.monitorHandle = null;
+    };
 
     mf.monitor.main.index = new er.Action({
         model: mf.monitor.main.model.index,
@@ -318,6 +198,7 @@
             mf.onenter();
         },
         onafterloadmodel: function () {
+
         },
         onafterrepaint: function () {
             console.log('onafterrepaint');
@@ -331,16 +212,21 @@
             var action = this;
             var model = action.model;
 
-            /*var requestList = $.map(mf.monitor.main.model.machineList, function (machine) {
-             return '/machine/' + machine + ':' + mf.monitor.main.model.realTimePort + '/getdata';
-             });*/
-
-
-            window.monitor = new RunMonitor('#monitorChart', -model.get('days'));
-
+            var monitorChart = new RunMonitor('#monitorChart', -model.get('days'));
+            window.monitor = monitorChart;
+            model.set('monitorChart', monitorChart);
+            var monitorChartContainer = $('#monitorChart');
+            esui.get('viewModalNormal').onclick = function () {
+                monitorChartContainer.removeClass('vertical-modal');
+            };
+            esui.get('viewModalVertical').onclick = function () {
+                monitorChartContainer.addClass('vertical-modal');
+            };
         },
         onleave: function () {
             console.log('onleave');
+            var monitorChart = this.model.get('monitorChart');
+            monitorChart.stop();
         }
     });
 })();

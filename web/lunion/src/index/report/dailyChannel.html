@@ -1,0 +1,14 @@
+<!-- target: mf_index_report_dailyChannel -->
+<div class="mf-index-report-dailyChannel plain-notice-area report-area">
+    <div class="plain-unit-title">
+        <span class="mgR40">渠道数据汇总</span>
+        <div ui="type:Button;id:dailyChannelDownload;content:下载当前数据表;skin:attraction;" style="position: relative;top: 6px;"></div>
+        <div ui="type:MultiCalendar;id:dailyChannelDateRegion;value:*dateRegion;"></div>
+    </div>
+    <div class="plain-unit-table" id="dailyChannelChart"></div>
+    <div class="plain-unit-table">
+        <div class="list-table">
+            <div ui="type:Table;id:dailyChannelList;datasource:*lists;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+        </div>
+    </div>
+</div>

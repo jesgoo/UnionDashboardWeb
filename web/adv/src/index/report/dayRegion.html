@@ -1,0 +1,22 @@
+<!-- target: mf_index_report_dayRegion -->
+<div class="mf-index-report-dayRegion plain-notice-area report-area">
+    <div class="plain-unit-title">
+        <span>分地域单日数据</span><i>&nbsp;&nbsp;单击图示可查看细分图</i>
+        <div ui="type:Calendar;id:dayRegionDate;value:*date;valueAsDate:*valueAsDate"></div>
+    </div>
+    <div class="plain-unit-table" id="dayRegionChart"></div>
+    <div class="plain-unit-table">
+        <div class="list-table">
+            <div ui="type:Table;id:dayRegionList;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+        </div>
+        <div class="list-pager">
+            <div class="list-pager-pagesize">
+                <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                <div ui="type:Select;id:dayRegionPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+            </div>
+            <div class="list-pager-page">
+                <div ui="type:Pager;id:dayRegionPager;total:*total;page:*page;"></div>
+            </div>
+        </div>
+    </div>
+</div>

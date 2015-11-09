@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    var host = window.name;
+    try {
+        parent.crossLogin && parent.crossLogin(location.search);
+    } catch (e) {
+        if (e.toString().indexOf('Blocked')) {
+            if (host) {
+                location.href =  '//' + host + '/callback_lenovo.html' + location.search;
+            }
+            else if (location.host.indexOf('jesgoo')) {
+                location.href =  'http://ad.lenovomm.com/callback_lenovo.html' + location.search;
+            } else {
+                location.href =  'http://l.jesgoo.com/callback_lenovo.html' + location.search;
+            }
+        } else {
+            history.back(-1);
+            console.log('cross error', e);
+        }
+    }
+    </script>
+</head>
+<body>
+登录中...
+</body>
+</html>

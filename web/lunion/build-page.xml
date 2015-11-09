@@ -1,0 +1,47 @@
+<?xml version="1.0"?><project default="buildPage"><target name="buildPage"><!--asset js for index-->
+<echo>${out.m.dir}/asset/${site}-index.js</echo>
+<concat destfile="${out.m.dir}/asset/${site}-index.js" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="asset" files="${lib.js.file}"/>
+    <filelist dir="${module.dir}" files="${lunionsitecommonmodulejs.files}"/>
+    <filelist dir="${module.dir}" files="${indexcommonmodulejs.files}"/>
+    <filelist dir="${out.m.dir}" files="${site}.js"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${lunionsiteprivatemodulejs.files}
+    ${indexsiteCommonmodulejs.files}
+    "/>
+    <filelist dir="${site.dir}/src/index/module" files="${indexprivatemodulejs.files}"/>
+    <filelist dir="${site.dir}/src" files="${indexjs.files}"/>
+</concat>
+
+<!--asset css for index-->
+<echo>${out.m.dir}/asset/${site}-index.css</echo>
+<concat destfile="${out.m.dir}/asset/${site}-index.css" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.css"/>
+    <filelist dir="${module.dir}" files="${lunionsitecommonmodulecss.files}"/>
+    <filelist dir="${module.dir}" files="${indexcommonmodulecss.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${lunionsiteprivatemodulecss.files}
+    ${indexsiteCommonmodulecss.files}
+    "/>
+    <filelist dir="${site.dir}/src/index/module" files="${indexprivatemodulecss.files}"/>
+    <filelist dir="${site.dir}/src" files="${indexcss.files}"/>
+</concat>
+<!--asset html for index-->
+<echo>${out.m.dir}/asset/${site}-index.html</echo>
+<concat destfile="${out.m.dir}/asset/${site}-index.html" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.html"/>
+    <filelist dir="${module.dir}" files="${lunionsitecommonmodulehtml.files}"/>
+    <filelist dir="${module.dir}" files="${indexcommonmodulehtml.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${lunionsiteprivatemodulehtml.files}
+    ${indexsiteCommonmodulehtml.files}
+    "/>
+    <filelist dir="${site.dir}/src/index/module" files="${indexprivatemodulehtml.files}"/>
+    <filelist dir="${site.dir}/src" files="${indextpl.files}"/>
+</concat>
+<replaceregexp file="${out.m.dir}/asset/${site}-index.html"
+               encoding="${encoding}"
+               match="&gt;\s+?&lt;" replace="&gt;&lt;" flags="g m"/></target></project>

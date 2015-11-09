@@ -1,0 +1,5 @@
+function(data){
+var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+__p+=';(function () {\r\n    var jesgooData = this.jesgoo_data || {};\r\n    this.jesgoo_interface = {\r\n        resizeContainer: function (height, fixed) {\r\n            window.sendMessage && sendMessage({ action: \'resize\', height: height, force: true, fixed: fixed});\r\n        },\r\n        autoResizeImage: function (force) {\r\n            if (jesgooData.d && jesgooData.d.ImageUrl) {\r\n                var img = document.createElement(\'img\');\r\n                img.setAttribute(\'onload\', \'var h=this.height;var w=this.width;window.sendMessage&&sendMessage({action: "resize", height: Math.round(320 / w * h), force: \' + !!force + \'});\');\r\n                img.src = jesgooData.d.ImageUrl;\r\n            }\r\n        }\r\n    };\r\n}.call(this));\r\n';
+return __p;
+}

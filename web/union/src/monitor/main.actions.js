@@ -5,4 +5,4 @@
  * @author killeryyl<longgeyang@jesgoo.com>
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
- mf.monitor.mainActions = [{"path":"/main/index","action":"mf.monitor.main.index"}];
+ mf.monitor.mainActions = [{"path":"/main/index","action":"mf.monitor.main.index"},{"path":"/main/detail","action":"mf.monitor.main.detail"}];

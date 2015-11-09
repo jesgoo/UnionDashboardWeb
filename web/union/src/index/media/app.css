@@ -4,5 +4,50 @@
  * @date Tue Mar 17 2015 09:45:32 GMT+0800 (CST)
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
-.mf-index-media-app {
+.mf-index-media-app .right .plain-unit-table {
+    text-align: center;
+    padding: 20px;
+}
+.sdk-btn {
+    border: 1px solid #0081ce;
+    background-color: #5b9bd9;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.3s all ease;
+    display: inline-block;
+}
+.sdk-demo-btn {
+    border: 1px solid #0081ce;
+    background-color: #5b9bd9;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.3s all ease;
+    display: inline-block;
+}
+.sdk-btn:hover, .sdk-demo-btn:hover {
+    background-color: #0081ce;
+    color: #ffffff;
+    transition: 0.3s all ease;
+}
+.sdk-more {
+    float: right;
+    margin-right: 20px;
 }

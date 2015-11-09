@@ -4,5 +4,26 @@
  * @date Tue Mar 17 2015 23:01:23 GMT+0800 (CST)
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
-.mf-index-account-info {
+.mf-index-account-info .plain-edit-area .plain-unit {
+    width: 47%;
+}
+.mf-index-account-info .plain-edit-area .plain-unit-border {
+    margin: 10px;
+}
+.mf-index-account-info .plain-edit-area .left {
+    clear: left;
+}
+.mf-index-account-info .layout-2-right {
+    overflow: hidden;
+}
+.mf-index-account-info .plain-edit-area .right {
+    margin-left: 49%;
+}
+.mf-index-account-info .plain-edit-area .plain-unit-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.mf-index-account-info .button {
+    text-align: center;
+    margin-bottom: 20px;
 }

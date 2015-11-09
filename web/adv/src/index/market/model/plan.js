@@ -89,8 +89,8 @@
                 },
                 '/plan'
             ], function (config, entities) {
-
                 mf.setValueEntities(config.lists.planList, entities);
+                entities.filter(function () {});
                 mf.initEntities({
                     loader: loader,
                     entities: entities,

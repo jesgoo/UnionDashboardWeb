@@ -153,6 +153,9 @@
                     }
                 )
             );
+            if (model.get('addNew')) {
+                $('[data-cmd=add]','#' + action.view.target).trigger('click');
+            }
         },
         onleave: function () {
             console.log('onleave');

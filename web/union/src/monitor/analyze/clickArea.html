@@ -1,0 +1,20 @@
+<!-- target: mf_monitor_analyze_clickArea -->
+<div class="mf-monitor-analyze-clickArea">
+    <div class="plain-notice-area">
+        <div class="plain-unit">
+            <div class="list-op">
+                    <div ui="type:Plain;content:广告位ID："></div>
+                    <div type="text" ui="type:Select;id:adslot;value:*adslot;width:300;datasource:*positionTypes;" class="mgR20"></div>
+                    <!--<input type="text" ui="type:TextInput;id:adslot;value:*adslot;width:100;" class="mgR20" />-->
+                    <div ui="type:Plain;content:高度px："></div>
+                    <input type="text" ui="type:TextInput;id:height;value:*height;width:60;" class="mgR20" />
+                    <div ui="type:Plain;content:日期选择："></div>
+                    <div ui="type:Calendar;id:date;valueAsDate:*dateValue;width:100;" class="mgR20" style="display: inline-block;"></div>
+                    <div ui="type:Button;id:search;">查看</div>
+            </div>
+            <div class="plain-unit-table">
+                <div id="clickAreaChart"></div>
+            </div>
+        </div>
+    </div>
+</div>

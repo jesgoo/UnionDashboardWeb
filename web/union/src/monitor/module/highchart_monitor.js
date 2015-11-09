@@ -31,7 +31,7 @@
         console.log(UTCStartDate, cData.time.slice(-1)[0], cData.time.slice(-1)[0] * 60000 - oneDay);
         var serials = $.map(cData.data, function (data, index){
             return {
-                name: getTimeString(getTime(-index)) + '号',
+                name: getTimeString(getTime(index > 2 ? -index - 4 : -index)) + '号',
                 type: 'spline',
                 yAxis: 0,
                 pointInterval: 2 * 60 * 1000,
@@ -50,7 +50,7 @@
                 marginTop: 60,
                 zoomType: 'x'
             },
-            colors: ["#f6505c", "#1c62b8", "#f6c928", "#19b2b7", "#8772cd", "#eb6f25"],
+            colors: ["#f6505c", "#1c62b8", "#f6c928", "#fe9ea5", "#81ade3", "#ffedad"],
             credits: {
                 enabled: false
             },
@@ -84,7 +84,8 @@
                     fontSize: 12,
                     symbolPadding: 10
                 },
-                itemDistance: 20
+                itemDistance: 20,
+                enabled: true
             },
             plotOptions: {
                 line: {
@@ -120,7 +121,7 @@
             },
             yAxis: [
                 { // Secondary yAxis
-                    //min: 0,
+                    min: 0,
                     gridLineWidth: 1,
                     title: {
                         text: null
@@ -128,7 +129,7 @@
                     labels: {
                         align: 'right',
                         formatter: function () {
-                            if (this.value > 10000) {
+                            if (Math.abs(this.value) > 10000) {
                                 return Math.round(this.value / 1000) / 10 + '万次';
                             } else {
                                 return this.value + '次';

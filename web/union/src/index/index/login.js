@@ -6,9 +6,9 @@
  */
 function checkLogin() {
     if (mf.authority.isUserLogin()) {
-        $('#Nav1, #Nav2, .header-login').show();
+        $('body').removeClass('login-modal');
         mf.updateNav1.__called = 0;
-        er.locator.redirect('/report/index~force=1');
+        er.locator.redirect('/account/index');
         return true;
     }
     return false;
@@ -26,8 +26,8 @@ function checkLogin() {
         onenter: function () {
             console.log('onenter');
             mf.onenter();
-            $('#Nav1, #Nav2, .header-login').hide();
-            var username = T.cookie.get(mf.cookieKeyMap.name) || '';
+            $('body').addClass('login-modal');
+            var username = T.cookie.get(mf.cookieKeyMap.username) || '';
             this.model.set('username', username);
         },
         onentercomplete: function () {
@@ -84,27 +84,7 @@ function checkLogin() {
                         }
                     },
                     function (result) {
-                        // 暂时这样吧，用户信息以后再加入
-                        var user = {
-                            authority : 255
-                        };
-                        user.authority = parseInt(user.authority || 0);
-                        if (user.authority > 0) {
-                            user.authority |= 1;
-                        }
-
-                        var expObj = {expires: 3600000 * 24 * 15};
-                        T.cookie.set(mf.cookieKeyMap.name, esui.get('username').getValue(), expObj);
-                        T.cookie.set(mf.cookieKeyMap.authority, user.authority);
-                        mf.authority.parse(user.authority);
-                        if (!checkLogin()) {
-                            infoDialog = esui.Dialog.alert(
-                                {
-                                    title: '登录失败',
-                                    content: '请联系管理员'
-                                }
-                            );
-                        }
+                        mf.getUserInfo();
                     }
                 );
             };
@@ -134,9 +114,13 @@ function checkLogin() {
                     content: mf.etplFetch('mf_index_index_tyr_register')
                 });
             });
+            action.model.set('loginCheck', setInterval(function () {
+                checkLogin();
+            }, 50));
         },
         onleave: function () {
             $('body').unbind('keypress.login');
+            clearInterval(this.model.get('loginCheck'));
         }
     });
 })();

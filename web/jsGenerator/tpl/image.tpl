@@ -49,4 +49,5 @@
     </div>
 </a>
 <%=_.templateList('impression_monitor', data)%>
+<%=_.templateList('click_monitor', data)%>
 <%=_.templateList('base_foot', data)%>

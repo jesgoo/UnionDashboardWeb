@@ -1,0 +1,35 @@
+<!-- target: mf_index_media_app -->
+<div class="mf-index-media-app layout-2-left">
+    <div class="right plain-notice-area">
+        <div class="plain-unit-title">应用媒体统计</div>
+        <div class="plain-unit plain-unit-middle-caption">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    应用媒体总计
+                </div>
+                <div class="plain-unit-item-field">
+                    <div ui="type:Plain;id:appMediaCount;content:*appMediaCount;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left plain-notice-area">
+        <div class="plain-unit-title">应用媒体列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:媒体名称:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:appMediaName;width:150;value:*appMediaName;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search">搜索</span>
+                </div>
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add">添加应用</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:list;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <!-- import: listPager -->
+        </div>
+    </div>
+</div>

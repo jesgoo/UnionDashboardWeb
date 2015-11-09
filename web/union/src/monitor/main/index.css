@@ -6,9 +6,16 @@
  */
 .mf-monitor-main-index {
 }
-#monitorChart > div .highcharts-button{
-
+#monitorChart{
 }
 #monitorChart > div{
     height: 300px;
+}
+.vertical-modal {
+    -webkit-transform: rotateZ(-90deg) translateX(-18%);
+    -moz-transform: rotateZ(-90deg) translateX(-18%);
+    -ms-transform: rotateZ(-90deg) translateX(-18%);
+    -o-transform: rotateZ(-90deg) translateX(-18%);
+    transform: rotateZ(-90deg) translateX(-18%);
+    /*transform-origin: right;*/
 }

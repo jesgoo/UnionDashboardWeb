@@ -269,6 +269,9 @@
 
             customTemplate.preview();
             textIconStyle(customTemplate, templateID, styleName, templateData);
+            esui.get('switchInfo').onclick = function () {
+                customTemplate.preview();
+            };
 
             action.save = function () {
                 return customTemplate.toJSON();

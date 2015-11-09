@@ -76,6 +76,7 @@
                     }
                 }
             );
+
             mf.mockPager(model.get('lists'), {
                 pager: esui.get('dayMediasPager'),
                 pageSizer: esui.get('dayMediasPageSize'),

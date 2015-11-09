@@ -65,19 +65,30 @@
                 if (validate(rule)) {
                     return false;
                 } else {
-                    var data = {
-                        'oldpassword': oldpasswordValue,
-                        'newpassword': newpasswordValue
-                    };
-/*
-                    mf.post('index/index/changePwd', data, function (model) {
-                        if (model.formError) {
-                            mf.postError({ model: model.formError });
-                        } else {
-                            document.getElementById('result').innerHTML = '修改成功';
+                    mf.loading();
+                    mf.parallelAjax(
+                        {
+                            url: '/user',
+                            type: 'POST',
+                            data: {
+                                password: newpasswordValue
+                            }
+                        },
+                        function (result) {
+                            esui.Dialog.alert({
+                                title: '操作提示',
+                                content: '密码修改成功'
+                            });
+                            oldpassword.setValue('');
+                            newpassword.setValue('');
+                            newpassword2.setValue('');
                         }
-                    });
-*/
+                    ).fail(function () {
+                            esui.Dialog.alert({
+                                title: '操作提示',
+                                content: '密码修改失败'
+                            });
+                        });
                 }
             };
             /*-- 绑定事件 END --*/

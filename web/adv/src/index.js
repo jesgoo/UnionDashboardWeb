@@ -9,7 +9,7 @@ mf.index = {};
 er.config.TEMPLATE_LIST = [
     'asset/adv-index.html'
 ];
-er.config.DEFAULT_INDEX = "/market/plan";
+er.config.DEFAULT_INDEX = "/report/index";
 mf.authority = mf.m.authority('adv', 'index');
 mf.cookieKeyMap = {
     'username': 'adv_user_username',
@@ -44,7 +44,11 @@ mf.urlDebugRouter.reg({
     // 创意列表
     '/index/market/idea': /^\/idea\/?/i,
     // 资源列表
-    '/index/market/resource': /^\/resource\/?/i
+    '/index/market/resource': /^\/resource\/?/i,
+    // 账户总体多日
+    '/index/report/cost_total': /^\/report\/cost\/\d{8}\-\d{8}$/i,
+    '/index/report/cost_os': /^\/report\/cost\/os\/\d{8}\-\d{8}$/i,
+    '/index/report/cost_region': /^\/report\/cost\/region\/\d{8}\-\d{8}$/i
 });
 
 mf.windowMinWidth = 980;

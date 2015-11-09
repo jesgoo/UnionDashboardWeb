@@ -1,0 +1,422 @@
+<!-- target: mf_monitor_demo_view -->
+<div class="mf-monitor-demo-view">
+    <div ui="type:Tab;id:displayTab;datasource:*requestTab;" class="display-tab"></div>
+    <div class="layout-2-left">
+        <div class="right plain-notice-area">
+            <div class="plain-unit-title">
+                <div ui="type:Button;id:view;" class="mgR40">开始请求</div>
+                <div ui="type:Button;id:save;" class="mgR10">保存</div>
+                <div ui="type:Button;id:load;" class="mgR40">读取</div>
+            </div>
+            <div class="plain-unit">
+                <div class="cellphone-wrapper cellphone-wrapper-iphone6" id="adPreview">
+                </div>
+            </div>
+        </div>
+        <div class="left plain-notice-area display-tab-container editor-area display-editor">
+            <div class="plain-unit">
+                <pre id="editor"></pre>
+            </div>
+        </div>
+        <div class="left plain-notice-area display-tab-container result-area display-result">
+            <div class="plain-unit">
+                <textarea id="requestResult"></textarea>
+            </div>
+        </div>
+        <div class="left plain-notice-area display-tab-container result-area display-raw-result">
+            <div class="plain-unit">
+                <textarea id="requestRawResult"></textarea>
+            </div>
+        </div>
+        <div class="left plain-notice-are display-tab-container config-area display-form">
+            <div class="col col-1">
+                <div class="plain-unit plain-unit-border">
+                    <div class="plain-unit-title">media</div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            媒体sid
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="media.id" type="text" />
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            渠道id
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="media.channel_id" type="text" />
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            计费id
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="media.subaccountid" type="text" />
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            媒体类别
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <select name="media.type" data-type="int">
+                                <option value="1">app</option>
+                                <option value="2">web</option>
+                                <option value="3" selected>wap</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="plain-unit plain-unit-border plain-unit-small">
+                        <div class="plain-unit-title">APP媒体</div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                包名
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="media.app.package_name" type="text" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                所属分类
+                            </div>
+                            <div class="plain-unit-item-field" title="逗号分割各个分类值">
+                                <input name="media.app.categories" type="text" data-type="[int]" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plain-unit plain-unit-border plain-unit-small">
+                        <div class="plain-unit-title">网站媒体</div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                domain
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="media.site.domain" type="text" data-default="" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                所属分类
+                            </div>
+                            <div class="plain-unit-item-field" title="逗号分割各个分类值">
+                                <input name="media.site.categories" type="text" data-type="[int]" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                urls
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="media.site.urls" type="text" data-default="" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                title
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="media.site.title" type="text" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                keywords
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="media.site.keywords" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            浏览器UA
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="media.browser.user_agent" type="text" />
+                        </div>
+                    </div>
+                </div>
+                <div class="plain-unit plain-unit-border">
+                    <div class="plain-unit-title">debug</div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            开启
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="debug" value="true" type="checkbox" data-type="boolean" checked />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-2">
+                <div class="plain-unit plain-unit-border">
+                    <div class="plain-unit-title">client</div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            客户端类型
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <select name="client.type" data-type="int">
+                                <option value="1">NATIVESDK</option>
+                                <option value="2" selected>JSSDK</option>
+                                <option value="3">OPENAPI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            客户端版本
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input style="width:1em;text-align: center;" name="client.version.major" type="text" data-type="int" />&nbsp;.&nbsp;
+                            <input style="width:2em;text-align: center;" name="client.version.minor" type="text" data-type="int" />&nbsp;.&nbsp;
+                            <input style="width:2em;text-align: center;" name="client.version.micro" type="text" data-type="int" />&nbsp;.&nbsp;
+                            <input style="width:2em;text-align: center;" name="client.version.build" type="text" data-type="int" />
+                        </div>
+                    </div>
+                </div>
+                <div class="plain-unit plain-unit-border">
+                    <div class="plain-unit-title">network</div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            IP
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="network.ip" type="text" data-type="[int]" />
+                        </div>
+                    </div>
+                </div>
+                <div class="plain-unit plain-unit-border">
+                    <div class="plain-unit-title">adslot<a class="btn" data-cmd="add-array" data-field="adslots">增加</a>
+                    </div>
+                    <div class="hide array-wrapper" data-array="adslots">
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                广告位ID
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="adslots.$0.id" type="text" data-field="adslots" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                初始化时间
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="adslots.$0.inittime" type="text" data-type="int" data-field="adslots" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                广告位类型
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <select name="adslots.$0.type" data-type="int" data-field="adslots">
+                                    <option value="1">横幅</option>
+                                    <option value="2">积分墙</option>
+                                    <option value="3">推荐墙</option>
+                                    <option value="4">开屏</option>
+                                    <option value="5">插屏</option>
+                                    <option value="6">推送</option>
+                                    <option value="9">原生</option>
+                                    <option value="10">方形图片</option>
+                                    <option value="12">视频</option>
+                                    <option value="13">文字链</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                请求宽高
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input style="width:3em;text-align: center;" name="adslots.$0.size.width" type="text" data-type="int" data-field="adslots" />&nbsp;X&nbsp;
+                                <input style="width:3em;text-align: center;" name="adslots.$0.size.height" type="text" data-type="int" data-field="adslots" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                支持类型
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="adslots.$0.styles" type="text" data-type="[int]" data-field="adslots" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                广告容量
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="adslots.$0.capacity" type="text" data-type="int" data-field="adslots" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                广告类型
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="adslots.$0.accept_adtype" type="text" data-type="[int]" data-field="adslots" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                交互类型
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="adslots.$0.accept_inter" type="text" data-type="[int]" data-field="adslots" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                <a data-cmd="del-array" data-field="adslots">删除</a>
+                            </div>
+                            <div class="plain-unit-item-field">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plain-unit-array" data-array-name="adslots">
+                    </div>
+                </div>
+            </div>
+            <div class="col col-3">
+                <div class="plain-unit plain-unit-border">
+                    <div class="plain-unit-title">device</div>
+                    <div class="plain-unit plain-unit-border plain-unit-small">
+                        <div class="plain-unit-title">设备</div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                类别
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <select name="device.type" data-type="int">
+                                    <option value="0">DEV_UNKNOWN</option>
+                                    <option value="1">PC</option>
+                                    <option value="2" selected>DEV_PHON</option>
+                                    <option value="3">TABLER</option>
+                                    <option value="4">TV</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                品牌
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="device.brand" type="text" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                型号
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="device.model" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plain-unit plain-unit-border plain-unit-small">
+                        <div class="plain-unit-title">ids<a class="btn" data-cmd="add-array" data-field="ids">增加</a>
+                        </div>
+                        <div class="hide array-wrapper" data-array="ids">
+                            <div class="plain-unit-item">
+                                <div class="plain-unit-item-caption">
+                                    id类型
+                                </div>
+                                <div class="plain-unit-item-field">
+                                    <select name="device.ids.$0.type" data-type="int" data-field="ids">
+                                        <option value="1">IMEI</option>
+                                        <option value="2">MAC</option>
+                                        <option value="3">IDFA</option>
+                                        <option value="4">AAID</option>
+                                        <option value="5">JESGOOID</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="plain-unit-item">
+                                <div class="plain-unit-item-caption">
+                                    设备ID
+                                </div>
+                                <div class="plain-unit-item-field">
+                                    <input name="device.ids.$0.id" type="text" data-field="ids" data-default="" />
+                                </div>
+                            </div>
+                            <div class="plain-unit-item">
+                                <div class="plain-unit-item-caption"><a data-cmd="del-array" data-field="ids">删除</a>
+                                </div>
+                                <div class="plain-unit-item-field">
+                                    <label><input name="device.ids.$0.compact" value="true" type="checkbox" data-type="boolean" data-field="ids" data-default="false" />&nbsp;&nbsp;精简ID</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label><input name="device.ids.$0.md5" value="true" type="checkbox" data-type="boolean" data-field="ids" data-default="false" />&nbsp;&nbsp;md5签名</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plain-unit-array" data-array-name="ids">
+                        </div>
+                    </div>
+                    <div class="plain-unit plain-unit-border plain-unit-small">
+                        <div class="plain-unit-title">操作系统</div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                系统类别
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <select name="device.os_type" data-type="int">
+                                    <option value="0">OS_UNKNOWN</option>
+                                    <option value="1">ANDROID</option>
+                                    <option value="2">IOS</option>
+                                    <option value="3">WP</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                系统版本
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input style="width:1em;text-align: center;" name="device.os_version.major" type="text" data-type="int" />&nbsp;.&nbsp;
+                                <input style="width:2em;text-align: center;" name="device.os_version.minor" type="text" data-type="int" />&nbsp;.&nbsp;
+                                <input style="width:2em;text-align: center;" name="device.os_version.micro" type="text" data-type="int" />&nbsp;.&nbsp;
+                                <input style="width:2em;text-align: center;" name="device.os_version.build" type="text" data-type="int" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plain-unit plain-unit-border plain-unit-small">
+                        <div class="plain-unit-title">屏幕</div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                宽高与密度
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input style="width:3em;text-align: center;" name="device.screen_size.width" type="text" data-type="int" data-field="adslots" />&nbsp;X&nbsp;
+                                <input style="width:3em;text-align: center;" name="device.screen_size.height" type="text" data-type="int" data-field="adslots" />&nbsp;:&nbsp;
+                                <input style="width:2em;text-align: center;" name="device.screen_density" type="text" data-type="int" />
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                屏幕方向
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <select name="device.orientation" data-type="int">
+                                    <option value="0">竖屏</option>
+                                    <option value="1">横屏</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            兴趣标签
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="device.interests" type="text" data-type="[int]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

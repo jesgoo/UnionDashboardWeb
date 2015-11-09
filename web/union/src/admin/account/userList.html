@@ -1,0 +1,32 @@
+<!-- target: mf_admin_account_userList -->
+<div class="mf-admin-account-userList layout-2-left">
+    <div class="right plain-notice-area">
+        <div class="plain-unit-title">用户统计</div>
+        <div class="plain-unit plain-unit-middle-caption">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    用户总计
+                </div>
+                <div class="plain-unit-item-field">
+                    <div ui="type:Plain;id:userCount;content:*userCount;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left plain-notice-area">
+        <div class="plain-unit-title">用户列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:账户名:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:userName;width:150;value:*userName;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search">搜索</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:list;fields:*fields;sortable:1;"></div>
+            </div>
+            <!-- import: listPager -->
+        </div>
+    </div>
+</div>

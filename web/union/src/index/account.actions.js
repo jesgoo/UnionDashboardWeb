@@ -5,4 +5,4 @@
  * @author killeryyl<longgeyang@jesgoo.com>
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
- mf.index.accountActions = [{"path":"/account/info","action":"mf.index.account.info","authority":"LOGIN","noAuthLocation":"/index/login"},{"path":"/account/password","action":"mf.index.account.password","authority":"LOGIN","noAuthLocation":"/index/login"}];
+ mf.index.accountActions = [{"path":"/account/index","action":"mf.index.account.index","authority":"LOGIN","noAuthLocation":"/index/login"},{"path":"/account/info","action":"mf.index.account.info","authority":"LOGIN","noAuthLocation":"/index/login"},{"path":"/account/settlement","action":"mf.index.account.settlement","authority":"LOGIN","noAuthLocation":"/index/login"},{"path":"/account/discountList","action":"mf.index.account.discountList"},{"path":"/account/password","action":"mf.index.account.password","authority":"LOGIN","noAuthLocation":"/index/login"}];

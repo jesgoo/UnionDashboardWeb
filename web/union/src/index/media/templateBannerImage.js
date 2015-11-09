@@ -114,6 +114,9 @@
                 mockData: getMockData
             });
             customTemplate.preview();
+            esui.get('switchInfo').onclick = function () {
+                customTemplate.preview();
+            };
 
             action.save = function () {
                 return customTemplate.toJSON();

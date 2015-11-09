@@ -1,0 +1,97 @@
+{
+    "search_dedup": {
+        "enabled": true,
+        "base": [
+            {
+                "timespan": 30,
+                "threshold": 2,
+                "filter_rate": 1.0
+            },
+            {
+                "timespan": 30,
+                "threshold": 1,
+                "filter_rate": 0.8
+            }
+        ],
+        "media_specified": {
+            "00000000": [
+                {
+                    "timespan": 60,
+                    "threshold": 2,
+                    "filter_rate": 1.0
+                }
+            ]
+        },
+        "adslot_specified": {
+            "s0000000": [
+                {
+                    "timespan": 60,
+                    "threshold": 2,
+                    "filter_rate": 1.0
+                }
+            ]
+        }
+    },
+    "user_dedup": {
+        "enabled": true,
+        "base": [
+            {
+                "timespan": 86400,
+                "threshold": 5,
+                "filter_rate": 1.0
+            },
+            {
+                "timespan": 86400,
+                "threshold": 4,
+                "filter_rate": 0.5
+            }
+        ],
+        "media_specified": {
+            "00000000": [
+                {
+                    "timespan": 86400,
+                    "threshold": 2,
+                    "filter_rate": 1.0
+                }
+            ]
+        },
+        "adslot_specified": {
+            "s0000000": [
+                {
+                    "timespan": 86400,
+                    "threshold": 4,
+                    "filter_rate": 1.0
+                }
+            ]
+        }
+    },
+    "new_user": {
+        "enabled": true,
+        "base": [
+            {
+                "threshold": 45,
+                "filter_rate": 1.0
+            },
+            {
+                "threshold": 30,
+                "filter_rate": 0.8
+            }
+        ],
+        "media_specified": {
+            "00000000": [
+                {
+                    "threshold": 30,
+                    "filter_rate": 1.0
+                }
+            ]
+        },
+        "adslot_specified": {
+            "s0000000": [
+                {
+                    "threshold": 30,
+                    "filter_rate": 1.0
+                }
+            ]
+        }
+    }
+}

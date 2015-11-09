@@ -4669,4 +4669,5 @@ mf.index.media.model = {
         }
     ]
 };
-mf.index.media.model.mockData_free = mf.index.media.model.mockData_text = mf.index.media.model.mockData_text_icon;
+mf.index.media.model.mockData_text = mf.index.media.model.mockData_text_icon;
+mf.index.media.model.mockData_free = mf.index.media.model.mockData_text_icon.concat(mf.index.media.model.mockData_image);

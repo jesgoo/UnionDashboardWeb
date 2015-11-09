@@ -87,7 +87,7 @@
         var customData = {
             version: 'test',
             js: js,
-            jsSource: jsSource,
+            jsSource: jsSource.replace(/<\/script>/ig, '</s\'+\'cript>'),
             data: JSON.stringify(data.data || {})
         };
 
@@ -120,10 +120,33 @@
 
         //console.log('previewCustomJS', customData, container);
         if (window.__DEBUG) {
+            if (!$('#coder').length) {
+                $('<textarea id="coder" style="width: 100%;height: 20em;"></textarea><textarea id="coder1" style="width: 100%;height: 20em;"></textarea>').appendTo('#Main');
+            }
             $('#coder1').val(container.innerHTML);
         }
 
         mf.m.utils.writeInIframe($iframe.contentWindow, container.innerHTML);
+        var jesgooData = { d: data.data };
+        sendMessage = function (message) {
+            switch(message.action) {
+                case 'resize':
+                    $container.height(message.fixed ? message.height : $container.width() / 320 * message.height);
+                    break;
+            }
+        };
+        $iframe.contentWindow.jesgoo_interface = {
+            resizeContainer: function (height, isFixed) {
+                window.sendMessage && sendMessage({ action: 'resize', height: height, force: true, fixed: isFixed});
+            },
+            autoResizeImage: function (force) {
+                if (jesgooData.d && jesgooData.d.ImageUrl) {
+                    var img = document.createElement('img');
+                    img.setAttribute('onload', 'var h=this.height;var w=this.width;window.sendMessage&&sendMessage({action: "resize", height: Math.round(320 / w * h), force: ' + !!force + '});');
+                    img.src = jesgooData.d.ImageUrl;
+                }
+            }
+        }
     };
     var previewHTML = function (data, target) {
         var contextId = '_previewHTML';
@@ -178,9 +201,6 @@
         er.context.removePrivate(contextId);
         return target.innerHTML;
     };
-    if (window.__DEBUG) {
-        $('<textarea id="coder" style="width: 100%;height: 20em;"></textarea><textarea id="coder1" style="width: 100%;height: 20em;"></textarea>').insertAfter('#Main');
-    }
     exports.preview = {
         writeInIframe: mf.m.utils.writeInIframe,
         previewHTML: previewHTML,

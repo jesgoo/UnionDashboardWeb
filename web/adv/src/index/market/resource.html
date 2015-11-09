@@ -1,0 +1,72 @@
+<!-- target: mf_index_market_resource -->
+<div class="mf-index-market-resource">
+    <div ui="type:Tab;id:resource_tab;datasource:*tab;"></div>
+    <div class="tab-content">
+        <!-- for: ${tab} as ${resource}, ${index}-->
+        <div id="resource_tabs_${resource.value}">
+            <div>
+                <div class="list-op">
+                    <div class="ui-button">
+                        <span class="ui-button-label" data-cmd="add_resource" data-value="${resource.value}">添加新的资源</span>
+                    </div>
+                </div>
+                <div class="list-table">
+                    <div ui="type:Table;id:list_resource_${resource.value};editable:1;multiline:1;fields:*fields_${resource.value};datasource:*typeList_${resource.value}"></div>
+                </div>
+                <div class="list-pager">
+                    <div class="list-pager-pagesize">
+                        <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                        <div
+                                ui="type:Select;id:resourcePageSize_${resource.value};datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                    </div>
+                    <div class="list-pager-page">
+                        <div ui="type:Pager;id:resourcePager_${resource.value};total:*total;page:*page;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /for -->
+    </div>
+</div>
+
+<div ui="type:Dialog;id:resource_upload_dialog;width:400;" class="resource-upload-dialog">
+    <div>添加新资源</div>
+    <div>
+        <div ui="type:Tab;id:resource_upload_tab;"></div>
+        <div class="tab-content">
+            <div id="resource_upload_local" class="plain-edit-area">
+                <div class="plain-unit">
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">本地文件</div>
+                        <div class="plain-unit-item-field">
+                            <div ui="type:Button;id:localFile;">请选择本地文件</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="resource_upload_remote" class="plain-edit-area">
+                <div class="plain-unit">
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">资源名称</div>
+                        <div class="plain-unit-item-field">
+                            <input type="text" class="mgR20" ui="type:TextInput;id:remoteName;width:150;placeholder:请输入远程资源名称;"/>
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">远程地址</div>
+                        <div class="plain-unit-item-field">
+                            <input type="text" class="mgR20" ui="type:TextInput;id:remoteURL;width:250;placeholder:请输入远程地址;"/>
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption"></div>
+                        <div class="plain-unit-item-field">
+                            <div ui="type:Button;id:remoteFile;">确定使用该远程地址</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="error upload_info"></div>
+    </div>
+</div>

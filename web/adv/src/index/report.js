@@ -10,4 +10,39 @@
       'action': mf.index.reportActions
     }
   });
+    mf.index.reportBind = function (action, element) {
+        var reportArea = $(
+            element,
+            typeof action.view.target === 'string'
+                ? '#' + action.view.target
+                : action.view.target
+        );
+        var getReportArea = function (id) {
+            return $('<div/>', {id: 'area' + id}).appendTo(reportArea).get(0);
+        };
+        return function (reports, queryMap) {
+            var loadReport = arguments.callee;
+            action.subAction = action.subAction || {};
+            $.each(action.subAction, function (name, sub) {
+                if (sub) {
+                    sub.leave();
+                    action.subAction[name] = null;
+                }
+            });
+            reportArea.children().remove();
+            $.each(reports, function (reportPlace, report) {
+                console.log('loadReport', reportPlace, report);
+                action.subAction[reportPlace] = er.controller.loadSub(
+                    getReportArea(reportPlace),
+                    'mf.index.report.' + report.action,
+                    {
+                        queryMap: report.queryMap || queryMap || {}
+                    }
+                );
+                if (action.subAction[reportPlace]) {
+                    action.subAction[reportPlace].onreport = loadReport;
+                }
+            });
+        };
+    };
 })();

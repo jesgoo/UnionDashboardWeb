@@ -22,6 +22,130 @@
         },
         onafterrender: function () {
             console.log('onafterrender');
+            var action = this;
+            var V = mf.m.validate();
+
+            V.reg(
+                {
+                    id: 'company',
+                    rule: [
+                        {
+                            tpl: 'notNull', msg: '企业名称不能为空'
+                        }
+                    ]
+                }
+            );
+            V.reg(
+                {
+                    id: 'payee',
+                    rule: [
+                        {
+                            tpl: 'notNull', msg: '联系人姓名不能为空'
+                        }
+                    ]
+                }
+            );
+            V.reg(
+                {
+                    id: 'phone',
+                    rule: [
+                        {
+                            tpl: 'notNull', msg: '联系电话不能为空'
+                        },
+                        {
+                            tpl: 'regex', regx: V.regexp.phone, msg: '联系电话输入有误'
+                        }
+                    ]
+                }
+            );
+            V.reg(
+                {
+                    id: 'qq',
+                    rule: [
+                        {
+                            tpl: 'notNull', msg: 'QQ不能为空'
+                        }
+                    ]
+                }
+            );
+            V.reg(
+                {
+                    id: 'bank',
+                    rule: [
+                        {
+                            tpl: 'notNull', msg: '收款银行名称不能为空'
+                        }
+                    ]
+                }
+            );
+            V.reg(
+                {
+                    id: 'bank_address',
+                    rule: [
+                        {
+                            tpl: 'notNull', msg: '收款银行开户地不能为空'
+                        }
+                    ]
+                }
+            );
+            V.reg(
+                {
+                    id: 'bank_account',
+                    rule: [
+                        {
+                            tpl: 'notNull', msg: '银行账号不能为空'
+                        },
+                        {
+                            tpl: 'limitS', min: 1, max: 50, msg: '请填写正确的银行账号'
+                        }
+                    ]
+                }
+            );
+            V.reg(
+                {
+                    id: 'tax_number',
+                    rule: [
+                        {
+                            tpl: 'notNull', msg: '税号不能为空'
+                        },
+                        {
+                            tpl: 'limitS', min: 5, msg: '请填写正确的税号'
+                        }
+                    ]
+                }
+            );
+
+            esui.get('submit').onclick = function () {
+                if (!action.validateForm() || !V.check()) {
+                    return;
+                }
+                mf.loading();
+                mf.parallelAjax(
+                    {
+                        url: '/user',
+                        type: 'POST',
+                        data: {
+                            company: esui.get('company').getValue(),
+                            payee: esui.get('payee').getValue(),
+                            phone: esui.get('phone').getValue(),
+                            email: esui.get('email').getValue(),
+                            qq: esui.get('qq').getValue(),
+                            bank: esui.get('bank').getValue(),
+                            bank_address: esui.get('bank_address').getValue(),
+                            bank_account: esui.get('bank_account').getValue(),
+                            tax_number: esui.get('tax_number').getValue(),
+                            type: +esui.get('type').getValue()[0]
+                        }
+                    },
+                    function (result) {
+                        // 暂时这样吧，用户信息以后再加入
+                        esui.Dialog.alert({
+                            title: '操作提示',
+                            content: '信息保存成功'
+                        });
+                    }
+                );
+            };
         },
         onentercomplete: function () {
             console.log('onentercomplete');

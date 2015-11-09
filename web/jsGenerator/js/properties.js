@@ -31,7 +31,7 @@
     var propertyColor = {
         "valueFactory": function (record, item) {
             var color = record.children[0].value;
-            var opacity = +record.children[1].value;
+            var opacity = +(record.children[1].value);
             if (opacity > 0 && opacity < 100) {
                 color = parseInt(color.slice(1), 16);
                 return 'rgba(' + (color >> 16) + ',' + (color >> 8 & 255) + ',' + (color & 255) + ','
@@ -60,14 +60,14 @@
     var propertyBorder = {
         "valueFactory": function (record, item) {
             var values = record.children.map(function (n, i) {
-                return n.value || item.children[i].value;
+                return n.value || n.subValue;
             });
             var result = [];
             values[0] = +values[0];
-            if (values[0] >= 0 && values[1] !== '') {
+            if (values[0] >= 0 && values[1]) {
                 result.push(values[0] + 'px');
                 result.push(values[1]);
-                result.push(values[2]);
+                result.push(values[2] || 'transparent');
             }
             return result.join(' ');
         },
@@ -110,7 +110,7 @@
                 text.replace(/<\\\\%([\s\S]*?)%\\\\>/g, '<%$1%>');
                 return text ? text.replace(/<%([\s\S]*?)%>/g, '<\\\\%$1%\\\\>') : '';
             },
-            "value": "<%=data.Title%>\n<br>\n<%=data.Description1%>",
+            "value": "<%if (data.ImageUrl) {%><img src=\"<%=data.ImageUrl%>\"><%}else{%>\n<%=data.Title%>\n<br>\n<%=data.Description1%><%}%>",
             "type": "dialog"
         },
         content: {
@@ -202,7 +202,7 @@
                     "value": "",
                     "valueFactory": function (record, item) {
                         var values = record.children.map(function (n, i) {
-                            return n.value || item.children[i].value;
+                            return n.value || n.subValue;
                         });
                         var result = [];
                         values[0] = +values[0];
@@ -397,7 +397,7 @@
             "dataField": "boxShadow",
             "valueFactory": function (record, item) {
                 var values = record.children.map(function (n, i) {
-                    return n.value || item.children[i].value;
+                    return n.value;
                 });
                 var result = [];
                 values[0] = +values[0];
@@ -607,7 +607,7 @@
             "animationField": "jq-animate-image",
             "valueFactory": function (record, item) {
                 var values = record.children.map(function (n) {
-                    return n.value
+                    return n.value;
                 });
                 var result = [];
                 if (!values[5] || values[0] <= 0) {

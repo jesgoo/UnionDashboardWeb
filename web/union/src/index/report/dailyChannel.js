@@ -38,7 +38,7 @@
                     dateRegion: dateRegion.getValue()
                 });
             }, dateRegion);
-            var listTable = esui.get('dailyChannelList');
+            /*var listTable = esui.get('dailyChannelList');
             listTable.onsort = mf.m.utils.nextTickWrapper(function (orderField, order) {
                 var orderBy = orderField.field;
                 order = order == 'asc' ? 1 : -1;
@@ -46,7 +46,7 @@
                     return a[orderBy] > b[orderBy] ? order : -order;
                 });
                 listTable.render();
-            }, listTable);
+            }, listTable);*/
             model.set(
                 'commands',
                 mf.clickCommand.register(
@@ -67,6 +67,63 @@
         },
         onentercomplete: function () {
             console.log('onentercomplete');
+            var action = this;
+            var model = action.model;
+            var data = model.get('lists');
+            if (data.length) {
+                var total = data.reduce(function (memory, n) {
+                    memory.request += n.request;
+                    memory.served_request += n.served_request;
+                    memory.impression += n.impression;
+                    memory.click += n.click;
+                    memory.income += n.income;
+                    memory.channel_income += n.channel_income;
+                    memory.media_income += n.media_income;
+                    return memory;
+                }, {
+                    name: '总计',
+                    request: 0,
+                    served_request: 0,
+                    impression: 0,
+                    click: 0,
+                    income: 0,
+                    channel_income: 0,
+                    media_income: 0
+                });
+                if (total.impression) {
+                    total.ctr = total.click / total.impression * 100;
+                    total.cpm = total.income / total.impression * 1000;
+                    total.fr = total.served_request / total.request * 100;
+                }
+            }
+
+            esui.get('dailyChannelDownload').onclick = function () {
+                var exportList = [total].concat(data);
+                var fields = model.get('fields');
+                var exportData = [fields.map(function (col) {
+                    return col.title;
+                }).join(',')];
+                fields = [{ field: 'media' }, { field: 'name' }];
+                [/*'request', */'impression', 'click', 'ctr', 'cpm', 'income', 'channel_income', 'media_income'].reverse().forEach(function (n) {
+                    fields.unshift({ content: function (item) {
+                        return Math.round(+item[n] * 100) / 100;
+                    } });
+                });
+                exportData = exportData.concat(exportList.map(function (row, rowIndex) {
+                    return fields.map(function (col, colIndex) {
+                        return typeof col.content === 'function' ? col.content(row, rowIndex, colIndex) : (col.content || row[col.field]);
+                    }).join(',');
+                }));
+                mf.m.download.fileCSV(model.get('name') + '_数据报表' + esui.get('dailyChannelDateRegion').value, exportData.join('\n'));
+            };
+
+            mf.mockPager(data, {
+                table: esui.get('dailyChannelList')
+            }, {
+                afterSort: function (dataList, targets, opt) {
+                    total && (targets.table.datasource || []).unshift(total);
+                }
+            })();
         },
         onleave: function () {
             console.log('onleave');

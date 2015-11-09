@@ -69,4 +69,5 @@ text-overflow: ellipsis;
     <%=_.templateList('text_icon_' + area[1])%>
 </a>
 <%=_.templateList('impression_monitor', data)%>
+<%=_.templateList('click_monitor', data)%>
 <%=_.templateList('base_foot', data)%>

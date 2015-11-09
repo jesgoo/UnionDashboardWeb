@@ -92,6 +92,53 @@
 <replaceregexp file="${out.m.dir}/asset/${site}-test.html"
                encoding="${encoding}"
                match="&gt;\s+?&lt;" replace="&gt;&lt;" flags="g m"/>
+<!--asset js for developer-->
+<echo>${out.m.dir}/asset/${site}-developer.js</echo>
+<concat destfile="${out.m.dir}/asset/${site}-developer.js" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="asset" files="${lib.js.file}"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulejs.files}"/>
+    <filelist dir="${module.dir}" files="${developercommonmodulejs.files}"/>
+    <filelist dir="${out.m.dir}" files="${site}.js"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulejs.files}
+    ${developersiteCommonmodulejs.files}
+    "/>
+    <filelist dir="${site.dir}/src/developer/module" files="${developerprivatemodulejs.files}"/>
+    <filelist dir="${site.dir}/src" files="${developerjs.files}"/>
+</concat>
+
+<!--asset css for developer-->
+<echo>${out.m.dir}/asset/${site}-developer.css</echo>
+<concat destfile="${out.m.dir}/asset/${site}-developer.css" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.css"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulecss.files}"/>
+    <filelist dir="${module.dir}" files="${developercommonmodulecss.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulecss.files}
+    ${developersiteCommonmodulecss.files}
+    "/>
+    <filelist dir="${site.dir}/src/developer/module" files="${developerprivatemodulecss.files}"/>
+    <filelist dir="${site.dir}/src" files="${developercss.files}"/>
+</concat>
+<!--asset html for developer-->
+<echo>${out.m.dir}/asset/${site}-developer.html</echo>
+<concat destfile="${out.m.dir}/asset/${site}-developer.html" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.html"/>
+    <filelist dir="${module.dir}" files="${unionsitecommonmodulehtml.files}"/>
+    <filelist dir="${module.dir}" files="${developercommonmodulehtml.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${unionsiteprivatemodulehtml.files}
+    ${developersiteCommonmodulehtml.files}
+    "/>
+    <filelist dir="${site.dir}/src/developer/module" files="${developerprivatemodulehtml.files}"/>
+    <filelist dir="${site.dir}/src" files="${developertpl.files}"/>
+</concat>
+<replaceregexp file="${out.m.dir}/asset/${site}-developer.html"
+               encoding="${encoding}"
+               match="&gt;\s+?&lt;" replace="&gt;&lt;" flags="g m"/>
 <!--asset js for admin-->
 <echo>${out.m.dir}/asset/${site}-admin.js</echo>
 <concat destfile="${out.m.dir}/asset/${site}-admin.js" encoding="${encoding}"

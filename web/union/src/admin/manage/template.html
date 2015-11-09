@@ -1,0 +1,63 @@
+<!-- target: mf_admin_manage_template -->
+<div class="mf-admin-manage-template layout-2-left">
+    <div class="right plain-notice-area">
+        <div class="plain-unit-title">控制面板</div>
+        <div class="plain-unit plain-unit-middle-caption">
+            <div class="plain-unit-item">
+                <div ui="type:Button;id:runTask;">启动任务</div>
+            </div>
+        </div>
+    </div>
+    <div class="left plain-notice-area">
+        <div class="plain-unit-title">任务信息</div>
+        <div id="result" class="plain-unit">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption"></div>
+                <div class="plain-unit-item-field">
+                    等待启动...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- target: task_info -->
+<div class="plain-unit-item">
+    <div class="plain-unit-item-caption">任务状态</div>
+    <div class="plain-unit-item-field">
+        <!-- if: ${error} -->
+        发送错误
+        <!-- elif: ${done} -->
+        执行完成
+        <!-- else -->
+        执行中...
+        <!-- /if -->
+    </div>
+</div>
+<div class="plain-unit-item">
+    <div class="plain-unit-item-caption">启动时间</div>
+    <div class="plain-unit-item-field">
+        ${beginTime}
+    </div>
+</div>
+<!-- if: ${done} -->
+<div class="plain-unit-item">
+    <div class="plain-unit-item-caption">结束时间</div>
+    <div class="plain-unit-item-field">
+        ${endTime}
+    </div>
+</div>
+<!-- /if -->
+<div class="plain-unit-item">
+    <div class="plain-unit-item-caption">任务信息</div>
+    <div class="plain-unit-item-field">
+        ${outputHTML}
+    </div>
+</div>
+<!-- if: ${error} -->
+<div class="plain-unit-item">
+    <div class="plain-unit-item-caption">错误信息</div>
+    <div class="plain-unit-item-field error">
+        ${error}
+    </div>
+</div>
+<!-- /if -->

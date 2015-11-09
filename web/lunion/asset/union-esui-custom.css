@@ -1,0 +1,156 @@
+/**
+ * @file ma esui global style sheet
+ * @author Luy<xukai01@baidu.com>
+ * @date Thu Dec 06 2012 13:23:38 GMT+0800 (China Standard Time)
+ * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
+ */
+
+/**
+ * Common Table
+ */
+.ui-table-row-hover {
+    background-color: #eff6ff;
+}
+.ui-table-cell-text {
+    white-space: nowrap;
+}
+/*
+.ui-table-hcell-text,
+.ui-table-cell-text,
+.ui-table-fcell-text,
+.ui-table-scroll-x {
+    */
+/*这种修改，优于height:16px;padding:10px;*//*
+
+    height: 26px;
+    line-height: 26px;
+    */
+/*保留上下padding，可以减少对float margin处理*//*
+
+    padding: 4px 10px;
+}
+*/
+
+/**
+ * Other
+ */
+.ui-mcal {
+    border-radius: 0;
+}
+
+.ui-mcal-short {
+    height: 20px;
+    line-height: 20px;
+}
+
+.ui-mcal-short .ui-mcal-arrow {
+    margin-top: 7px;
+}
+
+.ui-sidebar {
+    border-radius: 0;
+    min-height: 125px;
+    overflow-x: hidden;
+}
+
+.ui-treeview-node-text {
+    color: #000;
+    cursor: pointer;
+    font-size: 12px;
+}
+/*
+.ui-treeview-node-level1 .ui-treeview-node-icon {
+    display: none;
+}
+
+.ui-treeview-node-level2 .ui-treeview-node-icon {
+    display: inline-block;
+}
+
+.ui-treeview-node {
+    padding: 0;
+}
+
+.ui-treeview-node-level1 {
+    padding-top: 3px;
+}
+
+.ui-treeview-children-level3 {
+    padding-left: 1em;
+}
+
+.ui-treeview-children-level1 {
+    padding-left: 10px;
+}
+
+.ui-treeview-node-level1 .ui-treeview-node-text {
+    font-weight: bold;
+    padding-left: 10px;
+    color: #3600bd;
+}*/
+
+.ui-tab-item {
+    border-radius: 0;
+}
+
+.ui-tab .ui-tab-item-active {
+    border-color: #c9c9c9;
+    color: #000;
+}
+
+.ui-textarea, .ui-text {
+    font-size: 13px;
+}
+
+.ui-select-text,
+.ui-textarea,
+.ui-text {
+    color: #5d5d5d;
+}
+
+.ui-radiobox-label-virtual {
+    color: #d2d2d2;
+}
+
+.ui-textarea-virtual,
+.ui-text-virtual {
+    color: #c6bdb0;
+}
+
+.ui-sidebar-neighbor {
+    margin-left: 215px;
+}
+
+.ui-sidebar-neighbor-hide {
+    margin-left: 25px;
+}
+
+.ui-schedule-day input {
+    margin-right: 5px;
+}
+
+.skin-tip-entrance-help {
+    position: relative;
+    top: 2px;
+}
+
+.ui-table-editor {
+    z-index: 201;
+}
+
+.ui-table-cell-editor-disabled .ui-table-cell-editentry{
+    display: none;
+}
+
+.ui-table-row-hover .ui-table-cell-editor-disabled {
+    border-color: transparent;
+    background: inherit;
+}
+
+.ui-table-head .ui-tip-entrance {
+    position: relative;
+    top: 3px;
+}
+.plain-unit-title .ui-button{
+    vertical-align: middle;
+}

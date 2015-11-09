@@ -976,21 +976,6 @@ div.main-info {
   position: relative;
   top: 3px;
 }
-.ui-table-editor-daterange .ui-mcal {
-  height: 20px;
-  line-height: 20px;
-}
-.ui-table-editor-daterange .ui-mcal-arrow {
-  margin-top: 7px;
-}
-.ui-table-editor-float .ui-text {
-  float: left;
-  width: 145px;
-}
-.ui-table-editor-float .ui-button {
-  float: left;
-  margin-left: 5px;
-}
 .plain-unit-title .ui-button {
   vertical-align: middle;
 }
@@ -998,4 +983,15 @@ div.main-info {
 .ui-table-hcell-sel {
   padding-left: 0;
   text-align: center;
+}
+.header-bg a {
+  display: none;
+}
+.login-modal .header-bg a {
+  display: inline;
+}
+.login-modal .nav-1,
+.login-modal .nav-2,
+.login-modal .header-login {
+  display: none;
 }

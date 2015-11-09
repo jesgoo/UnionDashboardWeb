@@ -1,0 +1,22 @@
+<!-- target: mf_index_report_dayMedias -->
+<div class="mf-index-report-dayMedias plain-notice-area report-area">
+    <div class="plain-unit-title">
+        <span>所属媒体单日数据</span><i>&nbsp;&nbsp;单击图示可查看细分图</i>
+        <div ui="type:Calendar;id:dayMediasDate;value:*date;valueAsDate:*valueAsDate"></div>
+    </div>
+    <div class="plain-unit-table" id="dayMediasChart"></div>
+    <div class="plain-unit-table">
+        <div class="list-table">
+            <div ui="type:Table;id:dayMediasList;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+        </div>
+        <div class="list-pager">
+            <div class="list-pager-pagesize">
+                <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                <div ui="type:Select;id:dayMediasPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+            </div>
+            <div class="list-pager-page">
+                <div ui="type:Pager;id:dayMediasPager;total:*total;page:*page;"></div>
+            </div>
+        </div>
+    </div>
+</div>

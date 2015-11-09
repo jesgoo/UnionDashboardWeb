@@ -12,7 +12,7 @@
                 "title": "日期",
                 "content": "date",
                 "sortable": 1
-            },
+            }/*,
             {
                 "field": "request",
                 "title": "请求数",
@@ -20,13 +20,13 @@
                 "sortable": 1,
                 "align": "right"
             },
-            /*{
+            {
              "field": "served_request",
              "title": "有效请求数",
              "content": "served_request",
              "sortable": 1
-             },
-             */{
+             }*/,
+             {
                 "field": "impression",
                 "title": "展现数",
                 "content": mf.getFieldContentLess('impression'),

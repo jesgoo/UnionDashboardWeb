@@ -1,0 +1,65 @@
+<!-- target: mf_admin_manage_percentage -->
+<div class="mf-admin-manage-percentage">
+    <div class="plain-notice-area">
+        <div class="plain-unit-title">媒体分成列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:媒体名称或ID：;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:mediaName;width:150;value:*mediaName;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search">搜索</span>
+                </div>
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add">创建新的分成策略</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:percentageTable;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <div class="list-pager">
+                <div class="list-pager-pagesize">
+                    <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                    <div
+                            ui="type:Select;id:percentagePageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                </div>
+                <div class="list-pager-page">
+                    <div ui="type:Pager;id:percentagePager;total:*total;page:*page;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div ui="type:Dialog;id:createEditor;width:500;mask:1;">
+    <div>请选择一个媒体</div>
+    <div>
+        <div class="plain-edit-area">
+            <div class="plain-unit-table">
+                <div class="list-op">
+                    <div ui="type:Plain;content:媒体名称或ID：;" class="mgR10"></div>
+                    <input type="text" class="mgR20" ui="type:TextInput;id:mediaListName;width:150;"/>
+                    <div class="ui-button mgR40">
+                        <span class="ui-button-label" data-cmd="search-media">搜索</span>
+                    </div>
+                </div>
+                <div class="list-table">
+                    <div ui="type:Table;id:mediaListTable;fields:*mediaListFields;select:single;"></div>
+                </div>
+                <div class="list-pager">
+                    <div class="list-pager-pagesize">
+                        <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                        <div ui="type:Select;id:mediaListPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                    </div>
+                    <div class="list-pager-page">
+                        <div ui="type:Pager;id:mediaListPager;total:*total;page:*page;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="error" id="mediaError"></div>
+        </div>
+    </div>
+    <div>
+        <div ui="type:Button;">确定</div>
+        <div ui="type:Button;">关闭</div>
+    </div>
+</div>

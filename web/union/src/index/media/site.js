@@ -167,6 +167,23 @@
                                     });
                                 }
                             }
+                        },
+                        {
+                            cmd: 'add_adslot',
+                            handle: function (options) {
+                                var row = table.datasource[options.index];
+                                var siteId = operateData.get(row, 'id');
+                                if (siteId) {
+                                    var url = '/media/sitePosition~' + $.param({
+                                            addNew: 1,
+                                            siteId: siteId,
+                                            siteName: operateData.get(row, 'name')
+                                        });
+                                    mf.m.utils.nextTick(function () {
+                                        er.locator.redirect(url);
+                                    });
+                                }
+                            }
                         }
                     ],
                     {
@@ -175,6 +192,9 @@
                     }
                 )
             );
+            if (model.get('addNew')) {
+                $('[data-cmd=add]','#' + action.view.target).trigger('click');
+            }
         },
         onentercomplete: function () {
             console.log('onentercomplete');
@@ -182,7 +202,8 @@
         },
         onleave: function () {
             console.log('onleave');
-            var commands = this.model.get('commands');
+            var action = this;
+            var commands = action.model.get('commands');
             commands && mf.clickCommand.dispose(commands);
         }
     });

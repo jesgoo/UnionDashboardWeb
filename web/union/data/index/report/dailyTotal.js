@@ -77,6 +77,17 @@ exports.response = {
             "income": 3.071,
             "request": 2,
             "served_request": 2
+        },
+        {
+            "click": 0,
+            "cpm": 0.000239,
+            "ctr": 0,
+            "date": "2015-03-09",
+            "fr": 1,
+            "impression": 2,
+            "income": 0.00001,
+            "request": 2,
+            "served_request": 2
         }
     ]
 };

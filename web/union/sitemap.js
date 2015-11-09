@@ -30,6 +30,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "uiOperateButton": {},
             "uiFilterSelect": {},
             "highcharts": {},
+            "download": {},
             "preview": {"private": true},
             "config": {"private": true}
         }
@@ -41,7 +42,11 @@ mf = typeof mf === 'undefined' ? {} : mf;
         // page级别模块
         var page = {
             "__module": {
-                "highchart_monitor": {"private": true}
+                "highchart_monitor": {"private": true},
+                "highchart_monitor_mini": {"private": true}
+                //"ace": {"private": true},
+                //"mode-json": {"private": true},
+                //"theme-tomorrow": {"private": true}
             },
             "__mockData": {}
         };
@@ -50,6 +55,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             return {
                 "nav1": "main",
                 "list": [
+                    {"nav2": "/main/detail"},
                     {"nav2": "/main/index"}
                 ],
                 "label": label || ''
@@ -58,7 +64,8 @@ mf = typeof mf === 'undefined' ? {} : mf;
 
         //Module index
         page.main = {
-            "index": mainNav2('监控首页'),
+            "index": mainNav2('监控总览'),
+            "detail": mainNav2('监控详情'),
             "__mockData": {}
         };
 
@@ -78,16 +85,36 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "__mockData": {}
         };
 
+        var demoNav2 = function (label) {
+            return {
+                "nav1": "demo",
+                "list": [
+                    {"nav2": "/demo/view"}
+                ],
+                "label": label || ''
+            };
+        };
+
+        //Module index
+        page.demo = {
+            "view": demoNav2('广告查看'),
+            "__mockData": {}
+        };
+
         //配置1级菜单(以下简称nav1）
         page.__nav1 = {//配置1级菜单(以下简称nav1)
             "main": {
                 "label": "首页",
-                "url": "#/main/index",
-                "hideNav2": true
+                "url": "#/main/index"
             },
             "analyze": {
-                "label": "数据",
+                "label": "数据分析",
                 "url": "#/analyze/clickArea"
+            },
+            "demo": {
+                "label": "广告模拟",
+                "url": "#/demo/view",
+                "hideNav2": true
             }
         };
         //nav2
@@ -123,6 +150,33 @@ mf = typeof mf === 'undefined' ? {} : mf;
         //Module index
         page.main = {
             "index": mainNav2('测试'),
+            "__mockData": {}
+        };
+
+        //配置1级菜单(以下简称nav1）
+        page.__nav1 = {//配置1级菜单(以下简称nav1)
+            "main": {
+                "label": "首页",
+                "url": "#/main/index",
+                "hideNav2": true
+            }
+        };
+        //nav2
+        page.__nav2 = {
+            "\/": {
+                "nav1": 'main',
+                "label": "首页"
+            }
+        };
+        return page;
+    })();
+
+    // Page index
+    mf.MAP.developer = (function () {
+        // page级别模块
+        var page = {
+            "__module": {
+            },
             "__mockData": {}
         };
 
@@ -199,8 +253,11 @@ mf = typeof mf === 'undefined' ? {} : mf;
             return {
                 "nav1": "manage",
                 "list": [
-                    {"nav2": "/manage/template"},
-                    {"nav2": "/manage/strategy"}
+                    {"nav2": "/manage/dspID"},
+                    {"nav2": "/manage/percentage"},
+                    {"nav2": "/manage/adjust"},
+                    {"nav2": "/manage/strategy"},
+                    {"nav2": "/manage/template"}
                 ],
                 "label": label || ''
             };
@@ -208,10 +265,22 @@ mf = typeof mf === 'undefined' ? {} : mf;
 
         //Module manage
         page.manage = {
+            "percentage": authorityAction(manageNav2('媒体分成配置')),
+            "adjust": authorityAction(manageNav2('价格均衡')),
             "template": authorityAction(manageNav2('新模版js更新')),
             "strategy": authorityAction(manageNav2('DSP策略配置')),
+            "dspID": authorityAction(manageNav2('DSP_ID配置')),
+            "adslotDSPID": authorityAction(manageNav2('广告位DSP配置')),
+            "mediaDSPID": authorityAction(manageNav2('媒体DSP配置')),
+            "userDSPID": authorityAction(manageNav2('用户DSP配置')),
+            "domainDSPID": authorityAction(manageNav2('域名DSP配置')),
+            "baiduDSP": authorityAction(manageNav2('百度DSP_ID配置')),
+            "tencentDSP": authorityAction(manageNav2('腾讯DSP_ID配置')),
             "__mockData": {
-                "templateTaskStatus": {}
+                "templateTaskStatus": {},
+                "channel": {},
+                "media": {},
+                "adslot": {}
             }
         };
 
@@ -228,7 +297,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             },
             "manage": {
                 "label": "系统管理",
-                "url": "#/manage/template"
+                "url": "#/manage/dspID"
             }
         };
         //nav2
@@ -290,7 +359,6 @@ mf = typeof mf === 'undefined' ? {} : mf;
             return {
                 "nav1": "index",
                 "list": [
-                    {"nav2": "/index/dailyReport"}
                 ],
                 "label": label || ''
             };
@@ -300,7 +368,6 @@ mf = typeof mf === 'undefined' ? {} : mf;
         index.index = {
             "login": indexNav2('登录'),
             "register": indexNav2('注册'),
-            "dailyReport": authorityAction(indexNav2('日况')),
             "__mockData": {}
         };
 
@@ -334,6 +401,8 @@ mf = typeof mf === 'undefined' ? {} : mf;
             return {
                 "nav1": "account",
                 "list": [
+                    {"nav2": "/account/index"},
+                    {"nav2": "/account/settlement"},
                     {"nav2": "/account/info"},
                     {"nav2": "/account/password"}
                 ],
@@ -342,7 +411,10 @@ mf = typeof mf === 'undefined' ? {} : mf;
         };
         //Module account
         index.account = {
-            "info": authorityAction(accountNav2('基本信息')),
+            "index": authorityAction(accountNav2('账户一览')),
+            "info": authorityAction(accountNav2('帐务信息')),
+            "settlement": authorityAction(accountNav2('财务结算')),
+            "discountList": accountNav2('调整清单'),
             "password": authorityAction(accountNav2('密码设置')),
             "__mockData": {}
         };
@@ -383,14 +455,14 @@ mf = typeof mf === 'undefined' ? {} : mf;
              "url": "#/index/dailyReport",
              "hideNav2": true
              },*/
+            "account": {
+                "label": "账户信息",
+                "url": "#/account/index"
+            },
             "media": {
                 "label": "媒体管理",
                 "url": "#/media/site"
-            }/*,
-             "account": {
-             "label": "账户信息",
-             "url": "#/account/info"
-             }*/,
+            },
             "report": {
                 "label": "数据报表",
                 "url": "#/report/index",

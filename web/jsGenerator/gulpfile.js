@@ -170,13 +170,14 @@ gulp.task('clean-output', function () {
     );
 });
 
-var testSource = '/Users/yangyuelong/workspace/jesgoo_union/web/union/src/test/module';
+var testSource = '/Users/yangyuelong/workspace/jesgoo_union/web/union/src/test/module/';
 var sdkSource = '/Users/yangyuelong/workspace/jesgoo_sdk/jssdk/banner/javascript/';
 gulp.task('clean-ck', function () {
     return gulp.src([
             sdkSource + 'resize-2.0-ck.min.js',
-            sdkSource + 'jesgoo-ck.min.js',
+            //sdkSource + 'jesgoo-ck.min.js',
             sdkSource + 'jesgoo.min.css',
+            sdkSource + 'jesgoo-ck.js',
             testSource + 'jesgoo-ck.js'
         ], { read: false })
         .pipe(gulpClean({ force: true }));
@@ -185,27 +186,28 @@ gulp.task('ck-rsa', ['clean-ck', 'tpl-node', 'tpl-web'], function () {
     var tplConfig = {
         src: [
             './tpl/rsa.tpl',
-            './tpl/rsa_key.tpl'
+            './tpl/rsa_key.tpl',
+            './tpl/rsa_monitor.tpl'
         ],
-        filename: 'jesgoo-ck.min.js',
+        filename: 'jesgoo-ck.js',
         destination: sdkSource
     };
     return gulp.src(
         tplConfig.src
     ).pipe(
         gulpConcat(tplConfig.filename)
-    ).pipe(
+    )/*.pipe(
         gulpUglify()
-    ).pipe(
+    )*/.pipe(
         gulp.dest(tplConfig.destination)
     )
 });
 gulp.task('ck', ['ck-rsa'], function () {
     var tplConfig = {
         src: [
+            './tpl/resize-2.0.tpl',
             './tpl/rsa.tpl',
             './tpl/rsa_key.tpl',
-            './tpl/resize-2.0.tpl',
             './tpl/rsa_monitor.tpl'
         ],
         filename: 'jesgoo-ck.js',
@@ -217,12 +219,12 @@ gulp.task('ck', ['ck-rsa'], function () {
         gulpConcat(tplConfig.filename)
     ).pipe(
         gulp.dest(tplConfig.destination)
-    ).pipe(
-        gulpUglify()
-    ).pipe(
+    )/*.pipe(
+        gulp.dest(sdkSource)
+    )*/.pipe(
         gulpRename(
             {
-                basename: 'resize-2.0-ck.min'
+                basename: 'resize-2.0-ck'
             }
         )
     ).pipe(

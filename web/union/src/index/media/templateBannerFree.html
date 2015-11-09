@@ -1,0 +1,134 @@
+<!-- target: mf_index_media_templateBannerFree -->
+<div class="mf-index-media-templateBannerFree template-config">
+    <div class="layout-2-right">
+        <div class="plain-edit-area left">
+            <div class="plain-unit-title">模版布局</div>
+            <div class="plain-unit plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        模版预览<br><br><div ui="type:Button;id:switchInfo;content:换一个;"></div>
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <div class="layout-container" id="layoutContainer_${template}_${styleName}">
+                            <div class="layout-scale" id="layoutScale_${template}_${styleName}"></div>
+                            <div class="layout-demo" style="height: ${heightValue};" id="layoutDemo_${template}_${styleName}">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- if: ${hasConfigDemo} -->
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        预置参考
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <div ui="type:ButtonSelect;id:configSelect_${template}_${styleName};skin:simple;
+            single:true;datasource:*configMaps;textField:name;valueField:value;"></div>
+                        <div class="layout-container hide" id="configDemoArea_${template}_${styleName}">
+                            <div class="layout-demo" style="height: ${heightValue}; margin: 10px 0;" id="configDemo_${template}_${styleName}">
+                            </div>
+                            <div ui="type:Button;id:copyStyle_${template}_${styleName};" style="margin-right: 40px;">清除已有配置，复刻此参考样例</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /if -->
+            </div>
+            <div class="plain-unit-title">功能说明</div>
+            <div class="plain-unit plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        使用js
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <% js脚本 %>
+                        <br>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        范例
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <h4 style="color: #666;">模版写法</h4>
+                        <% for (var i = 0; i < 5; i +=1) { %><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<%=i%><br>
+                        <% } %>
+                        <h4 style="color: #666;">显示效果</h4>
+                        0 1 2 3 4
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit-title">参数说明</div>
+            <div class="plain-unit plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        名称说明
+                    </div>
+                    <div class="plain-unit-item-field">
+                        ImageUrl 图片地址
+                    </div>
+                    <div class="plain-unit-item-field">
+                        LogoUrl 图标地址
+                    </div>
+                    <div class="plain-unit-item-field">
+                        Title 标题文本
+                    </div>
+                    <div class="plain-unit-item-field">
+                        Description1 描述文本
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        引用参数
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <%=data.[参数名称]%>
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit-title">script内置接口说明</div>
+            <div class="plain-unit plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        接口变量
+                    </div>
+                    <div class="plain-unit-item-field">
+                        window.jesgoo_interface
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        使用说明
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <h3>jesgoo_interface.<b>resizeContainer</b>(height, isFixed)</h3>
+                        @description 设定容器的高度<br>
+                        @param {number} height 高度，单位px<br>
+                        @param {boolean} isFixed 固定高度，即不随同设备大小而自动变化的固定高度<br>
+                        <h3>jesgoo_interface.<b>autoResizeImage</b>(isFixed)</h3>
+                        @description 根据ImageUrl提供的图片自动设定容器高度，再图片横向撑满容器时，容器置为图片最适高度，防止伸缩变形<br>
+                        @param {boolean} isFixed 固定高度，即不随同设备大小而自动变化的固定高度<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="plain-edit-area right">
+            <div class="plain-unit-title">内容编辑</div>
+            <div class="plain-unit">
+                <div id="contentTab_${template}_${styleName}" class="u-jqx-tabs u-jqx-tabs-content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="operation-area plain-edit-area">
+        <div class="plain-unit">
+            <div class="plain-unit-item">
+                <div class="plain-unit-action">
+                    <div ui="type:Button;id:saveStyle_${template}_${styleName};" style="margin-right: 40px;">保存</div>
+                    <div ui="type:Button;id:closeStyle_${template}_${styleName};">关闭</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

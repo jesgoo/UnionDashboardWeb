@@ -25,6 +25,9 @@
                     } else {
                         return operateData.get(item, 'name');
                     }
+                },
+                validator: function (value, item) {
+                    return (!value || value.length < 3) && '名称长度不能少于2位';
                 }
             },
             'note': {},
@@ -67,8 +70,9 @@
                     }
                     if (item._isNew) {
                         ops.unshift('<a data-cmd="delete_add" data-index="' + index + '">删除</a>');
-                    } else {
-                        ops.unshift('<a data-cmd="copy" data-index="' + index + '">复制</a>');
+                    }
+                    if (!(item._isModify || item._isNew)) {
+                        ops.unshift('<a data-cmd="add_adslot" data-index="' + index + '">添加广告位</a>');
                     }
                     return ops.join('&nbsp;');
                 }

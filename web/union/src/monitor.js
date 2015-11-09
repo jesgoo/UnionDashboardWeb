@@ -9,7 +9,7 @@ mf.monitor = {};
 er.config.TEMPLATE_LIST = [
     'asset/union-monitor.html'
 ];
-er.config.DEFAULT_INDEX = "/main/index";
+er.config.DEFAULT_INDEX = "/main/detail";
 
 mf.urlDebugRouter.reg({
     // data all

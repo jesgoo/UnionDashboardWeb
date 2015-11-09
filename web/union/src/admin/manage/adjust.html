@@ -1,0 +1,34 @@
+<!-- target: mf_admin_manage_adjust -->
+<div class="mf-admin-manage-adjust">
+    <div class="plain-notice-area">
+        <div class="plain-unit-title">价格均衡列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:媒体名称:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:mediaName;width:150;value:*mediaName;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search">搜索</span>
+                </div>
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add">创建新的均衡策略</span>
+                </div>
+                <div class="ui-plain float-right mgR10">
+                    <span class="ui-plain-label">ACP与ECPM为［0］时表示不做限制</span>
+                </div>
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:adjustTable;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <div class="list-pager">
+                <div class="list-pager-pagesize">
+                    <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                    <div
+                            ui="type:Select;id:adjustPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                </div>
+                <div class="list-pager-page">
+                    <div ui="type:Pager;id:adjustPager;total:*total;page:*page;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

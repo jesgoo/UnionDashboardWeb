@@ -1,0 +1,114 @@
+<!-- target: mf_index_account_settlement -->
+<div class="mf-index-account-settlement layout-2-left">
+    <div class="right plain-notice-area settlement-info">
+        <div class="plain-unit-title">发票开具信息</div>
+        <div class="plain-unit">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    发票项目
+                </div>
+                <div class="plain-unit-item-field">
+                    信息服务费／技术服务费
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    发票类型
+                </div>
+                <div class="plain-unit-item-field">
+                    增值税专用发票
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    公司名称
+                </div>
+                <div class="plain-unit-item-field">
+                    上海捷酷信息技术有限公司
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    开户行
+                </div>
+                <div class="plain-unit-item-field">
+                    招商银行股份有限公司上海张江支行
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    银行账号
+                </div>
+                <div class="plain-unit-item-field">
+                    1219<span class="mgL5"></span>1336<span class="mgL5"></span>0110<span class="mgL5"></span>101
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    纳税人识别号
+                </div>
+                <div class="plain-unit-item-field">
+                    3101<span class="mgL5"></span>1531<span class="mgL5"></span>2318<span class="mgL5"></span>894
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    地址
+                </div>
+                <div class="plain-unit-item-field">
+                    中国（上海）自由贸易试验区郭守敬路498号6幢10501室
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    电话
+                </div>
+                <div class="plain-unit-item-field">
+                    021-58822381
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left plain-edit-area">
+        <div class="plain-unit-title">财务结算纪录</div>
+        <div class="plain-unit plain-unit-wide-caption">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    纪录时间范围
+                </div>
+                <div class="plain-unit-item-field">
+                    ${beginStr} 至 ${endStr}
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    未提现
+                </div>
+                <div class="plain-unit-item-field">
+                    <div style="color:#E74902;">￥${totalIncome}</div>
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    提现中
+                </div>
+                <div class="plain-unit-item-field">
+                    <div style="color:#F58A16;">￥${totalIncomePending}</div>
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">
+                    已提现
+                </div>
+                <div class="plain-unit-item-field">
+                    ￥${totalIncomeWithdraw}
+                </div>
+            </div>
+            <div class="plain-unit-table">
+                <div class="list-table report-area">
+                    <div ui="type:Table;id:list;fields:*fields;datasource:*list;subrow:1;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

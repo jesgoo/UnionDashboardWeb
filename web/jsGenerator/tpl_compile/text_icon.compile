@@ -51,6 +51,8 @@ __p+='\n    '+
 '\n</a>\n'+
 ((__t=(_.templateList('impression_monitor', data)))==null?'':__t)+
 '\n'+
+((__t=(_.templateList('click_monitor', data)))==null?'':__t)+
+'\n'+
 ((__t=(_.templateList('base_foot', data)))==null?'':__t)+
 '';
 return __p;

@@ -1,0 +1,129 @@
+<!-- target: mf_index_market_ideaDetail -->
+<div class="mf-index-market-ideaDetail plain-edit-area">
+    <input type="text" ui="type:TextInput;id:id;value:*id;" class="hide"/>
+    <div class="plain-unit-title">基本信息</div>
+    <div class="plain-unit plain-unit-border">
+        <div class="plain-unit-item">
+            <div class="plain-unit-item-caption">
+                创意名称
+            </div>
+            <div class="plain-unit-item-field">
+                <input type="text" ui="type:TextInput;id:name;placeholder:请输入创意名称;value:*name;" />
+                <div class="error" id="nameError"></div>
+            </div>
+        </div>
+        <div class="plain-unit-item">
+            <div class="plain-unit-item-caption">
+                推广类型
+            </div>
+            <div class="plain-unit-item-field">
+                <div ui="type:ButtonSelect;id:type;value:*type;textField:name;valueField:value;skin:simple;datasource:*positionTypeMap;disabled:*isEditing;" ></div>
+                <div class="error" id="typeError"></div>
+            </div>
+        </div>
+        <div class="plain-unit-item">
+            <div class="plain-unit-item-caption">
+                创意类型
+            </div>
+            <div class="plain-unit-item-field">
+                <div ui="type:ButtonSelect;id:display;value:*display;textField:name;valueField:value;skin:simple;datasource:*displayTypeMap;disabled:*isEditing;" ></div>
+                <div class="error" id="displayError"></div>
+            </div>
+        </div>
+    </div>
+    <div class="plain-unit-title">创意物料</div>
+    <div class="plain-unit plain-unit-border layout-left" id="idea-detail">
+        <div class="plain-unit-item item-image">
+            <div class="plain-unit-item-caption">
+                图片
+            </div>
+            <div class="plain-unit-item-field">
+                <input type="text" ui="type:TextInput;id:image;value:*image;" class="hide"/>
+                <div ui="type:Button;id:chooseImage;">选择图片</div>
+                <div class="error" id="imageError"></div>
+            </div>
+        </div>
+        <div class="plain-unit-item item-title">
+            <div class="plain-unit-item-caption">
+                标题
+            </div>
+            <div class="plain-unit-item-field">
+                <input type="text" ui="type:TextInput;id:title;placeholder:请输入标题文案;value:*title;" />
+                <div class="error" id="titleError"></div>
+            </div>
+        </div>
+        <div class="plain-unit-item item-description">
+            <div class="plain-unit-item-caption">
+                描述
+            </div>
+            <div class="plain-unit-item-field">
+                <input type="text" ui="type:TextInput;id:description;placeholder:请输入描述文案;value:*description;" />
+                <div class="error" id="descriptionError"></div>
+            </div>
+        </div>
+        <div class="plain-unit-item">
+            <div class="plain-unit-item-caption">
+                物料预览
+            </div>
+            <div class="plain-unit-item-field" id="preview-material">
+            </div>
+        </div>
+
+    </div>
+    <div class="plain-unit-title">用户交互</div>
+    <div class="plain-unit plain-unit-border" id="action-detail">
+        <div class="plain-unit-item">
+            <div class="plain-unit-item-caption">
+                交互方式
+            </div>
+            <div class="plain-unit-item-field">
+                <div ui="type:ButtonSelect;id:actionType;value:*actionType;textField:name;valueField:value;skin:simple;datasource:*actionTypeMap;" ></div>
+            </div>
+        </div>
+        <div class="plain-unit-item">
+            <div class="plain-unit-item-caption">
+                目标资源
+            </div>
+            <div class="plain-unit-item-field">
+                <div ui="type:ButtonSelect;id:targetType;value:*targetType;textField:name;valueField:value;skin:simple;datasource:*targetTypeMap;" ></div>
+            </div>
+        </div>
+        <div class="plain-unit-item item-remote">
+            <div class="plain-unit-item-caption">
+                网络资源
+            </div>
+            <div class="plain-unit-item-field">
+                <input type="text" ui="type:TextInput;id:targetUrl;placeholder:请输入网络地址;value:*targetUrl;" />
+                <div class="error" id="targetUrlError"></div>
+            </div>
+        </div>
+        <div class="plain-unit-item item-local">
+            <div class="plain-unit-item-caption">
+                资源库
+            </div>
+            <div class="plain-unit-item-field">
+                <input type="text" ui="type:TextInput;id:appResource;value:*appResource;" class="hide"/>
+                <div ui="type:Button;id:chooseApp;">选择资源</div>
+                <div class="error" id="appResourceError"></div>
+            </div>
+        </div>
+        <div class="plain-unit-item item-local">
+            <div class="plain-unit-item-caption">
+                当前资源
+            </div>
+            <div class="plain-unit-item-field" id="localResource">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div ui="type:Dialog;id:resourceLoader;width:700;" class="resource-dialog">
+    <div>资源选择</div>
+    <div>
+        载入中...
+    </div>
+    <div>
+        <div ui="type:Button;">确定</div>
+        <div ui="type:Button;">关闭</div>
+    </div>
+</div>

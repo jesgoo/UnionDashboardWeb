@@ -1,0 +1,109 @@
+/*手机壳*/
+.cellphone-wrapper {
+  text-align: center;
+  font-size: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+.cellphone-wrapper-iphone6 {
+  height: 51.22222222em;
+  width: 30.66666667em;
+  padding-top: 7.66666667em;
+  background-image: url(img/iphone6.png);
+}
+.cellphone-wrapper-iphone6 .position-wrapper {
+  height: 36.38888889em;
+  width: 26.66666667em;
+}
+/*广告容器*/
+.position-wrapper {
+  margin: 0 auto;
+  position: relative;
+}
+.position-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font: 100%/1.1 "microsoft yahei", Arial, Helvetica, sans-serif;
+}
+.position-container.position-with-close-btn .position-content:after {
+  content: 'x';
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 0.8;
+  padding: 0 0.15em;
+  font-size: 150%;
+  font-family: heiti;
+  color: #333333;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom-left-radius: 0.2em;
+  cursor: pointer;
+}
+.position-content {
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: left;
+}
+.position-content.position-absolute-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+/* 广告样式 */
+/* 广告样式 -- banner */
+.position-banner img {
+  width: 100%;
+  height: 100%;
+}
+/* 广告样式 -- 弹开屏 */
+.position-popups img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+}
+/* 广告样式 -- 方形图片 */
+.position-square-image {
+  position: relative;
+  left: 50%;
+}
+/* 广告样式 -- 文字链 */
+.position-text {
+  height: 3.33333333em;
+  padding: 0.41666667em 0.83333333em;
+  background: dimgray;
+  background: -webkit-gradient(linear, left top, left bottom, from(#7f7f7f), to(#424242));
+  border-bottom: 1px solid #c4c4c4;
+}
+.position-text .title {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.position-text .title .text {
+  font-size: 116.66666667%;
+  color: #ffffff;
+}
+.position-text .description {
+  line-height: 1.33333333em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.position-text .description .text {
+  font-size: 100%;
+  color: #dedede;
+}
+.position-text.position-text-only-title {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+/* 广告样式 */
+/* 广告样式 -- video */
+.position-video img {
+  width: 100%;
+  height: 100%;
+}

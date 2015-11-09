@@ -6,12 +6,74 @@
  */
 mf.monitor.main.model = {
     machineList: [
-        //'180.76.150.76',
-        '180.76.150.114',
-        '180.76.151.139',
-        '115.29.220.188',
-        '121.40.54.196'
+        '10.169.10.10', // show ui
+        '10.165.98.177', // show ui
+        '10.117.42.168', // show ui
+        '180.76.150.114', // show ui
+        '180.76.140.151', // show ui
+        '180.76.151.139' // show ui
+        //'115.29.220.188', // show ui event
+        //'121.40.54.196', // show ui event
+        //'120.26.64.154' // show ui event
+        //'bj02.jesgoo.com',
+        //'bj03.jesgoo.com',
+        //'bj04.jesgoo.com',
+        //'hz01.jesgoo.com',
+        //'hz02.jesgoo.com',
+        //'hz05.jesgoo.com'
     ],
+    fieldMap: {
+        'event': {
+            index: 0,
+            name: '点击数'
+        },
+        'show': {
+            index: 1,
+            name: '展现数'
+        },
+        'ui': {
+            index: 2,
+            name: '请求数'
+        }
+    },
+    emptyData: $.map(new Array(723), function () {
+        return 0;
+    }),
+    OneDay: 1000 * 60 * 60 * 24,
     realTimePort: 8099,
     historyPort: 8894
+};
+mf.monitor.main.model.getDateTime = function (dateChange) {
+    var d = new Date().getTime();
+    d = d + (dateChange || 0) * mf.monitor.main.model.OneDay;
+    d = new Date(d);
+    return T.date.format(d, 'yyyyMMddHHmmss');
+};
+mf.monitor.main.model.parseData = function (target, data) {
+    var result = {};
+    $.each(data || [], function (index, obj) {
+        if (!/\.log$/i.test(obj.table_name)) {
+            return true;
+        }
+        var field = obj.table_name.slice(0, -4);
+        $.each(obj.counters || [], function (index, counter) {
+            var time = Math.floor(counter.time / 60);
+            //var time = getTimeString(counter.time);
+            var item = result[time] = result[time] || {};
+            var obj = item[field] = item[field] || {};
+            obj[target] = counter.number;
+        });
+    });
+    console.log('parseData', data, result);
+    return result;
+};
+
+mf.monitor.main.model.mergeData = function() {
+    var result = {};
+    var dataList = [].slice.call(arguments);
+    console.log('mergeDate', arguments);
+    $.each(dataList, function (index, data) {
+        $.deepExtend(result, data);
+    });
+    return result;
 };

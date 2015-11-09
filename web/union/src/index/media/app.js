@@ -137,6 +137,23 @@
                             }
                         },
                         {
+                            cmd: 'add_adslot',
+                            handle: function (options) {
+                                var row = table.datasource[options.index];
+                                var appId = operateData.get(row, 'id');
+                                if (appId) {
+                                    var url = '/media/appPosition~' + $.param({
+                                            addNew: 1,
+                                            appId: appId,
+                                            appName: operateData.get(row, 'name')
+                                        });
+                                    mf.m.utils.nextTick(function () {
+                                        er.locator.redirect(url);
+                                    });
+                                }
+                            }
+                        },
+                        {
                             cmd: 'position',
                             handle: function (options) {
                                 var row = table.datasource[options.index];
@@ -159,6 +176,9 @@
                     }
                 )
             );
+            if (model.get('addNew')) {
+                $('[data-cmd=add]','#' + action.view.target).trigger('click');
+            }
         },
         onleave: function () {
             console.log('onleave');
