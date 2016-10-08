@@ -11,7 +11,7 @@
         var listFieldInConfig = mf.mockFieldInConfig(lists);
         var needFieldLists = {
             'id': {
-                stable:1,
+                stable: 1,
                 width: 80
                 /*content: function (item, index) {
                  return '<a data-cmd="edit" data-index="' + index + '">' + operateData.get(item, 'id', '') + '</a>'
@@ -31,7 +31,7 @@
             },
             'operation': {
                 stable: 1,
-                width: 96,
+                width: er.permission.isAllow('ADMIN') ? 200 : 130,
                 title: '操作',
                 content: function (item, index) {
                     var ops = [];
@@ -49,16 +49,22 @@
                     if (!(item._isModify || item._isNew)) {
                         ops.unshift('<a data-cmd="code" data-index="' + index + '">获取代码</a>');
                     }
+                    if (er.permission.isAllow('ADMIN')) {
+                        ops.push('<a data-cmd="advanced" data-index="' + index + '">高级配置</a>');
+                        ops.push('<a data-cmd="experiment" data-index="' + index + '">实验配置</a>');
+                    }
                     return ops.join('&nbsp;');
                 }
             },
             'type': {
-                subEntry:1,
+                subEntry: 1,
                 isSubEntryShow: function (item, index, col) {
-                    return !item._isNew && (operateData.get(item, 'type') === config.maps.sitePositionType.banner || operateData.get(item, 'type') === config.maps.sitePositionType.square);
+                    return !item._isNew && (operateData.get(item, 'type') === config.maps.sitePositionType.banner
+                                            || operateData.get(item, 'type') === config.maps.sitePositionType.square
+                                            || operateData.get(item, 'type') === config.maps.sitePositionType.text);
                 },
                 editable: function (item, index, col) {
-                  return !!item._isNew;
+                    return !!item._isNew;
                 },
                 datasource: config.maps.sitePositionTypeMap,
                 content: function (item) {
@@ -151,12 +157,14 @@
                         return '值不在范围内，请修改。（范围：' + heightRange[0] + ' ~ ' + heightRange[1] + '）';
                     }
                 }
-            },
-            'autoPlayInterval': {
+            }
+        };
+        if (er.permission.isAllow('ADMIN')) {
+            /*needFieldLists['autoPlayInterval'] = {
                 content: function (item, index, col, textClass) {
                     var type = operateData.get(item, 'type');
-                    if (type == config.maps.sitePositionType.text
-                        || type == config.maps.sitePositionType.video) {
+                    if (type !== config.maps.sitePositionType.text
+                        && type !== config.maps.sitePositionType.video) {
                         return operateData.get(item, 'autoPlayInterval') || 0;
                     } else {
                         textClass.push('ui-table-cell-editor-disabled');
@@ -166,8 +174,34 @@
                 validator: function (value, item) {
                     return operateData.get(item, 'autoPlayInterval') && value < 1 && '不能小于0';
                 }
-            }
-        };
+            };
+            needFieldLists['cache'] = {
+                content: function (item, index, col, textClass) {
+                    return operateData.get(item, 'cache') || 0;
+                },
+                validator: function (value, item) {
+                    return value < 0 && '不能小于0';
+                }
+            };
+            needFieldLists['logable'] = {
+                datasource: config.maps.judgeMap,
+                content: function (item, index, col, textClass) {
+                    var type = operateData.get(item, 'type');
+                    var r = mf.m.utils.deepSearch('children', config.maps.judgeMap,
+                        operateData.get(item, 'logable'), 'value', 0);
+                    return r ? r.name || '-' : '-';
+                }
+            };
+            needFieldLists['needTop'] = {
+                datasource: config.maps.judgeMap,
+                content: function (item, index, col, textClass) {
+                    var type = operateData.get(item, 'type');
+                    var r = mf.m.utils.deepSearch('children', config.maps.judgeMap,
+                        operateData.get(item, 'needTop'), 'value', 0);
+                    return r ? r.name || '-' : '-';
+                }
+            };*/
+        }
         return mf.mockTableFields(needFieldLists, lists);
     };
     mf.index.media.model.sitePosition = new er.Model({

@@ -16,10 +16,10 @@
 */
         dailyPositions: {
             action: 'dailyPositions'
-        },
+        }/*,
         dayPositions: {
             action: 'dayPositions'
-        }/*,
+        },
         hourlyPositions: {
             action: 'hourlyPositions'
         }*/

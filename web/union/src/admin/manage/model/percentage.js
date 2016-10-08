@@ -95,8 +95,8 @@
                 },
                 validator: function (value) {
                     value = +value;
-                    if (value < 0 || value > 100) {
-                        return '值范围[0-100]';
+                    if (value < 0) {
+                        return '值不能小于0';
                     }
                 }
             },
@@ -112,8 +112,8 @@
                 },
                 validator: function (value) {
                     value = +value || 0;
-                    if (value < 0 || value > 100) {
-                        return '值范围[0-100]';
+                    if (value < 0) {
+                        return '值不能小于0';
                     }
                 }
             },
@@ -167,9 +167,18 @@
             loader.stop();
             mf.parallelAjax([
                 '/admin/percentage',
-                '/admin/channel',
-                '/admin/media',
-                '/admin/adslot'
+                {
+                    url: '/admin/channel',
+                    cache: true
+                },
+                {
+                    url: '/admin/media',
+                    cache: true
+                },
+                {
+                    url: '/admin/adslot',
+                    cache: true
+                }
             ], function (percentage, channel, media, adslot) {
 
 /*
@@ -194,7 +203,7 @@
                     }
                 });
                 mediaList.sort(function (a, b) {
-                    return a.id > b.id ? 1 : -1;
+                    return a.value > b.value ? 1 : -1;
                 });
                 var adslotList = adslot.map(function (n) {
                     return {
@@ -204,7 +213,7 @@
                     }
                 });
                 adslotList.sort(function (a, b) {
-                    return a.id > b.id ? 1 : -1;
+                    return a.value > b.value ? 1 : -1;
                 });
                 adslotList.unshift({
                     "value": "s0000000",

@@ -61,6 +61,7 @@ mf.urlDebugRouter.reg({
     '/admin/manage/adslot': /^\/admin\/adslot/i,
     // 单广告位单日分小时
     '/admin/manage/channel': /^\/admin\/channel/i,
+    '/admin/manage/baidu5DSP': /^\/admin\/baidu5adslot(?:\/[0-9]+)?/i,
     '/admin/manage/baiduDSP': /^\/admin\/baiduadslot(?:\/[0-9]+)?/i,
     '/admin/manage/tencentDSP': /^\/admin\/tencentadslot(?:\/[0-9]+)?/i,
     '/admin/manage/userDSPID': /^\/admin\/useradslot(?:\/[0-9]+\/[0-9]+\/[0-9]+\/[0-9]+)?/i,

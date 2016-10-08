@@ -29,6 +29,7 @@ function checkLogin() {
             $('body').addClass('login-modal');
             var username = T.cookie.get(mf.cookieKeyMap.username) || '';
             this.model.set('username', username);
+            mf.authority.parse(+T.cookie.get(mf.cookieKeyMap.authority) || 0);
         },
         onentercomplete: function () {
             mf.loaded();

@@ -5,13 +5,39 @@
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
 (function () {
-    var previewAd = function (adPreview) {
+    function windowMessage(event) {
+        var messageData = event.data||{};
+        var adPreview = $('#adPreview').get(0);
+        var sendLog = function(url) {
+            $('<div/>').hide().html(url).appendTo(adPreview);
+            adPreview.refresh();
+        };
+        if (messageData.action) {
+            switch (messageData.action) {
+                case 'log':
+                    sendLog('ad:' + messageData.log);
+                    break;
+                case 'resize':
+                    sendLog('resize:' + messageData.height + ':' + !!messageData.force);
+                    if (messageData.adInfo.height !== -1 || messageData.force) {
+                        previewAd.setSize(messageData.fixed, messageData.height);
+                    }
+                    break;
+            }
+        } else {
+            if (messageData.error) {
+                sendLog('error:' + messageData.error);
+            }
+            sendLog('视频播放结束，启用回调');
+        }
+    }
+    var previewAd = function (adPreview, adInfo) {
+        adInfo.height = +adInfo.height || -1;
         $(adPreview).children().remove();
         var adPreviewFrame = document.createElement('iframe');
         adPreview.appendChild(adPreviewFrame);
         adPreviewFrame.frameBorder = "0";
         adPreviewFrame.scrolling = "no";
-        adPreviewFrame.className = 'position-wrapper';
         var win = adPreviewFrame.contentWindow;
         var doc = win.document;
         doc.open();
@@ -20,8 +46,63 @@
         var CallbackParams = {};
         var globalHTML = doc.documentElement;
         var globalBody = doc.body || globalHTML;
+        var fixedSize = false;
+        setSize();
+        previewAd.setSize = setSize;
+        function setSize(isFixed, height) {
+            if (fixedSize && !isFixed) {
+                return false;
+            }
+            adInfo.height = height || adInfo.height;
+            fixedSize = fixedSize || isFixed;
+            var width = globalHTML.clientWidth || globalBody.clientWidth || 320;
 
-        function sendLog(container, url) {
+            var frameCss = [];
+
+            height = +adInfo.height || 80;
+            if (height !== -1) {
+                switch (adInfo.prod) {
+                    case 1:
+                        height = height < 32 ? 32 : height;
+                        break;
+                    case 10:
+                        height = height < 200 ? 200 : height;
+                        break;
+                    case 12://sure of video having a div parent
+                        break;
+                    case 13:
+                        height = height < 8 ? 8 : height;
+                        break;
+                }
+            }
+
+            /*if (adInfo.type === 'inbed') {
+                adParentCss.push('position:relative');
+            } else if (adInfo.type == 'float') {
+                var adPlace = adInfo.place + ':0';
+                if (adInfo.prod === 4) {
+                    height = 320;
+                    adPlace = "top:15%;";
+                }
+
+                frameCss.push('border:1px');
+                frameCss.push(adPlace);
+                adParentCss.push('display:block');
+                adParentCss.push('left:0;font-size:0;z-index:2147483583;position:fixed');
+                adParentCss.push(adPlace);
+            }
+            frameCss.push('display:block');
+            adParentCss.push('display:block');
+            */
+            var sizeText = 'width:100%;height:' + (height < 0 ? '100%' : ((isFixed ? height : Math.round(width / 320
+                                                                                                         * height)) + 'px'))
+                           + ';';
+            frameCss.push(sizeText);
+            adPreviewFrame.setAttribute("style", frameCss.join(';'));
+            //blankDiv && (blankDiv.style.height = (Math.round(width / 320 * height)) + 'px');
+            return sizeText;
+        }
+        function sendLog(url) {
             $('<div/>').hide().html(url).appendTo(adPreview);
             adPreview.refresh();
         }
@@ -119,13 +200,9 @@
         };
 
         function adEndAndCallback(endInfo) {
-            var callBackInfo;
-            if (endInfo.error) {
-                callBackInfo = typeof endInfo.error === 'string' ? endInfo.error : JSON.stringfy(endInfo.error, null, 4);
-            } else {
-                callBackInfo = '视频播放结束，启用回调';
-            }
-            $(globalBody).append($('<div/>').html(callBackInfo));
+            endInfo = endInfo || {};
+            endInfo.adInfo = adInfo;
+            win.parent.postMessage(endInfo, '*');
         }
 
         function getClickAnchor(clickURL) {
@@ -147,7 +224,7 @@
             return container;
         }
 
-        function setSquareAd(adData, adInfo) {
+        function setSquareAd(adData) {
             var clickAnchor = getClickAnchor(adData.Click_url);
             var img = document.createElement("img");
             img.setAttribute("style",
@@ -164,17 +241,17 @@
             clickAnchor.appendChild(img);
             clickAnchor.onclick = function () {
                 (adData.Click_monitor_url || []).forEach(function (url) {
-                    sendLog(globalBody, url);
+                    sendLog('Click_monitor:'+url);
                 });
             };
             globalBody.appendChild(clickAnchor);
             (adData.Impression_log_url || []).forEach(function (url) {
-                sendLog(globalBody, url);
+                sendLog('Impression_log:'+url);
             });
             return win;
         }
 
-        function setTimeCountImageAd(adData, adInfo) {
+        function setTimeCountImageAd(adData) {
             var clickAnchor = getClickAnchor(adData.Click_url);
             clickAnchor.setAttribute("class", "boxer");
             clickAnchor.setAttribute("style", "width:100%;height:100%;");
@@ -197,17 +274,17 @@
             clickAnchor.appendChild(imgAd);
             clickAnchor.onclick = function () {
                 (adData.Click_monitor_url || []).forEach(function (url) {
-                    sendLog(globalBody, url);
+                    sendLog('Click_monitor' + url);
                 });
             };
             globalBody.appendChild(clickAnchor);
             (adData.Impression_log_url || []).forEach(function (url) {
-                sendLog(globalBody, url);
+                sendLog('Impression:' + url);
             });
             return win;
         }
 
-        function setTimeCountVideoAd(adData, adInfo) {
+        function setTimeCountVideoAd(adData) {
             var clickAnchor = getClickAnchor(adData.Click_url);
             clickAnchor.className = 'boxer';
             clickAnchor.style.display = 'block';
@@ -310,7 +387,7 @@
                             if (myvideo.currentTime >= n.Time && !n.sent) {
                                 n.sent = true;
                                 (n.Impression_url || []).forEach(function (url) {
-                                    sendLog(globalBody, url);
+                                    sendLog('Impression:'+url);
                                 });
                             }
                         });
@@ -353,7 +430,7 @@
                 } else {
                     recordErrorTimer.run(7, 'video ad clicked');
                     (adData.Click_monitor_url || []).forEach(function (url) {
-                        sendLog(globalBody, url);
+                        sendLog('Click_monitor:'+url);
                     });
                 }
                 e.stopPropagation();
@@ -377,12 +454,12 @@
             clickAnchor.appendChild(myvideo);
 
             (adData.Impression_log_url || []).forEach(function (n) {
-                sendLog(globalBody, n);
+                sendLog('Impression_log:' + n);
             });
             return win;
         }
 
-        function setHTMLSnippet(html, adInfo, container) {
+        function setHTMLSnippet(html, container) {
             var adContainerParent = getHTMLContainer(html);
             container.appendChild(adContainerParent);
             var w = adContainerParent.contentWindow;
@@ -427,7 +504,7 @@
             return w;
         }
 
-        function setTimeCountHTMLAd(html, adInfo) {
+        function setTimeCountHTMLAd(html) {
             var adWindow = setHTMLSnippet(html, adInfo, globalBody);
 
             var timeLeft = new TimeLeft({
@@ -444,15 +521,15 @@
             return adWindow;
         }
 
-        function showAd(adsData, adInfo) {
+        function showAd(adsData) {
             var adsNative = adsData.Native_material;
             var materialType = adsData.Material_type;
             var adWindow;
             if (adInfo.prod == 4) {
                 if (materialType == 1 && adsNative) {
-                    adWindow = setSquareAd(adsNative, adInfo);
+                    adWindow = setSquareAd(adsNative);
                 } else {
-                    adWindow = setHTMLSnippet(adsData.Html_snippet, adInfo, globalBody);
+                    adWindow = setHTMLSnippet(adsData.Html_snippet, globalBody);
                 }
             } else if (adInfo.prod == 12) {
                 globalHTML.style.backgroundColor = 'rgba(0,0,0,0.5)';
@@ -460,156 +537,27 @@
                 globalHTML.style.fontSize = '12px';
                 if (materialType == 1 && adsNative) {
                     if (adsNative.Type == 1) {
-                        adWindow = setTimeCountImageAd(adsNative, adInfo);
+                        adWindow = setTimeCountImageAd(adsNative);
                     } else if (adsNative.Type == 3) {
-                        adWindow = setTimeCountVideoAd(adsNative, adInfo);
+                        adWindow = setTimeCountVideoAd(adsNative);
                     }
                 } else {
-                    adWindow = setTimeCountHTMLAd(adsData.Html_snippet, adInfo);
+                    adWindow = setTimeCountHTMLAd(adsData.Html_snippet);
                 }
             } else {
-                adWindow = setHTMLSnippet(adsData.Html_snippet || '没有广告', adInfo, globalBody);
+                adWindow = setHTMLSnippet(adsData.Html_snippet || '没有广告', globalBody);
             }
+            adWindow.sendMessage = function (message) {
+                message = message || {};
+                message.adInfo = adInfo;
+                win.parent.postMessage(message, '*');
+            };
             return adWindow;
         }
 
         return showAd;
     };
-    function setInput($area, data) {
-        var arrayReg = /(\$\d+)_(.+)_(\d+)/g, arrayMatch;
-        var arrayName = [];
-        var arrayIndex = [];
-        var field = data.field;
-        var value = data.value;
-        while (arrayMatch = arrayReg.exec(data.field)) {
-            arrayName.push(arrayMatch[2]);
-            arrayIndex.push(+arrayMatch[3]);
-            field = field.replace(arrayMatch[0], arrayMatch[1]);
-        }
-        var $target, $array;
-        if (arrayName.length) {
-            $array = $area;
-            arrayName.forEach(function (n, i) {
-                var $targetArray = $array.find('[data-array=' + n + ']:not(.hide)').eq(arrayIndex[i]);
-                if (!$targetArray.length) {
-                    $targetArray = $('.hide[data-array=' + n + ']').clone().removeClass('hide');
-                    $('[data-array-name=' + n + ']').append($targetArray);
-                }
-                $array = $targetArray;
-            });
-            $target = $array.find('[name="' + field + '"]');
-        } else {
-            $target = $area.find('[name="' + field + '"]');
-        }
-        switch ($target.data('type')) {
-            case '[int]':
-                value = value.join(',');
-                break;
-            case 'boolean':
-                value = value ? 'true' : 'false';
-                break;
-            default :
-                value = value + '';
-        }
-        if (/checkbox|radio/i.test($target.prop('type'))) {
-            $target.prop('checked', value === $target.val());
-        } else {
-            $target.val(value);
-        }
-    }
-
-    function parseRequest(data, field, deep, arrayField, currentField) {
-        var result = [];
-        field = field || '';
-        arrayField = arrayField || '';
-        currentField = currentField || '';
-        deep = deep || 0;
-        if (mf.m.utils.isArray(data)) {
-            if (data.length) {
-                if (mf.m.utils.isPlainObject(data[0])) {
-                    field && (field += '.');
-                    arrayField && currentField && (arrayField += ',');
-                    data.forEach(function (n, index) {
-                        result = result.concat(parseRequest(n, field + '$' + deep + '_' + currentField + "_" + index,
-                            deep + 1, arrayField + currentField, index));
-                    });
-                } else {
-                    return {
-                        name: currentField,
-                        array: arrayField,
-                        field: field,
-                        value: data
-                    };
-                }
-            }
-        } else if (mf.m.utils.isPlainObject(data)) {
-            field && (field += '.');
-            for (var name in data) {
-                result = result.concat(parseRequest(data[name], field + name, deep, arrayField, name));
-            }
-        } else {
-            return {
-                name: currentField,
-                array: arrayField,
-                field: field,
-                value: data
-            };
-        }
-        return result;
-    }
-
-    function fillInput(area, data) {
-        area.find('[data-cmd=del-array]:visible').click();
-        var requestField = parseRequest(data);
-        requestField.forEach(function (n) {
-            setInput(area, n);
-        });
-    }
-
-    function parseInput(area) {
-        var result = {};
-        var $area = $(area);
-        $area.find('input:visible, select:visible').each(function (i, n) {
-            var $this = $(n);
-            var defaultValue = $this.data('default');
-            var value = n.value;
-            var dataField = n.name;
-            if (/checkbox|radio/i.test(n.type)) {
-                if (!n.checked) {
-                    value = null;
-                }
-            }
-            value = mf.m.utils.hasValue(value) && value !== '' ? value : defaultValue;
-            if (mf.m.utils.isEmpty(value)) {
-                return true;
-            }
-            var valueType = $this.data('type');
-            switch (valueType) {
-                case 'int':
-                    value = +value;
-                    break;
-                case '[int]':
-                    value = value.split(',').filter(function (n) {
-                        return !!n;
-                    }).map(function (n) {
-                        return +n
-                    });
-                    break;
-                case 'boolean':
-                    value = value === 'true';
-                    break;
-            }
-            var arrayField = $this.data('field');
-            if (arrayField) {
-                arrayField.split(',').forEach(function (n, index) {
-                    dataField = dataField.replace('$' + index, $this.parents('[data-array=' + n + ']').index());
-                });
-            }
-            result = mf.m.utils.recursion.set(result, dataField, value);
-        });
-        return result;
-    }
-
+    
     function saveData(data) {
         localStorage.setItem('mockRequest', JSON.stringify(data || {}));
     }
@@ -699,10 +647,11 @@
             var requestResult = $('#requestResult');
             var requestRawResult = $('#requestRawResult');
             var $configArea = $('#' + action.view.target + ' .config-area');
+            var jsonEditor = new mf.m.jsonEditor($configArea);
             var $adPreview = $('#adPreview');
             $adPreview.get(0).refresh = function () {
                 var result = model.get('requestResult') || {};
-                result.logs = (result.logs || []).concat([].map.call($adPreview.children('div'), function (n) {
+                result.logs = (result.logs || []).concat([].map.call($adPreview.children('div').remove(), function (n) {
                     return n.innerHTML;
                 }));
                 model.set('requestResult', result);
@@ -715,7 +664,7 @@
                 var previous = (tab.datasource[tab.activeIndex] || {}).target;
                 switch (previous) {
                     case 'form':
-                        model.set('requestData', parseInput($configArea));
+                        model.set('requestData', jsonEditor.getData());
                         break;
                     case 'editor':
                         var data = editor.getValue() || '{}';
@@ -740,7 +689,7 @@
                 saveBtn.enable();
                 switch (target) {
                     case 'form':
-                        fillInput($configArea, model.get('requestData') || {});
+                        jsonEditor.setData(model.get('requestData') || {});
                         break;
                     case 'editor':
                         editor.setValue(JSON.stringify(model.get('requestData') || {}, null, 4), 1);
@@ -756,14 +705,16 @@
             };
             var saveBtn = esui.get('save');
             saveBtn.onclick = function () {
-                saveData(tab.datasource[tab.activeIndex].target === 'form' ? parseInput($configArea) : model.get('requestData'));
+                saveData(tab.datasource[tab.activeIndex].target === 'form'
+                    ? jsonEditor.getData()
+                    : model.get('requestData'));
             };
             esui.get('load').onclick = function () {
                 var data = loadData();
                 model.set('requestData', loadData());
                 switch (tab.datasource[tab.activeIndex].target) {
                     case 'form':
-                        fillInput($configArea, data);
+                        jsonEditor.setData(data);
                         break;
                     case 'editor':
                         editor.setValue(JSON.stringify(data, null, 4), 1);
@@ -775,7 +726,7 @@
                 var target = tab.datasource[tab.activeIndex].target;
                 switch (target) {
                     case 'form':
-                        query = parseInput($configArea);
+                        query = jsonEditor.getData();
                         model.set('requestData', query);
                         break;
                     case 'editor':
@@ -795,8 +746,9 @@
                         query = model.get('requestData') || {};
                         break;
                 }
+                var host = esui.get('host').getValue() || 'api.moogos.com';
                 $.ajax({
-                    url: 'http://api.moogos.com/v1/json?_ts=' + (new Date().getTime()),
+                    url: 'http://' + host + '/v1/json?_ts=' + (new Date().getTime()),
                     data: JSON.stringify(query),
                     dataType: 'json',
                     type: 'POST',
@@ -806,12 +758,13 @@
                     if (data && data.Ads && data.Ads[0]) {
                         model.set('requestResult', parseResponse(data.Ads[0]));
                         tab._select(2);
-                        previewAd($adPreview.get(0))(data.Ads[0], {
+                        previewAd($adPreview.get(0), {
+                            height: esui.get('height').getValue(),
                             prod: query.adslots[0].type,
                             duration: 30
-                        });
+                        })(data.Ads[0]);
                     } else {
-                        previewAd($adPreview.get(0))({}, {});
+                        previewAd($adPreview.get(0), {})({});
                         tab._select(3);
                     }
                 }).fail(function () {
@@ -821,43 +774,17 @@
                     });
                 });
             };
-            model.set(
-                'commands',
-                mf.clickCommand.register(
-                    [
-                        {
-                            cmd: 'add-array',
-                            handle: function (options) {
-                                var field = options.field;
-                                var $target = $('[data-array-name=' + field + ']');
-                                var $clone = $('.hide[data-array=' + field + ']').clone().removeClass('hide');
-                                $target.append($clone);
-                            }
-                        },
-                        {
-                            cmd: 'del-array',
-                            handle: function (options) {
-                                var field = options.field;
-                                var $target = $(this.target).parents('[data-array=' + field + ']');
-                                $target.remove();
-                            }
-                        }
-                    ],
-                    {
-                        region: '#' + action.view.target,
-                        rewrite: true
-                    }
-                )
-            );
             var editor = ace.edit("editor");
             editor.session.setMode("ace/mode/json");
             editor.setTheme("ace/theme/tomorrow");
             tab._select(0);
+            window.addEventListener('message', windowMessage, false);
         },
         onleave: function () {
             console.log('onleave');
             var commands = this.model.get('commands');
             commands && mf.clickCommand.dispose(commands);
+            window.removeEventListener('message', windowMessage);
         }
     });
 })();

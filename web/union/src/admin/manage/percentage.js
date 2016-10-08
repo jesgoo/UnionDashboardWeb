@@ -56,8 +56,8 @@
                 });
                 if (existRow && row._isNew) {
                     errorInfo = '您当前创建的策略已经存在，不可重复创建。';
-                } else if (percent < 0 || percent > 100) {
-                    errorInfo = '媒体分成与渠道分成比例总和总和范围应为［0-100］' +
+                } else if (percent < 0) {
+                    errorInfo = '媒体分成与渠道分成比例总和总和范围不能小于0' +
                                 '<br>当前总和为：' + percent;
                 }
                 if (errorInfo) {

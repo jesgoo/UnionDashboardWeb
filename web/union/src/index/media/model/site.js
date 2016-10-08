@@ -10,10 +10,11 @@
         var operateData = mf.operateDataInConfigField(lists);
         var needFieldLists = {
             'id': {
-                stable:1,
+                stable: 1,
                 width: 80,
                 content: function (item, index) {
-                    return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'id', '') + '</a>';
+                    return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'id', '')
+                           + '</a>';
                 }
             },
             'mediaType': {},
@@ -21,7 +22,8 @@
                 width: 120,
                 content: function (item, index) {
                     if (operateData.get(item, 'id')) {
-                        return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'name', '') + '</a>';
+                        return '<a data-cmd="position" data-index="' + index + '">' + operateData.get(item, 'name', '')
+                               + '</a>';
                     } else {
                         return operateData.get(item, 'name');
                     }
@@ -32,37 +34,17 @@
             },
             'note': {},
             'createTime': {
-                stable:1,
+                stable: 1,
                 width: 100
             },
             'modifyTime': {
-                stable:1,
+                stable: 1,
                 width: 100
-            },
-            'isPopups': {
-                datasource: config.maps.toggleMap,
-                content: function (item) {
-                    var r = mf.m.utils.deepSearch('children', config.maps.toggleMap, operateData.get(item, 'isPopups'), 'value', 0);
-                    return r ? r.name || '-' : '-';
-                }
-            },
-            'popupInterval': {
-                content: function (item, index, col, textClass) {
-                    if (operateData.get(item, 'isPopups')) {
-                        return operateData.get(item, 'popupInterval') || 0;
-                    } else {
-                        textClass.push('ui-table-cell-editor-disabled');
-                        return '-';
-                    }
-                },
-                validator: function (value, item) {
-                   return operateData.get(item, 'isPopups') && value < 1 && '不能小于0';
-                }
             },
             'operation': {
                 title: '操作',
-                stable:1,
-                width: 80,
+                stable: 1,
+                width: er.permission.isAllow('ADMIN') ? 200 : 120,
                 content: function (item, index) {
                     var ops = [];
                     if (item._isModify) {
@@ -74,15 +56,67 @@
                     if (!(item._isModify || item._isNew)) {
                         ops.unshift('<a data-cmd="add_adslot" data-index="' + index + '">添加广告位</a>');
                     }
+                    if (er.permission.isAllow('ADMIN')) {
+                        ops.push('<a data-cmd="advanced" data-index="' + index + '">高级配置</a>');
+                        ops.push('<a data-cmd="experiment" data-index="' + index + '">实验配置</a>');
+                    }
                     return ops.join('&nbsp;');
                 }
             }
         };
+        /*if (er.permission.isAllow('ADMIN')) {
+            needFieldLists['isPopups'] = {
+                datasource: config.maps.toggleMap,
+                content: function (item) {
+                    var r = mf.m.utils.deepSearch('children', config.maps.toggleMap, operateData.get(item, 'isPopups'),
+                        'value', 0);
+                    return r ? r.name || '-' : '-';
+                }
+            };
+            needFieldLists['popupsMask'] = {
+                datasource: config.maps.toggleMap,
+                content: function (item, index, col, textClass) {
+                    if (operateData.get(item, 'isPopups')) {
+                        var r = mf.m.utils.deepSearch('children', config.maps.toggleMap, operateData.get(item, 'popupsMask'),
+                            'value', 0);
+                        return r ? r.name || '-' : '-';
+                    } else {
+                        textClass.push('ui-table-cell-editor-disabled');
+                        return '-';
+                    }
+                }
+            };
+            needFieldLists['popupInterval'] = {
+                content: function (item, index, col, textClass) {
+                    if (operateData.get(item, 'isPopups')) {
+                        return operateData.get(item, 'popupInterval') || 0;
+                    } else {
+                        textClass.push('ui-table-cell-editor-disabled');
+                        return '-';
+                    }
+                },
+                validator: function (value, item) {
+                    return operateData.get(item, 'isPopups') && value < 1 && '不能小于1';
+                }
+            };
+            needFieldLists['popupsDuration'] = {
+                content: function (item, index, col, textClass) {
+                    if (operateData.get(item, 'isPopups')) {
+                        return operateData.get(item, 'popupsDuration') || 0;
+                    } else {
+                        textClass.push('ui-table-cell-editor-disabled');
+                        return '-';
+                    }
+                },
+                validator: function (value, item) {
+                    return operateData.get(item, 'isPopups') && value < 0 && '不能小于0';
+                }
+            };
+        }*/
         return mf.mockTableFields(needFieldLists, lists);
     };
     mf.index.media.model.site = new er.Model({
-        QUERY_MAP: {
-        },
+        QUERY_MAP: {},
         LOADER_LIST: ['modelLoader'],
         modelLoader: new er.Model.Loader(function () {
             console.log('modelLoader');

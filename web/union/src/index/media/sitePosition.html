@@ -37,11 +37,35 @@
         </div>
     </div>
 </div>
+<div ui="type:Dialog;id:advancedEditor;width:830;mask:1;">
+    <div>广告位高级设置</div>
+    <div>
+        载入中...
+    </div>
+    <div>
+        <div ui="type:Button;">确定</div>
+        <div ui="type:Button;">关闭</div>
+    </div>
+</div>
+<div ui="type:Dialog;id:experimentEditor;width:830;mask:1;">
+    <div>媒体实验设置</div>
+    <div>
+        载入中...
+    </div>
+    <div>
+        <div ui="type:Button;">确定</div>
+        <div ui="type:Button;">关闭</div>
+        <div ui="type:Button;" class="mgL15">美化JSON</div>
+        <div ui="type:Button;" class="mgL5">插入不展现开屏的样例</div>
+    </div>
+</div>
+
 <!-- target: position_jssdk_code -->
 <div class="jssdk-code">
     <label for="jssdkCode">将此段代码粘贴到您希望放置的网页中。</label><br/>
-    <em>注意：不要放在&lt;body&gt;标签之前的位置。</em>
-    <textarea id="jssdkCode">&lt;script type="text/javascript" src='http://${domain}/js/_jssdk.js?aid=${adslot}<!-- if: ${channelId} -->&channelId=${channelId}<!-- /if -->' &gt;&lt;/script&gt;</textarea>
+    <em>确定页面代码包含移动适配的meta,例如：&lt;meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0"&gt;</em>
+    <em>注意：嵌入形式的不要放在&lt;body&gt;标签之前的位置。</em>
+    <textarea id="jssdkCode">&lt;script type="text/javascript" src="http://${domain}/js/_jssdk.js?aid=${adslot}<!-- if: ${channelId} -->&channelId=${channelId}<!-- /if -->" &gt;&lt;/script&gt;</textarea>
 </div>
 <!-- target: position_jssdk_code_jiechu_top -->
 <script>

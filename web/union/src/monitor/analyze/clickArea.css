@@ -8,3 +8,7 @@
   padding: 0.5em 1em;
   line-height: 1.5;
 }
+.mf-monitor-analyze-clickArea #func {
+  height: 650px;
+  width: 100%;
+}

@@ -1,0 +1,51 @@
+<!-- target: mf_index_account_index -->
+<div class="mf-index-account-index layout-2-right">
+    <div class="left plain-notice-area">
+        <div class="plain-unit-title">账户信息</div>
+        <div class="plain-unit">
+            <div class="plain-unit-item plain-unit-item-border">
+                <div class="plain-unit-item-caption">
+                    账户余额
+                </div>
+                <div class="plain-unit-item-field report-area account-balance">
+                    ${balance}
+                </div>
+            </div>
+            <div class="plain-unit-item plain-unit-item-border">
+                <div class="plain-unit-item-caption">
+                    优惠券余额
+                </div>
+                <div class="plain-unit-item-field report-area account-balance">
+                    ${coupon}
+                </div>
+            </div>
+            <div class="plain-unit-item plain-unit-item-border">
+                <div class="plain-unit-item-caption">
+                    计划概况
+                </div>
+                <div class="plain-unit-item-field">
+                    <span class="mgR20">总计${plansCount}个</span>
+                    <span class="error">${plansValidCount}个有效</span>
+                </div>
+                <div class="plain-unit-action" style="text-align: right;">
+                    <div ui="type:Button;id:newPlan;skin:attraction;">新增投放计划</div>
+                </div>
+            </div>
+            <div class="plain-unit-item plain-unit-item-border">
+                <div class="plain-unit-item-caption">
+                    创意概况
+                </div>
+                <div class="plain-unit-item-field">
+                    <span class="mgR20">总计${ideasCount}个</span>
+                    <span class="error">${ideasValidCount}个有效</span>
+                </div>
+                <div class="plain-unit-action" style="text-align: right;">
+                    <div ui="type:Button;id:newIdea;skin:attraction;">新增推广创意</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div id="reportArea"></div>
+    </div>
+</div>

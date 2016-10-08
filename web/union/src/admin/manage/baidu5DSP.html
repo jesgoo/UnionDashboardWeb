@@ -1,0 +1,33 @@
+<!-- target: mf_admin_manage_baidu5DSP -->
+<div class="mf-admin-manage-baidu5DSP">
+    <div class="plain-notice-area">
+        <div class="plain-unit-title">百度API 5.0 DSP ID列表</div>
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:说明:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:baiduDescription;width:150;value:*appMediaName;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search_baidu_dsp">搜索</span>
+                </div>
+                <!-- if: !${listing} -->
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="add_baidu_dsp">添加ID</span>
+                </div>
+                <!-- /if -->
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:baidu5DSPlist;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <div class="list-pager">
+                <div class="list-pager-pagesize">
+                    <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                    <div
+                            ui="type:Select;id:baidu5DSPpageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                </div>
+                <div class="list-pager-page">
+                    <div ui="type:Pager;id:baidu5DSPpager;total:*total;page:*page;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

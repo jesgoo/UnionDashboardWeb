@@ -1,0 +1,423 @@
+<!-- target: mf_index_media_sitePositionAdvanced -->
+<div class="mf-index-media-sitePositionAdvanced field-edit">
+    <div class="left plain-notice-are display-tab-container config-area display-form">
+        <div class="col col-1">
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">频次</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        时间周期(s)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="frequency.period" type="text" data-type="int"/>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        展现次数
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="frequency.times" type="text" data-type="int"/>
+                        <br><i>在周期内出现广告的总次数</i>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        展现概率
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="frequency.percent" type="text" data-type="int"/>
+                        <br><i>在时间周期内出现广告的概率</i>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        后备概率
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="frequency.percentBackup" type="text" data-type="int"/>
+                        <br><i>当客户端无法存储频次信息时，出广告的概率</i>
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">交替隐现</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        可见(ms)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="hideInterval.showTime" type="text" data-type="int"/>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        隐匿(ms)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="hideInterval.hideTime" type="text" data-type="int"/>
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">顶级弹开屏</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        开启
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.on" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        时间周期(ms)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.interval" type="text" data-type="int" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        持续时长(s)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.duration" type="text" data-type="int" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        灰色底板
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.mask" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        触发时段
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.time" value="" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-2">
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">开关</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        轮播(ms)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="autoPlayInterval" type="text" data-type="int"/>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        缓存(ms)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="cache" type="text" data-type="int"/>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        前端日志
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="logable" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        公司logo
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="logo" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        logo文本
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="logoText" type="text" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        顶部权限
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="needTop" value="true" type="checkbox" data-type="boolean" />
+                        <br><i>有顶部页面权限时才展现广告</i>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        容器可视
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="needVisual" value="true" type="checkbox" data-type="boolean" />
+                        <br><i>广告容器可见时才展现广告</i>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        下起来
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="download" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        幸运金币
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="coin" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">youxiaoJS</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        JS src
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="youxiao.src" type="text">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        JS html
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="youxiao.html" type="text">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        强制顶部JS
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="youxiao.top" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        允许补余
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="youxiao.backup" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        JS name
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="youxiao.name" type="text">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        广告位高度
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="youxiao.height" type="text" data-type="int">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        切换比例
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="youxiao.percent" type="text" data-type="int">
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">幸运大转盘</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        开启转盘
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="lucky.on" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        开启概率
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="lucky.percent" type="text" data-type="int">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        开启时段
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="lucky.time" value="" type="text">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        延迟出现
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="fuck.delay" value="" type="text" data-ttype="int">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-3">
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">防点击蒙板</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        出现概率
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="mask.percent" type="text" data-type="int"/>
+                    </div>
+                </div>
+                <div class="plain-unit plain-unit-border plain-unit-small">
+                    <div class="plain-unit-title">蒙板<a class="btn" data-cmd="add-array" data-field="range">增加</a></div>
+                    <div class="hide array-wrapper" data-array="range">
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                <a data-cmd="del-array" data-field="range">删除</a>
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <input name="mask.range.$0" type="text" data-type="[int]" data-field="range" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plain-unit-array" data-array-name="range">
+                    </div>
+                    <div><i>蒙板值样例：5,10,20,40 表示放置一个 left:5％ top:10％ width:20% height:40% 的蒙板 </i></div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">iframe嵌入</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        http src
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="iframe.src" type="text">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        name
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="iframe.name" value="people" type="text">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        广告位高度
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="iframe.height" type="text" data-type="int">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        切换比例
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="iframe.percent" type="text" data-type="int">
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">Father包裹</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        触发时段
+                    </div>
+                    <div class="plain-unit-item-field">
+                        逗号分隔时段的岂止。默认全天。例如：01:00-03:00,21:00-22:45
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        开启包裹
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="fuck.on" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        触发概率
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="fuck.percent" type="text" data-type="int">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        触发时段
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="fuck.time" value="" type="text">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        悬浮广告id
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="fuck.aid" value="" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">extraJS</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        JS src
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="extraJS.src" type="text">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        强制顶部
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="extraJS.top" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        输出比例
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="extraJS.percent" type="text" data-type="int">
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        时段控制
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="extraJS.time" type="text">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -25,6 +25,7 @@ exports.response = {
         {
             "adslot": 1,
             "baidu_adslot": 9,
+            "baidu5_adslot": 9,
             "create_time": "2014-12-04:17:45:07",
             "dsp_adslot_type": 1,
             "modified_time": "2015-05-15:14:37:26",

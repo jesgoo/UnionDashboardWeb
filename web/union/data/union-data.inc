@@ -2178,6 +2178,7 @@ Response
             {
                 "adslot": 0,
                 "baidu_adslot": 1,
+                "baidu5_adslot": 1,
                 "create_time": "2015-04-07:16:17:21",
                 "dsp_adslot_type": 1,
                 "media": "00000123",
@@ -2458,6 +2459,7 @@ Response
             {
                 "adslot": 1,
                 "baidu_adslot": 9,
+                "baidu5_adslot": 9,
                 "create_time": "2014-12-04:17:45:07",
                 "dsp_adslot_type": 1,
                 "modified_time": "2015-05-15:14:37:26",
@@ -2467,6 +2469,7 @@ Response
             }, {
                 "adslot": 1,
                 "baidu_adslot": 33,
+                "baidu5_adslot": 33,
                 "create_time": "2014-12-05:17:24:12",
                 "dsp_adslot_type": 1,
                 "modified_time": "2015-09-28:14:13:04",
@@ -2476,6 +2479,7 @@ Response
             }, {
                 "adslot": 1,
                 "baidu_adslot": 5,
+                "baidu5_adslot": 5,
                 "create_time": "2014-12-15:14:36:33",
                 "dsp_adslot_type": 1,
                 "modified_time": "2015-01-04:20:18:36",
@@ -2757,6 +2761,7 @@ Response
             {
                 "adslot": 1,
                 "baidu_adslot": 9,
+                "baidu5_adslot": 9,
                 "create_time": "2014-12-04:17:45:07",
                 "dsp_adslot_type": 1,
                 "modified_time": "2015-05-15:14:37:26",
@@ -2797,6 +2802,41 @@ Response
                 "media": "10042c1f",
                 "adslot": "L0000041",
                 "description": "默认横幅",
+                "create_time": "2014年1月1日 0时0分0秒",
+                "modify_time": "2014年1月1日 0时0分1秒"
+            }
+        ]
+    }
+
+### /admin/manage/baidu5DSP
+
+Request 
+
+`GET /admin/manage/baidu5DSP.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "entities": [
+            {
+                "id": 1,
+                "media": "50042c1f",
+                "adslot": "50000041",
+                "description": "默认横幅5",
+                "create_time": "2014年1月1日 0时0分0秒",
+                "modify_time": "2014年1月1日 0时0分1秒"
+            },
+            {
+                "id": 9,
+                "media": "50042c1f",
+                "adslot": "50000041",
+                "description": "默认横幅5",
                 "create_time": "2014年1月1日 0时0分0秒",
                 "modify_time": "2014年1月1日 0时0分1秒"
             }
@@ -3281,6 +3321,42 @@ Response
         ]
     }
 
+### /index/media/siteAdvanced
+
+Request 
+
+`GET /index/media/siteAdvanced.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
+### /index/media/siteExperiment
+
+Request 
+
+`GET /index/media/siteExperiment.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
+    }
+
 ### /index/media/sitePosition
 
 Request 
@@ -3297,19 +3373,22 @@ Response
         "success": true,
         "entities": [
             {
-                "id": "s63c825f",
-                "media": "e2131231",
-                "name": "广告位1",
-                "type": 1,
-                "subtype": 2,
-                "modify_time": "2014年1月1日 0时0分1秒",
                 "config": {
-                    "close": true,
+                    "autoPlayInterval": 0,
                     "blank": false,
-                    "place": 2,
-                    "height": 60,
-                    "autoPlayInterval": 1000
-                }
+                    "cache": 0,
+                    "close": true,
+                    "frequency": {"percent": 100, "percentBackup": 1, "period": 86400, "times": 1},
+                    "height": 480,
+                    "place": 2
+                },
+                "create_time": "2015-12-24:16:14:09",
+                "id": "sb48c1f3",
+                "media": "927fd40d",
+                "modified_time": "2015-12-25:15:33:35",
+                "name": "7号家园-插屏",
+                "subtype": 2,
+                "type": 4
             },
             {
                 "id": "s23c815f",
@@ -3328,6 +3407,24 @@ Response
                 }
             }
         ]
+    }
+
+### /index/media/sitePositionAdvanced
+
+Request 
+
+`GET /index/media/sitePositionAdvanced.json`
+
+    :::javascript
+    {
+    }
+
+Response
+
+    :::javascript
+    {
+        "success": true,
+        "model": {}
     }
 
 ### /index/media/app
@@ -4400,7 +4497,40 @@ Response
         "success": true,
         "entities": {
             "201502": {
-                "income": 123,
+                "income": 321,
+                "status": 0,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+                "errorMsg": "错误信息不能提现",
+                "discount": -100
+            },
+            "201503": {
+                "income": 600,
+                "status": 2,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+                "discount": 100
+            },
+            "201501": {
+                "income": 900,
+                "status": 2,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+                "discount": -100,
+                "comment": "不能提"
+            },
+            "201504": {
+                "income": 1500,
+                "status": 3,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+                "discount": -200,
+                "comment": "不能提"
+            },
+            "201505": {
+                "income": 500,
+                "status": 4,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+                "discount": 0,
+                "comment": ""
+            }
+        }
+    };/*exports.response = {
+        "success": true,
+        "entities": {
+            "201502": {
+                "income": 321,
                 "status": 0,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
                 "errorMsg": "错误信息不能提现",
                 "discount": [
@@ -4423,7 +4553,7 @@ Response
                 ]
             },
             "201503": {
-                "income": 123,
+                "income": 600,
                 "status": 2,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
                 "discount": [
                     {
@@ -4445,7 +4575,7 @@ Response
                 ]
             }
         }
-    }
+    };*/
 
 ### /index/account/discountList
 

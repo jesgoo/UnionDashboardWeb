@@ -8,7 +8,7 @@
     function mockLogin(username, display_name) {
         // 暂时这样吧，用户信息以后再加入
         var user = {
-            authority : 255
+            authority : 1 | 256
         };
         user.authority = parseInt(user.authority || 0);
         if (user.authority > 0) {
@@ -19,7 +19,7 @@
         T.cookie.set(mf.cookieKeyMap.userUser_name, username, expObj);
         T.cookie.set(mf.cookieKeyMap.userDisplay_name, display_name || username, expObj);
         T.cookie.set(mf.cookieKeyMap.userAuthority, user.authority);
-        var win = window.open('/index.html#/report/index', username, '', '_blank');
+        var win = window.open('/index.html?from=admin#/report/index', username, '', '_blank');
         esui.Dialog.alert({
             title: '操作提示',
             content: '操作完毕，结束模拟登录。',
@@ -71,13 +71,24 @@
                 table: table
             });
             refreshTable();
+            
+            var medias = model.get('medias');
+            var adslots = model.get('adslots');
+    
             var searchName = function () {
                 var text = esui.get('userName').getValue();
                 var filter;
                 if (text) {
                     var valueRegExp = mf.m.utils.makeRegExp(text, 'i');
+                    var identityUser = adslots.filter(function (adslot) {
+                        return adslot.id === text || adslot.media === text;
+                    })[0];
                     filter = function (obj) {
-                        return valueRegExp.test(operateData.get(obj, 'username'));
+                        return identityUser && operateData.get(obj, 'id') == identityUser.user
+                               || identityUser && operateData.get(obj, 'id') == identityUser.user
+                               || valueRegExp.test(operateData.get(obj, 'username'))
+                               || valueRegExp.test(operateData.get(obj, 'id'))
+                               || valueRegExp.test(operateData.get(obj, 'display'));
                     };
                 }
                 refreshTable({

@@ -1,0 +1,22 @@
+<!-- target: mf_index_report_dayPlan -->
+<div class="mf-index-report-dayPlan plain-notice-area report-area">
+    <div class="plain-unit-title">
+        <span>分计划单日数据</span><i>&nbsp;&nbsp;单击图示可查看细分图</i>
+        <div ui="type:Calendar;id:dayPlanDate;value:*date;valueAsDate:*valueAsDate"></div>
+    </div>
+    <div class="plain-unit-table" id="dayPlanChart"></div>
+    <div class="plain-unit-table">
+        <div class="list-table">
+            <div ui="type:Table;id:dayPlanList;fields:*fields;sortable:1;order:*order;orderBy:*orderBy;"></div>
+        </div>
+        <div class="list-pager">
+            <div class="list-pager-pagesize">
+                <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                <div ui="type:Select;id:dayPlanPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+            </div>
+            <div class="list-pager-page">
+                <div ui="type:Pager;id:dayPlanPager;total:*total;page:*page;"></div>
+            </div>
+        </div>
+    </div>
+</div>

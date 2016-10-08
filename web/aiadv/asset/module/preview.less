@@ -1,0 +1,49 @@
+.resource-preview {
+    display: block;
+    color: inherit;
+    overflow: hidden;
+    text-align: left;
+    padding: 5px 5px;
+    img {
+        float: left;
+        margin-right: 5px;
+        border-radius: 5px;
+    }
+    .title,
+    .name {
+        font-size: 14px;
+        line-height: 1.5;
+        white-space: normal;
+        overflow: hidden;
+    }
+    .desc {
+        font-size: 12px;
+        line-height: 1.2;
+        white-space: normal;
+    }
+    &:hover {
+        transform: scale(1.2) translateX(10%);
+    }
+    &.preview-image {
+        img {
+            height: 31px;
+        }
+    }
+
+    &.preview-text-icon {
+        img {
+            height: 31px;
+        }
+    }
+
+    &.preview-app {
+        img {
+            height: 63px;
+            width: 63px;
+        }
+    }
+    text-decoration: none;
+    .ui-table-cell-text a&:hover {
+        text-decoration: none;
+    }
+}

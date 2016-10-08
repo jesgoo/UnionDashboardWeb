@@ -23,7 +23,9 @@ mf.cookieKeyMap = {
 
 mf.authority.register(
     {
-        LOGIN: 1 // 登录
+        LOGIN: 1, // 登录
+        UD: 128, // UD
+        ADMIN: 256 // 管理员
     }
 );
 
@@ -37,7 +39,7 @@ mf.urlDebugRouter.reg({
     // 用户信息
     '/index/user': '/user',
     // 用户信息
-    '/index/account/settlement': '/withdraw',
+    '/index/account/settlement': /\/withdraw2?/,
     // 配置文件
     '/index/config': '/config',
     // 渠道列表
@@ -98,9 +100,8 @@ $(function () {
     function mockLogin(name, opt) {
         // 暂时这样吧，用户信息以后再加入
         var user = {
-            authority : opt.authority || 255
+            authority : parseInt(opt.authority || 0)
         };
-        user.authority = parseInt(user.authority || 0);
         if (user.authority > 0) {
             user.authority |= 1;
         }
@@ -111,11 +112,13 @@ $(function () {
     var passageway = {
         admin : {
             page: '/admin.html',
-            cookie: mf.cookieKeyMap.adminAuthority
+            cookie: mf.cookieKeyMap.adminAuthority,
+            authority: 1
         },
         ud : {
             page: '/ud.html',
-            cookie: mf.cookieKeyMap.udAuthority
+            cookie: mf.cookieKeyMap.udAuthority,
+            authority: 1
         }
     };
     $('.passageway').click(function () {
@@ -150,13 +153,18 @@ mf.loginIn = function (result) {
         key && T.cookie.set(key, user[field] || '', expObj);
     });
     $('#' + mf.USERNAME_ID).html(user.display_name || user.username);
+    var authority = 1;
     if (user.is_admin) {
+        authority = authority | 256;
         $('.passageway[data-name=admin]').show();
     }
     if (user.is_ud) {
+        authority = authority | 128;
         $('.passageway[data-name=ud]').show();
     }
-    var authority = 255;
+    if (window.location.search.indexOf('from=admin') > -1) {
+        authority = authority | 256;
+    }
     T.cookie.set(mf.cookieKeyMap.authority, authority);
     mf.authority.parse(authority);
     global_previousName = user.username;
@@ -186,7 +194,7 @@ var global_previousName = T.cookie.get(mf.cookieKeyMap.username);
         var currentName = T.cookie.get(mf.cookieKeyMap.username);
         if (global_previousName !== currentName) {
             T.cookie.set(mf.cookieKeyMap.authority, 0);
-            er.locator.redirect(mf.userLoad);
+            mf.getErPage() !== mf.getErPage(mf.userLoad) && er.locator.redirect(mf.userLoad);
         }
         global_previousName = currentName;
     }, 3000);

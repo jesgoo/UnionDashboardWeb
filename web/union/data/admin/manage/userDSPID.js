@@ -24,6 +24,7 @@ exports.response = {
         {
             "adslot": 1,
             "baidu_adslot": 9,
+            "baidu5_adslot": 9,
             "create_time": "2014-12-04:17:45:07",
             "dsp_adslot_type": 1,
             "modified_time": "2015-05-15:14:37:26",
@@ -33,6 +34,7 @@ exports.response = {
         }, {
             "adslot": 1,
             "baidu_adslot": 33,
+            "baidu5_adslot": 33,
             "create_time": "2014-12-05:17:24:12",
             "dsp_adslot_type": 1,
             "modified_time": "2015-09-28:14:13:04",
@@ -42,6 +44,7 @@ exports.response = {
         }, {
             "adslot": 1,
             "baidu_adslot": 5,
+            "baidu5_adslot": 5,
             "create_time": "2014-12-15:14:36:33",
             "dsp_adslot_type": 1,
             "modified_time": "2015-01-04:20:18:36",

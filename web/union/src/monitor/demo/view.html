@@ -9,7 +9,28 @@
                 <div ui="type:Button;id:load;" class="mgR40">读取</div>
             </div>
             <div class="plain-unit">
-                <div class="cellphone-wrapper cellphone-wrapper-iphone6" id="adPreview">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        请求目标
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" ui="type:TextInput;id:host;placeholder:api.moogos.com;" />
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        广告位高度
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input type="text" ui="type:TextInput;id:height;placeholder:-1;" />
+                    </div>
+                </div>
+            </div>
+            <div class="plain-unit">
+                <div class="cellphone-wrapper cellphone-wrapper-iphone6">
+                    <div class="position-wrapper" id="adPreview"></div>
                 </div>
             </div>
         </div>
@@ -185,7 +206,7 @@
                             IP
                         </div>
                         <div class="plain-unit-item-field">
-                            <input name="network.ip" type="text" data-type="[int]" />
+                            <input name="network.ip" type="text"/>
                         </div>
                     </div>
                 </div>
@@ -225,6 +246,17 @@
                                     <option value="10">方形图片</option>
                                     <option value="12">视频</option>
                                     <option value="13">文字链</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="plain-unit-item">
+                            <div class="plain-unit-item-caption">
+                                渲染方式
+                            </div>
+                            <div class="plain-unit-item-field">
+                                <select name="adslots.$0.build_type" data-type="int" data-field="adslots">
+                                    <option value="1">服务器</option>
+                                    <option value="2">客户端</option>
                                 </select>
                             </div>
                         </div>

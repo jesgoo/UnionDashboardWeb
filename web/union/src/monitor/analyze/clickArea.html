@@ -3,17 +3,32 @@
     <div class="plain-notice-area">
         <div class="plain-unit">
             <div class="list-op">
-                    <div ui="type:Plain;content:广告位ID："></div>
-                    <div type="text" ui="type:Select;id:adslot;value:*adslot;width:300;datasource:*positionTypes;" class="mgR20"></div>
-                    <!--<input type="text" ui="type:TextInput;id:adslot;value:*adslot;width:100;" class="mgR20" />-->
-                    <div ui="type:Plain;content:高度px："></div>
-                    <input type="text" ui="type:TextInput;id:height;value:*height;width:60;" class="mgR20" />
-                    <div ui="type:Plain;content:日期选择："></div>
-                    <div ui="type:Calendar;id:date;valueAsDate:*dateValue;width:100;" class="mgR20" style="display: inline-block;"></div>
-                    <div ui="type:Button;id:search;">查看</div>
+                <div ui="type:Plain;content:媒体ID："></div>
+                <input type="text" ui="type:TextInput;id:media;value:*media;width:80;" class="mgR20" />
+                <div ui="type:Plain;content:广告位ID："></div>
+                <input type="text" ui="type:TextInput;id:adslot;value:*adslot;width:80;" class="mgR20" />
+                <div ui="type:Plain;content:高度px："></div>
+                <input type="text" ui="type:TextInput;id:height;value:*height;width:60;" class="mgR20" />
+                <div ui="type:Plain;content:日期选择："></div>
+                <div ui="type:Calendar;id:date;valueAsDate:*dateValue;width:100;" class="mgR20" style="display: inline-block;"></div>
+                <div ui="type:Button;id:search;">检索</div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-field"><div ui="type:Plain;content:*clickCountString;" class="mgR20"></div><div ui="type:Button;id:original;" class="mgR10">原始图像</div><div ui="type:Button;id:standard;" class="mgR10">标准图像(320px)</div><div ui="type:Button;id:abnormal;" class="mgR40">异常图像</div><div ui="type:Button;id:abnormalCheck;" class="mgR40">查看异常数据</div></div>
             </div>
             <div class="plain-unit-table">
                 <div id="clickAreaChart"></div>
+            </div>
+        </div>
+        <div class="plain-unit-title">模拟</div>
+        <div class="plain-unit">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption"><div ui="type:Button;id:run;">模拟点击</div></div>
+                <div class="plain-unit-item-field"><input type="text" ui="type:TextInput;id:clickCount;width:60;" value="10000"/>个点</div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">生成公式</div>
+                <div class="plain-unit-item-field"><pre id="func"></pre></div>
             </div>
         </div>
     </div>

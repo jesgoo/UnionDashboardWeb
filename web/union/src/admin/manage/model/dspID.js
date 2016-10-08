@@ -38,6 +38,10 @@
                 {
                     title: '腾讯DSP ID管理',
                     actionName: 'tencentDSP'
+                },
+                {
+                    title: '百度5.0 DSP ID管理',
+                    actionName: 'baidu5DSP'
                 }
             ]);
         })

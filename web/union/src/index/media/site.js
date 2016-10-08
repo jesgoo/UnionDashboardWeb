@@ -5,7 +5,7 @@
  * Copyright (c) 2015 jesgoo.com, Inc. All Rights Reserved
  */
 (function () {
-
+    
     mf.index.media.site = new er.Action({
         model: mf.index.media.model.site,
         view: new er.View({
@@ -17,7 +17,7 @@
             pageSize: mf.PAGER_MODEL.pageSize,
             pageSizes: mf.PAGER_MODEL.pageSizes
         },
-
+        
         onenter: function () {
             console.log('onenter');
             mf.onenter();
@@ -37,14 +37,14 @@
             var siteMediaFieldInConfig = mf.mockFieldInConfig(siteMediaList);
             var operateData = mf.operateDataInConfigField(siteMediaList);
             var emptySiteMedia = mf.initEntityInConfig(siteMediaList);
-
+            
             var table = esui.get('list');
             table.order = 'asc';
             table.orderBy = siteMediaFieldInConfig('id');
             var saveRow = function (rowIndex) {
                 var row = table.datasource[rowIndex];
                 if (mf.tableSavingValidator(row, table.fields)) {
-                    mf.parallelAjax({
+                    return mf.parallelAjax({
                         type: 'POST',
                         url: '/media' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
                         data: mf.grepDataInConfig(row, siteMediaList)
@@ -53,7 +53,6 @@
                         if (row._isNew) {
                             dataList.unshift(newData);
                             siteMediaCount.setContent(dataList.length);
-                            refreshPopupsCount();
                         } else {
                             var idField = siteMediaFieldInConfig('id');
                             var index = mf.m.utils.indexOfArray(dataList, row[idField], idField);
@@ -73,28 +72,73 @@
             }, {
                 editToSave: function (value, options, editor) {
                     var row = table.datasource[options.rowIndex];
-                    if (!row._isNew){
+                    /*                    if (options.field.listKey === 'isPopups') {
+                     operateData.set(table.datasource[options.rowIndex], 'popupInterval', 0);
+                     } else */
+                    if (!row._isNew) {
                         return saveRow(options.rowIndex);
                     }
                 }
             });
             refreshTable();
-            var refreshPopupsCount = function () {
-                var number = $.grep(dataList, function (n) {
-                    return operateData.get(n, 'isPopups');
-                }).length;
-                popupsCount.setContent(number.toString());
-            };
-            refreshPopupsCount();
-            table.onedit = (function (fn) {
-                return function (value, options) {
-                    if (options.field.listKey === 'isPopups') {
-                        operateData.set(this.datasource[options.rowIndex], 'popupInterval', 0);
+            
+            action.subAction = {};
+            var advancedEditor = esui.get('advancedEditor');
+            advancedEditor.oncommand = function (opt) {
+                var index = opt.index;
+                if (index === 0) {
+                    var rowIndex = model.get('currentEditingRow');
+                    var row = table.datasource[rowIndex];
+                    row.config || (row.config = {});
+                    var advancedConfig = action.subAction.advanced.setValue(row.config);
+                    console.log('advancedConfig', row.config, advancedConfig);
+                    if (!row._isNew) {
+                        var savor = saveRow(rowIndex);
+                        savor && savor.done(function () {
+                            advancedEditor.hide();
+                            action.subAction.advanced.leave();
+                            action.subAction.advanced = null;
+                        });
+                        return false;
                     }
-                    refreshPopupsCount();
-                    fn.apply(this, arguments);
-                };
-            })(table.onedit);
+                } else {
+                    action.subAction.advanced.leave();
+                    action.subAction.advanced = null
+                }
+            };
+            
+            var experimentEditor = esui.get('experimentEditor');
+            experimentEditor.oncommand = function (opt) {
+                var index = opt.index;
+                if (index === 0) {
+                    var rowIndex = model.get('currentEditingRow');
+                    var row = table.datasource[rowIndex];
+                    var experimentConfig = action.subAction.experiment.setValue();
+                    if (experimentConfig === false) {
+                        return false;
+                    }
+                    row.experiment = experimentConfig;
+                    if (!row._isNew) {
+                        var savor = saveRow(rowIndex);
+                        savor && savor.done(function () {
+                            experimentEditor.hide();
+                            action.subAction.experiment.leave();
+                            action.subAction.experiment = null;
+                        });
+                        return false;
+                    }
+                } else if (index == 2) {
+                    action.subAction.experiment.formatJSON();
+                    return false;
+                } else if (index == 3) {
+                    action.subAction.experiment.sample();
+                    return false;
+                } else {
+                    action.subAction.experiment.leave();
+                    action.subAction.experiment = null
+                }
+            };
+            
             model.set(
                 'commands',
                 mf.clickCommand.register(
@@ -184,6 +228,46 @@
                                     });
                                 }
                             }
+                        },
+                        {
+                            cmd: 'advanced',
+                            handle: function (options) {
+                                var row = table.datasource[options.index];
+                                advancedEditor.show();
+                                if (action.subAction.advanced) {
+                                    action.subAction.advanced.leave();
+                                }
+                                action.subAction.advanced = er.controller.loadSub(
+                                    advancedEditor.getBody().id,
+                                    'mf.index.media.siteAdvanced',
+                                    {
+                                        queryMap: {
+                                            requestData: row.config
+                                        }
+                                    }
+                                );
+                                model.set('currentEditingRow', options.index);
+                            }
+                        },
+                        {
+                            cmd: 'experiment',
+                            handle: function (options) {
+                                var row = table.datasource[options.index];
+                                experimentEditor.show();
+                                if (action.subAction.experiment) {
+                                    action.subAction.experiment.leave();
+                                }
+                                action.subAction.experiment = er.controller.loadSub(
+                                    experimentEditor.getBody().id,
+                                    'mf.index.media.siteExperiment',
+                                    {
+                                        queryMap: {
+                                            requestData: row.experiment
+                                        }
+                                    }
+                                );
+                                model.set('currentEditingRow', options.index);
+                            }
                         }
                     ],
                     {
@@ -193,16 +277,23 @@
                 )
             );
             if (model.get('addNew')) {
-                $('[data-cmd=add]','#' + action.view.target).trigger('click');
+                $('[data-cmd=add]', '#' + action.view.target).trigger('click');
             }
         },
         onentercomplete: function () {
             console.log('onentercomplete');
-
+            
         },
         onleave: function () {
             console.log('onleave');
             var action = this;
+            $.each(action.subAction || {}, function (index, subAction) {
+                if (subAction && subAction.leave) {
+                    subAction.leave();
+                }
+            });
+            action.subAction = null;
+            
             var commands = action.model.get('commands');
             commands && mf.clickCommand.dispose(commands);
         }

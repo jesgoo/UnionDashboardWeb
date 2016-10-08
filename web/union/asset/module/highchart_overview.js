@@ -45,6 +45,7 @@
         cData.ctr = $.map(cData.ctr || [], function (value) {
             return value * 100;
         });
+        console.log('here', cData.impression);
         $(element).show().highcharts({
             chart: {
                 spacingTop: 60,

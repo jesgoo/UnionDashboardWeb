@@ -188,8 +188,14 @@
             loader.stop();
             mf.parallelAjax([
                 '/admin/media/judge',
-                '/admin/media',
-                '/admin/adslot'
+                {
+                    url: '/admin/media',
+                    cache: true
+                },
+                {
+                    url: '/admin/adslot',
+                    cache: true
+                }
             ], function (adjust, media, adslot) {
 
                 /*
@@ -205,7 +211,7 @@
                     }
                 });
                 mediaList.sort(function (a, b) {
-                    return a.id > b.id ? 1 : -1;
+                    return a.value > b.value ? 1 : -1;
                 });
                 var adslotList = adslot.map(function (n) {
                     return {
@@ -215,7 +221,7 @@
                     }
                 });
                 adslotList.sort(function (a, b) {
-                    return a.id > b.id ? 1 : -1;
+                    return a.value > b.value ? 1 : -1;
                 });
                 adslotList.unshift({
                     "value": "s0000000",
@@ -225,10 +231,10 @@
 
                 var mediaNames = {};
                 var adslotNames = {};
-                mediaList.forEach(function (n, key) {
+                mediaList.forEach(function (n, index) {
                     mediaNames[n.value] = n.name;
                 });
-                adslotList.forEach(function (n, key) {
+                adslotList.forEach(function (n, index) {
                     adslotNames[n.value] = n.name;
                 });
                 loader.set('mediaList', mediaList);

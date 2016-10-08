@@ -81,6 +81,71 @@
                     <div ui="type:Table;id:ruleTable;fields:*ruleFields;editable:1;"></div>
                 </div>
             </div>
+            <div class="plain-unit-title">
+                <span class="mgR40">键说明</span>
+            </div>
+            <div class="plain-unit">
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">os</div>
+                    <div class="plain-unit-item-field">操作系统<br><span class="value" data-cmd="setValue" data-key="os">android</span><span class="value" data-cmd="setValue" data-key="os">ios</span><span class="value" data-cmd="setValue" data-key="os">wp</span><span class="value" data-cmd="setValue" data-key="os">unknown</span></div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">sdk</div>
+                    <div class="plain-unit-item-field">sdk类型<br><span class="value" data-cmd="setValue" data-key="sdk">nativesdk</span><span class="value" data-cmd="setValue" data-key="sdk">jssdk</span><span class="value" data-cmd="setValue" data-key="sdk">openapi</span></div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">adslottype</div>
+                    <div class="plain-unit-item-field">广告位类型<br><span class="value" data-cmd="setValue" data-key="adslottype">banner</span><span class="value" data-cmd="setValue" data-key="adslottype">initialization</span><span class="value" data-cmd="setValue" data-key="adslottype">insert</span><span class="value" data-cmd="setValue" data-key="adslottype">square</span><span class="value" data-cmd="setValue" data-key="adslottype">video</span><span class="value" data-cmd="setValue" data-key="adslottype">text</span></div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">mediatype</div>
+                    <div class="plain-unit-item-field">媒体类型<br><span class="value" data-cmd="setValue" data-key="mediatype">app</span><span class="value" data-cmd="setValue" data-key="mediatype">web</span><span class="value" data-cmd="setValue" data-key="mediatype">wap</span></div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">network</div>
+                    <div class="plain-unit-item-field">网络类型<br><span class="value" data-cmd="setValue" data-key="network">wifi</span><span class="value" data-cmd="setValue" data-key="network">2g</span><span class="value" data-cmd="setValue" data-key="network">3g</span><span class="value" data-cmd="setValue" data-key="network">4g</span><span class="value" data-cmd="setValue" data-key="network">unknown</span></div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">browser</div>
+                    <div class="plain-unit-item-field">浏览器类型<br><span class="value" data-cmd="setValue" data-key="browser">qq</span><span class="value" data-cmd="setValue" data-key="browser">chrome</span><span class="value" data-cmd="setValue" data-key="browser">uc</span><span class="value" data-cmd="setValue" data-key="browser">baidu</span><span class="value" data-cmd="setValue" data-key="browser">miui</span><span class="value" data-cmd="setValue" data-key="browser">qvod</span><span class="value" data-cmd="setValue" data-key="browser">ie</span><span class="value" data-cmd="setValue" data-key="browser">wx</span><span class="value" data-cmd="setValue" data-key="browser">unknown</span></div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">source</div>
+                    <div class="plain-unit-item-field">来源ID<br><span class="value" data-cmd="setValue" data-key="source">0</span>Jesgoo&nbsp;&nbsp;<span class="value" data-cmd="setValue" data-key="source">1</span>卓易&nbsp;&nbsp;<span class="value" data-cmd="setValue" data-key="source">2</span>联想</div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">appsid</div>
+                    <div class="plain-unit-item-field">媒体ID</div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">channelid</div>
+                    <div class="plain-unit-item-field">渠道ID</div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">slotid</div>
+                    <div class="plain-unit-item-field">广告位ID</div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">country</div>
+                    <div class="plain-unit-item-field">国家ID</div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">province</div>
+                    <div class="plain-unit-item-field">省份ID&nbsp;&nbsp;&nbsp;&nbsp;<a data-cmd="province">查看</a>;&nbsp;&nbsp;<span class="value" data-cmd="setValue" data-key="province" id="provinceId"></span></div>
+                    <div class="region-area hide">
+                        <div ui="type:PlainSelect;id:provincePlain;datasource:*regionMap;height:350px;width:500px;searchable:true;single:true;selectAll:false;perLine:5;childrenField:none;"></div>
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">city</div>
+                    <div class="plain-unit-item-field">城市ID&nbsp;&nbsp;&nbsp;&nbsp;<a data-cmd="region">查看</a>;&nbsp;&nbsp;<span class="value" data-cmd="setValue" data-key="city" id="cityId"></span>
+                    </div>
+                    <div class="region-area hide">
+                        <div ui="type:PlainSelect;id:regionPlain;datasource:*regionMap;height:350px;width:500px;searchable:true;single:true;selectAll:false;perLine:5;"></div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
     <div>

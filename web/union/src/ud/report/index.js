@@ -53,6 +53,7 @@
             var operateData = mf.operateDataInConfigField(model.get('siteMediaList'));
             var mediaTree = $.map(model.get('medias') || [], function (media) {
                 var mediaId = operateData.get(media, 'id');
+                mediaId || (mediaId = operateData.get(media, 'media'));
                 var mediaName = operateData.get(media, 'name');
                 return {
                     text: mediaName,
@@ -71,7 +72,8 @@
                     children: [
                         {
                             text: '载入中...',
-                            id: '_load_/ud/adslot?media=' + mediaId
+                            //id: '_load_/ud/adslot?media=' + mediaId
+                            id: '_load_/ud/media/' + mediaId + '/adslot'
                         }
                     ]
                 }
@@ -109,6 +111,7 @@
                     }, function (adslots) {
                         var tree = $.map(adslots, function (adslot) {
                             var adslotId = operatePositionData.get(adslot, 'id');
+                            adslotId || (adslotId = operatePositionData.get(adslot, 'adslot'));
                             var adslotName = operatePositionData.get(adslot, 'name');
                             return {
                                 text: adslotName,

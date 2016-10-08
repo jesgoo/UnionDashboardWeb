@@ -57,7 +57,7 @@
             var saveRow = function (rowIndex) {
                 var row = table.datasource[rowIndex];
                 if (mf.tableSavingValidator.call(table, row, table.fields)) {
-                    mf.parallelAjax({
+                    return mf.parallelAjax({
                         type: 'POST',
                         url: '/adslot' + (row._isNew ? '' : '/' + operateData.get(row, 'id')),
                         data: mf.grepDataInConfig(row, sitePositionList)
@@ -85,7 +85,7 @@
             }, {
                 editToSave: function (value, options, editor) {
                     var row = table.datasource[options.rowIndex];
-                    if (!row._isNew){
+                    if (!row._isNew) {
                         return saveRow(options.rowIndex);
                     }
                 }
@@ -104,6 +104,12 @@
                                 value, 'value', 0);
                             operateData.set(row, 'height', r.heightDefault);
                             operateData.set(row, 'hasCloseBtn', false);
+                            if (r.value == config.maps.sitePositionType.popups) {
+                                operateData.set(row, 'frequency',
+                                    {"period": 86400, "times": 1, "percent":100, "percentBackup": 1});
+                            } else {
+                                operateData.set(row, 'frequency', {});
+                            }
                             break;
                         case 'displayType':
                             if (value === config.maps.sitePositionDisplayType['float']) {
@@ -145,7 +151,7 @@
                 preview(rowIndex);
             };
             action.subAction = {};
-            table.onsubrowopen = mf.m.utils.nextTickWrapper(function(index, item) {
+            table.onsubrowopen = mf.m.utils.nextTickWrapper(function (index, item) {
                 var me = this;
                 var subRow = me.getSubrow(index);
                 console.log('open subrow', subRow);
@@ -165,7 +171,7 @@
                 );
                 action.subAction[index].preview = previewWithCustomJS(adslotData);
             });
-            table.onsubrowclose = function(index) {
+            table.onsubrowclose = function (index) {
                 var subAction = action.subAction[index];
                 if (subAction && subAction.leave) {
                     subAction.leave();
@@ -173,6 +179,63 @@
                 }
             };
             $.extend(action._controlMap, esui.init(table.main));
+
+            var advancedEditor = esui.get('advancedEditor');
+            advancedEditor.oncommand = function (opt) {
+                var index = opt.index;
+                if (index === 0) {
+                    var rowIndex = model.get('currentEditingRow');
+                    var row = table.datasource[rowIndex];
+                    row.config || (row.config = {});
+                    var advancedConfig = action.subAction.advanced.setValue(row.config);
+                    console.log('advancedConfig', row.config, advancedConfig);
+                    if (!row._isNew) {
+                        var savor = saveRow(rowIndex);
+                        savor && savor.done(function () {
+                            advancedEditor.hide();
+                            action.subAction.advanced.leave();
+                            action.subAction.advanced = null;
+                        });
+                        return false;
+                    }
+                } else {
+                    action.subAction.advanced.leave();
+                    action.subAction.advanced = null
+                }
+            };
+    
+            var experimentEditor = esui.get('experimentEditor');
+            experimentEditor.oncommand = function (opt) {
+                var index = opt.index;
+                if (index === 0) {
+                    var rowIndex = model.get('currentEditingRow');
+                    var row = table.datasource[rowIndex];
+                    var experimentConfig = action.subAction.experiment.setValue();
+                    if (experimentConfig === false) {
+                        return false;
+                    }
+                    row.experiment = experimentConfig;
+                    if (!row._isNew) {
+                        var savor = saveRow(rowIndex);
+                        savor && savor.done(function () {
+                            experimentEditor.hide();
+                            action.subAction.experiment.leave();
+                            action.subAction.experiment = null;
+                        });
+                        return false;
+                    }
+                } else if (index == 2) {
+                    action.subAction.experiment.formatJSON();
+                    return false;
+                } else if (index == 3) {
+                    action.subAction.experiment.sample();
+                    return false;
+                } else {
+                    action.subAction.experiment.leave();
+                    action.subAction.experiment = null
+                }
+            };
+            
             model.set(
                 'commands',
                 mf.clickCommand.register(
@@ -243,6 +306,46 @@
                                     })
                                 });
                             }
+                        },
+                        {
+                            cmd: 'advanced',
+                            handle: function (options) {
+                                var row = table.datasource[options.index];
+                                advancedEditor.show();
+                                if (action.subAction.advanced) {
+                                    action.subAction.advanced.leave();
+                                }
+                                action.subAction.advanced = er.controller.loadSub(
+                                    advancedEditor.getBody().id,
+                                    'mf.index.media.sitePositionAdvanced',
+                                    {
+                                        queryMap: {
+                                            requestData: row.config
+                                        }
+                                    }
+                                );
+                                model.set('currentEditingRow', options.index);
+                            }
+                        },
+                        {
+                            cmd: 'experiment',
+                            handle: function (options) {
+                                var row = table.datasource[options.index];
+                                experimentEditor.show();
+                                if (action.subAction.experiment) {
+                                    action.subAction.experiment.leave();
+                                }
+                                action.subAction.experiment = er.controller.loadSub(
+                                    experimentEditor.getBody().id,
+                                    'mf.index.media.siteExperiment',
+                                    {
+                                        queryMap: {
+                                            requestData: row.experiment
+                                        }
+                                    }
+                                );
+                                model.set('currentEditingRow', options.index);
+                            }
                         }
                     ],
                     {
@@ -252,7 +355,7 @@
                 )
             );
             if (model.get('addNew')) {
-                $('[data-cmd=add]','#' + action.view.target).trigger('click');
+                $('[data-cmd=add]', '#' + action.view.target).trigger('click');
             }
         },
         onleave: function () {

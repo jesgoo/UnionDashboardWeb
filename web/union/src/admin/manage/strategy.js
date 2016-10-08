@@ -165,6 +165,19 @@
                 }
             };
 
+            var provincePlain = esui.get('provincePlain');
+            provincePlain.onchange = function (values, value) {
+                provincePlain.cancelValue(true);
+                provincePlain.setValue(value);
+                $('#provinceId').html('当前 ID:' + value + ' 名称:' + provincePlain.getText().join('')).attr('data-value', value);
+            };
+            
+            var regionPlain = esui.get('regionPlain');
+            regionPlain.onchange = function (values, value) {
+                regionPlain.cancelValue(true);
+                regionPlain.setValue(value);
+                $('#cityId').html('当前 ID:' + value + ' 名称:' + regionPlain.getText().join('')).attr('data-value', value);
+            };
             model.set(
                 'commands',
                 mf.clickCommand.register(
@@ -304,6 +317,33 @@
                             handle: function (options) {
                                 infoTable.datasource.splice(options.index, 1);
                                 infoTable.render();
+                            }
+                        },
+                        {
+                            cmd: 'province',
+                            handle: function (options) {
+                                $(provincePlain.main.parentNode).toggleClass('hide');
+                            }
+                        },
+                        {
+                            cmd: 'region',
+                            handle: function (options) {
+                                $(regionPlain.main.parentNode).toggleClass('hide');
+                            }
+                        },
+                        {
+                            cmd: 'setValue',
+                            handle: function (options) {
+                                var $this = $(this.target);
+                                var key = options.key;
+                                var value = options.value || $this.html();
+                                if(key) {
+                                    ruleTable.datasource.push({
+                                        key: key,
+                                        value: value
+                                    });
+                                    ruleTable.render();
+                                }
                             }
                         }
                     ]

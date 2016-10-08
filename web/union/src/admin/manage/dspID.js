@@ -38,7 +38,7 @@
                     }
                 );
             };
-            dspTab._select(0);
+            dspTab._select(2);
         },
         onleave: function () {
             console.log('onleave');

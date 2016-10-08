@@ -115,7 +115,9 @@
                                 if (text) {
                                     var valueRegExp = mf.m.utils.makeRegExp(text, 'i');
                                     filter = function (obj) {
-                                        return valueRegExp.test(operateData.get(obj, 'description'));
+                                        return valueRegExp.test(operateData.get(obj, 'description'))
+                                               || valueRegExp.test(operateData.get(obj, 'adslot'))
+                                               || valueRegExp.test(operateData.get(obj, 'media'));
                                     };
                                 }
                                 refreshTable({

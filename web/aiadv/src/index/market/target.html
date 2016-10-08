@@ -1,0 +1,27 @@
+<!-- target: mf_index_market_target -->
+<div class="mf-index-market-target">
+    <div class="plain-edit-area">
+        <div class="plain-unit">
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">操作系统</div>
+                <div class="plain-unit-item-field">
+                    <div ui="type:ButtonSelect;skin:simple;id:osTarget;datasource:*osTypeMap;valueField:value;textField:name;value:*os;"></div>
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">时段定向</div>
+                <div class="plain-unit-item-field">
+                    <div ui="type:Schedule;id:hoursTarget;valueAsArray:*hours;"></div>
+                </div>
+            </div>
+            <div class="plain-unit-item">
+                <div class="plain-unit-item-caption">地域定向</div>
+                <div class="plain-unit-item-field plain-wrapper clear-left">
+                    <div ui="type:PlainSelect;id:regionPlain;datasource:*regionMap;height:95%;searchable:true;value:*regions;"></div>
+                    <div ui="type:PlainView;id:regionView;datasource:*regionMap;width:285px;height:95%;autoLocate:true;value:*regions;"></div>
+                    <div class="clear-view" id="regionClearView">清空选择</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -106,8 +106,12 @@
                 {
                     url: '/report/media/' + loader.get('media') + '/adslot/daily/' + dateRegion[0] + '-' + dateRegion[1],
                     errorMessage: '所属广告位单日数据获取失败，请重试。'
-                }
-            ], function (config, reportData) {
+                }/*,
+                {
+                    url: '/report/media/' + loader.get('media') + '/daily/' + dateRegion[0] + '-' + dateRegion[1],
+                    errorMessage: '分日数据获取失败，请重试。'
+                }*/
+            ], function (config, reportData, mediaData) {
 
                 var dateRegionSelects = $.map(reportData, function (row, date) {
                     return {
@@ -115,6 +119,76 @@
                         id : date
                     };
                 });
+                /*$.each(reportData, function (date, row) {
+                    var dayTotal = {
+                        request: 0,
+                        served_request: 0,
+                        impression: 0,
+                        click: 0,
+                        income: 0
+                    };
+                    var dayTotalAfter = {
+                        request: 0,
+                        served_request: 0,
+                        impression: 0,
+                        click: 0,
+                        income: 0
+                    };
+                    var mediaDayData = mf.m.utils.deepSearch(mediaData, date, 'date');
+                    if (!mediaDayData) return true;
+                    $.each(row, function (index, adslot) {
+                        dayTotal.request += adslot.request || 0;
+                        dayTotal.served_request += adslot.served_request || 0;
+                        dayTotal.impression += adslot.impression || 0;
+                        dayTotal.click += adslot.click || 0;
+                        dayTotal.income += adslot.income || 0;
+                    });
+                    if (mediaDayData.request !== dayTotal.request
+                        || mediaDayData.served_request !== dayTotal.served_request
+                        || mediaDayData.impression !== dayTotal.impression
+                        || mediaDayData.click !== dayTotal.click
+                        || mediaDayData.income !== dayTotal.income
+                    ) {
+                        $.each(row, function (index, adslot) {
+                            if (dayTotal.request) {
+                                adslot.request = Math.floor(adslot.request / dayTotal.request * mediaDayData.request);
+                            }
+                            if (dayTotal.served_request) {
+                                adslot.served_request = Math.floor(adslot.served_request / dayTotal.served_request * mediaDayData.served_request);
+                            }
+                            if (dayTotal.impression) {
+                                adslot.impression = Math.floor(adslot.impression / dayTotal.impression * mediaDayData.impression);
+                            }
+                            if (dayTotal.click) {
+                                adslot.click = Math.floor(adslot.click / dayTotal.click * mediaDayData.click);
+                            }
+                            if (dayTotal.income) {
+                                adslot.income = Math.floor(adslot.income / dayTotal.income * mediaDayData.income * 100) / 100;
+                            }
+                        });
+                        $.each(row, function (index, adslot) {
+                            dayTotalAfter.request += adslot.request || 0;
+                            dayTotalAfter.served_request += adslot.served_request || 0;
+                            dayTotalAfter.impression += adslot.impression || 0;
+                            dayTotalAfter.click += adslot.click || 0;
+                            dayTotalAfter.income += adslot.income || 0;
+                        });
+                        if (row[0]) {
+                            row[0].request += mediaDayData.request - dayTotalAfter.request;
+                            row[0].served_request += mediaDayData.served_request - dayTotalAfter.served_request;
+                            row[0].impression += mediaDayData.impression - dayTotalAfter.impression;
+                            row[0].click += mediaDayData.click - dayTotalAfter.click;
+                            row[0].income += mediaDayData.income - dayTotalAfter.income;
+                        }
+                        $.each(row, function (index, adslot) {
+                            if (adslot.impression) {
+                                adslot.cpm = adslot.income / adslot.impression * 1000;
+                                adslot.ctr = adslot.click / adslot.impression * 100;
+                            }
+                        });
+                    }
+                });*/
+
                 if (!dateRegionSelects.length) {
                     dateRegionSelects.push({
                         text : '暂无',

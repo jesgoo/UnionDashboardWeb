@@ -38,8 +38,19 @@
                     url: '/config',
                     cache: true
                 },
-                '/alluser'
-            ], function (config, entities) {
+                {
+                    url: '/alluser',
+                    cache: true
+                },
+                {
+                    url: '/admin/media',
+                    cache: true
+                },
+                {
+                    url: '/admin/adslot',
+                    cache: true
+                }
+            ], function (config, entities, medias, adslots) {
                 mf.initEntities({
                     loader: loader,
                     entities: entities,
@@ -48,6 +59,8 @@
                 loader.set('config', config);
                 loader.set('userList', config.lists.userList);
                 loader.set('userCount', entities.length);
+                loader.set('medias', medias);
+                loader.set('adslots', adslots);
                 loader.start();
             });
         })

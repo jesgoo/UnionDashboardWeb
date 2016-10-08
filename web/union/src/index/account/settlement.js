@@ -34,7 +34,8 @@
                 if (row.status === 2) {
                     mf.parallelAjax({
                         type: 'POST',
-                        url: '/withdraw',
+                        url: '/withdraw2',
+                        //url: '/withdraw',
                         data: {
                             date: row.date
                         }
@@ -48,6 +49,11 @@
             };
             action.subAction = {};
             table.onsubrowopen =mf.m.utils.nextTickWrapper(function(index, item) {
+                var me = this;
+                var subRow = me.getSubrow(index);
+                subRow.innerHTML = '<div class="plain-unit-item-title tac">' + (item.comment || '暂无因由。' + '</div>');
+            });
+            /*table.onsubrowopen =mf.m.utils.nextTickWrapper(function(index, item) {
                 var me = this;
                 var subRow = me.getSubrow(index);
                 console.log('open subrow', subRow);
@@ -65,7 +71,7 @@
                     }
                 );
             });
-            table.onsubrowclose = function(index) {
+            */table.onsubrowclose = function(index) {
                 var subAction = action.subAction[index];
                 if (subAction && subAction.leave) {
                     subAction.leave();
@@ -83,7 +89,7 @@
                                 console.log('here', options.index, row);
                                 esui.Dialog.confirm({
                                     title: '提现',
-                                    content: '确认提现 ' + mf.getFieldContentMoney('income')(row) + ' ?',
+                                    content: '确认提现 ' + mf.getFieldContentMoney('income_final')(row) + ' ?',
                                     onok: saveRow.bind(window, options.index)
                                 });
                             }

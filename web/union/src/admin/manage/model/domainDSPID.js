@@ -9,11 +9,12 @@
         var lists = config.lists.domainDSPList;
         var baiduAdslots = model.get('baiduAdslots');
         var tencentAdslots = model.get('tencentAdslots');
+        var baidu5Adslots = model.get('baidu5Adslots');
         var operateData = mf.operateDataInConfigField(lists);
         var needFieldLists = {
             'domain': {
                 stable: 1,
-                width: 100,
+                width: 90,
                 editable: function (item, index, col) {
                     return !!item._isNew;
                 },
@@ -23,7 +24,7 @@
             },
             'type': {
                 stable: 1,
-                width: 100,
+                width: 90,
                 datasource: config.maps.adslotTypeMap,
                 editable: function (item, index, col) {
                     return !!item._isNew;
@@ -39,7 +40,7 @@
             },
             'dsp_type': {
                 stable: 1,
-                width: 100,
+                width: 90,
                 datasource: config.maps.dspAdslotTypeMap,
                 editable: function (item, index, col) {
                     return !!item._isNew;
@@ -55,7 +56,7 @@
             },
             'platform': {
                 stable: 1,
-                width: 100,
+                width: 90,
                 datasource: config.maps.platformMap,
                 editable: function (item, index, col) {
                     return !!item._isNew;
@@ -92,11 +93,19 @@
                     return '<a data-cmd="set_dsp" data-field="tencent" data-index="' + index + '">' + (!r ? '暂无': 'ID:' + r.id + ' ' + r.description) +'</a>'+ (r ? '<a class="ui-table-float-cmd float-right" data-cmd="delete_dsp" data-field="tencent" data-index="' + index + '">清除</a>' :'');
                 }
             },
-            'createTime': {
+            'baidu5': {
+                content: function (item, index, col, textClass) {
+                    textClass.push('ui-table-cell-with-cmd');
+                    var r = mf.m.utils.deepSearch('children', baidu5Adslots,
+                        operateData.get(item, 'baidu5'), 'id');
+                    return '<a data-cmd="set_dsp" data-field="baidu5" data-index="' + index + '">' + (!r ? '暂无': 'ID:' + r.id + ' ' + r.description) + '</a>' + (r ? '<a class="ui-table-float-cmd float-right" data-cmd="delete_dsp" data-field="baidu5" data-index="' + index + '">清除</a>' : '');
+                }
+            },
+            /*'createTime': {
                 stable:1,
                 width: 130
             },
-            'modifyTime': {
+            */'modifyTime': {
                 stable:1,
                 width: 130
             },
@@ -135,11 +144,13 @@
                 },
                 '/admin/domainadslot',
                 '/admin/baiduadslot',
-                '/admin/tencentadslot'
-            ], function (config, entities, baiduAdslots, tencentAdslots) {
+                '/admin/tencentadslot',
+                '/admin/baidu5adslot'
+            ], function (config, entities, baiduAdslots, tencentAdslots, baidu5Adslots) {
 
                 loader.set('baiduAdslots', baiduAdslots);
                 loader.set('tencentAdslots', tencentAdslots);
+                loader.set('baidu5Adslots', baidu5Adslots);
                 mf.initEntities({
                     loader: loader,
                     entities: entities,

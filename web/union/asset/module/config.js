@@ -110,13 +110,13 @@
                 {
                     "name": "视频",
                     "value": 12,
-                    "heightRange": [240, 480],
+                    "heightRange": [180, 480],
                     "heightDefault": 240
                 },
                 {
                     "name": "文字链",
                     "value": 13,
-                    "heightRange": [13, 30],
+                    "heightRange": [13, 40],
                     "heightDefault": 13
                 }
             ],
@@ -210,11 +210,13 @@
             ],
             "displayPositionType": {
                 "top": 1,
-                "bottom": 2
+                "bottom": 2,
+                "center": 3
             },
             "displayPositionTypeConvert": {
                 "1": "top",
-                "2": "bottom"
+                "2": "bottom",
+                "3": "center"
             },
             "displayPositionMap": [
                 {
@@ -224,6 +226,10 @@
                 {
                     "name": "底部",
                     "value": 2
+                },
+                {
+                    "name": "中间",
+                    "value": 3
                 }
             ],
             "dspName": [
@@ -274,6 +280,46 @@
                 {
                     "name": 'newbaidu',
                     "value": 11
+                },
+                {
+                    "name": 'MadHouse',
+                    "value": 12
+                },
+                {
+                    "name": 'mopan',
+                    "value": 13
+                },
+                {
+                    "name": 'sohu',
+                    "value": 14
+                },
+                {
+                    "name": 'feifan',
+                    "value": 15
+                },
+                {
+                    "name": 'miaozhen',
+                    "value": 16
+                },
+                {
+                    "name": 'liangpai',
+                    "value": 17
+                },
+                {
+                    "name": 'youdao',
+                    "value": 18
+                },
+                {
+                    "name": '卓易',
+                    "value": 19
+                },
+                {
+                    "name": '欧朋',
+                    "value": 20
+                },
+                {
+                    "name": '玩转',
+                    "value": 21
                 }
             ]
         },
@@ -284,6 +330,12 @@
                     "title": "媒体ID",
                     "request": false,
                     "sortable": true,
+                    "isShow": false
+                },
+                "media": {
+                    "field": "media",
+                    "title": "媒体ID",
+                    "request": false,
                     "isShow": false
                 },
                 "mediaType": {
@@ -320,21 +372,17 @@
                     "request": false,
                     "sortable": true
                 },
-                "isPopups": {
-                    "field": "config.splash.on",
-                    "defaultValue": false,
-                    "title": "弹开屏",
-                    "sortable": true,
-                    "editable": true,
-                    "edittype": "select"
+                "splash": {
+                    "field": "config.splash",
+                    "title": "弹开屏"
                 },
-                "popupInterval": {
-                    "field": "config.splash.interval",
-                    "defaultValue": 0,
-                    "title": "时间间隔(ms)",
-                    "sortable": true,
-                    "editable": true,
-                    "edittype": "int"
+                "see": {
+                    "field": "config.see",
+                    "title": "你看"
+                },
+                "experiment": {
+                    "field": "experiment",
+                    "title": "实验配置"
                 }
             },
             "sitePositionList": {
@@ -343,6 +391,11 @@
                     "title": "广告位ID",
                     "request": false,
                     "sortable": true
+                },
+                "adslot": {
+                    "field": "adslot",
+                    "title": "广告位ID",
+                    "request": false
                 },
                 "media": {
                     "field": "media",
@@ -382,6 +435,10 @@
                     "editable": true,
                     "edittype": "select"
                 },
+                "experiment": {
+                    "field": "experiment",
+                    "title": "实验配置"
+                },
                 "hasCloseBtn": {
                     "field": "config.close",
                     "defaultValue": false,
@@ -408,7 +465,7 @@
                 "autoPlayInterval": {
                     "field": "config.autoPlayInterval",
                     "defaultValue": 0,
-                    "title": "轮播时间(ms)",
+                    "title": "轮播(ms)",
                     "editable": true,
                     "edittype": "int"
                 },
@@ -418,6 +475,55 @@
                     "title": "自动留白",
                     "editable": true,
                     "edittype": "select"
+                },
+                "cache": {
+                    "field": "config.cache",
+                    "defaultValue": 0,
+                    "title": "缓存(ms)"
+                },
+                "lucky": {
+                    "field": "config.lucky",
+                    "defaultValue": false,
+                    "title": "幸运大转盘"
+                },
+                "logable": {
+                    "field": "config.logable",
+                    "defaultValue": false,
+                    "title": "日志"
+                },
+                "needTop": {
+                    "field": "config.needTop",
+                    "defaultValue": false,
+                    "title": "顶部"
+                },
+                "needVisual": {
+                    "field": "config.needVisual",
+                    "defaultValue": false,
+                    "title": "容器可视"
+                },
+                "frequency": {
+                    "field": "config.frequency",
+                    "title": "频次控制"
+                },
+                "hideInterval": {
+                    "field": "config.hideInterval",
+                    "title": "隐匿控制"
+                },
+                "mask": {
+                    "field": "config.mask",
+                    "title": "蒙板"
+                },
+                "splash": {
+                    "field": "config.splash",
+                    "title": "弹开屏设置"
+                },
+                "youxiao": {
+                    "field": "config.youxiao",
+                    "title": "有笑JS"
+                },
+                "iframe": {
+                    "field": "config.iframe",
+                    "title": "iframe嵌入（百姓网）"
                 }
             },
             "appMediaList": {
@@ -679,6 +785,13 @@
                     "sortable": true,
                     "request": true
                 },
+                "baidu5": {
+                    "field": "baidu5_adslot",
+                    "title": "百度5.0 DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
                 "modifyTime": {
                     "field": "modified_time",
                     "title": "修改时间",
@@ -744,6 +857,13 @@
                 "tencent": {
                     "field": "tencent_adslot",
                     "title": "腾讯DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "baidu5": {
+                    "field": "baidu5_adslot",
+                    "title": "百度5.0 DSP ID",
                     "defaultValue": null,
                     "sortable": true,
                     "request": true
@@ -817,6 +937,13 @@
                     "sortable": true,
                     "request": true
                 },
+                "baidu5": {
+                    "field": "baidu5_adslot",
+                    "title": "百度5.0 DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
                 "modifyTime": {
                     "field": "modified_time",
                     "title": "修改时间",
@@ -882,6 +1009,13 @@
                 "tencent": {
                     "field": "tencent_adslot",
                     "title": "腾讯DSP ID",
+                    "defaultValue": null,
+                    "sortable": true,
+                    "request": true
+                },
+                "baidu5": {
+                    "field": "baidu5_adslot",
+                    "title": "百度5.0 DSP ID",
                     "defaultValue": null,
                     "sortable": true,
                     "request": true

@@ -1,0 +1,94 @@
+<?xml version="1.0"?><project default="buildPage"><target name="buildPage"><!--asset js for admin-->
+<echo>${out.m.dir}/asset/${site}-admin.js</echo>
+<concat destfile="${out.m.dir}/asset/${site}-admin.js" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="asset" files="${lib.js.file}"/>
+    <filelist dir="${module.dir}" files="${advsitecommonmodulejs.files}"/>
+    <filelist dir="${module.dir}" files="${admincommonmodulejs.files}"/>
+    <filelist dir="${out.m.dir}" files="${site}.js"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${advsiteprivatemodulejs.files}
+    ${adminsiteCommonmodulejs.files}
+    "/>
+    <filelist dir="${site.dir}/src/admin/module" files="${adminprivatemodulejs.files}"/>
+    <filelist dir="${site.dir}/src" files="${adminjs.files}"/>
+</concat>
+
+<!--asset css for admin-->
+<echo>${out.m.dir}/asset/${site}-admin.css</echo>
+<concat destfile="${out.m.dir}/asset/${site}-admin.css" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.css"/>
+    <filelist dir="${module.dir}" files="${advsitecommonmodulecss.files}"/>
+    <filelist dir="${module.dir}" files="${admincommonmodulecss.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${advsiteprivatemodulecss.files}
+    ${adminsiteCommonmodulecss.files}
+    "/>
+    <filelist dir="${site.dir}/src/admin/module" files="${adminprivatemodulecss.files}"/>
+    <filelist dir="${site.dir}/src" files="${admincss.files}"/>
+</concat>
+<!--asset html for admin-->
+<echo>${out.m.dir}/asset/${site}-admin.html</echo>
+<concat destfile="${out.m.dir}/asset/${site}-admin.html" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.html"/>
+    <filelist dir="${module.dir}" files="${advsitecommonmodulehtml.files}"/>
+    <filelist dir="${module.dir}" files="${admincommonmodulehtml.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${advsiteprivatemodulehtml.files}
+    ${adminsiteCommonmodulehtml.files}
+    "/>
+    <filelist dir="${site.dir}/src/admin/module" files="${adminprivatemodulehtml.files}"/>
+    <filelist dir="${site.dir}/src" files="${admintpl.files}"/>
+</concat>
+<replaceregexp file="${out.m.dir}/asset/${site}-admin.html"
+               encoding="${encoding}"
+               match="&gt;\s+?&lt;" replace="&gt;&lt;" flags="g m"/>
+<!--asset js for index-->
+<echo>${out.m.dir}/asset/${site}-index.js</echo>
+<concat destfile="${out.m.dir}/asset/${site}-index.js" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="asset" files="${lib.js.file}"/>
+    <filelist dir="${module.dir}" files="${advsitecommonmodulejs.files}"/>
+    <filelist dir="${module.dir}" files="${indexcommonmodulejs.files}"/>
+    <filelist dir="${out.m.dir}" files="${site}.js"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${advsiteprivatemodulejs.files}
+    ${indexsiteCommonmodulejs.files}
+    "/>
+    <filelist dir="${site.dir}/src/index/module" files="${indexprivatemodulejs.files}"/>
+    <filelist dir="${site.dir}/src" files="${indexjs.files}"/>
+</concat>
+
+<!--asset css for index-->
+<echo>${out.m.dir}/asset/${site}-index.css</echo>
+<concat destfile="${out.m.dir}/asset/${site}-index.css" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.css"/>
+    <filelist dir="${module.dir}" files="${advsitecommonmodulecss.files}"/>
+    <filelist dir="${module.dir}" files="${indexcommonmodulecss.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${advsiteprivatemodulecss.files}
+    ${indexsiteCommonmodulecss.files}
+    "/>
+    <filelist dir="${site.dir}/src/index/module" files="${indexprivatemodulecss.files}"/>
+    <filelist dir="${site.dir}/src" files="${indexcss.files}"/>
+</concat>
+<!--asset html for index-->
+<echo>${out.m.dir}/asset/${site}-index.html</echo>
+<concat destfile="${out.m.dir}/asset/${site}-index.html" encoding="${encoding}"
+        fixlastline="on">
+    <filelist dir="${out.m.dir}" files="${site}.html"/>
+    <filelist dir="${module.dir}" files="${advsitecommonmodulehtml.files}"/>
+    <filelist dir="${module.dir}" files="${indexcommonmodulehtml.files}"/>
+    <filelist dir="${site.dir}/asset/module" files="
+    ${advsiteprivatemodulehtml.files}
+    ${indexsiteCommonmodulehtml.files}
+    "/>
+    <filelist dir="${site.dir}/src/index/module" files="${indexprivatemodulehtml.files}"/>
+    <filelist dir="${site.dir}/src" files="${indextpl.files}"/>
+</concat>
+<replaceregexp file="${out.m.dir}/asset/${site}-index.html"
+               encoding="${encoding}"
+               match="&gt;\s+?&lt;" replace="&gt;&lt;" flags="g m"/></target></project>

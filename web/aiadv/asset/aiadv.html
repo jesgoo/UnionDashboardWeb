@@ -1,0 +1,56 @@
+<!-- target: mf_keyword_search -->
+<div class="list-op">
+    <div ui="type:Plain;content:关键词类别："></div>
+    <div class="mgR10" ui="type:Select;id:keyType;width:120;"></div>
+    <input class="mgR40 rel" ui="type:TextInput;id:keyWord;
+        placeholder:请输入关键词;value:*keyWord" type="text" style="top: -8px;"/>
+    <div ui="type:Button;id:search;">查询</div>
+</div>
+<!-- target: mf_calendar_export -->
+<div class="list-op">
+    <div ui="type:MultiCalendar;id:date;value:*date;" class="mgR40"></div>
+    <div ui="type:Button;id:export;">导出</div>
+</div>
+<!-- target: mf_road_switch -->
+<div class="list-op">
+    <div ui="type:Plain;id:road;" class="mgR40"></div>
+    <div ui="type:ButtonSelect;id:switchField;"
+         style="display: inline-block;top:-8px;"></div>
+</div>
+
+<!-- target: listTableCore -->
+<div ui="type:Table;id:list;columnResizable:1;sortable:1;
+      datasource:*list;fields:*fields;order:*order;orderBy:*orderBy;"></div>
+
+<!-- target: listReportTable -->
+<div class="list-report-table">
+    <!-- import: listTableCore -->
+</div>
+
+<!-- target: listTable -->
+<div class="list-table">
+    <!-- import: listTableCore -->
+</div>
+
+<!-- target: listTableScroll -->
+<div class="list-table list-table-scroll">
+    <div class="scroll-box"><div></div></div>
+    <div class="scroll-wrapper">
+        <div ui="type:Table;id:list;columnResizable:1;sortable:1;
+      datasource:*list;fields:*fields;order:*order;orderBy:*orderBy;"></div>
+    </div>
+</div>
+
+<!-- target: listPager -->
+<div class="list-pager">
+    <div class="list-pager-pagesize">
+        <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+        <div
+                ui="type:Select;id:pageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+    </div>
+    <div class="list-pager-page">
+        <div ui="type:Pager;id:pager;total:*total;page:*page;"></div>
+    </div>
+</div>
+
+<!-- target: footer -->

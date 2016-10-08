@@ -22,7 +22,40 @@ exports.response = {
     "success": true,
     "entities": {
         "201502": {
-            "income": 123,
+            "income": 321,
+            "status": 0,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+            "errorMsg": "错误信息不能提现",
+            "discount": -100
+        },
+        "201503": {
+            "income": 600,
+            "status": 2,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+            "discount": 100
+        },
+        "201501": {
+            "income": 900,
+            "status": 2,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+            "discount": -100,
+            "comment": "不能提"
+        },
+        "201504": {
+            "income": 1500,
+            "status": 3,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+            "discount": -200,
+            "comment": "不能提"
+        },
+        "201505": {
+            "income": 500,
+            "status": 4,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
+            "discount": 0,
+            "comment": ""
+        }
+    }
+};/*exports.response = {
+    "success": true,
+    "entities": {
+        "201502": {
+            "income": 321,
             "status": 0,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
             "errorMsg": "错误信息不能提现",
             "discount": [
@@ -45,7 +78,7 @@ exports.response = {
             ]
         },
         "201503": {
-            "income": 123,
+            "income": 600,
             "status": 2,// 0 是无可提现金额 1 财务审核中 2可以申请提现 3 提现审批中 4 提现完成
             "discount": [
                 {
@@ -67,4 +100,4 @@ exports.response = {
             ]
         }
     }
-};
+};*/

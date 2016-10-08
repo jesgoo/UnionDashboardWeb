@@ -102,7 +102,8 @@
                         {
                             cmd: 'delete_dsp',
                             handle: function (options) {
-                                var row = table.datasource[options.index];
+                                selectRowIndex = options.index;
+                                var row = table.datasource[selectRowIndex];
                                 operateData.set(row, options.field, null);
                                 if (!row._isNew) {
                                     return saveRow(selectRowIndex);
@@ -143,7 +144,10 @@
                                 if (text) {
                                     var valueRegExp = mf.m.utils.makeRegExp(text, 'i');
                                     filter = function (obj) {
-                                        return valueRegExp.test(operateData.get(obj, 'user'));
+                                        return valueRegExp.test(operateData.get(obj, 'user'))
+                                               || valueRegExp.test(operateData.get(obj, 'baidu'))
+                                               || valueRegExp.test(operateData.get(obj, 'tencent'))
+                                               || valueRegExp.test(operateData.get(obj, 'baidu5'));
                                     };
                                 }
                                 refreshTable({

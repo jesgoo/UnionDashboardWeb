@@ -124,7 +124,7 @@
                 title: '操作',
                 content: function (item, index) {
                     var ops = [];
-                    ops.unshift('<a data-cmd="copy-data" data-index="' + index + '">复制</a>');
+                    //ops.unshift('<a data-cmd="copy-data" data-index="' + index + '">复制</a>');
                     ops.unshift('<a data-cmd="delete-data" data-index="' + index + '">删除</a>');
                     return ops.join('&nbsp;');
                 }
@@ -285,6 +285,7 @@
                     fields: FIELDS(strategies)
                 });
                 loader.set('strategyCount', strategies.length);
+                loader.set('regionMap', mf.m.regionTypes);
                 loader.set('dataFields', DATA_FIELDS());
                 loader.set('ruleFields', RULE_FIELDS());
                 loader.set('resultFields', RESULT_FIELDS());

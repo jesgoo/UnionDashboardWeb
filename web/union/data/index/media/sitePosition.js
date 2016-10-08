@@ -22,19 +22,22 @@ exports.response = {
     "success": true,
     "entities": [
         {
-            "id": "s63c825f",
-            "media": "e2131231",
-            "name": "广告位1",
-            "type": 1,
-            "subtype": 2,
-            "modify_time": "2014年1月1日 0时0分1秒",
             "config": {
-                "close": true,
+                "autoPlayInterval": 0,
                 "blank": false,
-                "place": 2,
-                "height": 60,
-                "autoPlayInterval": 1000
-            }
+                "cache": 0,
+                "close": true,
+                "frequency": {"percent": 100, "percentBackup": 1, "period": 86400, "times": 1},
+                "height": 480,
+                "place": 2
+            },
+            "create_time": "2015-12-24:16:14:09",
+            "id": "sb48c1f3",
+            "media": "927fd40d",
+            "modified_time": "2015-12-25:15:33:35",
+            "name": "7号家园-插屏",
+            "subtype": 2,
+            "type": 4
         },
         {
             "id": "s23c815f",

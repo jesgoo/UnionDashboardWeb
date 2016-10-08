@@ -25,6 +25,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "authority": {},
             "commandElement": {},
             "utils": {},
+            "jsonEditor": {},
             "validate": {},
             "processBar": {},
             "uiOperateButton": {},
@@ -201,7 +202,9 @@ mf = typeof mf === 'undefined' ? {} : mf;
     mf.MAP.admin = (function () {
         // page级别模块
         var page = {
-            "__module": {},
+            "__module": {
+                "regionTypes": {}
+            },
             "__mockData": {
                 "user": {}
             }
@@ -275,6 +278,7 @@ mf = typeof mf === 'undefined' ? {} : mf;
             "userDSPID": authorityAction(manageNav2('用户DSP配置')),
             "domainDSPID": authorityAction(manageNav2('域名DSP配置')),
             "baiduDSP": authorityAction(manageNav2('百度DSP_ID配置')),
+            "baidu5DSP": authorityAction(manageNav2('百度DSP_5.0_ID配置')),
             "tencentDSP": authorityAction(manageNav2('腾讯DSP_ID配置')),
             "__mockData": {
                 "templateTaskStatus": {},
@@ -387,7 +391,10 @@ mf = typeof mf === 'undefined' ? {} : mf;
         //Module media
         index.media = {
             "site": authorityAction(mediaNav2('网站管理')),
+            "siteAdvanced": authorityAction(mediaNav2('网站高级配置')),
+            "siteExperiment": authorityAction(mediaNav2('网站实验配置')),
             "sitePosition": authorityAction(mediaNav2('网站广告位')),
+            "sitePositionAdvanced": authorityAction(mediaNav2('网站广告位高级配置')),
             "app": authorityAction(mediaNav2('应用管理')),
             "appPosition": authorityAction(mediaNav2('应用广告位')),
             "siteTemplate": authorityAction(mediaNav2('网站自定义模版')),

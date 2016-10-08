@@ -141,7 +141,7 @@
                                         queryMap: {
                                             adslot: adslotId,
                                             name: adslotName,
-                                            media: item.id
+                                            media: item.media
                                         }
                                     }
                                 }

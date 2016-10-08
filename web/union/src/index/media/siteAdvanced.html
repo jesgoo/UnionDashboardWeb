@@ -1,0 +1,108 @@
+<!-- target: mf_index_media_siteAdvanced -->
+<div class="mf-index-media-siteAdvanced field-edit">
+    <div class="left plain-notice-are display-tab-container config-area display-form">
+        <div class="col col-1">
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">顶级弹开屏</div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        开启
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.on" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        时间周期(ms)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.interval" type="text" data-type="int" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        持续时长(s)
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.duration" type="text" data-type="int" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        灰色底板
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.mask" value="true" type="checkbox" data-type="boolean" />
+                    </div>
+                </div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        触发时段
+                    </div>
+                    <div class="plain-unit-item-field">
+                        <input name="splash.time" value="" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-2">
+            <div class="plain-unit plain-unit-border">
+                <div class="plain-unit-title">你猜，你看<a class="btn" data-cmd="add-array" data-field="see">增加</a></div>
+                <div class="plain-unit-item">
+                    <div class="plain-unit-item-caption">
+                        展现时段
+                    </div>
+                    <div class="plain-unit-item-field">
+                        逗号分隔时段的岂止。默认全天。例如：01:00-03:00,21:00-22:45
+                    </div>
+                </div>
+                <div class="hide array-wrapper" data-array="see">
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            广告位id
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="see.$0.aid" type="text" data-field="see" />
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            广告类型
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="see.$0.prod" type="text" data-type="int" data-field="see" />
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            展现时段
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="see.$0.time" type="text" data-field="see" />
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            概率百分比
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="see.$0.percent" type="text" data-type="int" data-field="see" />
+                        </div>
+                    </div>
+                    <div class="plain-unit-item">
+                        <div class="plain-unit-item-caption">
+                            点击千分比
+                        </div>
+                        <div class="plain-unit-item-field">
+                            <input name="see.$0.click" type="text" data-type="int" data-field="see" width="100" />
+                            <a class="float-right" data-cmd="del-array" data-field="see">删除</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="plain-unit-array" data-array-name="see">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

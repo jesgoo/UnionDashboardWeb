@@ -1,0 +1,45 @@
+<!-- target: mf_index_market_idea -->
+<div class="mf-index-market-idea">
+    <div class="plain-notice-area">
+        <!-- if: !${listing} -->
+        <div class="plain-unit-title">投放创意列表</div>
+        <!-- /if -->
+        <div class="plain-unit-table">
+            <div class="list-op">
+                <div ui="type:Plain;content:创意名称:;" class="mgR10"></div>
+                <input type="text" class="mgR20" ui="type:TextInput;id:ideaName;width:150;value:*ideaName;"/>
+                <div class="ui-button mgR40">
+                    <span class="ui-button-label" data-cmd="search-idea">搜索</span>
+                </div>
+                <!-- if: !${listing} -->
+                <div class="ui-button">
+                    <span class="ui-button-label" data-cmd="edit-idea">创建新的投放创意</span>
+                </div>
+                <!-- /if -->
+            </div>
+            <div class="list-table">
+                <div ui="type:Table;id:ideaList;fields:*fields;editable:1;sortable:1;"></div>
+            </div>
+            <div class="list-pager">
+                <div class="list-pager-pagesize">
+                    <div ui="type:Plain;content:每页显示;" class="margin-right"></div>
+                    <div
+                            ui="type:Select;id:ideaPageSize;datasource:*pageSizes;value:*pageSize;width:55;"></div>
+                </div>
+                <div class="list-pager-page">
+                    <div ui="type:Pager;id:ideaPager;total:*total;page:*page;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ui="type:Dialog;id:ideaDetailEditor;width:900;">
+    <div>创意设定</div>
+    <div>
+        载入中...
+    </div>
+    <div>
+        <div ui="type:Button;">确定</div>
+        <div ui="type:Button;">关闭</div>
+    </div>
+</div>
